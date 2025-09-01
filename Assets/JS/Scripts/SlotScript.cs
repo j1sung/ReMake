@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SlotScript : MonoBehaviour
 {
     public IntVector2 gridPos;
-    public Text text;
+    public TextMeshProUGUI text;
 
     public GameObject storedItem;
     public IntVector2 storedItemSize;

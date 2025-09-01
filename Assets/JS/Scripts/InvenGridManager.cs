@@ -237,7 +237,7 @@ public class InvenGridManager : MonoBehaviour {
 }
 
 
-
+// 그리드 색상 변환 
 public struct ColorHighlights
 {
     public static Color32 Green
