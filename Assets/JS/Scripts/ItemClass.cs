@@ -6,11 +6,12 @@ using UnityEngine;
 public class ItemClass {
 
     public string itemType; //make array of type names later
-    public int level;
-    [Range(0, 3)]
-    public int quality;
+    //public int level;
+    //[Range(0, 3)]
+    //public int quality;
     public IntVector2 size;
 
+    /*
     public string QualityIntToString()
     {
         switch (quality)
@@ -22,4 +23,5 @@ public class ItemClass {
             default: return null;
         }
     }
+    */
 }

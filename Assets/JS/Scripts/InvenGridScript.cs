@@ -69,6 +69,10 @@ public class InvenGridScript : MonoBehaviour {
 
     private void CreateSlots()
     {
+        // 중앙 정렬 기준 계산
+        float startX = -((gridSize.x - 1) * 0.5f) * slotSize + edgePadding;
+        float startY = -((gridSize.y - 1) * 0.5f) * slotSize + edgePadding;
+
         for (int y = 0; y < gridSize.y; y++)
         {
             for (int x = 0; x < gridSize.x; x++)
@@ -76,11 +80,20 @@ public class InvenGridScript : MonoBehaviour {
                 GameObject obj = (GameObject)Instantiate(slotPrefab);
                 
                 obj.transform.name = "slot[" + x + "," + y + "]";
-                obj.transform.SetParent(this.transform);
+                obj.transform.SetParent(this.transform, false); // worldPositionStays = false
+
                 RectTransform rect = obj.transform.GetComponent<RectTransform>();
-                rect.localPosition = new Vector3(x * slotSize + edgePadding, y * slotSize + edgePadding, 0);
+
                 rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
                 rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+
+                // 중앙 기준 배치
+                rect.localPosition = new Vector3(
+                    startX + x * slotSize,
+                    startY + y * slotSize,
+                    0f
+                );
+
                 obj.GetComponent<RectTransform>().localScale = Vector3.one;
                 obj.GetComponent<SlotScript>().gridPos = new IntVector2(x, y);
                 slotGrid[x, y] = obj;

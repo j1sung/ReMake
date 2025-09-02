@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using TMPro;
 
 public class ItemButtonScript : MonoBehaviour {
 
     public Button buttonComponent;
-    public Text nameText;
+    public TMP_Text nameText;
     public Image iconImage;
-    public Text LvlText;
-    public Text QualityText;
+    //public Text LvlText;
+    //public Text QualityText;
 
     public ItemClass item;
     private Sprite iconSprite;
@@ -50,8 +51,8 @@ public class ItemButtonScript : MonoBehaviour {
         listManager = passedListManager;
         item = passedItem;
         nameText.text = item.itemType;
-        LvlText.text = "Lvl: " + item.level.ToString();
-        QualityText.text = item.QualityIntToString();
+        //LvlText.text = "Lvl: " + item.level.ToString();
+        //QualityText.text = item.QualityIntToString();
         GetComponent<LayoutElement>().preferredHeight = transform.parent.GetComponent<RectTransform>().rect.width / 4;
         iconSprite = listManager.SetIconSprite(item.itemType);
         iconImage.sprite = iconSprite;

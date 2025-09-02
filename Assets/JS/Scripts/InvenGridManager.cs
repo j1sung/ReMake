@@ -171,6 +171,7 @@ public class InvenGridManager : MonoBehaviour {
     }
     private void StoreItem(GameObject item)
     {
+        // 1) 슬롯 점유 정보 세팅
         SlotScript instanceScript;
         IntVector2 itemSizeL = item.GetComponent<ItemScript>().item.size;
         for (int y = 0; y < itemSizeL.y; y++)
@@ -185,14 +186,45 @@ public class InvenGridManager : MonoBehaviour {
                 instanceScript.isOccupied = true;
                 slotGrid[totalOffset.x + x, totalOffset.y + y].GetComponent<Image>().color = Color.white;
             }
-        }//set dropped parameters
-        item.transform.SetParent(dropParent);
-        item.GetComponent<RectTransform>().pivot = Vector2.zero;
-        item.transform.position = slotGrid[totalOffset.x, totalOffset.y].transform.position;
-        item.GetComponent<CanvasGroup>().alpha = 0.75f;
+        }
+        
+        //set dropped parameters
+          // 2) 드롭 위치 스냅(좌하단 기준으로 정확히)
+        RectTransform dropParentRect = (RectTransform)dropParent;
+        RectTransform slotRect = slotGrid[totalOffset.x, totalOffset.y].GetComponent<RectTransform>();
+        RectTransform itemRect = item.GetComponent<RectTransform>();
+
+        // 부모 이동 (좌표 왜곡 방지)
+        itemRect.SetParent(dropParent, false);
+        itemRect.localScale = Vector3.one;
+
+        // 아이템을 좌하단 피벗으로
+        itemRect.pivot = Vector2.zero;
+
+        // 슬롯의 "월드" → 드롭부모의 "로컬(anchored)" 변환
+        Vector2 localPosInDrop;
+        var canvas = dropParentRect.GetComponentInParent<Canvas>();
+        var cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            dropParentRect,
+            RectTransformUtility.WorldToScreenPoint(cam, slotRect.position),
+            cam,
+            out localPosInDrop
+        );
+
+        // 슬롯 pivot(0.5,0.5) → 아이템 pivot(0,0) 보정 : 반 칸씩
+        localPosInDrop -= new Vector2(slotRect.rect.width * 0.5f, slotRect.rect.height * 0.5f);
+
+        itemRect.anchoredPosition = localPosInDrop;
+
+        // 3) 살짝 반투명
+        var cg = item.GetComponent<CanvasGroup>();
+        if (cg) cg.alpha = 0.75f;
     }
     private GameObject GetItem(GameObject slotObject)
     {
+        // 슬롯 메타 비우고 아이템을 드래그 상태로
         SlotScript slotObjectScript = slotObject.GetComponent<SlotScript>();
         GameObject retItem = slotObjectScript.storedItem;
         IntVector2 tempItemPos = slotObjectScript.storedItemStartPos;
@@ -210,11 +242,33 @@ public class InvenGridManager : MonoBehaviour {
                 instanceScript.storedItemStartPos = IntVector2.Zero;
                 instanceScript.isOccupied = false;
             }
-        }//returned item set item parameters
-        retItem.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f);
-        retItem.GetComponent<CanvasGroup>().alpha = 0.5f;
-        retItem.transform.position = Input.mousePosition;
-        retItem.transform.SetParent(dragParent);
+        }
+        
+        //returned item set item parameters
+        // 드래그 부모로 올리고, 커서 위치로 스냅
+        RectTransform dragParentRect = (RectTransform)dragParent;
+        RectTransform itemRect = retItem.GetComponent<RectTransform>();
+        itemRect.SetParent(dragParent, false);
+        itemRect.localScale = Vector3.one;
+        itemRect.pivot = new Vector2(0.5f, 0.5f);
+        retItem.transform.SetAsLastSibling(); // 항상 최상단
+
+        // 스크린 좌표 → 드래그 부모 로컬(anchored)
+        Vector2 localMouse;
+        var canvas = dragParentRect.GetComponentInParent<Canvas>();
+        var cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            dragParentRect,
+            Input.mousePosition,
+            cam,
+            out localMouse
+        );
+        itemRect.anchoredPosition = localMouse;
+
+        var cg = retItem.GetComponent<CanvasGroup>();
+        if (cg) cg.alpha = 0.5f;
+
         return retItem;
     }
     private GameObject SwapItem(GameObject item)

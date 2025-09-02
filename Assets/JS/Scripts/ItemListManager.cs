@@ -86,15 +86,9 @@ public class ItemListManager : MonoBehaviour {
     {
         switch (s)
         {
-            case "Spear": return itemIconArr[1];
-            case "Armor": return itemIconArr[2];
-            case "Boots": return itemIconArr[3];
-            case "Belt": return itemIconArr[4];
-            case "Dagger": return itemIconArr[5];
-            case "Great Sword": return itemIconArr[6];
-            case "Mace": return itemIconArr[7];
-            case "Axe": return itemIconArr[8];
-            case "Ring": return itemIconArr[9];
+            case "Muffler": return itemIconArr[1];
+            case "Lipstick": return itemIconArr[2];
+            case "Letter": return itemIconArr[3];
 
             default: return itemIconArr[0];
         }

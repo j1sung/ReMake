@@ -57,6 +57,7 @@ public class ItemScript : MonoBehaviour, IPointerClickHandler
 
     public static void ResetSelectedItem()
     {
+        Debug.Log("눌림!!!!");
         selectedItem = null;
         selectedItemSize = IntVector2.Zero;
         isDragging = false;
