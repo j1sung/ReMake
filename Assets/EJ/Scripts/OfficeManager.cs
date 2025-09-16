@@ -1,0 +1,78 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
+public class OfficeManager : MonoBehaviour
+{
+    [Header("UI Panels")]
+    public GameObject handoutPanel;
+    public GameObject idCardPanel;
+    public GameObject requestPanel;
+
+    [Header("Scene Image")]
+    public GameObject beforeInteractionOffice;
+    public GameObject afterInteractionOffice;
+
+    bool interactedHandout = false;
+    bool interactedIdcard = false;
+
+    void Start()
+    {
+        handoutPanel.SetActive(false);
+        idCardPanel.SetActive(false);
+        requestPanel.SetActive(false);
+
+        beforeInteractionOffice.SetActive(true);
+        afterInteractionOffice.SetActive(false);
+    }
+
+    // 유인물 클릭
+    public void OnClickHandout()
+    {
+        handoutPanel.SetActive(true);
+        interactedHandout = true;
+        CheckRequestUnlock();
+    }
+
+    // ID 카드 클릭
+    public void OnClickIdcard()
+    {
+        idCardPanel.SetActive(true);
+        interactedIdcard = true;
+        CheckRequestUnlock();
+    }
+
+    public void CheckRequestUnlock()
+    {
+        if (interactedHandout && interactedIdcard)
+        {
+            beforeInteractionOffice.SetActive(false);
+            afterInteractionOffice.SetActive(true);
+        }
+    }
+
+    // 소포 클릭
+    public void OnClickRequest()
+    {   
+        afterInteractionOffice.SetActive(false);
+        requestPanel.SetActive(true);
+    }
+
+    // 서명란 클릭 → 방 씬 이동
+    public void OnClickSign()
+    {
+        SceneManager.LoadScene("Room1");
+    }
+
+    // 패널 닫기 버튼
+    public void ClosePanel(BaseEventData data)
+    {
+        // 클릭된 오브젝트 찾기
+        PointerEventData ped = data as PointerEventData;
+        if (ped != null)
+        {
+            GameObject clicked = ped.pointerClick;
+            clicked.SetActive(false);
+        }
+    }
+}
