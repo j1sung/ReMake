@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum UIState { Room, Bag, Settings }
 
@@ -9,6 +10,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject roomImage;  // 방 이미지
     [SerializeField] GameObject bagUI;      // 가방 패널
     [SerializeField] GameObject popupUI;    // 팝업 패널
+    [SerializeField] private Text ObjeNameText;
+    [SerializeField] private Text descriptionText;
+    [SerializeField] private Image ObjeImage;
+    
+    
 
     public UIState State { get; private set; } = UIState.Room;
 
@@ -18,12 +24,14 @@ public class UIManager : MonoBehaviour
     public void OnClickCloseBag()  => SetState(UIState.Room);
 
     // 오브젝트 클릭 시 호출
-    public void OnClickObje()
+    public void OnClickObje(ObjeData data)
     {
         if (State != UIState.Room) return;
         popupUI.SetActive(true);
         popupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
-        
+        ObjeNameText.text = data.objeName;
+        descriptionText.text = data.objeDescription;
+        ObjeImage.sprite = data.icon;
     }
 
     public void OnClickClosePopup()
