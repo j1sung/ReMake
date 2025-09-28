@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c8ef3a25273b05c48b350b4e8ad56c7b
+guid: 8bc1a17f7e69a3746b6b739a88f02d27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6009198046271197863
-    second: Bag_0
+      213: -3883703619614517291
+    second: 
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bag_0
+      name: Obj_Muffler_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1320
-        height: 1010
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 618
+        height: 402
+      alignment: 9
+      pivot: {x: 0.18, y: 0.79}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95da80b073a0b9ca0800000000000000
-      internalID: -6009198046271197863
+      spriteID: 5d75afb72205a1ac0800000000000000
+      internalID: -3883703619614517291
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bag_0: -6009198046271197863
+      Obj_Muffler_0: -3883703619614517291
+      Obj_Muffler_1: 1196977510
+      Obj_Muffler_2: 1060416594
+      Obj_Muffler_3: -682475452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

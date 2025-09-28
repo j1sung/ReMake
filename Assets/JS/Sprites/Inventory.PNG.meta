@@ -3,8 +3,8 @@ guid: ee728e27202bc984b94c0c9e58f583d9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3738958383369693736
-    second: "\uC778\uBCA4\uD1A0\uB9AC(\uC9C4\uD589\uC911)_0"
+      213: 739905185230883310
+    second: Inventory_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,20 +103,20 @@ TextureImporter:
       name: Inventory_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 66
-        width: 330
-        height: 850
+        x: 0
+        y: 0
+        width: 320
+        height: 860
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82a28bef6d273e330800000000000000
-      internalID: 3738958383369693736
+      spriteID: ee9082588dba44a00800000000000000
+      internalID: 739905185230883310
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Inventory_0: 3738958383369693736
+      Inventory_0: 739905185230883310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6351768244929702277}
+  - component: {fileID: 3079434021761928889}
   - component: {fileID: 4282232024635670452}
-  - component: {fileID: 8856140520106275385}
   - component: {fileID: 4792020120240464723}
   - component: {fileID: 4572596181834939565}
   m_Layer: 5
@@ -39,15 +39,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4282232024635670452
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8142657112907049485}
-  m_CullTransparentMesh: 1
---- !u!114 &8856140520106275385
+--- !u!114 &3079434021761928889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,6 +69,14 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!222 &4282232024635670452
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142657112907049485}
+  m_CullTransparentMesh: 1
 --- !u!114 &4792020120240464723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,9 +91,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     itemType: 
-    size:
-      x: 0
-      y: 0
+    maskRows: []
+    pivotX: 0
+    pivotY: 0
+    shapeCells: []
+    pivotIndex: 0
+  currentRot: 0
 --- !u!225 &4572596181834939565
 CanvasGroup:
   m_ObjectHideFlags: 0
