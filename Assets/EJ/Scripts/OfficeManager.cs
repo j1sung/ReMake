@@ -58,12 +58,6 @@ public class OfficeManager : MonoBehaviour
         requestPanel.SetActive(true);
     }
 
-    // 서명란 클릭 → 방 씬 이동
-    public void OnClickSign()
-    {
-        SceneManager.LoadScene("Room1");
-    }
-
     // 패널 닫기 버튼
     public void ClosePanel(BaseEventData data)
     {
