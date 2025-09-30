@@ -13,9 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text ObjeNameText;
     [SerializeField] private Text descriptionText;
     [SerializeField] private Image ObjeImage;
-    
-    
 
+    private ClickObje currentObje; // 현재 선택중인 오브제 정보
+    
     public UIState State { get; private set; } = UIState.Room;
 
     void Start() => SetState(UIState.Room);
@@ -24,19 +24,27 @@ public class UIManager : MonoBehaviour
     public void OnClickCloseBag()  => SetState(UIState.Room);
 
     // 오브젝트 클릭 시 호출
-    public void OnClickObje(ObjeData data)
+    public void OnClickObje(ClickObje obje)
     {
+        currentObje = obje;
+
         if (State != UIState.Room) return;
         popupUI.SetActive(true);
         popupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
-        ObjeNameText.text = data.objeName;
-        descriptionText.text = data.objeDescription;
-        ObjeImage.sprite = data.icon;
+        ObjeNameText.text = obje.data.objeName;
+        descriptionText.text = obje.data.objeDescription;
+        ObjeImage.sprite = obje.data.icon;
     }
 
     public void OnClickClosePopup()
     {
         popupUI.SetActive(false);
+        // 팝업이 닫힐 때 오브제 습득 처리
+        if (currentObje != null)
+        {
+            currentObje.Acquire();
+            currentObje = null;
+        }
     }
 
 
@@ -52,6 +60,10 @@ public class UIManager : MonoBehaviour
         roomImage.SetActive(isRoom);
         bagUI.SetActive(next == UIState.Bag);
 
-        if (!isRoom) popupUI.SetActive(false); // 방이 아니면 팝업 자동 닫기
+        if (!isRoom)
+        {
+            popupUI.SetActive(false); // 방이 아니면 팝업 자동 닫기
+            roomImage.SetActive(false); // 방 이미지 닫기
+        }
     }
 }
