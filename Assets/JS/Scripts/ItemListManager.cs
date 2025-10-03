@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿/*
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ItemListManager : MonoBehaviour {
 
@@ -42,7 +44,7 @@ public class ItemListManager : MonoBehaviour {
             ItemScript.ResetSelectedItem();
 
         }
-        */
+        
     }
 
     
@@ -144,3 +146,4 @@ public class ItemListManager : MonoBehaviour {
         }
     }
 }
+*/

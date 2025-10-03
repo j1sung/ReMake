@@ -15,7 +15,7 @@ public class ItemScript : MonoBehaviour
     public static bool justSpawned;
    
     // 데이터
-    public ItemClass item;
+    public ObjeData item;
     public int currentRot; // 현재 회전값 -  0,1,2,3
     
     // UI 배율(칸 크기 - 바운딩 박스용)
@@ -40,8 +40,9 @@ public class ItemScript : MonoBehaviour
 
     // (스폰 직후 1회) 마스크 외곽 크기로 퍼즐의 RectTransform 사이즈 맞춤.
     // 현재 회전/모양 기준으로 맞춤, 회전해도 폭/높이는 바꾸지 않음.
-    public void ResizeToCurrentShape()
+    public void ResizeForParent(Transform parent, InvenGridManager grid)
     {
+        /*
         // 퍼즐 셀 배열 좌표 설정
         Vector2Int[] cells = ShapeUtil.MaskToCells(item.maskRows);
         if (cells == null || cells.Length == 0) cells = new[] { Vector2Int.zero };
@@ -52,7 +53,23 @@ public class ItemScript : MonoBehaviour
         // 바운딩(rect) 크기 지정
         var rect = GetComponent<RectTransform>();
         rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, baseSize.x * slotSize);
-        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, baseSize.y * slotSize);
+        rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, baseSize.y * slotSize);*/
+
+        // 0° 기준 셀 (캐시 사용)
+        InvenGridManager.EnsureCellsCached(item);
+        var cells0 = item.shapeCells != null && item.shapeCells.Length > 0
+            ? item.shapeCells
+            : new[] { Vector2Int.zero };
+
+        ShapeUtil.GetAABB(cells0, out var bmin, out var bmax);
+        int w0 = bmax.x - bmin.x + 1, h0 = bmax.y - bmin.y + 1;
+
+        // parent 좌표계의 셀 크기 (lossyScale 반영)
+        var cellSize = grid.GetCellSizeIn(parent);
+
+        var rt = GetComponent<RectTransform>();
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, w0 * cellSize.x);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h0 * cellSize.y);
 
         // 이미지 비율 유지(찌그러짐 방지)
         var img = GetComponent<UnityEngine.UI.Image>();

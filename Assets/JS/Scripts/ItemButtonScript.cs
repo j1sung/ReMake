@@ -11,10 +11,10 @@ public class ItemButtonScript : MonoBehaviour {
     public Button buttonComponent;
     public Image iconImage;
 
-    public ItemClass item;
+    public ObjeData item;
     private Sprite iconSprite;
     private Sprite puzzleSprite;
-    private ItemListManager listManager;
+    private InventoryManager listManager;
     public ObjectPoolScript itemEquipPool;
 
     public static InvenGridManager invenManager;
@@ -22,6 +22,11 @@ public class ItemButtonScript : MonoBehaviour {
     private void Start()
     {
         buttonComponent.onClick.AddListener(SpawnStoredItem);
+    }
+
+    public void OnPointerClick(PointerEventData e)
+    {
+        Debug.Log("Button got click: " + name);
     }
 
     // 버튼 클릭시 퍼즐 스폰
@@ -41,30 +46,42 @@ public class ItemButtonScript : MonoBehaviour {
         var isComp = newItem.GetComponent<ItemScript>();
         isComp.item = item;
 
-        // 풀 회전 잔상 초기화 -> 이미지 회전도 초기화 해야함
-        isComp.currentRot = 0;
-        var r = newItem.GetComponent<RectTransform>();
-        if (r) r.localRotation = Quaternion.identity;
-        
+        var dragParent = GameObject.FindGameObjectWithTag("DragParent").transform;
+        var rt = newItem.GetComponent<RectTransform>();
+        rt.SetParent(dragParent, false);
+        rt.localScale = Vector3.one;
+        rt.localRotation = Quaternion.identity;
+        rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
+ 
+        // 여기서 바로 마우스 위치로 스냅
+        var dragParentRect = (RectTransform)dragParent;
+        var canvas = dragParentRect.GetComponentInParent<Canvas>();
+        var cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
+
+        Vector2 localMouse;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            dragParentRect, Input.mousePosition, cam, out localMouse
+        );
+        rt.anchoredPosition = localMouse;
+
         // 이미지 넣기
         var img = newItem.GetComponent<Image>();
-        img.sprite = listManager.SetPuzzleSprite(item.itemType);
+        img.sprite = item.puzzleImage;
         img.preserveAspect = true;
 
-        // *** (핵심 수정) 여기서 RectTransform 피벗을 스프라이트 피벗과 동기화! ***
-        var rect = newItem.GetComponent<RectTransform>();
-        if (rect && img.sprite != null)
+        // RectTransform 피벗을 스프라이트 피벗과 동기화!
+        if (img.sprite != null)
         {
             // 스프라이트 피벗(픽셀)을 RectTransform 피벗(0~1)으로 변환하여 설정
-            rect.pivot = img.sprite.pivot / img.sprite.rect.size;
+            rt.pivot = img.sprite.pivot / img.sprite.rect.size;
         }
 
-        // 퍼즐 바운딩(rect) 사이즈 설정
-        isComp.ResizeToCurrentShape(); 
+        // 풀 회전 잔상 초기화 -> 이미지 회전도 초기화 해야함
+        isComp.currentRot = 0;
 
-        // 드래그 레이어로 올리기
-        newItem.transform.SetParent(GameObject.FindGameObjectWithTag("DragParent").transform, false);
-        newItem.GetComponent<RectTransform>().localScale = Vector3.one;
+        // 퍼즐 바운딩(rect) 사이즈 설정
+        isComp.ResizeForParent(dragParent, invenManager);
+
 
         // 드래그 상태로 전환
         ItemScript.SetSelectedItem(newItem);
@@ -81,16 +98,16 @@ public class ItemButtonScript : MonoBehaviour {
         if (img) img.raycastTarget = false; 
     }
 
-    public void SetUpButton(ItemClass passedItem, ItemListManager passedListManager)
+    public void SetUpButton(ObjeData data, InventoryManager passedListManager)
     {
         listManager = passedListManager;
-        item = passedItem;
+        item = data;
 
         // 아이콘 이미지 설정
-        iconImage.sprite = listManager.SetIconSprite(item.itemType);
+        iconImage.sprite = item.iconImage;
 
         // 리스트 쪽 레이아웃 높이 조절(정사각형 느낌)
-        GetComponent<LayoutElement>().preferredHeight = transform.parent.GetComponent<RectTransform>().rect.width / 4f;
+        //GetComponent<LayoutElement>().preferredHeight = transform.parent.GetComponent<RectTransform>().rect.width / 4f;
 
         itemEquipPool = passedListManager.itemEquipPool;
     }

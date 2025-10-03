@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
         ObjePopupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
         ObjeNameText.text = data.objeName;
         descriptionText.text = data.objeDescription;
-        ObjeImage.sprite = data.icon;
+        ObjeImage.sprite = data.iconImage;
     }
 
     // 오브젝트 팝업 닫기

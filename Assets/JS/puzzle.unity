@@ -1403,18 +1403,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8081542081127815779, guid: f2f9e511be3974c458903c8bfe58fc20, type: 3}
     - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
-      propertyPath: itemList.Array.data[0].pivotX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
-      propertyPath: itemList.Array.data[0].itemType
-      value: Muffler
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
-      propertyPath: itemList.Array.data[0].pivotIndex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
       propertyPath: itemList.Array.data[0].maskRows.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1425,10 +1413,6 @@ PrefabInstance:
     - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
       propertyPath: itemList.Array.data[2].maskRows.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
-      propertyPath: itemList.Array.data[0].shapeCells.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8759768486902856480, guid: 7d48bd93b4073154a9c7fe832d614069, type: 3}
       propertyPath: 'itemList.Array.data[0].maskRows.Array.data[0]'

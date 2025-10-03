@@ -17,7 +17,7 @@ public class InvenGridManager : MonoBehaviour {
     public Transform dragParent;
     [HideInInspector] public Vector2Int gridSize; // 그리드 사이즈 ex) 4,4
 
-    public ItemListManager listManager;
+    public InventoryManager listManager;
     public GameObject selectedButton;
 
     // 내부 상태
@@ -27,6 +27,7 @@ public class InvenGridManager : MonoBehaviour {
     //private Vector2Int otherItemPos, otherItemSize; // 스왑 표시에만 사용
     private Vector2Int origin; // 이번 프리뷰/배치의 기준(origin = pivot이 올 좌표)
     private GameObject overlapItem; // 스왑 대상
+    private GameObject overlapSlot; // 겹친 슬롯
     private Vector2Int overlapOrigin; // 스왑 대상의 origin
 
     // 미리보기 색상 복원용
@@ -59,14 +60,6 @@ public class InvenGridManager : MonoBehaviour {
                 // 데이터 회전 (폭/높이 유지)
                 isComp.RotateCW();
 
-                /*
-                // 비주얼 회전(스프라이트/RectTransform)
-                var art = isComp.ArtTransform;
-                if (art) art.localRotation = Quaternion.Euler(0, 0, -isComp.currentRot * 90f);
-
-                // 바운딩 박스는 현재 회전값 기준으로 필요 시 갱신
-                isComp.ResizeToCurrentShape();
-                */
 
                 // 프리뷰(그리드 하이라이트) 새로 계산
                 RefrechColor(false); // 이전 색 지우기
@@ -193,6 +186,7 @@ public class InvenGridManager : MonoBehaviour {
     {
         isOverEdge = false;
         overlapItem = null;
+        overlapSlot = null;
 
         if (ItemScript.selectedItem == null || highlightedSlot == null)
         {
@@ -219,13 +213,16 @@ public class InvenGridManager : MonoBehaviour {
             {
                 isOverEdge = true; break;
             }
-            var ss = slotGrid[p.x, p.y].GetComponent<SlotScript>();
+
+            GameObject cellGo = slotGrid[p.x, p.y];
+            var ss = cellGo.GetComponent<SlotScript>();
             if (ss.isOccupied)
             {
                 if(overlapItem == null)
                 {
                     overlapItem = ss.storedItem;
-                    overlapOrigin = ss.storedItemStartPos;
+                    overlapOrigin = ss.storedItemStartPos; // origin 기준
+                    overlapSlot = cellGo;
                 }
                 else if(overlapItem != ss.storedItem)
                 {
@@ -250,14 +247,13 @@ public class InvenGridManager : MonoBehaviour {
     private void StoreItem(GameObject item)
     {
         var isComp = item.GetComponent<ItemScript>();
-        var rotated = GetRotatedCells(item);
         var it = isComp.item;
 
-        ShapeUtil.GetAABB(rotated, out var rmin, out var rmax);
-        var pivotCell = rotated[it.pivotIndex];
+        // 회전 적용된 셀(미리보기/점유용)
+        var rotatedCells = GetRotatedCells(item); // currentRot 반영
 
-        // 1. 슬롯 메타 채우기
-        foreach (var c in rotated)
+        // 1. 슬롯 점유 메타 기록(origin 기준)
+        foreach (var c in rotatedCells)
         {
             var p = origin + c;
             var ss = slotGrid[p.x, p.y].GetComponent<SlotScript>();
@@ -268,85 +264,63 @@ public class InvenGridManager : MonoBehaviour {
             slotGrid[p.x, p.y].GetComponent<Image>().color = Color.white;
         }
 
-        /*
-        // 2. 바운딩 박스 좌하단(minX, minY) 셀을 구한다.
-        int minX = int.MaxValue, minY = int.MaxValue;
-        int maxX = int.MinValue, maxY = int.MinValue;
-        foreach (var c in rotated)
-        {
-            var p = origin + c;
-            if (p.x < minX) minX = p.x;
-            if (p.y < minY) minY = p.y;
-            if (p.x > maxX) maxX = p.x;
-            if (p.y > maxY) maxY = p.y;
-        }*/
 
         // 3. UI 스냅: 아이템 pivot=좌하단(0,0)으로 두고, '바운딩박스 좌하단 셀'의 좌하단에 정확히 맞춘다.
         //RectTransform dropParentRect = (RectTransform)dropParent;
         //RectTransform slotRect = slotGrid[origin.x, origin.y].GetComponent<RectTransform>();
         //RectTransform baseSlotRect = slotGrid[bl.x, bl.y].GetComponent<RectTransform>();
-        RectTransform itemRect = item.GetComponent<RectTransform>();
-
+        
+        // 배치대상 RectTransform 준비
+        var itemRect = item.GetComponent<RectTransform>();
         itemRect.SetParent(dropParent, false);
         itemRect.localScale = Vector3.one;
         //itemRect.pivot = Vector2.zero; // 좌하단 기준 (중요)
 
+        var baseCells = GetCells(it); // 회전 X(0)
+        ShapeUtil.GetAABB(baseCells, out var bmin, out var bmax);
         // AABB 크기(셀) -> 픽셀/유닛
-        int wCells = rmax.x - rmin.x + 1;
-        int hCells = rmax.y - rmin.y + 1;
+        int wCells = bmax.x - bmin.x + 1;
+        int hCells = bmax.y - bmin.y + 1;
 
+        // dropParent 좌표계로 환산된 '셀 크기'
+        var cellSizeInDrop = GetCellSizeIn(dropParent);
+
+        float widthLocal = wCells * cellSizeInDrop.x;
+        float heightLocal = hCells * cellSizeInDrop.y;
         // 부모 크기 = AABB 크기
-        var slotRect0 = slotGrid[0, 0].GetComponent<RectTransform>(); // 슬롯 한 칸 크기 얻으려고(같으면 임의 0,0)
-        float cellW = slotRect0.rect.width;
-        float cellH = slotRect0.rect.height;
-        itemRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, wCells * cellW);
-        itemRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, hCells * cellH);
+        //var slotRect0 = slotGrid[0, 0].GetComponent<RectTransform>(); // 슬롯 한 칸 크기 얻으려고(같으면 임의 0,0)
+        //float cellW = slotRect0.rect.width;
+        //float cellH = slotRect0.rect.height;
+        itemRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthLocal);
+        itemRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, heightLocal);
 
-        // ★ pivot을 "AABB 안에서 피벗 셀의 상대 위치"로 설정
-        Vector2Int pivotOffsetCells = pivotCell - rmin; // AABB 좌하단에서 피벗셀까지
+        // 피벗 설정: 0도 AABB 기준으로 "피벗 셀의 좌하단" 위치가 되도록
+        Vector2Int basePivotCell = baseCells[it.pivotIndex];
         Vector2 pivotNorm = new Vector2(
-            (float)pivotOffsetCells.x / wCells,
-            (float)pivotOffsetCells.y / hCells
+            (float)(basePivotCell.x - bmin.x) / wCells,
+            (float)(basePivotCell.y - bmin.y) / hCells
         );
         itemRect.pivot = pivotNorm;
 
-        /*
-        // 슬롯 중심(0.5, 0.5)을 dropParent 좌표계로 변환(스크린 -> 로컬)
-        Vector2 localPosInDrop;
-        var canvas = dropParentRect.GetComponentInParent<Canvas>();
-        var cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            dropParentRect,
-            RectTransformUtility.WorldToScreenPoint(cam, baseSlotRect.position),
-            cam,
-            out localPosInDrop
-        );
-
-        // 슬롯 pivot(0.5,0.5) → 아이템 pivot(0,0) 보정 : 반 칸씩
-        localPosInDrop -= new Vector2(baseSlotRect.rect.width * 0.5f, baseSlotRect.rect.height * 0.5f);
-        
-        itemRect.anchoredPosition = localPosInDrop;
-        */
-
-        /*
-        // 슬롯 Rect의 좌하단 "월드 좌표" 계산 (xMin, yMin)
-        Vector3 worldLowerLeft = baseSlotRect.TransformPoint(
-            new Vector3(baseSlotRect.rect.xMin, baseSlotRect.rect.yMin, 0f)
-        );
-
-        // 바로 그 월드 좌표로 배치 (보정 없음)
-        itemRect.position = worldLowerLeft;
-        */
-        // 부모 회전(부모만 회전)
+        // 부모 Rect 자체 회전 적용
         itemRect.localRotation = Quaternion.Euler(0, 0, -90f * isComp.currentRot);
 
-        // 4) 부모 위치 = (origin + pivotCell) 슬롯의 "좌하단 월드 좌표"
-        var baseSlotRect = slotGrid[(origin + pivotCell).x, (origin + pivotCell).y].GetComponent<RectTransform>();
-        Vector3 worldLowerLeft = baseSlotRect.TransformPoint(new Vector3(baseSlotRect.rect.xMin, baseSlotRect.rect.yMin, 0f));
-        itemRect.position = worldLowerLeft;
+        // ── 6) 월드 위치 맞추기:
+        //     (origin + "회전된" pivot 셀)의 "좌하단 슬롯 월드 좌표"에
+        //     Rect의 피벗이 오도록 배치.
+        var pivotCellRot = rotatedCells[it.pivotIndex];
+        var slotRT = slotGrid[(origin + pivotCellRot).x, (origin + pivotCellRot).y].GetComponent<RectTransform>();
+        Vector3 slotLLWorld = slotRT.TransformPoint(new Vector3(slotRT.rect.xMin, slotRT.rect.yMin, 0f));
 
-        // 4. 저장하면 다시 원색 불투명
+        // 로컬 좌하단(피벗 기준 좌표): (-pivot.x*width, -pivot.y*height)
+        Vector3 localLL = new Vector3(-pivotNorm.x * widthLocal, -pivotNorm.y * heightLocal, 0f);
+        Vector3 rectLLWorld = itemRect.TransformPoint(localLL);
+
+        // 우리가 맞추고 싶은 목표 좌하단 = slotLLWorld
+        Vector3 delta = slotLLWorld - rectLLWorld;
+        itemRect.position += delta;
+
+        // 시각 상태 복구
         var cg = item.GetComponent<CanvasGroup>() ?? item.AddComponent<CanvasGroup>();
         if (cg) cg.alpha = 1f;
         //cg.blocksRaycasts = true; // 고정 상태에선 슬롯 드래그 막힘
@@ -365,18 +339,23 @@ public class InvenGridManager : MonoBehaviour {
         GameObject item = slot.storedItem;
         if(item == null) return null;
 
-        Vector2Int bl = slot.storedItemStartPos;
+        Vector2Int originPos = slot.storedItemStartPos;
         Vector2Int[] rotated = GetRotatedCells(item);
 
         // rotated의 좌하단 셀(minCell) 계산
-        int minX = int.MaxValue, minY = int.MaxValue;
-        foreach (var c in rotated) { if (c.x < minX) minX = c.x; if (c.y < minY) minY = c.y; }
-        Vector2Int minCell = new Vector2Int(minX, minY);
+        //int minX = int.MaxValue, minY = int.MaxValue;
+        //foreach (var c in rotated) { if (c.x < minX) minX = c.x; if (c.y < minY) minY = c.y; }
+        //Vector2Int minCell = new Vector2Int(minX, minY);
 
         // 해당 아이템이 점유했던 셀 모두 비우기
         foreach (var c in rotated)
         {
-            var p = bl + (c - minCell);
+            var p = originPos + c;
+            if (p.x < 0 || p.y < 0 || p.x >= gridSize.x || p.y >= gridSize.y)
+            {
+                Debug.LogError($"GetItem OOB: origin={originPos}, c={c}, grid={gridSize}");
+                continue;
+            }
             var ss = slotGrid[p.x, p.y].GetComponent<SlotScript>();
             ss.storedItem = null;
             ss.storedItemSize = Vector2Int.zero;
@@ -420,122 +399,11 @@ public class InvenGridManager : MonoBehaviour {
 
         return item;
     }
-    /*
-    private void StoreItem(GameObject item)
-    {
-        // 1) 슬롯 점유 정보 세팅
-        SlotScript instanceScript;
-        Vector2Int itemSizeL = item.GetComponent<ItemScript>().item.size;
-        for (int y = 0; y < itemSizeL.y; y++)
-        {
-            for (int x = 0; x < itemSizeL.x; x++)
-            {
-                //set each slot parameters
-                instanceScript = slotGrid[totalOffset.x + x, totalOffset.y + y].GetComponent<SlotScript>();
-                instanceScript.storedItem = item;
-                instanceScript.storedItemSize = itemSizeL;
-                instanceScript.storedItemStartPos = totalOffset;
-                instanceScript.isOccupied = true;
-                slotGrid[totalOffset.x + x, totalOffset.y + y].GetComponent<Image>().color = Color.white;
-            }
-        }
-        
-        //set dropped parameters
-          // 2) 드롭 위치 스냅(좌하단 기준으로 정확히)
-        RectTransform dropParentRect = (RectTransform)dropParent;
-        RectTransform slotRect = slotGrid[totalOffset.x, totalOffset.y].GetComponent<RectTransform>();
-        RectTransform itemRect = item.GetComponent<RectTransform>();
 
-        // 부모 이동 (좌표 왜곡 방지)
-        itemRect.SetParent(dropParent, false);
-        itemRect.localScale = Vector3.one;
-
-        // 아이템을 좌하단 피벗으로
-        itemRect.pivot = Vector2.zero;
-
-        // 슬롯의 "월드" → 드롭부모의 "로컬(anchored)" 변환
-        Vector2 localPosInDrop;
-        var canvas = dropParentRect.GetComponentInParent<Canvas>();
-        var cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            dropParentRect,
-            RectTransformUtility.WorldToScreenPoint(cam, slotRect.position),
-            cam,
-            out localPosInDrop
-        );
-
-        // 슬롯 pivot(0.5,0.5) → 아이템 pivot(0,0) 보정 : 반 칸씩
-        localPosInDrop -= new Vector2(slotRect.rect.width * 0.5f, slotRect.rect.height * 0.5f);
-
-        itemRect.anchoredPosition = localPosInDrop;
-
-        // 3) 살짝 반투명
-        var cg = item.GetComponent<CanvasGroup>();
-        if (cg) cg.alpha = 1f;
-    }
-    private GameObject GetItem(GameObject slotObject)
-    {
-        // 슬롯 메타 비우고 아이템을 드래그 상태로
-        SlotScript slotObjectScript = slotObject.GetComponent<SlotScript>();
-        GameObject retItem = slotObjectScript.storedItem;
-        Vector2Int tempItemPos = slotObjectScript.storedItemStartPos;
-        Vector2Int itemSizeL = retItem.GetComponent<ItemScript>().item.size;
-
-        SlotScript instanceScript;
-        for (int y = 0; y < itemSizeL.y; y++)
-        {
-            for (int x = 0; x < itemSizeL.x; x++)
-            {
-                //reset each slot parameters
-                instanceScript = slotGrid[tempItemPos.x + x, tempItemPos.y + y].GetComponent<SlotScript>();
-                instanceScript.storedItem = null;
-                instanceScript.storedItemSize = Vector2Int.zero;
-                instanceScript.storedItemStartPos = Vector2Int.zero;
-                instanceScript.isOccupied = false;
-            }
-        }
-        
-        //returned item set item parameters
-        // 드래그 부모로 올리고, 커서 위치로 스냅
-        RectTransform dragParentRect = (RectTransform)dragParent;
-        RectTransform itemRect = retItem.GetComponent<RectTransform>();
-        itemRect.SetParent(dragParent, false);
-        itemRect.localScale = Vector3.one;
-        itemRect.pivot = new Vector2(0.5f, 0.5f);
-        retItem.transform.SetAsLastSibling(); // 항상 최상단
-
-        // 스크린 좌표 → 드래그 부모 로컬(anchored)
-        Vector2 localMouse;
-        var canvas = dragParentRect.GetComponentInParent<Canvas>();
-        var cam = (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay) ? canvas.worldCamera : null;
-
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            dragParentRect,
-            Input.mousePosition,
-            cam,
-            out localMouse
-        );
-        itemRect.anchoredPosition = localMouse;
-
-        var cg = retItem.GetComponent<CanvasGroup>();
-        if (cg) cg.alpha = 0.5f;
-
-        return retItem;
-    }
-    
-    private GameObject SwapItem(GameObject item)
-    {
-        GameObject tempItem;
-        tempItem = GetItem(slotGrid[otherItemPos.x, otherItemPos.y]);
-        StoreItem(item);
-        return tempItem;
-    }
-    */
     private GameObject SwapItem(GameObject item)
     {
         // overLapOrigin은 ComputePlacementInfo에서 이미 채워짐
-        GameObject tempItem = GetItem(slotGrid[overlapOrigin.x, overlapOrigin.y]);
+        GameObject tempItem = GetItem(overlapSlot);
         StoreItem(item);
         return tempItem;
     }
@@ -552,7 +420,7 @@ public class InvenGridManager : MonoBehaviour {
     // ─────────────────────────────────────────────────────────────
     // 헬퍼: 셀 얻기/회전/보장
     // ─────────────────────────────────────────────────────────────
-    private static void EnsureCellsCached(ItemClass it)
+    public static void EnsureCellsCached(ObjeData it)
     {
         if (it == null) return;
 
@@ -593,7 +461,22 @@ public class InvenGridManager : MonoBehaviour {
         }
     }
 
-    private static Vector2Int[] GetCells(ItemClass it)
+    // 그리드 셀 한 칸의 크기를 dropParent 좌표계로 환산
+    public Vector2 GetCellSizeIn(Transform targetParent)
+    {
+        var cell = slotGrid[0, 0].GetComponent<RectTransform>();
+        var parentRT = targetParent as RectTransform;
+
+        // 월드상 크기 = 로컬 rect * lossyScale
+        Vector2 cellWorldSize = Vector2.Scale(cell.rect.size, cell.lossyScale);
+        Vector2 parentWorldScale = parentRT != null ? (Vector2)parentRT.lossyScale : Vector2.one;
+
+        // targetParent 로컬에서의 크기
+        return new Vector2(cellWorldSize.x / parentWorldScale.x,
+                           cellWorldSize.y / parentWorldScale.y);
+    }
+
+    private static Vector2Int[] GetCells(ObjeData it)
     {
         // 항상 EnsureCellsCashed를 통해 최신화
         EnsureCellsCached(it);

@@ -10,8 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
-  m_Name: Obje2_Data
+  m_Name: Frame
   m_EditorClassIdentifier: 
-  objeName: "\uC624\uBE0C\uC81C2"
-  objeDescription: "\uC624\uBE0C\uC81C2\uC5D0 \uB300\uD55C \uC124\uBA85"
-  icon: {fileID: 1740920997183644576, guid: 86317680b25be3c488f068543b5cc4f1, type: 3}
+  objeName: "\uC561\uC790"
+  objeDescription: "\uC561\uC790\uC774\uB2E4."
+  itemType: Frame
+  maskRows:
+  - 11
+  - 11
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  pivotIndex: 0
+  iconImage: {fileID: 16082304285174121, guid: 4f6c717477e5c334ba7427e2744ffc2a, type: 3}
+  puzzleImage: {fileID: 0}
