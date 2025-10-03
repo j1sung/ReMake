@@ -3,8 +3,8 @@ guid: c8ef3a25273b05c48b350b4e8ad56c7b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4546863956052974230
-    second: Bag (2)_0
+      213: -6009198046271197863
+    second: Bag_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,20 +103,20 @@ TextureImporter:
       name: Bag_0
       rect:
         serializedVersion: 2
-        x: 264
-        y: 40
-        width: 1310
-        height: 1000
+        x: 0
+        y: 0
+        width: 1320
+        height: 1010
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a656f61825b46e0c0800000000000000
-      internalID: -4546863956052974230
+      spriteID: 95da80b073a0b9ca0800000000000000
+      internalID: -6009198046271197863
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bag_0: -4546863956052974230
+      Bag_0: -6009198046271197863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

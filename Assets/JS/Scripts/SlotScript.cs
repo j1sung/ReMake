@@ -6,16 +6,17 @@ using UnityEngine.UI;
 
 public class SlotScript : MonoBehaviour
 {
-    public IntVector2 gridPos;
+    public Vector2Int gridPos;
     public TextMeshProUGUI text;
 
     public GameObject storedItem;
-    public IntVector2 storedItemSize;
-    public IntVector2 storedItemStartPos;
+    public Vector2Int storedItemSize; // 호환용(안써도됨)
+    public Vector2Int storedItemStartPos; // origin (이 아이템의 pivot이 놓인 슬롯)
     public bool isOccupied;
 
     private void Start()
     {
-        text.text = gridPos.x + "," + gridPos.y;
+        if(text != null)
+            text.text = gridPos.x + "," + gridPos.y;
     }
 }

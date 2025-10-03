@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿/*
 using System.Collections.Generic;
-using System;
 using UnityEngine;
-using UnityEditor;
+
 
 public class ItemListManager : MonoBehaviour {
 
@@ -11,18 +10,20 @@ public class ItemListManager : MonoBehaviour {
     public InvenGridManager invenManger;
 
     public Sprite[] itemIconArr;
+    public Sprite[] puzzleArr;
     public List<ItemClass> itemList;
 
     private Transform contentPanel;
 
     private void Start()
     {
-        contentPanel = this.transform;
+        contentPanel = transform;
         RefreshList();
     }
 
     private void Update()
     {
+        /*
         if (Input.GetMouseButtonDown(0) && Input.mousePosition.x > GetComponent<Transform>().position.x) // drop item back
         {
             if (invenManger.selectedButton == null && ItemScript.selectedItem != null) //dropping back from ivenGrid
@@ -43,9 +44,45 @@ public class ItemListManager : MonoBehaviour {
             ItemScript.ResetSelectedItem();
 
         }
+        
     }
 
+    
+    // 되돌리기 공용 함수
+    public void ReturnSelectedToList()
+    {
+        // 드래그 중인 퍼즐 없으면 바로 리턴
+        if (ItemScript.selectedItem == null) return;
 
+        // 버튼 선택 표시 복구
+        if (invenManger.selectedButton != null)
+        {
+            var cg = invenManger.selectedButton.GetComponent<CanvasGroup>();
+            if (cg) cg.alpha = 1f;
+            invenManger.selectedButton = null;
+        }
+
+        // 드래그 중인 퍼즐의 ItemClass 추출해서 리스트에 복귀
+        var it = ItemScript.selectedItem.GetComponent<ItemScript>()?.item;
+        if (it != null)
+        {
+            // 조건 걸기: 해당 itemType 의 버튼이 이미 없을 때만 AddButton
+            bool alreadyExists = itemList.Exists(x => x.itemType == it.itemType);
+            if (!alreadyExists)
+            {
+                itemList.Add(it);
+                AddButton(it);
+            }
+        }
+
+        // 풀로 반환하고 드래그 상태 해제
+        itemEquipPool.ReturnObject(ItemScript.selectedItem);
+        ItemScript.ResetSelectedItem();
+
+        // (선택) 그리드 하이라이트 정리
+        invenManger.RefrechColor(false);
+    }
+    
 
     private void RefreshList()
     {
@@ -55,10 +92,11 @@ public class ItemListManager : MonoBehaviour {
         }
     }
 
-    private void AddButton(ItemClass addItem)//may add a list variable when sort list is added later
+    // 버튼 생성
+    private void AddButton(ItemClass addItem)
     {
         GameObject newButton = itemButtonPool.GetObject();
-        newButton.transform.SetParent(contentPanel);
+        newButton.transform.SetParent(contentPanel, false);
         newButton.GetComponent<RectTransform>().localScale = Vector3.one;
         newButton.GetComponent<ItemButtonScript>().SetUpButton(addItem, this);
     }
@@ -82,7 +120,8 @@ public class ItemListManager : MonoBehaviour {
         }
     }
 
-    public Sprite SetIconSprite(string s) // add better icons
+    // 아이콘 이미지 임시 넣음
+    public Sprite SetIconSprite(string s) 
     {
         switch (s)
         {
@@ -93,4 +132,18 @@ public class ItemListManager : MonoBehaviour {
             default: return itemIconArr[0];
         }
     }
+
+    // 퍼즐 이미지 임시 넣음
+    public Sprite SetPuzzleSprite(string s)
+    {
+        switch (s)
+        {
+            case "Muffler": return puzzleArr[1];
+            case "Lipstick": return puzzleArr[2];
+            case "Letter": return puzzleArr[3];
+
+            default: return puzzleArr[0];
+        }
+    }
 }
+*/

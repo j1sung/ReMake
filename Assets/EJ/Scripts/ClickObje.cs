@@ -13,9 +13,11 @@ public class ClickObje : MonoBehaviour
 
     public void OnMouseDown()
     {
-        // 팝업 표시
-        if (ui != null) ui.OnClickObje(this);
-    }
+        // 1. 팝업 표시
+        if (ui != null) ui.OnClickObje(data);
+
+        // 2. 인벤토리에 추가
+        if (inventory != null) inventory.AddButton(data);
 
     // 오브제를 획득했을때 호출
     public void Acquire()
