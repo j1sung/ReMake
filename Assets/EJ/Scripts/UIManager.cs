@@ -16,9 +16,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text ObjeNameText;
     [SerializeField] private Text descriptionText;
     [SerializeField] private Image ObjeImage;
-    
-    
 
+    private ClickObje currentObje; // 현재 선택중인 오브제 정보
+    
     public UIState State { get; private set; } = UIState.Room;
 
     void Start() => SetState(UIState.Room);
@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
     // 오브젝트 팝업 열기
     public void OnClickObje(ObjeData data)
     {
+        currentObje = obje;
+
         if (State != UIState.Room) return;
         ObjePopupUI.SetActive(true);
         ObjePopupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
@@ -46,6 +48,12 @@ public class UIManager : MonoBehaviour
     public void OnClickClosePopup()
     {
         ObjePopupUI.SetActive(false);
+        // 팝업이 닫힐 때 오브제 습득 처리
+        if (currentObje != null)
+        {
+            currentObje.Acquire();
+            currentObje = null;
+        }
     }
 
     // ======Bag 제출 팝업 On/Off======
