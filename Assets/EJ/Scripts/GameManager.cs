@@ -32,10 +32,10 @@ public class GameManager : MonoBehaviour
 
         string sceneName = nextScene switch
         {
-            GameState.mainMenu => "MainTitle",
-            GameState.office => "Office",
-            GameState.room => "Room1",
-            _ => "MainTitle" // default
+            GameState.mainMenu => "MainTitle_f",
+            GameState.office => "Office_f",
+            GameState.room => "Room1_f",
+            _ => "MainTitle_f" // default
         };
 
         StartCoroutine(LoadSceneRoutine(sceneName));
