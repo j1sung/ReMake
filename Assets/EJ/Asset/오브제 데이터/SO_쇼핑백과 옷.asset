@@ -16,4 +16,18 @@ MonoBehaviour:
   objeDescription: "\uC0AC\uC6A9\uAC10\uC774 \uAC70\uC758 \uC5C6\uB294 \uC637\uC774\uB2E4.
     \n\uC120\uBB3C\uD3EC\uC7A5\uC6A9 \uC1FC\uD551\uBC31\uC5D0 \uC815\uAC08\uD788
     \uB2F4\uACA8 \uC788\uB2E4."
-  icon: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  itemType: Clothes
+  maskRows:
+  - 011
+  - 111
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 1, y: 1}
+  - {x: 2, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
+  pivotIndex: 0
+  iconImage: {fileID: 2147555549863628661, guid: efc87c44a2f697c43907de5e843ae1e3, type: 3}
+  puzzleImage: {fileID: 5786183143491721928, guid: e3bc7778b36733b44a660a5b722f19c3, type: 3}

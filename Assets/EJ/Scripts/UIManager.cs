@@ -5,6 +5,10 @@ public enum UIState { Room, Bag, Settings }
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] GameObject bg;
+    [SerializeField] Sprite spaceBg;
+    [SerializeField] Sprite puzzleBg;
+
     [Header("Panels")]
     [SerializeField] GameObject roomUI;     // 방 HUD 패널
     [SerializeField] GameObject ObjePopupUI;    // 팝업 패널
@@ -32,16 +36,16 @@ public class UIManager : MonoBehaviour
 
     // ======팝업 On/Off=======
     // 오브젝트 팝업 열기
-    public void OnClickObje(ObjeData data)
+    public void OnClickObje(ClickObje obje)
     {
         currentObje = obje;
 
         if (State != UIState.Room) return;
         ObjePopupUI.SetActive(true);
         ObjePopupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
-        ObjeNameText.text = data.objeName;
-        descriptionText.text = data.objeDescription;
-        ObjeImage.sprite = data.iconImage;
+        ObjeNameText.text = obje.data.objeName;
+        descriptionText.text = obje.data.objeDescription;
+        ObjeImage.sprite = obje.data.iconImage;
     }
 
     // 오브젝트 팝업 닫기
@@ -86,6 +90,9 @@ public class UIManager : MonoBehaviour
         roomUI.SetActive(isRoom);
         roomAll.SetActive(isRoom);
         bagUI.SetActive(isBag);
+
+        bg.GetComponent<SpriteRenderer>().sprite = isRoom ? spaceBg : puzzleBg;
+
 
         if (!isRoom) ObjePopupUI.SetActive(false); // 방이 아니면 팝업 자동 닫기
     }

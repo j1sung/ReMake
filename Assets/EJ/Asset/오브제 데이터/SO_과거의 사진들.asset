@@ -18,4 +18,17 @@ MonoBehaviour:
     \uB204\uAD70\uAC00\uC640 \uD568\uAED8 \uCC0D\uC740 \uC0AC\uC9C4\uB4E4\uC774\uB2E4.\n\uC815\uD655\uD55C
     \uC5BC\uAD74 \uC2DD\uBCC4\uC774 \uC5B4\uB835\uC9C0\uB9CC \uC544\uB9C8\uB3C4 \uB538\uC778
     \uAC83 \uAC19\uB2E4."
-  icon: {fileID: 21300000, guid: 5f35539b7c9948649bd6d86691c97169, type: 3}
+  itemType: Frame
+  maskRows:
+  - 11
+  - 11
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  pivotIndex: 0
+  iconImage: {fileID: 1198799012466820963, guid: a4677b4d974645f4692a132b57e88df4, type: 3}
+  puzzleImage: {fileID: 2456543691494370634, guid: 770a94a8c0022e345a8ce9ae1eccfcc2, type: 3}

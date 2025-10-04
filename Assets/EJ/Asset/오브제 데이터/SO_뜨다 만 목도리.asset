@@ -16,4 +16,17 @@ MonoBehaviour:
   objeDescription: "\uBB34\uCC99 \uD3EC\uADFC\uD55C \uB290\uB08C\uC744 \uC900\uB2E4.\n\uC544\uC9C1
     \uB9C8\uBB34\uB9AC \uC9D3\uC9C0 \uBABB\uD55C \uC0C1\uD0DC\uB85C \uBA48\uCD94\uC5B4
     \uC788\uB2E4.\n"
-  icon: {fileID: -105870721150157727, guid: c5ff447e87aed854cae68d2bf4ce9b3c, type: 3}
+  itemType: Muffler
+  maskRows:
+  - 111
+  - 100
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 2, y: 1}
+  - {x: 0, y: 0}
+  pivotIndex: 0
+  iconImage: {fileID: 2004572246924559504, guid: 8d5a85bb1399c0a4d9ccc22304f5fabb, type: 3}
+  puzzleImage: {fileID: 5543689734127136, guid: c6171dd5271c8b549961cfe5e0f5f51f, type: 3}
