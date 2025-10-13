@@ -14,4 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uBE44\uC2FC \uB9BD\uC2A4\uD2F1"
   objeDescription: "\uC81C\uBC95 \uBE44\uC2F8\uBCF4\uC774\uB294 \uB9BD\uC2A4\uD2F1\uC774\uB2E4."
-  icon: {fileID: 7265099749593479959, guid: abfd1ffd69d9328448a9fb0f8d1b9d97, type: 3}
+  itemType: Lipstick
+  maskRows:
+  - 1
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 0, y: 0}
+  pivotIndex: 0
+  iconImage: {fileID: -12513553004751971, guid: e44b37badee92494fb5ed3d8ee9f3863, type: 3}
+  puzzleImage: {fileID: 21300000, guid: 63b03b9d9622a3547a6e3db9c1680488, type: 3}

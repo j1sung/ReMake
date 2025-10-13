@@ -20,7 +20,7 @@ public class ClickObje : MonoBehaviour
     // 오브제를 획득했을때 호출
     public void Acquire()
     {
-        if (inventory != null) inventory.AddObje(data); // 인벤토리에 추가
+        if (inventory != null) inventory.AddButton(data); // 인벤토리에 추가
         gameObject.SetActive(false); // 
     }
 }

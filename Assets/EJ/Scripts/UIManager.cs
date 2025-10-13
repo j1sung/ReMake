@@ -5,11 +5,18 @@ public enum UIState { Room, Bag, Settings }
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] GameObject bg;
+    [SerializeField] Sprite spaceBg;
+    [SerializeField] Sprite puzzleBg;
+
     [Header("Panels")]
     [SerializeField] GameObject roomUI;     // 방 HUD 패널
-    [SerializeField] GameObject roomImage;  // 방 이미지
+    [SerializeField] GameObject ObjePopupUI;    // 팝업 패널
+    [SerializeField] GameObject roomAll;  // 방 전체 오브젝트
     [SerializeField] GameObject bagUI;      // 가방 패널
-    [SerializeField] GameObject popupUI;    // 팝업 패널
+    [SerializeField] GameObject submitPopupUI; // 제출 패널
+
+    
     [SerializeField] private Text ObjeNameText;
     [SerializeField] private Text descriptionText;
     [SerializeField] private Image ObjeImage;
@@ -20,25 +27,31 @@ public class UIManager : MonoBehaviour
 
     void Start() => SetState(UIState.Room);
 
+    // ======공간 이동 Room/Bag=======
+    // Bag 열기
     public void OnClickOpenBag()   => SetState(UIState.Bag);
+
+    // Bag 닫기
     public void OnClickCloseBag()  => SetState(UIState.Room);
 
-    // 오브젝트 클릭 시 호출
+    // ======팝업 On/Off=======
+    // 오브젝트 팝업 열기
     public void OnClickObje(ClickObje obje)
     {
         currentObje = obje;
 
         if (State != UIState.Room) return;
-        popupUI.SetActive(true);
-        popupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
+        ObjePopupUI.SetActive(true);
+        ObjePopupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
         ObjeNameText.text = obje.data.objeName;
         descriptionText.text = obje.data.objeDescription;
-        ObjeImage.sprite = obje.data.icon;
+        ObjeImage.sprite = obje.data.iconImage;
     }
 
+    // 오브젝트 팝업 닫기
     public void OnClickClosePopup()
     {
-        popupUI.SetActive(false);
+        ObjePopupUI.SetActive(false);
         // 팝업이 닫힐 때 오브제 습득 처리
         if (currentObje != null)
         {
@@ -47,8 +60,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    // ======Bag 제출 팝업 On/Off======
+    // 제출 팝업 열기
+    public void OnClickSubmit()
+    {
+        submitPopupUI.SetActive(true);
+    }
+    /*
+    // 제출하기
+    public void OnClickSubmitYes()
+    {
+        submitPopupUI.SetActive(false);
+    }*/
 
+    // 제출 팝업 닫기
+    public void OnClickSubmitNo()
+    {
+        submitPopupUI.SetActive(false);
+    }
 
+    // ======Room/Bag 공간 설정======
     void SetState(UIState next)
     {
         State = next;
@@ -57,13 +88,12 @@ public class UIManager : MonoBehaviour
         bool isBag  = next == UIState.Bag;
 
         roomUI.SetActive(isRoom);
-        roomImage.SetActive(isRoom);
-        bagUI.SetActive(next == UIState.Bag);
+        roomAll.SetActive(isRoom);
+        bagUI.SetActive(isBag);
 
-        if (!isRoom)
-        {
-            popupUI.SetActive(false); // 방이 아니면 팝업 자동 닫기
-            roomImage.SetActive(false); // 방 이미지 닫기
-        }
+        bg.GetComponent<SpriteRenderer>().sprite = isRoom ? spaceBg : puzzleBg;
+
+
+        if (!isRoom) ObjePopupUI.SetActive(false); // 방이 아니면 팝업 자동 닫기
     }
 }
