@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5275bc768b56a4e47bf6ae64d103c25f
+guid: c6171dd5271c8b549961cfe5e0f5f51f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8916237176930514227
-    second: Puzzle_Letter_0
+      213: 5543689734127136
+    second: Puzzle_Muffler_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Puzzle_Letter_0
+      name: Puzzle_Muffler_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 396
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 618
+        height: 402
+      alignment: 9
+      pivot: {x: 0.1666666, y: 0.78}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dcaccef1789234480800000000000000
-      internalID: -8916237176930514227
+      spriteID: 02ef859d4f1b31000800000000000000
+      internalID: 5543689734127136
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 16b9e792acf650b42807034ab6640efd
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Puzzle_Letter_0: -8916237176930514227
+      Puzzle_Muffler_0: 5543689734127136
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

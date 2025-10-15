@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text descriptionText;
     [SerializeField] private Image ObjeImage;
 
+    [SerializeField] private InvenGridManager InvenGridManager;
+
     private ClickObje currentObje; // 현재 선택중인 오브제 정보
     
     public UIState State { get; private set; } = UIState.Room;
@@ -66,12 +68,14 @@ public class UIManager : MonoBehaviour
     {
         submitPopupUI.SetActive(true);
     }
-    /*
+    
     // 제출하기
     public void OnClickSubmitYes()
     {
-        submitPopupUI.SetActive(false);
-    }*/
+        InvenGridManager.SubmitItems();
+        GameManager.instance.GoResult();
+        //submitPopupUI.SetActive(false);
+    }
 
     // 제출 팝업 닫기
     public void OnClickSubmitNo()

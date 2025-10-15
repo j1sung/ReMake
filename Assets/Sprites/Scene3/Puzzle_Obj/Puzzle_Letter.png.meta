@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c8ef3a25273b05c48b350b4e8ad56c7b
+guid: 5275bc768b56a4e47bf6ae64d103c25f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6009198046271197863
-    second: Bag_0
+      213: -8916237176930514227
+    second: Puzzle_Letter_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bag_0
+      name: Puzzle_Letter_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1320
-        height: 1010
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 192
+        height: 396
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95da80b073a0b9ca0800000000000000
-      internalID: -6009198046271197863
+      spriteID: dcaccef1789234480800000000000000
+      internalID: -8916237176930514227
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b7eab36b67af10349977bca3e5d4bf98
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bag_0: -6009198046271197863
+      Puzzle_Letter_0: -8916237176930514227
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

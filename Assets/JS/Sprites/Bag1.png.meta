@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 00c2e37258e73614db1407bd3b31bf16
+guid: c8c45420f328ca844bc659c0beb5ab66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6934970436348911466
-    second: RE_Make Programming (1)_0
+      213: -3137729795370057404
+    second: Bag1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RE_Make Programming (1)_0
+      name: Bag1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3304
-        height: 3184
+        x: 12
+        y: 67
+        width: 1322
+        height: 1012
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6f996a6ed6fd3060800000000000000
-      internalID: 6934970436348911466
+      spriteID: 4410fc1206b8474d0800000000000000
+      internalID: -3137729795370057404
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      RE_Make Programming (1)_0: 6934970436348911466
+      Bag1_0: -3137729795370057404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

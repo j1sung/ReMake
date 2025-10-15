@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { mainMenu, office, room }
+public enum GameState { mainMenu, office, room, result }
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public void GoOffice() => ChangeState(GameState.office);
     public void GoRoom() => ChangeState(GameState.room);
 
+    public void GoResult() => ChangeState(GameState.result);
+
     public void ChangeState(GameState nextScene)
     {
         currentState = nextScene;
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
             GameState.mainMenu => "MainTitle_f",
             GameState.office => "Office_f",
             GameState.room => "Room1_f",
+            GameState.result => "JS_Test",
             _ => "MainTitle_f" // default
         };
 

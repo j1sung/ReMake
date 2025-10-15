@@ -12,7 +12,7 @@ public class SlotSectorScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //public static Vector2Int posOffset;
     //public static SlotSectorScript sectorScript;
     private InvenGridManager invenGridManager;
-    private SlotScript parentSlotScript;
+    [SerializeField] private SlotScript parentSlotScript;
 
     private void Start()
     {
@@ -35,62 +35,9 @@ public class SlotSectorScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         // 아이템이 슬롯에 저장되어있고, 드래그 중이 아니면 파랗게 하이라이트
         if (parentSlotScript.storedItem != null && ItemScript.selectedItem == null)
         {
-            
-            invenGridManager.HighlightItemCells(parentSlotScript, ColorHighlights.Blue);
+            invenGridManager.HoverHighlight(parentSlotScript, ColorHighlights.Blue);
         }
-            
-        /*
-        sectorScript = this;
-        PosOffset();
-
-        if (invenGridManager.highlightedSlot != slotParent)
-        {
-            invenGridManager.highlightedSlot = slotParent;
-        }
-        if (ItemScript.selectedItem != null)
-        {
-            invenGridManager.RefrechColor(true);
-        }
-        if (parentSlotScript.storedItem != null && ItemScript.selectedItem == null)
-        {
-            invenGridManager.ColorChangeLoop(ColorHighlights.Blue, parentSlotScript.storedItemSize, parentSlotScript.storedItemStartPos);
-        }
-        */
     }
-    /*
-    public void PosOffset()
-    {
-        if (ItemScript.selectedItemSize.x != 0 && ItemScript.selectedItemSize.x % 2 == 0)
-        {
-            switch (QuadNum)
-            {
-                case 1:
-                    posOffset.x = 0; break;
-                case 2:
-                    posOffset.x = -1; break;
-                case 3:
-                    posOffset.x = 0; break;
-                case 4:
-                    posOffset.x = -1; break;
-                default: break;
-            }
-        }
-        if (ItemScript.selectedItemSize.y != 0 && ItemScript.selectedItemSize.y % 2 == 0)
-        {
-            switch (QuadNum)
-            {
-                case 1:
-                    posOffset.y = -1; break;
-                case 2:
-                    posOffset.y = -1; break;
-                case 3:
-                    posOffset.y = 0; break;
-                case 4:
-                    posOffset.y = 0; break;
-                default: break;
-            }
-        }
-    }*/
 
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -105,7 +52,7 @@ public class SlotSectorScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         else if(parentSlotScript.storedItem != null)
         {
             // 원래 색으로 복귀
-            invenGridManager.HighlightItemCells(parentSlotScript, Color.white);
+            invenGridManager.HoverHighlight(parentSlotScript, Color.white);
         }
         /*
         posOffset = Vector2Int.zero;
