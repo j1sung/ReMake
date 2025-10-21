@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7456c3a1e25289c44b34b651855da36e
+guid: 770a94a8c0022e345a8ce9ae1eccfcc2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3773135354271303216
-    second: Puzzle_Clothes (2)_0
+      213: 2456543691494370634
+    second: Puzzle_Frame_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Puzzle_Clothes_0
+      name: Puzzle_Photo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 606
-        height: 612
+        width: 402
+        height: 402
       alignment: 9
-      pivot: {x: 0.18, y: 0.84}
+      pivot: {x: 0.25, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0360fc02d9edc5430800000000000000
-      internalID: 3773135354271303216
+      spriteID: a4dafbad875671220800000000000000
+      internalID: 2456543691494370634
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d331ed13a93d68845a7ce9927c275de2
+    spriteID: 8f97be448f02e9149a52449f99071151
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Puzzle_Clothes_0: 3773135354271303216
+      Puzzle_Photo_0: 2456543691494370634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uBE44\uC2FC \uB9BD\uC2A4\uD2F1"
   objeDescription: "\uC81C\uBC95 \uBE44\uC2F8\uBCF4\uC774\uB294 \uB9BD\uC2A4\uD2F1\uC774\uB2E4."
-  itemType: Lipstick
+  itemType: attachment
+  itemName: Lipstick
   maskRows:
   - 1
   pivotX: 0

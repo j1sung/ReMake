@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private InvenGridManager InvenGridManager;
 
     private ClickObje currentObje; // 현재 선택중인 오브제 정보
+
+    private bool isConfirmStep = false; // 제출할지 한번 확인 변수
     
     public UIState State { get; private set; } = UIState.Room;
 
@@ -72,6 +75,16 @@ public class UIManager : MonoBehaviour
     // 제출하기
     public void OnClickSubmitYes()
     {
+        // 첫번째 Yes
+        if (!isConfirmStep)
+        {
+            TMP_Text popupText = submitPopupUI.transform.Find("Pop_up_image/Text").GetComponent<TMP_Text>();
+            popupText.text = "선택하지 않은 기억들은\n시간의 흐름에 따라 희미해집니다.";
+            isConfirmStep = true;
+            return;
+        }
+
+        // 두번째 Yes -> 제출하기
         InvenGridManager.SubmitItems();
         GameManager.instance.GoResult();
         //submitPopupUI.SetActive(false);
@@ -80,6 +93,9 @@ public class UIManager : MonoBehaviour
     // 제출 팝업 닫기
     public void OnClickSubmitNo()
     {
+        isConfirmStep = false;
+        TMP_Text popupText = submitPopupUI.transform.Find("Pop_up_image/Text").GetComponent<TMP_Text>();
+        popupText.text = "포장을 끝내고\n방을 떠날까요?";
         submitPopupUI.SetActive(false);
     }
 

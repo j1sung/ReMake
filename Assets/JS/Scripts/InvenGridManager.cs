@@ -497,19 +497,38 @@ public class InvenGridManager : MonoBehaviour {
     public void SubmitItems()
     {
         var set = new HashSet<ObjeData>();
+        bool isFull = false;
+        int count = 0;
+
         for (int y = 0; y < gridSize.y; y++)
+        {
             for (int x = 0; x < gridSize.x; x++)
             {
+                // 슬롯에 점유하지 않으면 건너뜀
                 var slot = slotGrid[x, y].GetComponent<SlotScript>();
-                if (!slot.isFirst || !slot.isOccupied) continue;
+                if (!slot.isOccupied) continue;
 
+                // 퍼즐이 없으면 건너뜀
                 var puzzle = slot.storedItem;
-                if (!puzzle) continue;
+                if(!puzzle) continue;
 
+                // 꽉 채웠는지 카운트
+                if (slot.isOccupied && puzzle) count++;
+                Debug.Log(count);
+
+                //  퍼즐의 처음 슬롯이 아니면 건너뜀
+                if (!slot.isFirst) continue;
+
+                // 나머지 상황에선 데이터 저장
                 var data = puzzle.GetComponent<ItemScript>()?.item;
                 if (data != null) set.Add(data);
             }
-        ResultManager.instance.SetResults(new List<ObjeData>(set));
+        }
+        // 꽉 채웠는지 판별
+        if(count == gridSize.x * gridSize.y) isFull = true;
+
+        // 결과로 보냄
+        ResultManager.instance.SetResults(new List<ObjeData>(set), isFull);
     }
 }
 

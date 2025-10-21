@@ -29,7 +29,7 @@ public class InventoryManager : MonoBehaviour
     void DumpList(string tag)
     {
         var items = itemList.ConvertAll(x => x == null ? "<NULL>" :
-            (string.IsNullOrWhiteSpace(x.itemType) ? "<EMPTY>" : x.itemType.Trim()));
+            (string.IsNullOrWhiteSpace(x.itemName) ? "<EMPTY>" : x.itemName.Trim()));
         UnityEngine.Debug.Log($"{tag} :: Count={itemList.Count} [{string.Join("|", items)}]");
     }
     /*
@@ -61,10 +61,10 @@ public class InventoryManager : MonoBehaviour
         ObjeData it = ItemScript.selectedItem.GetComponent<ItemScript>()?.item; // 드래그 중인 선택된 퍼즐 정보
         if (it != null)
         {
-            string key = it.itemType?.Trim();
+            string key = it.itemName?.Trim();
 
-            // 조건 걸기: 해당 itemType 의 버튼이 이미 없을 때만 AddButton
-            bool alreadyExists = itemList.Exists(x => x != null && x.itemType?.Trim() == key); // 선택된 퍼즐 정보가 리스트에 있는지 판단
+            // 조건 걸기: 해당 itemName 의 버튼이 이미 없을 때만 AddButton
+            bool alreadyExists = itemList.Exists(x => x != null && x.itemName?.Trim() == key); // 선택된 퍼즐 정보가 리스트에 있는지 판단
             if (!alreadyExists)
             {
                 AddButton(it);
@@ -83,10 +83,10 @@ public class InventoryManager : MonoBehaviour
     // 버튼 생성
     public void AddButton(ObjeData data)
     {
-        string key = data.itemType?.Trim()??"";
+        string key = data.itemName?.Trim()??"";
 
         // 중복 방지 가드
-        if(itemList.Exists(x=>x!=null && x.itemType?.Trim() == key))
+        if(itemList.Exists(x=>x!=null && x.itemName?.Trim() == key))
         {
             var st = new StackTrace(1, true); // 호출자 추적
             UnityEngine.Debug.LogWarning($"[AddButton] DUP SKIPPED: {key}\ncalled by {st}");
@@ -114,8 +114,8 @@ public class InventoryManager : MonoBehaviour
     public void RemoveItemFromList(ObjeData itemToRemove)
     {
         if (itemToRemove == null) return;
-        string key = itemToRemove.itemType?.Trim();
-        int removed = itemList.RemoveAll(x=> x!=null && x.itemType?.Trim() == key);
+        string key = itemToRemove.itemName?.Trim();
+        int removed = itemList.RemoveAll(x=> x!=null && x.itemName?.Trim() == key);
         UnityEngine.Debug.Log($"RemoveItemFromList: type={key}, removed={removed}");
     }
 }

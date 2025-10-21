@@ -16,7 +16,8 @@ MonoBehaviour:
   objeDescription: "\uBB34\uCC99 \uD3EC\uADFC\uD55C \uB290\uB08C\uC744 \uC900\uB2E4.\n\uC544\uC9C1
     \uB9C8\uBB34\uB9AC \uC9D3\uC9C0 \uBABB\uD55C \uC0C1\uD0DC\uB85C \uBA48\uCD94\uC5B4
     \uC788\uB2E4.\n"
-  itemType: Muffler
+  itemType: present
+  itemName: Muffler
   maskRows:
   - 111
   - 100
