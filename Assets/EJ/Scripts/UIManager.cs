@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour
         // 두번째 Yes -> 제출하기
         InvenGridManager.SubmitItems();
         GameManager.instance.GoResult();
-        //submitPopupUI.SetActive(false);
+
     }
 
     // 제출 팝업 닫기

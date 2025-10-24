@@ -22,4 +22,5 @@ public class ObjeData : ScriptableObject
 
     public Sprite iconImage;
     public Sprite puzzleImage;
+    public Sprite endingImage;
 }

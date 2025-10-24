@@ -11,7 +11,6 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
     public TMP_Text text;
 
     public GameObject stampObj;
-    public GameObject scoreObj;
 
     private int count = 0;
     private bool isProcessing = false; // 코루틴 실행 여부
@@ -37,7 +36,6 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
         else if(count == 2) // 두번째 클릭 -> 다음 스테이지 암시 이미지
         {
             stampObj.SetActive(false);
-            scoreObj.SetActive(false);
             ResultManager.instance.SetNextStage(); // 스테이지 값 증가
             img.sprite = fileImages[ResultManager.instance.CurrentStageInfo - 1]; // 다음 스테이지 암시 표시
         }
@@ -53,11 +51,12 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
     {
         isProcessing = true;
 
-        stampObj.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        scoreObj.SetActive(true);
-        text.text = ResultManager.instance.endingOutcomes[ResultManager.instance.CurrentStageInfo - 1].score.ToString();
+        img.sprite = fileImages[ResultManager.instance.CurrentStageInfo];
 
+        yield return new WaitForSeconds(1.5f);
+
+        stampObj.SetActive(true);
+        
         isProcessing = false;
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f2f9e511be3974c458903c8bfe58fc20
+guid: 0be0194e5cec85140a7eeb00b0155bf3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8081542081127815779
-    second: "\uC544\uC774\uCF58_\uD3B8\uC9C0_0"
+      213: 3939521005922492351
+    second: End_Lipstick_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icon_Letter
+      name: End_Lipstick_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 198
-        height: 204
+        width: 342
+        height: 390
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 36a9ef674b7672070800000000000000
-      internalID: 8081542081127815779
+      spriteID: fbf133f7b7dfba630800000000000000
+      internalID: 3939521005922492351
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 72716f92366a90748b9519610d042c96
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Icon_Letter: 8081542081127815779
+      End_Lipstick_0: 3939521005922492351
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

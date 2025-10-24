@@ -31,3 +31,4 @@ MonoBehaviour:
   pivotIndex: 0
   iconImage: {fileID: 2004572246924559504, guid: 8d5a85bb1399c0a4d9ccc22304f5fabb, type: 3}
   puzzleImage: {fileID: 5543689734127136, guid: c6171dd5271c8b549961cfe5e0f5f51f, type: 3}
+  endingImage: {fileID: -706646488047359522, guid: a5b368b68387abe44bd92789e90f7a77, type: 3}

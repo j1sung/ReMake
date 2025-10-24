@@ -28,3 +28,4 @@ MonoBehaviour:
   pivotIndex: 0
   iconImage: {fileID: 8081542081127815779, guid: f2f9e511be3974c458903c8bfe58fc20, type: 3}
   puzzleImage: {fileID: -8916237176930514227, guid: 5275bc768b56a4e47bf6ae64d103c25f, type: 3}
+  endingImage: {fileID: 9035735737415496756, guid: 4685b55d73fb6cc4ba2be0449c95c4b8, type: 3}

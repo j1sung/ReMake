@@ -755,6 +755,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: endingTable.Array.data[0].outcome.objeDatas.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4762,13 +4766,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   album: {fileID: 123014725}
   questUI: {fileID: 1749772497506549801}
-  albumImage:
-  - {fileID: 6806365282881998655}
-  - {fileID: 7827117623521977011}
-  - {fileID: 671783862068516162}
-  - {fileID: 3522596503405932482}
+  stageAlbums: []
   IconPrefab: {fileID: 3523032827135884239, guid: bcb8f395d04a4c34590608486e076463, type: 3}
-  IconRoot: []
 --- !u!224 &2099368286192441324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4853,7 +4852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2256231370363987352
 GameObject:
   m_ObjectHideFlags: 0
