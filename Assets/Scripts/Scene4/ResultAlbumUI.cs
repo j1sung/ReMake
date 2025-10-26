@@ -46,20 +46,21 @@ public class ResultAlbumUI : MonoBehaviour
 
     private IEnumerator ResultAlbum()
     {
-        yield return new WaitForSeconds(1.5f);
-
-        // 해당 스테이지 앨범 이미지 채우기
-        var result = ResultManager.instance;
-        for(int i=0; i < result.endingOutcomes[result.CurrentStageInfo-1].objeDatas.Count; i++)
-        {
-            stageAlbums[result.CurrentStageInfo - 1].albumImage[i].sprite = result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas[i].endingImage;
-        }
-
         yield return new WaitForSeconds(1f);
 
-        // 해당 스테이지 앨범 제출 아이콘 생성
+        // 해당 스테이지 앨범 이미지 & 아이콘 채우기
+        var result = ResultManager.instance;
         List<ObjeData> resultIcons = result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas;
         GameObject icon;
+
+        for (int i=0; i < result.endingOutcomes[result.CurrentStageInfo-1].objeDatas.Count; i++)
+        {
+            stageAlbums[result.CurrentStageInfo - 1].albumImage[i].sprite = result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas[i].endingImage;
+            yield return new WaitForSeconds(1f);
+        }
+
+        
+        
         for (int i = 0; i < result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas.Count; i++)
         {
             icon = Instantiate(IconPrefab); // icon 생성
