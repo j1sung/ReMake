@@ -71,7 +71,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -137,11 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonComponent: {fileID: 7660750173849949287}
   iconImage: {fileID: 6824535236497604567}
-  item:
-    itemType: 
-    size:
-      x: 0
-      y: 0
+  item: {fileID: 0}
   itemEquipPool: {fileID: 0}
 --- !u!225 &1834898352520463537
 CanvasGroup:

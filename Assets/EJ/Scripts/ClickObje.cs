@@ -10,16 +10,22 @@ public class ClickObje : MonoBehaviour
     [SerializeField] UIManager ui;
     [SerializeField] InventoryManager inventory;
     public ObjeData data;
+    public bool IsInteracted;
 
     public void OnMouseDown()
     {
         // 팝업 표시
-        if (ui != null) ui.OnClickObje(this);
+        if (ui != null)
+        {
+            IsInteracted = data.canInteract;
+            ui.OnClickObje(this);
+        }
+        
     }
-
     // 오브제를 획득했을때 호출
     public void Acquire()
     {
+        if (IsInteracted == true) return;
         if (inventory != null) inventory.AddButton(data); // 인벤토리에 추가
         gameObject.SetActive(false); // 
     }
