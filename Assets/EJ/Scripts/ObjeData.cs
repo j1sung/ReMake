@@ -4,13 +4,13 @@ using UnityEngine;
 public class ObjeData : ScriptableObject
 {
     public string objeName; // 오브제 이름
-    public bool canInteract;
+    public bool canInteract; // 상호작용할 수 있는지 여부
     [TextArea] public string objeDescription; // 오브제 설명
-    [TextArea] public string secretDescription;
+    [TextArea] public string secretDescription; // 숨겨진 오브제 설명
 
     public string itemType; // 오브제 종류(로직용)
-    public string itemName; // 아이템 이름(로직용)
-    
+    public string itemName;
+
     // -- 추가: ㄴ자/ㄱ자 등 자유 모양을 표현하기 위한 마스크 또는 셀 목록
     // 1. 편한 입력 방식: 마스크(문자열) -- 둘 중 하나만 써도 됨. maskRows가 있으면 런타임에 shapeCells로 변환해 캐시함.
     [TextArea(1, 8)]
