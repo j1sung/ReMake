@@ -19,12 +19,16 @@ MonoBehaviour:
     \uB2F4\uACA8 \uC788\uB2E4."
   secretDescription: 
   itemType: Clothes
+  itemName: Clothes
   maskRows:
-  - 011
+  - 100
+  - 111
   - 111
   pivotX: 0
   pivotY: 0
   shapeCells:
+  - {x: 0, y: 2}
+  - {x: 0, y: 1}
   - {x: 1, y: 1}
   - {x: 2, y: 1}
   - {x: 0, y: 0}
@@ -32,4 +36,6 @@ MonoBehaviour:
   - {x: 2, y: 0}
   pivotIndex: 0
   iconImage: {fileID: 2147555549863628661, guid: efc87c44a2f697c43907de5e843ae1e3, type: 3}
-  puzzleImage: {fileID: 5786183143491721928, guid: e3bc7778b36733b44a660a5b722f19c3, type: 3}
+  secretImage: {fileID: 0}
+  puzzleImage: {fileID: 3773135354271303216, guid: 7456c3a1e25289c44b34b651855da36e, type: 3}
+  endingImage: {fileID: -5166866630869420792, guid: 5f8781c3e0fc7614191059b15b4ec194, type: 3}

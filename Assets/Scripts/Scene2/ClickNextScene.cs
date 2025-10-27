@@ -6,13 +6,13 @@ public class ClickNextScene : MonoBehaviour, IPointerClickHandler
     [SerializeField] private string sceneName;
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (sceneName == "MainTitle_f")
+        if (sceneName == "main")
             GameManager.Instance.MoveScene(SceneData.MainMenu);
-        else if (sceneName == "Office_f")
+        else if (sceneName == "office")
             GameManager.Instance.MoveScene(SceneData.Office);
-        else if (sceneName == "Room1_f")
+        else if (sceneName == "room")
             GameManager.Instance.MoveScene(SceneData.Room);
-        else if (sceneName == "JS_Test")
+        else if (sceneName == "result")
             GameManager.Instance.MoveScene(SceneData.Result);
     }
 }

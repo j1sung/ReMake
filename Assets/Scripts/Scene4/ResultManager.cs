@@ -29,6 +29,8 @@ public class ResultManager : MonoBehaviour
 {
     public static ResultManager instance { get; private set; }
 
+    public GameObject albumObject; // 앨범 캔버스 넣기
+
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
     public int CurrentStageInfo => currentStageInfo; // GameManager으로 나중에 옮김
@@ -49,11 +51,17 @@ public class ResultManager : MonoBehaviour
         // 싱글톤 보장
         if (instance != null && instance != this)
         {
+            Destroy(albumObject); // 삭제는 필수! 삭제 순서도 중요!
             Destroy(gameObject);
             return;
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if(albumObject != null)
+        {
+            DontDestroyOnLoad (albumObject);
+        }
     }
 
     // 스테이지 변수값 증가 -> 일단 ResultManager에 넣고 나중에 GameManager에 옮김
