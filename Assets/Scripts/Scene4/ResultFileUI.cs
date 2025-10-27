@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class ResultFileUI : MonoBehaviour, IPointerClickHandler
 {
-    public Sprite[] fileImages;
+    public Sprite[] files;
+    public Sprite[] filesSigned;
     private Image img;
     public TMP_Text text;
 
@@ -19,7 +20,8 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
     {
        // 결과 이미지, 점수 세팅
        img = GetComponent<Image>();
-       img.sprite = fileImages[ResultManager.instance.CurrentStageInfo - 1];
+       img.sprite = filesSigned[ResultManager.instance.CurrentStageInfo - 1];
+        StartCoroutine(ResultFile()); // 결과 표시
     }
 
     public void OnPointerClick(PointerEventData eventData) 
@@ -29,17 +31,13 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
         
         count++;
 
-        if (count == 1) // 첫번째 클릭
-        {
-            StartCoroutine(ResultFile()); // 결과 표시
-        }
-        else if(count == 2) // 두번째 클릭 -> 다음 스테이지 암시 이미지
+        if(count == 1) // 첫번째 클릭 -> 다음 스테이지 암시 이미지
         {
             stampObj.SetActive(false);
+            img.sprite = files[ResultManager.instance.CurrentStageInfo - 1]; // 다음 스테이지 암시 표시
             ResultManager.instance.SetNextStage(); // 스테이지 값 증가
-            img.sprite = fileImages[ResultManager.instance.CurrentStageInfo - 1]; // 다음 스테이지 암시 표시
         }
-        else if(count == 3) // 세번째 클릭 -> 다음 오브젝트 활성화
+        else if(count == 2) // 두번째 클릭 -> 다음 오브젝트 활성화
         {
             gameObject.GetComponent<NextClick>().enabled = true;
             this.enabled = false;
@@ -51,9 +49,7 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
     {
         isProcessing = true;
 
-        img.sprite = fileImages[ResultManager.instance.CurrentStageInfo];
-
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
         stampObj.SetActive(true);
         

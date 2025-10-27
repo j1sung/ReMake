@@ -5,6 +5,8 @@ using static UnityEngine.UI.Image;
 using UnityEngine.UIElements;
 using System.Linq;
 using System;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 [Serializable]
 public class EndingOutcome

@@ -22,25 +22,45 @@ public class ResultAlbumUI : MonoBehaviour
     public List<StageAlbum> stageAlbums; // 채우는 스테이지 앨범 리스트
     public GameObject IconPrefab; // 제출 아이콘 프리펩
 
+    int index;
+
     void OnEnable()
     {
-        int index = ResultManager.instance.CurrentStageInfo - 1;
+        index = ResultManager.instance.CurrentStageInfo - 1;
         Debug.Log("index: " + index);
+        
         if (index < 0) return;
 
-        Debug.Log("endingOutcomes.Count: " + ResultManager.instance.endingOutcomes.Count);
-        // endingOutcomes 범위 체크
-        if (index >= ResultManager.instance.endingOutcomes.Count) return;
-
-        Debug.Log("endingOutcomes[index]: " + ResultManager.instance.endingOutcomes[index].endingId);
         // endingOutcomes 값 null 체크
-        if (ResultManager.instance.endingOutcomes[index] == null) return;
+        if (ResultManager.instance.endingOutcomes.Count == 0) return;
 
-        // 해당 스테이지 사진창은 비어있는데 결과 리스트에는 항목을 가지고 있다면 => 결과 제출 직후
-        if (stageAlbums[index].albumImage[0].sprite == null)
+        // === 여기서 부터 채우기 체크 ===
+        // 조건 통과하면 씬 4 앨범, 불통은 메인메뉴 & 설정 앨범
+        Debug.Log("endingOutcomes.Count: " + ResultManager.instance.endingOutcomes.Count);
+        if (index < ResultManager.instance.endingOutcomes.Count)
         {
-            gameObject.GetComponent<NextClick>().enabled = false;
-            StartCoroutine(ResultAlbum());
+            if (stageAlbums[index].albumImage[0].sprite == null)
+            {
+                gameObject.GetComponent<NextClick>().enabled = false;
+                StartCoroutine(ResultAlbum());
+            }
+        }
+        else // 메인메뉴 & 설정에서 앨범 열때(instance 유지) -> 해당 스테이지 부분만 새로 채워주면 됨
+        {
+            // 해당 스테이지 앨범 이미지 & 아이콘 채우기
+            var result = ResultManager.instance;
+            List<ObjeData> resultIcons = result.endingOutcomes[index-1].objeDatas;
+            GameObject icon;
+
+            for (int i = 0; i < result.endingOutcomes[index-1].objeDatas.Count; i++)
+            {
+                stageAlbums[index-1].albumImage[i].sprite = result.endingOutcomes[index - 1].objeDatas[i].endingImage;
+
+                icon = Instantiate(IconPrefab); // icon 생성
+                icon.transform.SetParent(stageAlbums[index - 1].iconRoot[i], false); // icon 위치 설정
+                icon.GetComponent<Image>().sprite = resultIcons[i].iconImage;
+                icon.GetComponent<Image>().preserveAspect = true;
+            }
         }
     }
 
@@ -50,23 +70,21 @@ public class ResultAlbumUI : MonoBehaviour
 
         // 해당 스테이지 앨범 이미지 & 아이콘 채우기
         var result = ResultManager.instance;
-        List<ObjeData> resultIcons = result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas;
+        List<ObjeData> resultIcons = result.endingOutcomes[index].objeDatas;
         GameObject icon;
 
-        for (int i=0; i < result.endingOutcomes[result.CurrentStageInfo-1].objeDatas.Count; i++)
+        for (int i=0; i < result.endingOutcomes[index].objeDatas.Count; i++)
         {
-            stageAlbums[result.CurrentStageInfo - 1].albumImage[i].sprite = result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas[i].endingImage;
-            yield return new WaitForSeconds(1f);
-        }
+            stageAlbums[index].albumImage[i].sprite = result.endingOutcomes[index].objeDatas[i].endingImage;
+            
+            yield return new WaitForSeconds(0.5f);
 
-        
-        
-        for (int i = 0; i < result.endingOutcomes[result.CurrentStageInfo - 1].objeDatas.Count; i++)
-        {
             icon = Instantiate(IconPrefab); // icon 생성
-            icon.transform.SetParent(stageAlbums[result.CurrentStageInfo - 1].iconRoot[i], false); // icon 위치 설정
+            icon.transform.SetParent(stageAlbums[index].iconRoot[i], false); // icon 위치 설정
             icon.GetComponent<Image>().sprite = resultIcons[i].iconImage;
             icon.GetComponent<Image>().preserveAspect = true;
+
+            yield return new WaitForSeconds(0.3f);
         }
 
         gameObject.GetComponent<NextClick>().enabled = true;
