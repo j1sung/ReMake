@@ -18,23 +18,6 @@ public static class ShapeUtil
         return arr;
     }
 
-    public static Vector2Int GetBoundsSize(IList<Vector2Int> cells)
-    {
-        if (cells == null || cells.Count == 0) return Vector2Int.one;
-
-        int minX = int.MaxValue, minY = int.MaxValue;
-        int maxX = int.MinValue, maxY = int.MinValue;
-
-        foreach(var c in cells)
-        {
-            if (c.x < minX) minX = c.x;
-            if (c.y < minY) minY = c.y;
-            if (c.x > maxX) maxX = c.x;
-            if (c.y > maxY) maxY = c.y;
-        }
-        return new Vector2Int(maxX - minX + 1, maxY - minY + 1);
-    }
-
     // 줄 정규화: '0'과 '1'만 깨끗하게 남기기
     public static string NormalizeRow(string row)
     {
@@ -65,10 +48,10 @@ public static class ShapeUtil
                 }
             }
         }
-        return list.ToArray();
+        return list.ToArray(); // 배열로 치환
     }
 
-    // 정규화 폭(피벗 계산용)
+    // 정규화 폭(피벗 계산용) -> 문자열 111, 100 -> 3개짜리 넓이
     public static int NormalizedWidth(string[] rows)
     {
         int w = 0;

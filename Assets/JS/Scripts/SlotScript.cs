@@ -10,9 +10,9 @@ public class SlotScript : MonoBehaviour
     public TextMeshProUGUI text;
 
     public GameObject storedItem;
-    public Vector2Int storedItemSize; // 호환용(안써도됨)
     public Vector2Int storedItemStartPos; // origin (이 아이템의 pivot이 놓인 슬롯)
-    public bool isOccupied;
+    public bool isOccupied; // 점유중인지?
+    public bool isFirst; // 퍼즐 슬롯들 중 대표 슬롯으로 설정(결과 넘길때 체크)
 
     private void Start()
     {
