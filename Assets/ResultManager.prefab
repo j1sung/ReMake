@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &638971652214998713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6442717597520102045}
+  - component: {fileID: 7229624298928942787}
+  m_Layer: 0
+  m_Name: ResultManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6442717597520102045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638971652214998713}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 833, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7229624298928942787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638971652214998713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5e187120c565c46b630a045db3dda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStageInfo: 1
+  submitItems: []
+  defaultOutcome:
+    endingId: default
+    score: 50
+    albumImage: {fileID: -2352798068362756650, guid: a0f40d33d5006854e8c406a69d01749b, type: 3}
+    comment: "\"\uC774\uAC78\uB85C \uAD1C\uCC2E\uC744\uAE4C?\n...\uB098\uB3C4 \uC798
+      \uBAA8\uB974\uACA0\uC5B4.\""
+    objeDatas: []
+  endingTable:
+  - comboKeys:
+    - Empty
+    outcome:
+      endingId: empty
+      score: 30
+      albumImage: {fileID: -8473909123075564592, guid: 854e311d3339bd24386c93489b3e03cb, type: 3}
+      comment: "\"\uD55C\uBC88\uC774\uB77C\uB3C4 \uCC3E\uC544\uC640 \uC8FC\uBA74
+        \uC548 \uB420\uAE4C? \uBAA8\uB4E0 \uAC8C \uAFC8 \uAC19\uC544. \uAD34\uB85C\uC6CC.
+        \n\uC544\uC9C1\uC740 \uC2DC\uAC04\uC774 \uB9CE\uC774 \uD544\uC694\uD55C\uAC00\uBD10.\""
+      objeDatas: []
+  - comboKeys:
+    - Balance
+    outcome:
+      endingId: balance
+      score: 85
+      albumImage: {fileID: -4546863956052974230, guid: 9c28a3c3812716449993107facfd4eae, type: 3}
+      comment: "\u201C\uD568\uAED8\uD55C \uC21C\uAC04\uB4E4\uC774 \uC2A4\uCCD0 \uC9C0\uB098\uAC00\uB294
+        \uAC78 \uB290\uAF08\uC5B4.\n\uC6B0\uB9AC\uAC00 \uB098\uB208 \uB0A0\uB4E4\uC5D0
+        \uAE30\uC068\uB3C4 \uC2AC\uD514\uB3C4 \uACE0\uB974\uAC8C \uC788\uB2E4 \uC0DD\uAC01\uD558\uB2C8,
+        \uC870\uAE08\uC740 \uC548\uC2EC\uC774 \uB41C\uB2E4.\u201D"
+      objeDatas: []
+  - comboKeys:
+    - Full
+    outcome:
+      endingId: full
+      score: 100
+      albumImage: {fileID: -4546863956052974230, guid: 9c28a3c3812716449993107facfd4eae, type: 3}
+      comment: "\u201C\uB9E4\uC77C\uC774 \uD6C4\uD68C\uC640 \uC0DD\uAC01\uC73C\uB85C
+        \uAC00\uB4DD\uD574. \n\uC560\uC368 \uC815\uB9AC\uD558\uB2E4\uAC00 \uBB3C
+        \uBC00\uB4EF \uC3DF\uC544\uC9C0\uB294 \uAE30\uC5B5\uC5D0 \uC628\uC885\uC77C
+        \uC816\uC5B4\uC788\uACE4 \uD574. \uC5B8\uC81C\uCBE4 \uBE44\uC6CC\uB0BC \uC218
+        \uC788\uC744\uAE4C?\u201D"
+      objeDatas: []
+  - comboKeys:
+    - Photo
+    - Letter
+    - Letter+Photo
+    outcome:
+      endingId: memory
+      score: 75
+      albumImage: {fileID: -4546863956052974230, guid: 9c28a3c3812716449993107facfd4eae, type: 3}
+      comment: "\u201C\uBD80\uCA4D \uCD94\uC5B5\uC774 \uAE43\uB4E0 \uBB3C\uAC74\uB4E4\uC744
+        \uC790\uAFB8 \uB4E4\uC5EC\uB2E4 \uBCF4\uAC8C \uB3FC. \n\uD3C9\uC18C\uC5D4
+        \uC5B4\uB514\uC5D0 \uC4F0\uB0D0\uB358 \uC0AC\uC9C4\uC774\uBA70 \uD3B8\uC9C0\uAC00
+        \uC774\uB807\uAC8C\uB098 \uC18C\uC911\uD558\uB2E4\uB2C8.\""
+      objeDatas: []
+  - comboKeys:
+    - Muffler
+    - Muffler+Sewingkit
+    outcome:
+      endingId: present
+      score: 75
+      albumImage: {fileID: -4546863956052974230, guid: 9c28a3c3812716449993107facfd4eae, type: 3}
+      comment: "\u201C \uB2E4 \uB728\uC9C0 \uBABB\uD55C \uBAA9\uB3C4\uB9AC\uB97C
+        \uB9CC\uC9C0\uC791\uAC70\uB9AC\uACE4 \uD588\uC9C0. \n\uC644\uC131\uB418\uB294
+        \uB0A0\uC5D4 \uB354 \uD3B8\uC548\uD55C \uC5BC\uAD74\uB85C \uC778\uC0AC\uB97C
+        \uAC74\uB12C \uC218 \uC788\uC744\uAE4C?\u201D"
+      objeDatas: []
+  - comboKeys:
+    - Lipstick
+    - Clothes
+    - Clothes+Lipstick
+    outcome:
+      endingId: attachment
+      score: 75
+      albumImage: {fileID: -4546863956052974230, guid: 9c28a3c3812716449993107facfd4eae, type: 3}
+      comment: "\u201C\uBC1B\uC558\uB358 \uAC83\uB4E4\uB9CC \uB5A0\uC62C\uB77C\uC11C
+        \uC870\uAE08\uC740 \uAD34\uB85C\uC6CC. \n\uADF8\uB798\uB3C4 \uADF8 \uB530\uB73B\uD55C
+        \uB9C8\uC74C\uC744 \uC601\uC601 \uAC04\uC9C1\uD560 \uD754\uC801\uC774 \uB0A8\uC544
+        \uC788\uB2E4\uB294 \uAC8C \uACE0\uB9C8\uC6CC.\u201D"
+      objeDatas: []
+  - comboKeys:
+    - Sewingkit
+    outcome:
+      endingId: go
+      score: 70
+      albumImage: {fileID: -4546863956052974230, guid: 9c28a3c3812716449993107facfd4eae, type: 3}
+      comment: "\u201C\uC0B0 \uC0AC\uB78C\uC740 \uC0B4\uC544\uC57C\uC9C0. \n\uC190\uC744
+        \uC6C0\uC9C1\uC5EC \uAD34\uB85C\uC6C0\uC744 \uB35C\uC5B4\uB0B4\uACE0, \uC5B8\uC820\uAC00
+        \uC904 \uC120\uBB3C\uC744 \uB9CC\uB4E4\uACE0 \uC788\uC744\uAC8C.\u201D"
+      objeDatas: []
+  endingOutcomes: []

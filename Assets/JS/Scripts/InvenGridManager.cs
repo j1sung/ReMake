@@ -2,7 +2,9 @@
 using System.Linq;
 using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
+using UnityEngine.LightTransport;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class InvenGridManager : MonoBehaviour {
 
@@ -31,8 +33,8 @@ public class InvenGridManager : MonoBehaviour {
     private Vector2Int overlapOrigin; // 스왑 대상의 origin
 
     // 미리보기 색상 복원용
-    private readonly List<Vector2Int> lastPreviewCells = new();
-    private readonly List<Vector2Int> lastOverlapCells = new();
+    private readonly List<Vector2Int> lastPreviewCells = new(); // 드래그 중인 퍼즐
+    private readonly List<Vector2Int> lastOverlapCells = new(); // 겹치는 퍼즐
 
     private void Awake()
     {
@@ -68,7 +70,7 @@ public class InvenGridManager : MonoBehaviour {
         }
 
         // 오브젝트 슬롯에 드롭하기 분기
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)) // 마우스 왼쪽버튼
         {
             // 퍼즐 스폰 직후 1프레임 면책: 버튼 스폰 직후 프레임은 되돌리기 처리 안함
             if (ItemScript.justSpawned) { ItemScript.justSpawned = false; return; }
@@ -137,9 +139,11 @@ public class InvenGridManager : MonoBehaviour {
         ComputePlacementInfo();
 
         // 프리뷰 셀들 얻기
-        var rotated = GetRotatedCells(ItemScript.selectedItem);
-        var preview = rotated.Select(c => origin + c).ToList();
+        Vector2Int[] rotated = GetRotatedCells(ItemScript.selectedItem);
+        List<Vector2Int> preview = rotated.Select(c => origin + c).ToList();
         lastPreviewCells.AddRange(preview);
+
+        Debug.Log($"preview={string.Join(" ", preview)}");
 
         // 색칠
         Color32 col = checkState switch
@@ -177,7 +181,7 @@ public class InvenGridManager : MonoBehaviour {
         foreach (var p in cells)
         {
             if (p.x < 0 || p.y < 0 || p.x >= gridSize.x || p.y >= gridSize.y) continue;
-            slotGrid[p.x, p.y].GetComponent<Image>().color = color;
+            slotGrid[p.x, p.y].GetComponent<UnityEngine.UI.Image>().color = color;
         }
     }
 
@@ -194,15 +198,16 @@ public class InvenGridManager : MonoBehaviour {
             return;
         }
 
-        // 1. 회전 반영된 셀 목록
-        var rotated = GetRotatedCells(ItemScript.selectedItem);
+        // 1. 회전 반영된 셀 목록 -> shapeCells에 적용한 값들
+        Vector2Int[] rotated = GetRotatedCells(ItemScript.selectedItem);
 
         // 2. pivot과 하이라이트 슬롯을 이용해 origin 계산
         var it = ItemScript.selectedItem.GetComponent<ItemScript>().item;
         EnsureCellsCached(it);
-        var pivot = rotated[it.pivotIndex];
-        var target = highlightedSlot.GetComponent<SlotScript>().gridPos;
+        Vector2Int pivot = rotated[it.pivotIndex]; 
+        Vector2Int target = highlightedSlot.GetComponent<SlotScript>().gridPos;
         origin = target - pivot;
+        Debug.Log($"target={target} pivot={pivot}");
 
         // 3. 경계/겹침 체크
         bool multiOverlap = false;
@@ -235,101 +240,63 @@ public class InvenGridManager : MonoBehaviour {
         else if (overlapItem != null)   checkState = 1;
         else                            checkState = 0;
 
-        Vector2Int[] rotated2 = GetRotatedCells(ItemScript.selectedItem);
-        Debug.Log($"origin={origin} rotated2={string.Join(" ", rotated)}");
-
+        Debug.Log($"origin={origin} rotated={string.Join(" ", rotated)}");
     }
 
-
-        // ─────────────────────────────────────────────────────────────
-        // 저장/회수/스왑 (셀 기반)
-        // ─────────────────────────────────────────────────────────────
+    // 저장/회수/스왑 (셀 기반)
     private void StoreItem(GameObject item)
     {
         var isComp = item.GetComponent<ItemScript>();
         var it = isComp.item;
 
         // 회전 적용된 셀(미리보기/점유용)
-        var rotatedCells = GetRotatedCells(item); // currentRot 반영
+        var rotated = GetRotatedCells(item); // currentRot 반영
 
         // 1. 슬롯 점유 메타 기록(origin 기준)
-        foreach (var c in rotatedCells)
+        for (int i = 0; i < rotated.Length; i++)
         {
-            var p = origin + c;
-            var ss = slotGrid[p.x, p.y].GetComponent<SlotScript>();
+            var c = rotated[i];
+            var preview = origin + c;
+            var ss = slotGrid[preview.x, preview.y].GetComponent<SlotScript>();
+
             ss.storedItem = item;
             ss.storedItemStartPos = origin;
-            ss.storedItemSize = Vector2Int.one; // 호환용(안 써도 값은 채움)
             ss.isOccupied = true;
-            slotGrid[p.x, p.y].GetComponent<Image>().color = Color.white;
+
+            // 첫 번째 좌표만 대표로 설정
+            ss.isFirst = (i == 0);
+
+            slotGrid[preview.x, preview.y].GetComponent<UnityEngine.UI.Image>().color = Color.white;
         }
 
-
-        // 3. UI 스냅: 아이템 pivot=좌하단(0,0)으로 두고, '바운딩박스 좌하단 셀'의 좌하단에 정확히 맞춘다.
-        //RectTransform dropParentRect = (RectTransform)dropParent;
-        //RectTransform slotRect = slotGrid[origin.x, origin.y].GetComponent<RectTransform>();
-        //RectTransform baseSlotRect = slotGrid[bl.x, bl.y].GetComponent<RectTransform>();
-        
         // 배치대상 RectTransform 준비
         var itemRect = item.GetComponent<RectTransform>();
         itemRect.SetParent(dropParent, false);
         itemRect.localScale = Vector3.one;
-        //itemRect.pivot = Vector2.zero; // 좌하단 기준 (중요)
-
-        var baseCells = GetCells(it); // 회전 X(0)
-        ShapeUtil.GetAABB(baseCells, out var bmin, out var bmax);
-        // AABB 크기(셀) -> 픽셀/유닛
-        int wCells = bmax.x - bmin.x + 1;
-        int hCells = bmax.y - bmin.y + 1;
-
-        // dropParent 좌표계로 환산된 '셀 크기'
-        var cellSizeInDrop = GetCellSizeIn(dropParent);
-
-        float widthLocal = wCells * cellSizeInDrop.x;
-        float heightLocal = hCells * cellSizeInDrop.y;
-        // 부모 크기 = AABB 크기
-        //var slotRect0 = slotGrid[0, 0].GetComponent<RectTransform>(); // 슬롯 한 칸 크기 얻으려고(같으면 임의 0,0)
-        //float cellW = slotRect0.rect.width;
-        //float cellH = slotRect0.rect.height;
-        itemRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthLocal);
-        itemRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, heightLocal);
-
-        // 피벗 설정: 0도 AABB 기준으로 "피벗 셀의 좌하단" 위치가 되도록
-        Vector2Int basePivotCell = baseCells[it.pivotIndex];
-        Vector2 pivotNorm = new Vector2(
-            (float)(basePivotCell.x - bmin.x) / wCells,
-            (float)(basePivotCell.y - bmin.y) / hCells
-        );
-        itemRect.pivot = pivotNorm;
+        
+        // 피벗은 항상 회전에 맞춰서 좌하단 기준!
+        switch (isComp.currentRot)
+        {
+            case 0: itemRect.pivot = new Vector2(0f, 0f); break;
+            case 1: itemRect.pivot = new Vector2(1f, 0f); break;
+            case 2: itemRect.pivot = new Vector2(1f, 1f); break;
+            case 3: itemRect.pivot = new Vector2(0f, 1f); break;
+        } 
 
         // 부모 Rect 자체 회전 적용
         itemRect.localRotation = Quaternion.Euler(0, 0, -90f * isComp.currentRot);
 
-        // ── 6) 월드 위치 맞추기:
-        //     (origin + "회전된" pivot 셀)의 "좌하단 슬롯 월드 좌표"에
-        //     Rect의 피벗이 오도록 배치.
-        var pivotCellRot = rotatedCells[it.pivotIndex];
-        var slotRT = slotGrid[(origin + pivotCellRot).x, (origin + pivotCellRot).y].GetComponent<RectTransform>();
-        Vector3 slotLLWorld = slotRT.TransformPoint(new Vector3(slotRT.rect.xMin, slotRT.rect.yMin, 0f));
+        // 4️ 회전된 셀의 AABB 기반 크기 계산
+        ShapeUtil.GetAABB(rotated, out Vector2Int rmin, out Vector2Int rmax);
 
-        // 로컬 좌하단(피벗 기준 좌표): (-pivot.x*width, -pivot.y*height)
-        Vector3 localLL = new Vector3(-pivotNorm.x * widthLocal, -pivotNorm.y * heightLocal, 0f);
-        Vector3 rectLLWorld = itemRect.TransformPoint(localLL);
-
-        // 우리가 맞추고 싶은 목표 좌하단 = slotLLWorld
-        Vector3 delta = slotLLWorld - rectLLWorld;
-        itemRect.position += delta;
-
-        // 시각 상태 복구
-        var cg = item.GetComponent<CanvasGroup>() ?? item.AddComponent<CanvasGroup>();
-        if (cg) cg.alpha = 1f;
-        //cg.blocksRaycasts = true; // 고정 상태에선 슬롯 드래그 막힘
-        //var img = item.GetComponent<Image>(); if (img) img.raycastTarget = true;
+        // 5️ 좌하단 슬롯의 좌표를 가져와서 피벗(0,0) 맞추기
+        var llSlot = slotGrid[(origin + rmin).x, (origin + rmin).y].GetComponent<RectTransform>();
+        Vector3 llWorld = llSlot.TransformPoint(new Vector3(llSlot.rect.xMin, llSlot.rect.yMin, 0f));
+        Debug.Log($"llSlot={llSlot}");
+        itemRect.position = llWorld;
 
         // 5. 프리뷰 색 복원
         ClearPreviewTints();
-
-        //Debug.Log($"bl={bl} world={string.Join(" ", world)}");
     }
 
     private GameObject GetItem(GameObject slotObject)
@@ -339,28 +306,26 @@ public class InvenGridManager : MonoBehaviour {
         GameObject item = slot.storedItem;
         if(item == null) return null;
 
+        // 호버 하이라이트 초기화
+        HoverHighlight(slot, Color.white);
+
         Vector2Int originPos = slot.storedItemStartPos;
         Vector2Int[] rotated = GetRotatedCells(item);
-
-        // rotated의 좌하단 셀(minCell) 계산
-        //int minX = int.MaxValue, minY = int.MaxValue;
-        //foreach (var c in rotated) { if (c.x < minX) minX = c.x; if (c.y < minY) minY = c.y; }
-        //Vector2Int minCell = new Vector2Int(minX, minY);
 
         // 해당 아이템이 점유했던 셀 모두 비우기
         foreach (var c in rotated)
         {
-            var p = originPos + c;
-            if (p.x < 0 || p.y < 0 || p.x >= gridSize.x || p.y >= gridSize.y)
+            var previewSlot = originPos + c;
+            if (previewSlot.x < 0 || previewSlot.y < 0 || previewSlot.x >= gridSize.x || previewSlot.y >= gridSize.y)
             {
                 Debug.LogError($"GetItem OOB: origin={originPos}, c={c}, grid={gridSize}");
                 continue;
             }
-            var ss = slotGrid[p.x, p.y].GetComponent<SlotScript>();
+            var ss = slotGrid[previewSlot.x, previewSlot.y].GetComponent<SlotScript>();
             ss.storedItem = null;
-            ss.storedItemSize = Vector2Int.zero;
             ss.storedItemStartPos = Vector2Int.zero;
             ss.isOccupied = false;
+            ss.isFirst = false;
         }
 
         // 드래그 부모로 이동 + 커서 위치로 스냅
@@ -368,11 +333,10 @@ public class InvenGridManager : MonoBehaviour {
         RectTransform itemRect = item.GetComponent<RectTransform>();
         itemRect.SetParent(dragParent, false);
         itemRect.localScale = Vector3.one;
-        itemRect.pivot = new Vector2(0.5f, 0.5f);
         item.transform.SetAsLastSibling(); // 항상 최상단
 
         // *** (핵심 수정) 여기서 RectTransform 피벗을 스프라이트 피벗과 동기화! ***
-        var img = item.GetComponent<Image>();
+        var img = item.GetComponent<UnityEngine.UI.Image>();
         if (itemRect && img.sprite != null)
         {
             // 스프라이트 피벗(픽셀)을 RectTransform 피벗(0~1)으로 변환하여 설정
@@ -391,11 +355,6 @@ public class InvenGridManager : MonoBehaviour {
             out localMouse
         );
         itemRect.anchoredPosition = localMouse;
-
-        var cg = item.GetComponent<CanvasGroup>() ?? item.AddComponent<CanvasGroup>();
-        if (cg) cg.alpha = 0.5f;
-        cg.blocksRaycasts = false;
-        img = item.GetComponent<Image>(); if (img) img.raycastTarget = false;
 
         return item;
     }
@@ -417,9 +376,7 @@ public class InvenGridManager : MonoBehaviour {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    // 헬퍼: 셀 얻기/회전/보장
-    // ─────────────────────────────────────────────────────────────
+    // 셀 얻기/회전/보장
     public static void EnsureCellsCached(ObjeData it)
     {
         if (it == null) return;
@@ -449,7 +406,7 @@ public class InvenGridManager : MonoBehaviour {
             return;
         }
 
-        // 2. maskRows가 없다면 shapeCells만 검증
+        // 2. maskRows가 없다면 shapeCells만 검증 -> 이건 일단 없다고 생각
         if(it.shapeCells == null || it.shapeCells.Length == 0)
         {
             it.shapeCells = new[] { Vector2Int.zero };
@@ -471,11 +428,13 @@ public class InvenGridManager : MonoBehaviour {
         Vector2 cellWorldSize = Vector2.Scale(cell.rect.size, cell.lossyScale);
         Vector2 parentWorldScale = parentRT != null ? (Vector2)parentRT.lossyScale : Vector2.one;
 
-        // targetParent 로컬에서의 크기
+        // targetParent 로컬에서의 크기 -> 셀 하나가 부모의 로컬 좌표계에서 차지하는 크기
+        // targetParent의 로컬 좌표계에서 셀 하나의 가로 길이(너비), 세로 길이(높이)를 나타냄
         return new Vector2(cellWorldSize.x / parentWorldScale.x,
                            cellWorldSize.y / parentWorldScale.y);
     }
 
+    // 퍼즐 오브젝트의 shapeCells 받아오기
     private static Vector2Int[] GetCells(ObjeData it)
     {
         // 항상 EnsureCellsCashed를 통해 최신화
@@ -485,6 +444,7 @@ public class InvenGridManager : MonoBehaviour {
             : new[] { Vector2Int.zero }; // 최소 1셀
     }
 
+    // currentRot에 맞는 회전 적용한 shapeCells 받아오기
     private Vector2Int[] GetRotatedCells(GameObject go)
     {
         var isComp = go.GetComponent<ItemScript>();
@@ -519,33 +479,64 @@ public class InvenGridManager : MonoBehaviour {
         return cells.Select(c => baseOrigin + c).ToList();
     }
 
-    // 범용: 시작좌표(startPos)에서 size 범위를 color 로 칠함
-    public void HighlightItemCells(Vector2Int startPos, Vector2Int size, Color32 color)
+    // 편의: 부모 슬롯의 저장 메타(저장 시작좌표/크기)를 읽어 칠함
+    public void HoverHighlight(SlotScript slot, Color32 color)
     {
-        for (int y = 0; y < size.y; y++)
+        GameObject item = slot.storedItem;
+        var origin = slot.storedItemStartPos;
+        Vector2Int[] rotated = GetRotatedCells(item);
+
+        foreach (var c in rotated)
         {
-            for (int x = 0; x < size.x; x++)
-            {
-                var gx = startPos.x + x;
-                var gy = startPos.y + y;
-                if (gx < 0 || gy < 0 || gx >= gridSize.x || gy >= gridSize.y) continue;
-                slotGrid[gx, gy].GetComponent<Image>().color = color;
-            }
+            var previewSlot = origin + c;
+            var ss = slotGrid[previewSlot.x, previewSlot.y].GetComponent<UnityEngine.UI.Image>();
+            ss.color = color;
         }
     }
 
-    // 편의: 부모 슬롯의 저장 메타(저장 시작좌표/크기)를 읽어 칠함
-    public void HighlightItemCells(SlotScript slot, Color32 color)
+    public void SubmitItems()
     {
-        HighlightItemCells(slot.storedItemStartPos, slot.storedItemSize, color);
+        var set = new HashSet<ObjeData>();
+        bool isFull = false;
+        int count = 0;
+
+        for (int y = 0; y < gridSize.y; y++)
+        {
+            for (int x = 0; x < gridSize.x; x++)
+            {
+                // 슬롯에 점유하지 않으면 건너뜀
+                var slot = slotGrid[x, y].GetComponent<SlotScript>();
+                if (!slot.isOccupied) continue;
+
+                // 퍼즐이 없으면 건너뜀
+                var puzzle = slot.storedItem;
+                if(!puzzle) continue;
+
+                // 꽉 채웠는지 카운트
+                if (slot.isOccupied && puzzle) count++;
+                Debug.Log(count);
+
+                //  퍼즐의 처음 슬롯이 아니면 건너뜀
+                if (!slot.isFirst) continue;
+
+                // 나머지 상황에선 데이터 저장
+                var data = puzzle.GetComponent<ItemScript>()?.item;
+                if (data != null) set.Add(data);
+            }
+        }
+        // 꽉 채웠는지 판별
+        if(count == gridSize.x * gridSize.y) isFull = true;
+
+        // 결과로 보냄
+        ResultManager.instance.SetResults(new List<ObjeData>(set), isFull);
     }
 }
 
 // 그리드 하이라이트 색 변환 
 public struct ColorHighlights
 {
-    public static Color32 Green => new Color32(128, 255, 128, 255);
-    public static Color32 Yellow => new Color32(255, 255, 64, 255);
-    public static Color32 Red => new Color32(255, 128, 128, 255);
-    public static Color32 Blue => new Color32(192, 192, 255, 255);
+    public static Color32 Green => /*new Color32(0, 255, 0, 255);*/ new Color32(214, 243, 238, 255);
+    public static Color32 Yellow => /*new Color32(255, 255, 0, 255);*/ new Color32(255, 247, 225, 255);
+    public static Color32 Red => /*new Color32(255, 0, 0, 255);*/ new Color32(255, 203, 204, 255);
+    public static Color32 Blue => new Color32(198, 216, 225, 255);
 }

@@ -31,7 +31,7 @@ public class ItemScript : MonoBehaviour
 
     // 90도 시계 회전 (데이터/비주얼 동기화)
     public void RotateCW() {
-        currentRot = (currentRot + 1) & 3;
+        currentRot = (currentRot + 1) & 3; // 0, 1, 2, 3
         
         // 회전은 부모 RectTransform에만 준다.
         var r = GetComponent<RectTransform>();
@@ -57,19 +57,20 @@ public class ItemScript : MonoBehaviour
 
         // 0° 기준 셀 (캐시 사용)
         InvenGridManager.EnsureCellsCached(item);
-        var cells0 = item.shapeCells != null && item.shapeCells.Length > 0
+        var cells = item.shapeCells != null && item.shapeCells.Length > 0
             ? item.shapeCells
             : new[] { Vector2Int.zero };
 
-        ShapeUtil.GetAABB(cells0, out var bmin, out var bmax);
-        int w0 = bmax.x - bmin.x + 1, h0 = bmax.y - bmin.y + 1;
+        ShapeUtil.GetAABB(cells, out var bmin, out var bmax);
+        int wSize = bmax.x - bmin.x + 1, hSize = bmax.y - bmin.y + 1;
 
         // parent 좌표계의 셀 크기 (lossyScale 반영)
         var cellSize = grid.GetCellSizeIn(parent);
 
+        // 퍼즐의 rectTransform width, height 크기 정하기
         var rt = GetComponent<RectTransform>();
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, w0 * cellSize.x);
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h0 * cellSize.y);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, wSize * cellSize.x);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, hSize * cellSize.y);
 
         // 이미지 비율 유지(찌그러짐 방지)
         var img = GetComponent<UnityEngine.UI.Image>();

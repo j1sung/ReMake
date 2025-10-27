@@ -11,6 +11,8 @@ public class SceneController : MonoBehaviour
     [SerializeField] private string mainMenuScene;
     [SerializeField] private string officeScene;
     [SerializeField] private string room1Scene;
+    [SerializeField] private string resultScene;
+    
 
     [Header("Transition Settings")]
     [SerializeField] private float loadingDelay = 0.2f;
@@ -40,6 +42,7 @@ public class SceneController : MonoBehaviour
             case SceneData.MainMenu: return mainMenuScene;
             case SceneData.Office: return officeScene;
             case SceneData.Room: return room1Scene;
+            case SceneData.Result: return resultScene;
             default: return mainMenuScene;
         }
     }

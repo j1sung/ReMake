@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotParent: {fileID: 7988547113557331997}
-  QuadNum: 4
+  parentSlotScript: {fileID: 0}
 --- !u!1 &2935054154603443836
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotParent: {fileID: 7988547113557331997}
-  QuadNum: 1
+  parentSlotScript: {fileID: 0}
 --- !u!1 &3584659364391227382
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotParent: {fileID: 7988547113557331997}
-  QuadNum: 2
+  parentSlotScript: {fileID: 0}
 --- !u!1 &5726299604970570426
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotParent: {fileID: 7988547113557331997}
-  QuadNum: 3
+  parentSlotScript: {fileID: 0}
 --- !u!1 &7988547113557331997
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1534783662646043209, guid: 88770402db2933844835aafb8b011358, type: 3}
+  m_Sprite: {fileID: -5350868732594433482, guid: ffc7a1d20c530f542b0ecd1c809a56b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -456,9 +456,9 @@ MonoBehaviour:
   gridPos: {x: 0, y: 0}
   text: {fileID: 4407791281241547250}
   storedItem: {fileID: 0}
-  storedItemSize: {x: 0, y: 0}
   storedItemStartPos: {x: 0, y: 0}
   isOccupied: 0
+  isFirst: 0
 --- !u!1 &8018052024169763061
 GameObject:
   m_ObjectHideFlags: 0

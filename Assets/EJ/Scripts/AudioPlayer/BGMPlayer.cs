@@ -16,7 +16,6 @@ public class BGMPlayer : MonoBehaviour
         source = GetComponent<AudioSource>();
         if (source == null) source = gameObject.AddComponent<AudioSource>();
         source.loop = true;
-        source.playOnAwake = false;   // 시작하자마자 재생 방지
     }
 
     /// <summary>새로운 BGM으로 자연스럽게 전환 (페이드 아웃 → 클립 교체 → 페이드 인)</summary>
