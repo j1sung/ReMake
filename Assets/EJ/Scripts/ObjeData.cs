@@ -4,7 +4,9 @@ using UnityEngine;
 public class ObjeData : ScriptableObject
 {
     public string objeName; // 오브제 이름
+    public bool canInteract;
     [TextArea] public string objeDescription; // 오브제 설명
+    [TextArea] public string secretDescription;
 
     public string itemType; // 오브제 종류(로직용)
     public string itemName; // 아이템 이름(로직용)
@@ -21,6 +23,7 @@ public class ObjeData : ScriptableObject
     public int pivotIndex; // shapeCells 배열에서의 피벗 인덱스(캐시)
 
     public Sprite iconImage;
+    public Sprite secretImage;
     public Sprite puzzleImage;
     public Sprite endingImage;
 }
