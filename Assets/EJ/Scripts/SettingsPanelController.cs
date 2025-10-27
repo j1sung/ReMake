@@ -61,9 +61,14 @@ public class SettingsPanelController : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.MoveScene(SceneData.MainMenu);                      
+            GameManager.Instance.MoveScene(SceneData.MainMenu);
         }
         // UI 전체가 아니라 '패널만' 닫음
         if (settingPanel) Instance.settingPanel.SetActive(false);
+    }
+    
+    public void OnclickAlbum()
+    {
+        
     }
 }

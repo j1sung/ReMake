@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/EJ/Scenes/MainTitle_test.unity
     guid: 8fb2c0bc14cc78e42aa14b38870be8b4
   - enabled: 1
-    path: Assets/EJ/Scenes/Office_f.unity
+    path: Assets/EJ/Scenes/Office_f1.unity
     guid: 6a112eb810facee41961707ab46541ff
   - enabled: 1
     path: Assets/EJ/Scenes/Room1_test.unity

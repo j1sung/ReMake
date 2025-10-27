@@ -7,12 +7,12 @@ public class ClickNextScene : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (sceneName == "MainTitle_f")
-            GameManager.instance.GoMain();
+            GameManager.Instance.MoveScene(SceneData.MainMenu);
         else if (sceneName == "Office_f")
-            GameManager.instance.GoOffice();
+            GameManager.Instance.MoveScene(SceneData.Office);
         else if (sceneName == "Room1_f")
-            GameManager.instance.GoRoom();
+            GameManager.Instance.MoveScene(SceneData.Room);
         else if (sceneName == "JS_Test")
-            GameManager.instance.GoResult();
+            GameManager.Instance.MoveScene(SceneData.Result);
     }
 }

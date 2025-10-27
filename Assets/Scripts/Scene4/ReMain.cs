@@ -5,10 +5,10 @@ public class ReMain : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Á¤º¸ ÃÊ±âÈ­ ¼¼ÆÃ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½
         // ...
         // ...
 
-        GameManager.instance.GoMain();
+        GameManager.Instance.MoveScene(SceneData.MainMenu);
     }
 }

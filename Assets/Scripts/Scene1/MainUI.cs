@@ -8,7 +8,7 @@ public class MainUI : MonoBehaviour
 
     public void StartButton()
     {
-        GameManager.instance.GoOffice();
+        GameManager.Instance.MoveScene(SceneData.Office);
     }
     public void AlbumButton()
     {
