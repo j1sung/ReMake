@@ -12,11 +12,20 @@ public class GameManager : MonoBehaviour
     public GameState CurrentState { get; private set; }
 
     void Awake() {
-        if (Instance == null) {
+        if (Instance == null)
+        {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-        } else {
+        }
+        else
+        {
             Destroy(gameObject);
+        }
+        CurrentScene = SceneData.MainMenu;
+
+        if (BGMPlayer.Instance != null)
+        {
+            BGMPlayer.Instance.GetComponent<SceneBGMRouter>()?.ApplyBGM(CurrentScene);
         }
     }
 
@@ -24,6 +33,11 @@ public class GameManager : MonoBehaviour
     {
         CurrentScene = next;
         sceneController.LoadScene(next);
+
+        if (BGMPlayer.Instance != null)
+        {
+            BGMPlayer.Instance.GetComponent<SceneBGMRouter>()?.ApplyBGM(next);
+        }
     }
 
     public void SetGameState(GameState nextState)

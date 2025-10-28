@@ -21,7 +21,6 @@ public class BGMPlayer : MonoBehaviour
     /// <summary>새로운 BGM으로 자연스럽게 전환 (페이드 아웃 → 클립 교체 → 페이드 인)</summary>
     public void PlayBGM(AudioClip clip, float fadeSeconds = 0.5f)
     {
-        if (clip == null) return;
         if (source.clip == clip && source.isPlaying) return;
 
         if (fadeRoutine != null) StopCoroutine(fadeRoutine);
