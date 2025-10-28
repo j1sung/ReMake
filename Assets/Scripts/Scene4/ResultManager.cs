@@ -29,6 +29,8 @@ public class ResultManager : MonoBehaviour
 {
     public static ResultManager instance { get; private set; }
 
+    public GameObject albumObject; // 앨범 캔버스 넣기
+
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
     public int CurrentStageInfo => currentStageInfo; // GameManager으로 나중에 옮김
@@ -41,20 +43,72 @@ public class ResultManager : MonoBehaviour
     // 스테이지별 결과 저장(필수)
     [Header("Ending Result")]
     public List<EndingOutcome> endingOutcomes = new List<EndingOutcome>(); // 나중에는 스크립터블 오브젝트나 다른 데이터 저장소로 옮겨야될듯
-    
+
+    [Header("All Quest List")]
+    public List<QuestData> allQuestList = new List<QuestData>();
+
     // 업적 달성 저장(필수)
+    [Header("Unlocked Quest Result")]
+    private HashSet<string> unlockedQuests = new HashSet<string>(); // 중복 방지용
+    public List<QuestData> unlockedQuestList = new List<QuestData>(); // UI 표시용
 
     private void Awake()
     {
         // 싱글톤 보장
         if (instance != null && instance != this)
         {
+            Destroy(albumObject); // 삭제는 필수! 삭제 순서도 중요!
             Destroy(gameObject);
             return;
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        if(albumObject != null)
+        {
+            DontDestroyOnLoad (albumObject);
+        }
     }
+
+    private void OnEnable()
+    {
+        QuestEventManager.OnEventTriggered += OnGameEvent;
+    }
+
+    private void OnDisable()
+    {
+        QuestEventManager.OnEventTriggered -= OnGameEvent;
+    }
+
+    private void OnGameEvent(string eventName)
+    {
+        Debug.Log($"[ResultManager] 이벤트 수신: {eventName}");
+
+        // 이미 달성된 퀘스트라면 무시
+        if (unlockedQuests.Contains(eventName))
+        {
+            Debug.Log($"[ResultManager] 중복 업적 무시: {eventName}");
+            return;
+        }
+
+        // allQuestList 중에서 triggerName이 같은 퀘스트를 찾는다
+        foreach (var quest in allQuestList)
+        {
+            if (quest.qID == eventName)
+            {
+                // UI용 리스트에 추가
+                unlockedQuestList.Add(quest);
+
+                // 중복 검사용 해시셋에 기록
+                unlockedQuests.Add(eventName);
+
+                Debug.Log($"[ResultManager] 새 업적 달성: {quest.qName}");
+
+                // 효과음 재생
+            }
+        }
+    }
+
 
     // 스테이지 변수값 증가 -> 일단 ResultManager에 넣고 나중에 GameManager에 옮김
     public void SetNextStage()
@@ -121,5 +175,13 @@ public class ResultManager : MonoBehaviour
         }
         defaultOutcome.objeDatas = objes; // 제출 오브제 데이터 저장
         endingOutcomes.Add(defaultOutcome); // 조합이 없으면 기본 엔딩
+    }
+
+    public void UnlockQuest(QuestData quest)
+    {
+        if (quest == null || unlockedQuests.Contains(quest.qID))
+            return;
+        unlockedQuests.Add(quest.qID);
+        unlockedQuestList.Add(quest);
     }
 }

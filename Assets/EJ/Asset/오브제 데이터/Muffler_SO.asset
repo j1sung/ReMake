@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Muffler_SO
   m_EditorClassIdentifier: 
   objeName: "\uB728\uB2E4 \uB9CC \uBAA9\uB3C4\uB9AC"
+  canInteract: 0
   objeDescription: "\uBB34\uCC99 \uD3EC\uADFC\uD55C \uB290\uB08C\uC744 \uC900\uB2E4.\n\uC544\uC9C1
     \uB9C8\uBB34\uB9AC \uC9D3\uC9C0 \uBABB\uD55C \uC0C1\uD0DC\uB85C \uBA48\uCD94\uC5B4
     \uC788\uB2E4.\n"
+  secretDescription: 
   itemType: Muffler
+  itemName: Muffler
   maskRows:
   - 111
   - 100
@@ -29,4 +32,6 @@ MonoBehaviour:
   - {x: 0, y: 0}
   pivotIndex: 0
   iconImage: {fileID: 2004572246924559504, guid: 8d5a85bb1399c0a4d9ccc22304f5fabb, type: 3}
+  secretImage: {fileID: 0}
   puzzleImage: {fileID: 5543689734127136, guid: c6171dd5271c8b549961cfe5e0f5f51f, type: 3}
+  endingImage: {fileID: -706646488047359522, guid: a5b368b68387abe44bd92789e90f7a77, type: 3}

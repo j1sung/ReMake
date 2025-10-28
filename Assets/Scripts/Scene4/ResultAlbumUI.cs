@@ -31,7 +31,7 @@ public class ResultAlbumUI : MonoBehaviour
         
         if (index < 0) return;
 
-        // endingOutcomes 값 null 체크
+        // endingOutcomes 갯수 체크
         if (ResultManager.instance.endingOutcomes.Count == 0) return;
 
         // === 여기서 부터 채우기 체크 ===
@@ -52,6 +52,11 @@ public class ResultAlbumUI : MonoBehaviour
             List<ObjeData> resultIcons = result.endingOutcomes[index-1].objeDatas;
             GameObject icon;
 
+            /* 
+             나중에 스테이지 늘릴거면 결과는 존재하는데 안채워진 부분 있으면 한번에 다 채우는 식으로 바꿔야함
+             지금은 앨범을 엔딩보고 무조건 한번씩 들어가서 저장하는거로 생각했는데 만약 2번 엔딩을 연속으로 보고 
+             앨범으로 돌아오면 중간꺼는 비어있을거임 
+            */
             for (int i = 0; i < result.endingOutcomes[index-1].objeDatas.Count; i++)
             {
                 stageAlbums[index-1].albumImage[i].sprite = result.endingOutcomes[index - 1].objeDatas[i].endingImage;

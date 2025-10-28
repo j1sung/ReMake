@@ -4,9 +4,11 @@ using UnityEngine;
 public class NextAuto : MonoBehaviour
 {
     [SerializeField] private GameObject obje;
+    [SerializeField] private float waitTime;
+
     private void OnEnable()
     {
-        Invoke("Next", 1.5f);
+        Invoke("Next", waitTime);
     }
 
     void Next()

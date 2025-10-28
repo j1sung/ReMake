@@ -19,6 +19,7 @@ MonoBehaviour:
     \uB2A5\uC219\uD588\uB358\uAC00."
   secretDescription: 
   itemType: Sewingkit
+  itemName: Sewingkit
   maskRows:
   - 11
   - 10
@@ -30,4 +31,6 @@ MonoBehaviour:
   - {x: 0, y: 0}
   pivotIndex: 0
   iconImage: {fileID: 8617452276895212501, guid: 63870a4315a2f1047a531d70e953fc3f, type: 3}
+  secretImage: {fileID: 0}
   puzzleImage: {fileID: 726203034012886289, guid: 456cc22b7c0283d4884e005a3eb0c26a, type: 3}
+  endingImage: {fileID: -4468229096421030941, guid: c45163638660ec0469c1076076fc7943, type: 3}
