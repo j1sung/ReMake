@@ -30,7 +30,7 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: 0, y: 0}
   pivotIndex: 0
-  iconImage: {fileID: 6278885438176006884, guid: a7557c4a920abf84cb43c9deb8aa497b, type: 3}
+  iconImage: {fileID: 8081542081127815779, guid: f2f9e511be3974c458903c8bfe58fc20, type: 3}
   secretImage: {fileID: 9101351735047190717, guid: 1b235a832b1cc5242af2045eca56f97d, type: 3}
   puzzleImage: {fileID: -8916237176930514227, guid: 5275bc768b56a4e47bf6ae64d103c25f, type: 3}
   endingImage: {fileID: 9035735737415496756, guid: 4685b55d73fb6cc4ba2be0449c95c4b8, type: 3}
