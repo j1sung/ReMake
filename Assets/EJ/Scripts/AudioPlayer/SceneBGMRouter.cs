@@ -22,34 +22,30 @@ public class SceneBGMRouter : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void Start()
-    {
-        // 현재 씬에도 즉시 반영 (플레이 버튼으로 시작할 때)
-        ApplyFor(SceneManager.GetActiveScene().name);
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ApplyFor(scene.name);
+        ApplyBGM(GameManager.Instance.CurrentScene);
     }
 
-    private void ApplyFor(string sceneName)
+    public void ApplyBGM(SceneData sceneData)
     {
-        if (BGMPlayer.Instance == null) return;
-
-        switch (sceneName)
+        switch (sceneData)
         {
-            case "MainTitle_test":
+            case SceneData.MainMenu:
                 BGMPlayer.Instance.PlayBGM(titleBGM, fadeSeconds);
                 break;
-            case "Office_f":
+
+            case SceneData.Office:
                 BGMPlayer.Instance.PlayBGM(officeBGM, fadeSeconds);
                 break;
-            case "Room1_test":
+
+            case SceneData.Room:
                 BGMPlayer.Instance.PlayBGM(roomBGM, fadeSeconds);
                 break;
+
+            /* case SceneData.Result:
+                break; */
             default:
-                // 기본값이 필요없다면 정지
                 BGMPlayer.Instance.StopBGM(fadeSeconds);
                 break;
         }
