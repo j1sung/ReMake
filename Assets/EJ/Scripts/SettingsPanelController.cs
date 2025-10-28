@@ -10,6 +10,9 @@ public class SettingsPanelController : MonoBehaviour
     [SerializeField] private Slider bgmSlider;        // 0~1, wholeNumbers=false
     [SerializeField] private Slider sfxSlider;        // 0~1, wholeNumbers=false
 
+    [SerializeField] private GameObject album;
+    [SerializeField] private GameObject albumBook;
+
     float startBgm, startSfx; // 되돌리기용 원래 값 저장
 
     void Awake()
@@ -69,6 +72,7 @@ public class SettingsPanelController : MonoBehaviour
     
     public void OnclickAlbum()
     {
-        
+        album.SetActive(true);
+        albumBook.SetActive(true);
     }
 }
