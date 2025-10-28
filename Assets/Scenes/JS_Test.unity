@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 464954822}
   - component: {fileID: 464954824}
   - component: {fileID: 464954823}
+  - component: {fileID: 464954825}
   m_Layer: 5
   m_Name: Stamp
   m_TagString: Untagged
@@ -301,6 +302,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464954821}
   m_CullTransparentMesh: 1
+--- !u!114 &464954825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464954821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f72e17debf01f447b4f3681ddbf4ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &611269887
 GameObject:
   m_ObjectHideFlags: 0
