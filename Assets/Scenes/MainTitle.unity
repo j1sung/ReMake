@@ -214,7 +214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  m_Sprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1040,12 +1040,36 @@ PrefabInstance:
       objectReference: {fileID: 1125538296}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: allQuestList.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: 'allQuestList.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: a396575783b102449a1e8c826579460e, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d468ba41e5ecd54eb581795b61fcbc5, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9761df2ad3ffafd4e90c6c64ea42517e, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bc97c415096e3e41aa06089cec8a04b, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 506e65d3820ea1f4888e7ee98c90ea76, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 307cd203d9d0584489352ca7c2c2d055, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bc97c415096e3e41aa06089cec8a04b, type: 2}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: endingTable.Array.data[0].outcome.objeDatas.Array.size
       value: 0
@@ -1249,7 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1810,7 +1834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  m_Sprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2437,7 +2461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  m_Sprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3006,7 +3030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3210,7 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3284,7 +3308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  m_Sprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3534,7 +3558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.84313726, g: 0.84313726, b: 0.84313726, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3913,7 +3937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  m_Sprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4209,23 +4233,23 @@ MonoBehaviour:
     unlockImage: {fileID: 900569691}
     textName: {fileID: 1382025647}
     textDescription: {fileID: 312714485}
-  - questID: s
+  - questID: ending1
     unlockImage: {fileID: 1507831150}
     textName: {fileID: 2118799417}
     textDescription: {fileID: 227049488}
-  - questID: s
+  - questID: switchedUI3Times
     unlockImage: {fileID: 1070563799}
     textName: {fileID: 1035686892}
     textDescription: {fileID: 1804344039}
-  - questID: s
+  - questID: full
     unlockImage: {fileID: 1349974941}
     textName: {fileID: 1961270440}
     textDescription: {fileID: 1484895339}
-  - questID: s
+  - questID: collectAll
     unlockImage: {fileID: 95699140}
     textName: {fileID: 1177989370}
     textDescription: {fileID: 569742129}
-  - questID: s
+  - questID: noRotation
     unlockImage: {fileID: 2108685101}
     textName: {fileID: 697298381}
     textDescription: {fileID: 1779023153}
@@ -5782,7 +5806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7601441644613223903, guid: 9a558bafe860d61498041ef2bcae6ebb, type: 3}
+  m_Sprite: {fileID: -5776059715783748637, guid: 60cef4f859c54b048b7c90a28208faa5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5831,19 +5855,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: room1Scene
-      value: Room1_f
+      value: Room
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: officeScene
-      value: Office_f
+      value: Office
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: resultScene
-      value: JS_Test
+      value: Result
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: mainMenuScene
-      value: MainTitle_f
+      value: MainTitle
       objectReference: {fileID: 0}
     - target: {fileID: 8295549457568006521, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6298,7 +6322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 638998322980869661, guid: e4f252287e5cbb74484b3ad99343a327, type: 3}
+  m_Sprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
