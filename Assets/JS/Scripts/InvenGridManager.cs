@@ -36,6 +36,8 @@ public class InvenGridManager : MonoBehaviour {
     private readonly List<Vector2Int> lastPreviewCells = new(); // 드래그 중인 퍼즐
     private readonly List<Vector2Int> lastOverlapCells = new(); // 겹치는 퍼즐
 
+    [SerializeField] private bool hasRotated = false; // 퍼즐 회전 여부
+
     private void Awake()
     {
         if(canvas == null) canvas = GetComponentInParent<Canvas>();
@@ -56,6 +58,8 @@ public class InvenGridManager : MonoBehaviour {
         // 드래그 중 우클릭 회전
         if(ItemScript.selectedItem != null && Input.GetMouseButtonDown(1))
         {
+            hasRotated = true; // 퍼즐 회전함 true
+
             var isComp = ItemScript.selectedItem.GetComponent<ItemScript>();
             if(isComp != null)
             {
@@ -525,7 +529,15 @@ public class InvenGridManager : MonoBehaviour {
             }
         }
         // 꽉 채웠는지 판별
-        if(count == gridSize.x * gridSize.y) isFull = true;
+        if(count == gridSize.x * gridSize.y)
+        {
+            isFull = true;
+            QuestEventManager.TriggerEvent("full");
+        }
+
+        // 회전 안했다면 업적 달성
+        if (!hasRotated)
+            QuestEventManager.TriggerEvent("noRotation");
 
         // 결과로 보냄
         ResultManager.instance.SetResults(new List<ObjeData>(set), isFull);

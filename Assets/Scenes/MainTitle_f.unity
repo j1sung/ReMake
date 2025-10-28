@@ -1040,12 +1040,36 @@ PrefabInstance:
       objectReference: {fileID: 1125538296}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: allQuestList.Array.size
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: 'allQuestList.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: a396575783b102449a1e8c826579460e, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d468ba41e5ecd54eb581795b61fcbc5, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9761df2ad3ffafd4e90c6c64ea42517e, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bc97c415096e3e41aa06089cec8a04b, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 506e65d3820ea1f4888e7ee98c90ea76, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 307cd203d9d0584489352ca7c2c2d055, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'allQuestList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bc97c415096e3e41aa06089cec8a04b, type: 2}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: endingTable.Array.data[0].outcome.objeDatas.Array.size
       value: 0
@@ -4209,23 +4233,23 @@ MonoBehaviour:
     unlockImage: {fileID: 900569691}
     textName: {fileID: 1382025647}
     textDescription: {fileID: 312714485}
-  - questID: s
+  - questID: ending1
     unlockImage: {fileID: 1507831150}
     textName: {fileID: 2118799417}
     textDescription: {fileID: 227049488}
-  - questID: s
+  - questID: switchedUI3Times
     unlockImage: {fileID: 1070563799}
     textName: {fileID: 1035686892}
     textDescription: {fileID: 1804344039}
-  - questID: s
+  - questID: full
     unlockImage: {fileID: 1349974941}
     textName: {fileID: 1961270440}
     textDescription: {fileID: 1484895339}
-  - questID: s
+  - questID: collectAll
     unlockImage: {fileID: 95699140}
     textName: {fileID: 1177989370}
     textDescription: {fileID: 569742129}
-  - questID: s
+  - questID: noRotation
     unlockImage: {fileID: 2108685101}
     textName: {fileID: 697298381}
     textDescription: {fileID: 1779023153}
