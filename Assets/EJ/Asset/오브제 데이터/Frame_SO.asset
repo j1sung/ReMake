@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uACFC\uAC70\uC758 \uC0AC\uC9C4\uB4E4"
   canInteract: 0
-  objeDescription: "\uCD94\uC5B5\uB4E4\uC774 \uB2F4\uAE34 \uC0AC\uC9C4\uC774\uB2E4.
-    \n\uD669\uC815\uC219\uC528\uC758 \uC99D\uBA85 \uC0AC\uC9C4, \uADF8\uB9AC\uACE0
-    \uB204\uAD70\uAC00\uC640 \uD568\uAED8 \uCC0D\uC740 \uC0AC\uC9C4\uB4E4\uC774\uB2E4.\n\uC815\uD655\uD55C
-    \uC5BC\uAD74 \uC2DD\uBCC4\uC774 \uC5B4\uB835\uC9C0\uB9CC \uC544\uB9C8\uB3C4 \uB538\uC778
-    \uAC83 \uAC19\uB2E4."
+  objeDescription: "\uCD94\uC5B5\uB4E4\uC774 \uB2F4\uAE34 \uC0AC\uC9C4\uC774\uB2E4. 
+    \uD669\uC815\uC219\uC528\uC758 \uC99D\uBA85 \uC0AC\uC9C4, \uADF8\uB9AC\uACE0
+    \uB204\uAD70\uAC00\uC640 \uD568\uAED8 \uCC0D\uC740 \uC0AC\uC9C4\uB4E4\uC774\uB2E4.
+    \uC815\uD655\uD55C \uC5BC\uAD74 \uC2DD\uBCC4\uC774 \uC5B4\uB835\uC9C0\uB9CC \uC544\uB9C8\uB3C4
+    \uB538\uC778 \uAC83 \uAC19\uB2E4."
   secretDescription: 
   itemType: Frame
   itemName: Photo
@@ -33,7 +33,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
   pivotIndex: 0
-  iconImage: {fileID: 1198799012466820963, guid: a4677b4d974645f4692a132b57e88df4, type: 3}
+  iconImage: {fileID: 2456543691494370634, guid: 770a94a8c0022e345a8ce9ae1eccfcc2, type: 3}
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 2456543691494370634, guid: 770a94a8c0022e345a8ce9ae1eccfcc2, type: 3}
   endingImage: {fileID: -5390874941454365636, guid: 42e7213caced38043ad146a5ea32c81d, type: 3}

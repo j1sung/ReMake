@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 92d339babcbf31d41a7d51119f815fc9
+guid: 1b235a832b1cc5242af2045eca56f97d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4735393958759327367
-    second: stage1_1_0
+      213: 9101351735047190717
+    second: Mails_after_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stage1_0
+      name: Mails_after_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1920
-        height: 1080
+        width: 210
+        height: 396
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9799e90a840884eb0800000000000000
-      internalID: -4735393958759327367
+      spriteID: db87f579e2f7e4e70800000000000000
+      internalID: 9101351735047190717
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3b2e6f1bd05ce6941896857f648f2e9c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stage1_0: -4735393958759327367
+      Mails_after_0: 9101351735047190717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
