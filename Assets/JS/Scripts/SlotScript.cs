@@ -16,7 +16,9 @@ public class SlotScript : MonoBehaviour
 
     private void Start()
     {
+        /*
         if(text != null)
             text.text = gridPos.x + "," + gridPos.y;
+        */
     }
 }

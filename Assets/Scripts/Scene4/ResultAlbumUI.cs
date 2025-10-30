@@ -60,6 +60,7 @@ public class ResultAlbumUI : MonoBehaviour
             for (int i = 0; i < result.endingOutcomes[index-1].objeDatas.Count; i++)
             {
                 stageAlbums[index-1].albumImage[i].sprite = result.endingOutcomes[index - 1].objeDatas[i].endingImage;
+                stageAlbums[index-1].albumImage[i].color = Color.white;
 
                 icon = Instantiate(IconPrefab); // icon 积己
                 icon.transform.SetParent(stageAlbums[index - 1].iconRoot[i], false); // icon 困摹 汲沥
@@ -81,7 +82,8 @@ public class ResultAlbumUI : MonoBehaviour
         for (int i=0; i < result.endingOutcomes[index].objeDatas.Count; i++)
         {
             stageAlbums[index].albumImage[i].sprite = result.endingOutcomes[index].objeDatas[i].endingImage;
-            
+            stageAlbums[index].albumImage[i].color = Color.white;
+
             yield return new WaitForSeconds(0.5f);
 
             icon = Instantiate(IconPrefab); // icon 积己
