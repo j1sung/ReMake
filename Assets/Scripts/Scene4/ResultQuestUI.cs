@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 [System.Serializable]
 public class QuestAlbum
 {
@@ -18,6 +19,9 @@ public class ResultQuestUI : MonoBehaviour
     public GameObject album; // 상위 앨범 오브젝트
     public GameObject resultUI; // 결과 앨범 UI
     public Sprite unlockSprite; // unlock 이미지
+
+    public AudioClip pageNext;
+    public AudioClip closeBook;
 
     public List<QuestAlbum> questAlbums;
 
@@ -46,12 +50,14 @@ public class ResultQuestUI : MonoBehaviour
         questResults.Clear();
     }
     public void CloseButton()
-    {
+    {   
+        SFXPlayer.Instance.PlaySFX(closeBook);
         album.SetActive(false);
         gameObject.SetActive(false);
     }
     public void ResultButton()
     {
+        SFXPlayer.Instance.PlaySFX(pageNext);
         resultUI.SetActive(true);
         gameObject.SetActive(false);
     }

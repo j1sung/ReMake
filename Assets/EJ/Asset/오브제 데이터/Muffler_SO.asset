@@ -20,6 +20,7 @@ MonoBehaviour:
   secretDescription: 
   itemType: Muffler
   itemName: Muffler
+  objeSound: {fileID: 8300000, guid: 24f53127355b1074cb3f937a5b7da535, type: 3}
   maskRows:
   - 111
   - 100

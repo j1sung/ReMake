@@ -20,6 +20,7 @@ MonoBehaviour:
   secretDescription: 
   itemType: Sewingkit
   itemName: Sewingkit
+  objeSound: {fileID: 8300000, guid: 6a3ba9c789a81404aa382c49f2d9b3b3, type: 3}
   maskRows:
   - 11
   - 10

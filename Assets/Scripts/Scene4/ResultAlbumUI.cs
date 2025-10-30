@@ -22,6 +22,9 @@ public class ResultAlbumUI : MonoBehaviour
     public List<StageAlbum> stageAlbums; // 채우는 스테이지 앨범 리스트
     public GameObject IconPrefab; // 제출 아이콘 프리펩
 
+    public AudioClip pageNext;
+    public AudioClip closeBook;
+
     int index;
 
     void OnEnable()
@@ -96,13 +99,15 @@ public class ResultAlbumUI : MonoBehaviour
     }
 
     public void CloseButton()
-    {
+    {   
+        SFXPlayer.Instance.PlaySFX(closeBook);
         album.SetActive(false);
         gameObject.SetActive(false);
     }
 
     public void QuestButton()
     {
+        SFXPlayer.Instance.PlaySFX(pageNext);
         questUI.SetActive(true);
         gameObject.SetActive(false);
     }

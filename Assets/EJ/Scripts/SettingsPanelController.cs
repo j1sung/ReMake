@@ -13,16 +13,17 @@ public class SettingsPanelController : MonoBehaviour
     [SerializeField] private GameObject album;
     [SerializeField] private GameObject albumBook;
 
+    [Header("Audios")]
+    [SerializeField] private AudioClip buttonClickClip;  // 버튼 클릭 소리
+    [SerializeField] private AudioClip x_ButtonClickClip;  // X 버튼 클릭 소리
+
     float startBgm, startSfx; // 되돌리기용 원래 값 저장
 
     void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        // 처음에는 패널 닫아둠(원하면 열어둬도 됨)
-        if (settingPanel) Instance.settingPanel.SetActive(false);
     }
 
 
@@ -30,7 +31,8 @@ public class SettingsPanelController : MonoBehaviour
     public void OpenPanel()
     {
         if (!settingPanel) return;
-
+        
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
         // 현재 값 불러와 슬라이더 갱신 + 되돌리기 백업
         startBgm = AudioManager.Instance.CurrentBgm;
         startSfx = AudioManager.Instance.CurrentSfx;
@@ -47,7 +49,8 @@ public class SettingsPanelController : MonoBehaviour
 
     // 확인 버튼 → 현재 볼륨 저장 후 패널만 닫기
     public void OnClickConfirm()
-    {
+    {   
+        SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
         AudioManager.Instance.SaveVolumes();
         Instance.settingPanel.SetActive(false);
     }

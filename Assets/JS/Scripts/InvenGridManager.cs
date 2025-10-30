@@ -249,10 +249,11 @@ public class InvenGridManager : MonoBehaviour {
 
     // 저장/회수/스왑 (셀 기반)
     private void StoreItem(GameObject item)
-    {
+    {   
         var isComp = item.GetComponent<ItemScript>();
         var it = isComp.item;
 
+        SFXPlayer.Instance.PlaySFX(it.objeSound); // 퍼즐 놓을때 오브제 소리 재생
         // 회전 적용된 셀(미리보기/점유용)
         var rotated = GetRotatedCells(item); // currentRot 반영
 
