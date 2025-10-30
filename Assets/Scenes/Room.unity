@@ -5758,7 +5758,7 @@ MonoBehaviour:
   overlayTex: {fileID: 2800000, guid: 2d733cbfcb6b7b544b8a9e5d7ca35c80, type: 3}
   overlayTiling: {x: 1, y: 1}
   overlayOffset: {x: -0.0016, y: 0}
-  overlayIntensity: 1.2155087
+  overlayIntensity: 1.6322725
   material: {fileID: 2100000, guid: 944c84a751b4fc64f82e87c463dec619, type: 2}
 --- !u!114 &8177384081605396917
 MonoBehaviour:

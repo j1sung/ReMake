@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 687c2cabcef28ba46b11f0f153d70c6c
+guid: 6bac17587b180f945a2713ce958d214c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3107130776479742103
-    second: "\uC124\uC815\uCC3D x\uBC84\uD2BC_pressed_0"
+      213: 5736976115065747506
+    second: MainLogo_0
+  - first:
+      213: -8644625107739947011
+    second: MainLogo_1
+  - first:
+      213: 2603989642432234522
+    second: MainLogo_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,23 +106,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Setting_X(pressed)_B_0
+      name: MainLogo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 42
-        height: 48
+        x: 80
+        y: 660
+        width: 860
+        height: 292
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 967cd35650141e4d0800000000000000
-      internalID: -3107130776479742103
+      spriteID: 238f46f7165dd9f40800000000000000
+      internalID: 5736976115065747506
       vertices: []
       indices: 
       edges: []
@@ -125,7 +131,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 02ec7a385d00b6748946fea9dcb74943
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +141,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Setting_X(pressed)_B_0: -3107130776479742103
+      MainLogo_0: 5736976115065747506
+      MainLogo_1: -8644625107739947011
+      MainLogo_2: 2603989642432234522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
