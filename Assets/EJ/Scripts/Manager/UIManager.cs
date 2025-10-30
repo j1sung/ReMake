@@ -27,6 +27,10 @@ public class UIManager : MonoBehaviour
     private ClickObje currentObje; // 현재 선택중인 오브제 정보
 
     private bool isConfirmStep = false; // 제출할지 한번 확인 변수
+
+    [Header("Audios")]
+    public AudioClip buttonClickClip;  // 버튼 클릭 소리
+    public AudioClip x_ButtonClickClip;  // X 버튼 클릭 소리
     
     public UIState State { get; private set; } = UIState.Room;
 
