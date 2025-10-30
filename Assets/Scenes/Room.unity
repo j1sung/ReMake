@@ -636,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2612599f8ba47f94d93f7fd833e4d1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overlayEffect: {fileID: 8177384081605396916}
   bg: {fileID: 439982053}
   spaceBg: {fileID: -8473909123075564592, guid: 854e311d3339bd24386c93489b3e03cb, type: 3}
   puzzleBg: {fileID: -1841486585054308127, guid: c381575bd9b4e9843a44f3447ee585cd, type: 3}
@@ -745,7 +746,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1640284751}
   m_HandleRect: {fileID: 1640284749}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3914,6 +3915,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2900979106391738071}
   - component: {fileID: 6041199921024393832}
+  - component: {fileID: 8177384081605396916}
+  - component: {fileID: 8177384081605396917}
   - component: {fileID: 8177384081605396915}
   m_Layer: 0
   m_Name: Main Camera
@@ -5544,6 +5547,44 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4231066765922331433}
   m_Enabled: 1
+--- !u!114 &8177384081605396916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231066765922331433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d147be5c0591a624f94b3963f9639b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplyTex: {fileID: 2800000, guid: 574550b4d9571d249941c944a2114736, type: 3}
+  multiplyTiling: {x: 1, y: 1}
+  multiplyOffset: {x: -0.0016, y: 0}
+  multiplyIntensity: 1
+  overlayTex: {fileID: 2800000, guid: 2d733cbfcb6b7b544b8a9e5d7ca35c80, type: 3}
+  overlayTiling: {x: 1, y: 1}
+  overlayOffset: {x: -0.0016, y: 0}
+  overlayIntensity: 1.4033623
+  material: {fileID: 2100000, guid: 944c84a751b4fc64f82e87c463dec619, type: 2}
+--- !u!114 &8177384081605396917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231066765922331433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682e674b811961346911ceae2072bb21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 8177384081605396916}
+  multiplyMax: 1
+  overlayMax: 1.71
+  minFactor: 0.5
+  speed: 0.76
 --- !u!4 &8285369771995528461
 Transform:
   m_ObjectHideFlags: 0
