@@ -17,7 +17,7 @@ MonoBehaviour:
   objeDescription: "\uC81C\uBC95 \uBE44\uC2F8\uBCF4\uC774\uB294 \uB9BD\uC2A4\uD2F1\uC774\uB2E4."
   secretDescription: "\uD55C \uBC88\uC774\uB77C\uB3C4 \uC0AC\uC6A9\uC740 \uD588\uC744\uAE4C?\n\uC0AC\uC6A9\uAE30\uD55C\uC774
     \uC9C0\uB09C\uC9C0 \uAF64 \uB418\uC5C8\uB294\uB370 \uC0C8 \uAC83 \uAC19\uB2E4."
-  itemType: Lipstick
+  itemType: attachment
   itemName: Lipstick
   objeSound: {fileID: 8300000, guid: 0b146fd39c5d48b43abb14ceeadd94ca, type: 3}
   maskRows:

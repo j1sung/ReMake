@@ -1074,7 +1074,7 @@ PrefabInstance:
       value: "\u201C\uD568\uAED8\uD55C \uC21C\uAC04\uB4E4\uC774 \uC2A4\uCCD0 \uC9C0\uB098\uAC00\uB294
         \uAC78 \uB290\uAF08\uC5B4.\n\uC6B0\uB9AC\uAC00 \uB098\uB208 \uB0A0\uB4E4\uC5D0
         \uAE30\uC068\uB3C4 \uC2AC\uD514\uB3C4 \uACE0\uB974\uAC8C \uC788\uB2E4 \uC0DD\uAC01\uD558\uB2C8,
-        \uC870\uAE08\uC740 \uC548\uC2EC\uC774 \uB41C\uB2E4.\u201D"
+        \n\uC870\uAE08\uC740 \uC548\uC2EC\uC774 \uB41C\uB2E4.\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: endingTable.Array.data[2].outcome.comment
@@ -6600,3 +6600,4 @@ SceneRoots:
   - {fileID: 1960197707}
   - {fileID: 2034487281}
   - {fileID: 351043515}
+  - {fileID: 1076772265}
