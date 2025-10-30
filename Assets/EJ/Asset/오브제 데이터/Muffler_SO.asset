@@ -18,7 +18,7 @@ MonoBehaviour:
     \uB9C8\uBB34\uB9AC \uC9D3\uC9C0 \uBABB\uD55C \uC0C1\uD0DC\uB85C \uBA48\uCD94\uC5B4
     \uC788\uB2E4.\n"
   secretDescription: 
-  itemType: Muffler
+  itemType: present
   itemName: Muffler
   objeSound: {fileID: 8300000, guid: 24f53127355b1074cb3f937a5b7da535, type: 3}
   maskRows:

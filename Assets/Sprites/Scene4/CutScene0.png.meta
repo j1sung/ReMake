@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c3aae54c25a375c4f976d086325aa9d4
+guid: 7efba5daf1727b446b5fcaec6fe835c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8698800345123575220
-    second: CutScene1_0
+      213: -1213360127841717241
+    second: CutScene0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CutScene1_0
+      name: CutScene0_0
       rect:
         serializedVersion: 2
         x: 29
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b5d22f53d858b870800000000000000
-      internalID: 8698800345123575220
+      spriteID: 7043f537467492fe0800000000000000
+      internalID: -1213360127841717241
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CutScene1_0: 8698800345123575220
+      CutScene0_0: -1213360127841717241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
