@@ -6,6 +6,8 @@ public enum UIState { Room, Bag, Settings }
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private ColorOverlayEffect overlayEffect;
+
     [SerializeField] GameObject bg;
     [SerializeField] Sprite spaceBg;
     [SerializeField] Sprite puzzleBg;
@@ -115,9 +117,11 @@ public class UIManager : MonoBehaviour
         bool isRoom = next == UIState.Room;
         bool isBag  = next == UIState.Bag;
 
-        roomUI.SetActive(isRoom);
+        roomUI.SetActive(isRoom); // 방 버튼 누르면 열림
         roomAll.SetActive(isRoom);
-        bagUI.SetActive(isBag);
+        bagUI.SetActive(isBag); // 가방 버튼 누르면 열림
+
+        overlayEffect.enabled = isRoom; // 카메라 후처리 On/Off
 
         bg.GetComponent<SpriteRenderer>().sprite = isRoom ? spaceBg : puzzleBg;
 
