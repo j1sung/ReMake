@@ -29,7 +29,7 @@ public class ResultManager : MonoBehaviour
 {
     public static ResultManager instance { get; private set; }
 
-    public GameObject albumObject; // 앨범 캔버스 넣기
+    public GameObject resultCanvas; // 앨범 캔버스 넣기
 
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
@@ -57,16 +57,16 @@ public class ResultManager : MonoBehaviour
         // 싱글톤 보장
         if (instance != null && instance != this)
         {
-            Destroy(albumObject); // 삭제는 필수! 삭제 순서도 중요!
+            Destroy(resultCanvas); // 삭제는 필수! 삭제 순서도 중요!
             Destroy(gameObject);
             return;
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        if(albumObject != null)
+        if(resultCanvas != null)
         {
-            DontDestroyOnLoad (albumObject);
+            DontDestroyOnLoad (resultCanvas);
         }
     }
 
@@ -96,6 +96,9 @@ public class ResultManager : MonoBehaviour
         {
             if (quest.qID == eventName)
             {
+                // 업적 팝업 띄우기
+                GetComponent<QuestPopup>().EnablePopup(quest);
+
                 // UI용 리스트에 추가
                 unlockedQuestList.Add(quest);
 

@@ -15,5 +15,4 @@ MonoBehaviour:
   questType: 0
   qID: freshman
   qName: "\uC2E0\uC785 \uC9C1\uC6D0"
-  qDescription: "\uCCAB \uC758\uB8B0\uB97C \uC811\uC218\uD55C\uB2E4. (\uC0AC\uBB34\uC2E4
-    \uAD6C\uAC04 \uC644\uB8CC)"
+  qDescription: "\uCCAB \uC758\uB8B0\uB97C \uC811\uC218\uD55C\uB2E4."
