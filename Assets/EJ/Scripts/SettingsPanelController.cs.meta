@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: 854d75d2a74544b42be958ad59ad511d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - settingPanel: {instanceID: 0}
+  - bgmSlider: {instanceID: 0}
+  - sfxSlider: {instanceID: 0}
+  - album: {instanceID: 0}
+  - albumBook: {instanceID: 0}
+  - buttonClickClip: {fileID: 8300000, guid: d05789394c3b89f458e5a8d7cf724e75, type: 3}
+  - x_ButtonClickClip: {fileID: 8300000, guid: b234bed7be4b2154881771118031ad8f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

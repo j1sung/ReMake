@@ -29,6 +29,12 @@ public class UIManager : MonoBehaviour
     private ClickObje currentObje; // 현재 선택중인 오브제 정보
 
     private bool isConfirmStep = false; // 제출할지 한번 확인 변수
+
+    [Header("Audios")]
+    public AudioClip buttonClickClip;  // 버튼 클릭 소리
+    public AudioClip x_ButtonClickClip;  // X 버튼 클릭 소리
+    public AudioClip openBag;
+    public AudioClip closeBag;
     
     public UIState State { get; private set; } = UIState.Room;
 
@@ -36,11 +42,18 @@ public class UIManager : MonoBehaviour
 
     // ======공간 이동 Room/Bag=======
     // Bag 열기
-    public void OnClickOpenBag()   => SetState(UIState.Bag);
+    public void OnClickOpenBag()
+    {   
+        SFXPlayer.Instance.PlaySFX(openBag);
+        SetState(UIState.Bag);
+    }
 
     // Bag 닫기
-    public void OnClickCloseBag()  => SetState(UIState.Room);
-
+    public void OnClickCloseBag()
+    {   
+        SFXPlayer.Instance.PlaySFX(closeBag);
+        SetState(UIState.Room);
+    }
     // ======팝업 On/Off=======
     // 오브젝트 팝업 열기
     public void OnClickObje(ClickObje obje)
@@ -66,7 +79,7 @@ public class UIManager : MonoBehaviour
 
     // 오브젝트 팝업 닫기
     public void OnClickClosePopup()
-    {
+    {   
         ObjePopupUI.SetActive(false);
         // 팝업이 닫힐 때 오브제 습득 처리
         if (currentObje != null)
@@ -79,7 +92,8 @@ public class UIManager : MonoBehaviour
 // ======Bag 제출 팝업 On/Off======
     // 제출 팝업 열기
     public void OnClickSubmit()
-    {
+    {   
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
         submitPopupUI.SetActive(true);
     }
     
@@ -89,6 +103,7 @@ public class UIManager : MonoBehaviour
         // 첫번째 Yes
         if (!isConfirmStep)
         {
+            SFXPlayer.Instance.PlaySFX(buttonClickClip);
             TMP_Text popupText = submitPopupUI.transform.Find("Pop_up_image/Text").GetComponent<TMP_Text>();
             popupText.text = "선택하지 않은 기억들은\n시간의 흐름에 따라 희미해집니다.";
             isConfirmStep = true;
@@ -96,13 +111,15 @@ public class UIManager : MonoBehaviour
         }
 
         // 두번째 Yes -> 제출하기
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
         InvenGridManager.SubmitItems();
         GameManager.Instance.MoveScene(SceneData.Result);
     }
 
     // 제출 팝업 닫기
     public void OnClickSubmitNo()
-    {
+    {   
+        SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
         isConfirmStep = false;
         TMP_Text popupText = submitPopupUI.transform.Find("Pop_up_image/Text").GetComponent<TMP_Text>();
         popupText.text = "포장을 끝내고\n방을 떠날까요?";

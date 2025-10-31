@@ -13,6 +13,10 @@ public class OfficeManager : MonoBehaviour
     public GameObject beforeInteractionOffice;
     public GameObject afterInteractionOffice;
 
+    [Header("Audios")]
+    [SerializeField] private AudioClip requestArrive; // 유인물 도착 소리
+    [SerializeField] private AudioClip paper;  // 종이 소리
+
     bool interactedHandout = false;
     bool interactedIdcard = false;
 
@@ -28,7 +32,8 @@ public class OfficeManager : MonoBehaviour
 
     // 유인물 클릭
     public void OnClickHandout()
-    {
+    {   
+        SFXPlayer.Instance.PlaySFX(paper);
         handoutPanel.SetActive(true);
         interactedHandout = true;
         CheckRequestUnlock();
@@ -46,6 +51,7 @@ public class OfficeManager : MonoBehaviour
     {
         if (interactedHandout && interactedIdcard)
         {
+            SFXPlayer.Instance.PlaySFX(requestArrive);
             beforeInteractionOffice.SetActive(false);
             afterInteractionOffice.SetActive(true);
         }

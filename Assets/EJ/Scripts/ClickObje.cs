@@ -17,6 +17,7 @@ public class ClickObje : MonoBehaviour
         // 팝업 표시
         if (ui != null)
         {
+            SFXPlayer.Instance.PlaySFX(data.objeSound);
             IsInteracted = data.canInteract;
             ui.OnClickObje(this);
         }
