@@ -1,12 +1,14 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 public enum UIState { Room, Bag, Settings }
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private ColorOverlayEffect overlayEffect;
+    [SerializeField] private ParticleSystem particle;
 
     [SerializeField] GameObject bg;
     [SerializeField] Sprite spaceBg;
@@ -139,6 +141,8 @@ public class UIManager : MonoBehaviour
         bagUI.SetActive(isBag); // 가방 버튼 누르면 열림
 
         overlayEffect.enabled = isRoom; // 카메라 후처리 On/Off
+        if(isBag)particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        else particle.Play();
 
         bg.GetComponent<SpriteRenderer>().sprite = isRoom ? spaceBg : puzzleBg;
 

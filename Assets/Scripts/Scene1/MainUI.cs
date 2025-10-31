@@ -13,7 +13,7 @@ public class MainUI : MonoBehaviour
 
     private void Start()
     {
-        var albumCanvas = ResultManager.instance.albumObject;
+        var albumCanvas = ResultManager.instance.resultCanvas;
         album = albumCanvas.transform.Find("Album")?.gameObject;
         albumBook = album.transform.Find("AlbumBook")?.gameObject;
     }
