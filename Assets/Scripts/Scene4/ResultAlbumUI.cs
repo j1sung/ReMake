@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using DG.Tweening;
 
 [System.Serializable]
 public class StageAlbum
@@ -25,7 +26,7 @@ public class ResultAlbumUI : MonoBehaviour
     public AudioClip pageNext;
     public AudioClip closeBook;
 
-    int index;
+    int index; // 현재 스테이지 정보 인덱스
 
     void OnEnable()
     {
@@ -85,16 +86,17 @@ public class ResultAlbumUI : MonoBehaviour
         for (int i=0; i < result.endingOutcomes[index].objeDatas.Count; i++)
         {
             stageAlbums[index].albumImage[i].sprite = result.endingOutcomes[index].objeDatas[i].endingImage;
-            stageAlbums[index].albumImage[i].color = Color.white;
+            stageAlbums[index].albumImage[i].color = new Color(1,1,1,0);
+            stageAlbums[index].albumImage[i].DOFade(1f, 1.2f);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
 
             icon = Instantiate(IconPrefab); // icon 생성
             icon.transform.SetParent(stageAlbums[index].iconRoot[i], false); // icon 위치 설정
             icon.GetComponent<Image>().sprite = resultIcons[i].iconImage;
             icon.GetComponent<Image>().preserveAspect = true;
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
         }
 
         gameObject.GetComponent<NextClick>().enabled = true;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class NextAuto : MonoBehaviour
 {
-    [SerializeField] private GameObject obje;
+    [SerializeField] private GameObject[] obje;
     [SerializeField] private float waitTime;
 
     private void OnEnable()
@@ -13,7 +13,10 @@ public class NextAuto : MonoBehaviour
 
     void Next()
     {
-        obje.SetActive(true);
+        foreach (var obj in obje) 
+        {
+            obj.SetActive(true);
+        }
         gameObject.SetActive(false);
     }
 }
