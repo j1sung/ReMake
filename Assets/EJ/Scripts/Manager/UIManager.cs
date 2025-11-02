@@ -153,7 +153,12 @@ public class UIManager : MonoBehaviour
         bagUI.SetActive(isBag); // 가방 버튼 누르면 열림
 
         overlayEffect.enabled = isRoom; // 카메라 후처리 On/Off
-        if(isBag)particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        if (isBag)
+        {
+            particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            particle.Clear();
+        }
         else particle.Play();
 
         bg.GetComponent<SpriteRenderer>().sprite = isRoom ? spaceBg : puzzleBg;

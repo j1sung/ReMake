@@ -21,22 +21,22 @@ public class CutScene : MonoBehaviour
 
     private IEnumerator NextCut()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
         //image.color = new Color(1, 1, 1, 0);
         image.sprite = cutImage1;
         //image.DOFade(1f, 0.9f);
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         //image.color = new Color(1, 1, 1, 0);
         image.sprite = cutImage2;
         //image.DOFade(1f, 0.9f);
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         //image.color = new Color(1, 1, 1, 0);
         image.sprite = cutImage3;
         //image.DOFade(1f, 0.9f);
 
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         gameObject.GetComponent<NextAuto>().enabled = true;
     }
 }
