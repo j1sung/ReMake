@@ -71,19 +71,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickInteractiveObje()
     {
-        if (currentObje.IsInteracted == false && currentObje.data.iconImage1 == null) return;
-
-        var img = ObjeImage;
-        var data = currentObje.data;
-
-        // 순환 전환: 1 → 2 → 기본 → 1
-        if (img.sprite == data.iconImage1)
-            img.sprite = data.iconImage2;
-        else if (img.sprite == data.iconImage2)
-            img.sprite = data.iconImage;
-        else
-            img.sprite = data.iconImage1;
-
+        if (currentObje.IsInteracted == false) return;
         ObjeNameText.text = currentObje.data.objeName;
         descriptionText.text = currentObje.data.secretDescription;
         ObjeImage.sprite = currentObje.data.secretImage;
