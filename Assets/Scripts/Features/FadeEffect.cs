@@ -11,12 +11,11 @@ public class FadeEffect : MonoBehaviour
     [SerializeField]
     private AnimationCurve fadeCurve;
     private Image image;
-    private FadeState fadeState;
+    private CanvasGroup canvasGroup;
 
-    private void Awake()
-    {
-        image = GetComponent<Image>();
-    }
+    private CanvasGroup CanvasGroup => canvasGroup ??= GetComponent<CanvasGroup>();
+    private Image Image => image ??= GetComponent<Image>(); // Lazy 초기화
+    private FadeState fadeState;
     public void OnFade(FadeState state)
     {
         fadeState = state;
@@ -24,10 +23,10 @@ public class FadeEffect : MonoBehaviour
         switch (fadeState) 
         {
             case FadeState.FadeIn:
-                StartCoroutine(Fade(1, 0));
+                StartCoroutine(Fade(0, 1));
                 break;
             case FadeState.FadeOut:
-                StartCoroutine(Fade(0, 1));
+                StartCoroutine(Fade(1, 0));
                 break;
             case FadeState.FadeInOut:
             case FadeState.FadeLoop:
@@ -62,11 +61,17 @@ public class FadeEffect : MonoBehaviour
             currentTime += Time.deltaTime;
             percent = currentTime / fadeTime; // fadeTime만큼 fade 시간 설정함
 
-            Color color = image.color;
-            // color.a = Mathf.Lerp(start, end, percent);
-            color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
-            image.color = color;
-
+            if(CanvasGroup != null)
+            {
+                CanvasGroup.alpha = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
+            }
+            else
+            {
+                Color color = Image.color;
+                color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
+                image.color = color;
+            }
+            
             yield return null;
         }
     }

@@ -12,6 +12,8 @@ public class OfficeManager : MonoBehaviour
     [Header("Scene Image")]
     public GameObject beforeInteractionOffice;
     public GameObject afterInteractionOffice;
+    [SerializeField] private GameObject handout;
+    [SerializeField] private GameObject idcard;
 
     [Header("Audios")]
     [SerializeField] private AudioClip requestArrive; // 유인물 도착 소리
@@ -61,6 +63,8 @@ public class OfficeManager : MonoBehaviour
     public void OnClickRequest()
     {   
         afterInteractionOffice.SetActive(false);
+        handout.SetActive(false);
+        idcard.SetActive(false);
         requestPanel.SetActive(true);
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3c084eab98d05594981cb8aa3cd7677c
+guid: d13ffb3199451d04fa7debbdc2bfb6c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5579834082741855272
-    second: stamp_0
+      213: 6014864323937007198
+    second: AlbumBtn_Left_normal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stamp_0
+      name: AlbumBtn_Left_normal_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 396
-        height: 276
+        width: 132
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8dbdd8807727092b0800000000000000
-      internalID: -5579834082741855272
+      spriteID: e567f680c37197350800000000000000
+      internalID: 6014864323937007198
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stamp_0: -5579834082741855272
+      AlbumBtn_Left_normal_0: 6014864323937007198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
