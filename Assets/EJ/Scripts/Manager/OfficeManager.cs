@@ -38,7 +38,6 @@ public class OfficeManager : MonoBehaviour
         SFXPlayer.Instance.PlaySFX(paper);
         handoutPanel.SetActive(true);
         interactedHandout = true;
-        if (afterInteractionOffice.activeSelf) return;
         CheckRequestUnlock();
     }
 
@@ -47,7 +46,6 @@ public class OfficeManager : MonoBehaviour
     {
         idCardPanel.SetActive(true);
         interactedIdcard = true;
-        if (afterInteractionOffice.activeSelf) return;
         CheckRequestUnlock();
     }
 
