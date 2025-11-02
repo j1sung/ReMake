@@ -53,6 +53,7 @@ public class OfficeManager : MonoBehaviour
     {
         if (interactedHandout && interactedIdcard)
         {
+            if (afterInteractionOffice.activeSelf == true) return;
             SFXPlayer.Instance.PlaySFX(requestArrive);
             beforeInteractionOffice.SetActive(false);
             afterInteractionOffice.SetActive(true);
