@@ -8,6 +8,14 @@ public class ObjeData : ScriptableObject
     [TextArea] public string objeDescription; // 오브제 설명
     [TextArea] public string secretDescription; // 숨겨진 오브제 설명
 
+    [Header("이미지")]
+    public Sprite iconImage;
+    public Sprite iconImage1;
+    public Sprite iconImage2;
+    public Sprite secretImage;
+    public Sprite puzzleImage;
+    public Sprite endingImage;
+
     public string itemType; // 오브제 종류(로직용)
     public string itemName;
 
@@ -23,9 +31,4 @@ public class ObjeData : ScriptableObject
     // 2. 직접 지정 방식: 좌표 목록
     public Vector2Int[] shapeCells; //(0,0) 기준 상대 좌표, 캐시된 셀 목록
     public int pivotIndex; // shapeCells 배열에서의 피벗 인덱스(캐시)
-
-    public Sprite iconImage;
-    public Sprite secretImage;
-    public Sprite puzzleImage;
-    public Sprite endingImage;
 }
