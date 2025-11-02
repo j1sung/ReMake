@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 60cef4f859c54b048b7c90a28208faa5
+guid: de901ac5b2d36e540bfce4fc5d54abfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5776059715783748637
-    second: AlbumStage1_0
+      213: -2728110437978310165
+    second: AlbumQuest_normal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlbumStage1_0
+      name: AlbumQuest_normal_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e314479a4057dfa0800000000000000
-      internalID: -5776059715783748637
+      spriteID: be97444c20ec32ad0800000000000000
+      internalID: -2728110437978310165
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlbumStage1_0: -5776059715783748637
+      AlbumQuest_normal_0: -2728110437978310165
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
