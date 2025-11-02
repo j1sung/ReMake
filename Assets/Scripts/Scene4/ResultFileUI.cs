@@ -14,6 +14,8 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
 
     public GameObject stampObj;
 
+    public AudioClip nextPage; // 넘기는 소리
+
     private int count = 0;
     private bool isProcessing = false; // 코루틴 실행 여부
    
@@ -35,6 +37,7 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
         if(count == 1) // 첫번째 클릭 -> 다음 스테이지 암시 이미지
         {
             stampObj.SetActive(false);
+            SFXPlayer.Instance.PlaySFX(nextPage);
             img.color = new Color(1, 1, 1, 0);
             img.sprite = files[ResultManager.instance.CurrentStageInfo]; // 다음 스테이지 암시 표시
             img.DOFade(1f, 0.8f);

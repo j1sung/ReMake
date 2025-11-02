@@ -749,7 +749,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1640284751}
   m_HandleRect: {fileID: 1640284749}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -519052415876542791, guid: 55b039b1e02a2384da78ca4867353d24, type: 3}
+  m_Sprite: {fileID: -2305376880056419767, guid: aa098d074e5254840be2762b195d0077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2052,7 +2052,7 @@ GameObject:
   - component: {fileID: 8025417562914473337}
   m_Layer: 0
   m_Name: Obje_Clothes
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2071,7 +2071,7 @@ GameObject:
   - component: {fileID: 52612800024876807}
   m_Layer: 0
   m_Name: Obje_Photos
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2181,7 +2181,7 @@ GameObject:
   - component: {fileID: 3594709124606639508}
   m_Layer: 0
   m_Name: Closet_Opened
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2207,7 +2207,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: be5d6007ca2c2874d805ce48440d4d37, type: 3}
+    m_Font: {fileID: 12800000, guid: 96f84049d86debe44840c7124005b05e, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -2710,7 +2710,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5202477686331862701, guid: 1b210b0ec09fb2649b94596789812bf6, type: 3}
         m_TargetAssemblyTypeName: SettingsPanelController, Assembly-CSharp
-        m_MethodName: OpenPanel
+        m_MethodName: OpenSettingPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8706,7 +8706,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: be5d6007ca2c2874d805ce48440d4d37, type: 3}
+    m_Font: {fileID: 12800000, guid: 083c8653be1085644aa38c073579714d, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -9233,7 +9233,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: be5d6007ca2c2874d805ce48440d4d37, type: 3}
+    m_Font: {fileID: 12800000, guid: 96f84049d86debe44840c7124005b05e, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
@@ -9567,7 +9567,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5202477686331862701, guid: 1b210b0ec09fb2649b94596789812bf6, type: 3}
         m_TargetAssemblyTypeName: SettingsPanelController, Assembly-CSharp
-        m_MethodName: OpenPanel
+        m_MethodName: OpenSettingPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9621,7 +9621,7 @@ GameObject:
   - component: {fileID: 5856810455796400206}
   m_Layer: 0
   m_Name: Drawers_Opened
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9967,7 +9967,7 @@ GameObject:
   - component: {fileID: 1022403991435436527}
   m_Layer: 0
   m_Name: Obje_Muffler
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10136,7 +10136,7 @@ GameObject:
   - component: {fileID: 4596489625567021251}
   m_Layer: 0
   m_Name: Obje_Lipstick
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10380,7 +10380,7 @@ GameObject:
   - component: {fileID: 3589271060189358511}
   m_Layer: 0
   m_Name: Drawers_Closed
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10483,7 +10483,7 @@ GameObject:
   - component: {fileID: 2386522257530827965}
   m_Layer: 0
   m_Name: Ojbe_mails
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10740,7 +10740,7 @@ GameObject:
   - component: {fileID: 6504874289400773977}
   m_Layer: 0
   m_Name: Obje_SewingKit
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10963,7 +10963,7 @@ GameObject:
   - component: {fileID: 2301853393628766906}
   m_Layer: 0
   m_Name: Closet_Closed
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

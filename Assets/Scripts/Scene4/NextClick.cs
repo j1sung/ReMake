@@ -8,12 +8,18 @@ public class NextClick : MonoBehaviour, IPointerClickHandler
     public bool isDisableNext = true;
     public GameObject[] extraDisableTargets; // 같이 비활성화 할 오브젝트(선택)
 
+    public AudioClip nextPage;
+
     // IPointerClickHandler 인터페이스의 필수 함수
     public void OnPointerClick(PointerEventData eventData)
     {
         // 다음 오브젝트 활성화
-        if(nextObject != null)
+        if (nextObject != null)
+        {
             nextObject.SetActive(true);
+            SFXPlayer.Instance.PlaySFX(nextPage);
+        }
+
             
         // 자신 오브젝트 비활성화
         if(isDisableNext)
