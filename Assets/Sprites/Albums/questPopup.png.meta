@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a558bafe860d61498041ef2bcae6ebb
+guid: 944c8f86c8f97cc4fbdcabb57777098f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7601441644613223903
-    second: AlbumStage_0
+      213: 3145385987841796209
+    second: questPopup_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlbumStage_0
+      name: questPopup_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 12
-        width: 1778
-        height: 1052
+        x: 0
+        y: 0
+        width: 642
+        height: 180
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd54800d6eebd7960800000000000000
-      internalID: 7601441644613223903
+      spriteID: 1782dc614e7a6ab20800000000000000
+      internalID: 3145385987841796209
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlbumStage_0: 7601441644613223903
+      questPopup_0: 3145385987841796209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

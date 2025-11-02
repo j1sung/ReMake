@@ -284,7 +284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5866281921551675546, guid: 3c084eab98d05594981cb8aa3cd7677c, type: 3}
+  m_Sprite: {fileID: -5579834082741855272, guid: 3c084eab98d05594981cb8aa3cd7677c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -583,7 +583,7 @@ MonoBehaviour:
   obje:
   - {fileID: 1135235265}
   - {fileID: 1259773741295366429}
-  waitTime: 0
+  waitTime: 1.8
 --- !u!82 &960496713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comment: {fileID: 1931105048}
-  textSpeed: 1
+  textSpeed: 4
 --- !u!82 &1577534970
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed96619abe9242449cdc7075c639f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeState: 1
+  fadeState: 0
 --- !u!1 &9152823497539891291
 GameObject:
   m_ObjectHideFlags: 0

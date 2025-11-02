@@ -338,6 +338,8 @@ MonoBehaviour:
   requestPanel: {fileID: 10495847}
   beforeInteractionOffice: {fileID: 1347055461}
   afterInteractionOffice: {fileID: 1313101766}
+  handout: {fileID: 963651868}
+  idcard: {fileID: 1482782675}
   requestArrive: {fileID: 8300000, guid: c24886bf90ffc4a4eb20265a17f74f86, type: 3}
   paper: {fileID: 8300000, guid: 7154143e5e8e4264ab790040a9131268, type: 3}
 --- !u!1 &269871331
@@ -972,7 +974,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963651868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1557,7 +1559,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482782675}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1988,7 +1990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c08a800c653e994b84ed63ff2b4ea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.3
+  fadeTime: 0.5
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -2025,7 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed96619abe9242449cdc7075c639f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeState: 1
+  fadeState: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

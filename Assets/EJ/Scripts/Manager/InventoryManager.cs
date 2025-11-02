@@ -20,6 +20,8 @@ public class InventoryManager : MonoBehaviour
     private List<ObjeData> itemList = new List<ObjeData>();
     public List<ObjeData> objeList = new List<ObjeData>();  // 인벤토리 업적용 리스트
 
+    [SerializeField] private Transform inventory;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -100,6 +102,8 @@ public class InventoryManager : MonoBehaviour
         newButton.GetComponent<RectTransform>().localScale = Vector3.one;
         newButton.GetComponent<ItemButtonScript>().SetUpButton(data, this); // 버튼 세팅
         DumpList("[AddButton] after");
+        
+        inventory.GetComponent<QActionCollectAll>().CheckCollectAll(); // 업적 체크
     }
 
     // 버튼 제거
