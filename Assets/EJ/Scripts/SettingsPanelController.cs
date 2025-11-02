@@ -7,6 +7,7 @@ public class SettingsPanelController : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject settingPanel; // 설정창 루트
+    public GameObject exitPanel; // 설정창 루트
     [SerializeField] private Slider bgmSlider;        // 0~1, wholeNumbers=false
     [SerializeField] private Slider sfxSlider;        // 0~1, wholeNumbers=false
 
@@ -28,10 +29,10 @@ public class SettingsPanelController : MonoBehaviour
 
 
     // ====== 외부에서 '설정' 버튼이 호출 ======
-    public void OpenPanel()
+    public void OpenSettingPanel()
     {
         if (!settingPanel) return;
-        
+
         SFXPlayer.Instance.PlaySFX(buttonClickClip);
         // 현재 값 불러와 슬라이더 갱신 + 되돌리기 백업
         startBgm = AudioManager.Instance.CurrentBgm;
@@ -48,7 +49,7 @@ public class SettingsPanelController : MonoBehaviour
     public void OnSfxChanged(float v) => AudioManager.Instance.PreviewSfx(v);
 
     // 확인 버튼 → 현재 볼륨 저장 후 패널만 닫기
-    public void OnClickConfirm()
+    public void OnClickSave()
     {   
         SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
         AudioManager.Instance.SaveVolumes();
@@ -72,10 +73,33 @@ public class SettingsPanelController : MonoBehaviour
         // UI 전체가 아니라 '패널만' 닫음
         if (settingPanel) Instance.settingPanel.SetActive(false);
     }
-    
+
     public void OnclickAlbum()
     {
         album.SetActive(true);
         albumBook.SetActive(true);
+    }
+
+    // ====== 종료 UI ======
+    public void OpenExitPanel()
+    {
+        if (!exitPanel) return;
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
+        Instance.exitPanel.SetActive(true);
+    }
+
+    public void ClosePanel()
+    {   
+        SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
+        Instance.exitPanel.SetActive(false);
+    }
+    
+    public void QuitGame()
+    {
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
     }
 }

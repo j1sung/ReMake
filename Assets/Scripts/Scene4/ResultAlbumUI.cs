@@ -25,6 +25,7 @@ public class ResultAlbumUI : MonoBehaviour
 
     public AudioClip pageNext;
     public AudioClip closeBook;
+    public AudioClip photoShot;
 
     int index; // 현재 스테이지 정보 인덱스
 
@@ -84,7 +85,8 @@ public class ResultAlbumUI : MonoBehaviour
         GameObject icon;
 
         for (int i=0; i < result.endingOutcomes[index].objeDatas.Count; i++)
-        {
+        {   
+            SFXPlayer.Instance.PlaySFX(photoShot);
             stageAlbums[index].albumImage[i].sprite = result.endingOutcomes[index].objeDatas[i].endingImage;
             stageAlbums[index].albumImage[i].color = new Color(1,1,1,0);
             stageAlbums[index].albumImage[i].DOFade(1f, 1.2f);
@@ -95,7 +97,6 @@ public class ResultAlbumUI : MonoBehaviour
             icon.transform.SetParent(stageAlbums[index].iconRoot[i], false); // icon 위치 설정
             icon.GetComponent<Image>().sprite = resultIcons[i].iconImage;
             icon.GetComponent<Image>().preserveAspect = true;
-
             yield return new WaitForSeconds(0.5f);
         }
 

@@ -71,12 +71,27 @@ public class UIManager : MonoBehaviour
 
     public void OnClickInteractiveObje()
     {
-        if (currentObje.IsInteracted == false) return;
-        ObjeNameText.text = currentObje.data.objeName;
-        descriptionText.text = currentObje.data.secretDescription;
-        ObjeImage.sprite = currentObje.data.secretImage;
-        // 패널 창에서 상호작용 했다면, false로 변경.
-        currentObje.IsInteracted = false;
+        if (currentObje.IsInteracted == true)
+        {
+            ObjeNameText.text = currentObje.data.objeName;
+            descriptionText.text = currentObje.data.secretDescription;
+            ObjeImage.sprite = currentObje.data.secretImage;
+            currentObje.IsInteracted = false;
+        }
+        else if (currentObje.data.secondiconImage != null)
+        {
+            var img = ObjeImage;
+            var data = currentObje.data;
+
+            if (img.sprite == data.secondiconImage)
+                img.sprite = data.thirdiconImage;
+            else if (img.sprite == data.secondiconImage)
+                img.sprite = data.iconImage;
+            else
+                img.sprite = data.secondiconImage;
+        }
+        else
+            return;
     }
 
     // 오브젝트 팝업 닫기
