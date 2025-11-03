@@ -14,6 +14,7 @@ public class ClickObje : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) return;
         // 팝업 표시
         if (ui != null)
         {
