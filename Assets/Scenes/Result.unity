@@ -584,6 +584,7 @@ MonoBehaviour:
   - {fileID: 1135235265}
   - {fileID: 1259773741295366429}
   waitTime: 1.8
+  isDisableNext: 1
 --- !u!82 &960496713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1166,7 +1167,7 @@ MonoBehaviour:
   nextObject: {fileID: 9095107150425961285}
   isDisableNext: 1
   extraDisableTargets: []
-  nextPage: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
+  nextPage: {fileID: 8300000, guid: 64343bb0dcba7444689045114425e671, type: 3}
 --- !u!114 &1687504112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1186,6 +1187,7 @@ MonoBehaviour:
   - {fileID: -1935134549949903955, guid: 1c655a35d8fabc8439035ec2d57813cd, type: 3}
   text: {fileID: 0}
   stampObj: {fileID: 464954821}
+  nextPage: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
 --- !u!1 &1931105046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1572,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   album: {fileID: 0}
   questUI: {fileID: 0}
+  nextBtn: {fileID: 0}
+  prevBtn: {fileID: 0}
   stageAlbums:
   - stageNumber: 1
     albumImage:
