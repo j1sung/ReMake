@@ -30,6 +30,8 @@ public class ResultManager : MonoBehaviour
     public static ResultManager instance { get; private set; }
 
     public GameObject resultCanvas; // 앨범 캔버스 넣기
+    public ResultAlbumUI resultAlbumUI; 
+    public ResultQuestUI resultQuestUI;
 
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
@@ -112,6 +114,17 @@ public class ResultManager : MonoBehaviour
         }
     }
 
+
+    public void Initialized()
+    {
+        currentStageInfo = 1;
+        endingOutcomes.Clear();
+        unlockedQuests.Clear();
+        unlockedQuestList.Clear();
+
+        resultAlbumUI.ResetAlbumUI();
+        resultQuestUI.ResetQuestUI();
+    }
 
     // 스테이지 변수값 증가 -> 일단 ResultManager에 넣고 나중에 GameManager에 옮김
     public void SetNextStage()

@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
             if (settingPanel.exitPanel.activeSelf == true) return;
             settingPanel.OpenExitPanel();
         }
+        else if (Input.GetKeyDown(KeyCode.F5))
+        {
+            ResultManager.instance.Initialized();
+            MoveScene(SceneData.MainMenu);
+        }
     }
 
     public void MoveScene(SceneData next)

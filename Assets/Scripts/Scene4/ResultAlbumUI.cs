@@ -183,6 +183,30 @@ public class ResultAlbumUI : MonoBehaviour
         previousPage = currentPage;
     }
 
+    public void ResetAlbumUI()
+    {
+        foreach (var stage in stageAlbums)
+        {
+            // 각 스테이지 앨범 이미지 초기화
+            foreach (var img in stage.albumImage)
+            {
+                img.sprite = null;
+                img.color = new Color32(239, 229, 219, 255);
+            }
+
+            // 아이콘 프리팹 비활성화
+            foreach (var root in stage.iconRoot)
+            {
+                if (root.childCount > 0)
+                    root.GetChild(0).gameObject.SetActive(false);
+            }
+        }
+
+        // 페이지 리셋
+        currentPage = 1;
+        previousPage = 1;
+    }
+
     public void OnNextPageButton()
     {
         currentPage++;
@@ -195,7 +219,7 @@ public class ResultAlbumUI : MonoBehaviour
 
     public void OnPrevPageButton()
     {
-        currentPage--;
+        currentPage = Mathf.Max(1, currentPage - 1);
         Debug.Log(currentPage);
         FillAlbumPage();
         SFXPlayer.Instance.PlaySFX(pageNext);
