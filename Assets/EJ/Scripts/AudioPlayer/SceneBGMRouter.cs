@@ -23,7 +23,8 @@ public class SceneBGMRouter : MonoBehaviour
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
+    {   
+        Debug.Log("소리 재생");
         ApplyBGM(GameManager.Instance.CurrentScene);
     }
 
