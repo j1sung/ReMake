@@ -38,7 +38,7 @@ public class SceneController : MonoBehaviour
     }
 
     // enum형 씬 이름을 string으로 변환
-    private string ConvertSceneName(SceneData scene)
+    public string ConvertSceneName(SceneData scene)
     {
         switch (scene)
         {
