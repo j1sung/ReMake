@@ -40,7 +40,7 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
             SFXPlayer.Instance.PlaySFX(nextPage);
             img.color = new Color(1, 1, 1, 0);
             img.sprite = files[ResultManager.instance.CurrentStageInfo]; // 다음 스테이지 암시 표시
-            img.DOFade(1f, 0.8f);
+            img.DOFade(1f, 2f);
             ResultManager.instance.SetNextStage(); // 스테이지 값 증가
         }
         else if(count == 2) // 두번째 클릭 -> 다음 오브젝트 활성화

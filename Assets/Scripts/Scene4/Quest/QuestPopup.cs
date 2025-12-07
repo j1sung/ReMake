@@ -24,7 +24,7 @@ public class QuestPopup : MonoBehaviour
     public void EnablePopup(QuestData quest)
     {
         // 업적 텍스트 삽입
-        string msg = $"{quest.qName} 업적 완료!";
+        string msg = $"{quest.qName} 달성!";
         messageQueue.Enqueue(msg); // 동시 업적 달성 처리를 위해 큐에 저장
 
         if (!isShowing)
