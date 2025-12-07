@@ -5,6 +5,7 @@ public class NextAuto : MonoBehaviour
 {
     [SerializeField] private GameObject[] obje;
     [SerializeField] private float waitTime;
+    [SerializeField] private bool isDisableNext = true;
 
     private void OnEnable()
     {
@@ -17,6 +18,7 @@ public class NextAuto : MonoBehaviour
         {
             obj.SetActive(true);
         }
-        gameObject.SetActive(false);
+        if(isDisableNext)
+            gameObject.SetActive(false);
     }
 }

@@ -211,7 +211,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -2060,6 +2060,14 @@ PrefabInstance:
       propertyPath: resultCanvas
       value: 
       objectReference: {fileID: 1125538296}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: resultAlbumUI
+      value: 
+      objectReference: {fileID: 2001442963}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: resultQuestUI
+      value: 
+      objectReference: {fileID: 1585638414}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: allQuestList.Array.size
       value: 6
@@ -6140,6 +6148,7 @@ MonoBehaviour:
   album: {fileID: 127224516}
   resultUI: {fileID: 2001442961}
   unlockSprite: {fileID: 3181733398035931698, guid: 12c0c7db480ebc045b722504f4789391, type: 3}
+  lockSprite: {fileID: -5620155193319629329, guid: 73d990182e8b52c4abb084980b6b0a16, type: 3}
   pageNext: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   closeBook: {fileID: 8300000, guid: ee23994ce0692b147b585ff063ad7a5e, type: 3}
   questAlbums:

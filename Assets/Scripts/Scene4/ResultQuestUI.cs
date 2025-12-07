@@ -19,6 +19,7 @@ public class ResultQuestUI : MonoBehaviour
     public GameObject album; // 상위 앨범 오브젝트
     public GameObject resultUI; // 결과 앨범 UI
     public Sprite unlockSprite; // unlock 이미지
+    public Sprite lockSprite; // lock 이미지
 
     public AudioClip pageNext;
     public AudioClip closeBook;
@@ -48,6 +49,15 @@ public class ResultQuestUI : MonoBehaviour
 
         // 이미 앨범에 채운 퀘스트는 변형됐으므로 저장소 비우기 -> 대신 또 같은걸 채울 수 있으므로 채울때 검증 필요
         questResults.Clear();
+    }
+    public void ResetQuestUI()
+    {
+        foreach (var quest in questAlbums)
+        {
+            quest.unlockImage.sprite = lockSprite;
+            quest.textName.text = "???";
+            quest.textDescription.text = "미션 내용 잠김";
+        }
     }
     public void CloseButton()
     {   
