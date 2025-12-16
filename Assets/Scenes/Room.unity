@@ -633,7 +633,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 667081158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2612599f8ba47f94d93f7fd833e4d1bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 48f6e0a71542f0341b482ff407f04b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   overlayEffect: {fileID: 8177384081605396916}
@@ -645,7 +645,7 @@ MonoBehaviour:
   ObjePopupUI: {fileID: 495245339360812453}
   roomAll: {fileID: 2271536594167749168}
   bagUI: {fileID: 6876418273935056352}
-  submitPopupUI: {fileID: 1339498030}
+  submitPopupUI: {fileID: 1668052094}
   ObjeNameText: {fileID: 379749492441364485}
   descriptionText: {fileID: 3766106594974065802}
   ObjeImage: {fileID: 9114521450320879842}
@@ -1123,11 +1123,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde3a99756362ff46bddf05b6c6bd708, type: 3}
---- !u!1 &1339498030 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4714372890997681864, guid: 458c917b804cf274dae1d0fbb9996011, type: 3}
-  m_PrefabInstance: {fileID: 1668052093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1339498031 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6099689580929755450, guid: 458c917b804cf274dae1d0fbb9996011, type: 3}
@@ -1582,6 +1577,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458c917b804cf274dae1d0fbb9996011, type: 3}
+--- !u!1 &1668052094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4714372890997681864, guid: 458c917b804cf274dae1d0fbb9996011, type: 3}
+  m_PrefabInstance: {fileID: 1668052093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1702434954
 GameObject:
   m_ObjectHideFlags: 0
