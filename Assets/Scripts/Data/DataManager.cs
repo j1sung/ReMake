@@ -1,11 +1,17 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
-
-class GameData
+[System.Serializable]
+public class GameSaveData
 {
+    public string sceneName;
+    public int stageNum;
+    // 사운드 세팅(볼륨 크기) -> BGM/SFX
+    public List<EndingOutcome> endingOutcomes;
 
 }
-public class DataManager
+public class DataManager: MonoBehaviour
 {
-    
+    public static DataManager Instance;
 }

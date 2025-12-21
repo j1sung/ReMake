@@ -8,23 +8,6 @@ using System;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-[Serializable]
-public class EndingOutcome
-{
-    public string endingId;
-    [TextArea] public string comment;
-
-    public List<ObjeData> objeDatas; // 제출한 오브제 데이터들
-}
-
-[Serializable]
-public class EndingEntry
-{
-    // 조합 키(오름차순 정렬된 타입만 +로 연결, 예: "Clothes+Letter")
-    public string[] comboKeys;
-    public EndingOutcome outcome;
-}
-
 public class ResultManager : MonoBehaviour
 {
     public static ResultManager instance { get; private set; }
@@ -39,7 +22,6 @@ public class ResultManager : MonoBehaviour
 
     // 엔딩 결과 목록 만들기 -> 추후 다른곳으로 옮겨야할듯
     [Header("Ending Table")]
-    public EndingOutcome defaultOutcome;
     public List<EndingEntry> endingTable = new List<EndingEntry>();
 
     // 스테이지별 결과 저장(필수)
@@ -47,7 +29,8 @@ public class ResultManager : MonoBehaviour
     public List<EndingOutcome> endingOutcomes = new List<EndingOutcome>(); // 나중에는 스크립터블 오브젝트나 다른 데이터 저장소로 옮겨야될듯
 
     [Header("All Quest List")]
-    public List<QuestData> allQuestList = new List<QuestData>();
+    //public List<QuestData> allQuestList = new List<QuestData>();
+    [SerializeField] private QuestDB questDB;
 
     // 업적 달성 저장(필수)
     [Header("Unlocked Quest Result")]
@@ -93,6 +76,22 @@ public class ResultManager : MonoBehaviour
             return;
         }
 
+        QuestData quest = questDB.FindById(eventName);
+        
+        // 업적 팝업 띄우기
+        GetComponent<QuestPopup>().EnablePopup(quest);
+
+        // UI용 리스트에 추가
+        unlockedQuestList.Add(quest);
+
+        // 중복 검사용 해시셋에 기록
+        unlockedQuests.Add(eventName);
+
+        Debug.Log($"[ResultManager] 새 업적 달성: {quest.qName}");
+
+        // 효과음 재생
+
+        /*
         // allQuestList 중에서 triggerName이 같은 퀘스트를 찾는다
         foreach (var quest in allQuestList)
         {
@@ -112,6 +111,7 @@ public class ResultManager : MonoBehaviour
                 // 효과음 재생
             }
         }
+        */
     }
 
 
@@ -181,16 +181,17 @@ public class ResultManager : MonoBehaviour
         EndingEntry entry = endingTable.FirstOrDefault(e => 
         e.comboKeys.Any(k => string.Equals(k, key, StringComparison.OrdinalIgnoreCase)));
         
-        if (entry != null)
+        if (entry == null)
         {
-            entry.outcome.objeDatas = objes; // 제출 오브제 데이터 저장
-            endingOutcomes.Add(entry.outcome); // 스테이지 엔딩 저장
-            Debug.Log($"[Ending] key={key} -> {entry.outcome.endingId}");
-            Debug.Log($"endingOutcomes={string.Join(" ", endingOutcomes[0].endingId)}");
-            return;
+            entry = endingTable.FirstOrDefault(e =>
+                    e.comboKeys.Any(k => string.Equals(k, "Default", StringComparison.OrdinalIgnoreCase)));
         }
-        defaultOutcome.objeDatas = objes; // 제출 오브제 데이터 저장
-        endingOutcomes.Add(defaultOutcome); // 조합이 없으면 기본 엔딩
+
+        entry.outcome.objeDatas = objes; // 제출 오브제 데이터 저장
+        endingOutcomes.Add(entry.outcome); // 스테이지 엔딩 저장
+
+        Debug.Log($"[Ending] key={key} -> {entry.outcome.endingId}");
+        Debug.Log($"endingOutcomes={string.Join(" ", endingOutcomes[0].endingId)}");
     }
 
     public void UnlockQuest(QuestData quest)

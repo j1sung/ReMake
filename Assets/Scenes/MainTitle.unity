@@ -2049,6 +2049,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: questDB
+      value: 
+      objectReference: {fileID: 11400000, guid: 21d621b544e76a94a89addd5108f9396, type: 2}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: albumRoot
       value: 
       objectReference: {fileID: 1125538296}
@@ -2068,6 +2072,10 @@ PrefabInstance:
       propertyPath: resultQuestUI
       value: 
       objectReference: {fileID: 1585638414}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: endingTable.Array.size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: allQuestList.Array.size
       value: 6
@@ -2150,6 +2158,23 @@ PrefabInstance:
       value: "\u201C\uC0B0 \uC0AC\uB78C\uC740 \uC0B4\uC544\uC57C\uC9C0. \n\uC190\uC744
         \uC6C0\uC9C1\uC5EC \uAD34\uB85C\uC6C0\uC744 \uB35C\uC5B4\uB0B4\uACE0, \uC5B8\uC820\uAC00
         \uC904 \uC120\uBB3C\uC744 \uB9CC\uB4E4\uACE0 \uC788\uC744\uAC8C.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: endingTable.Array.data[7].outcome.comment
+      value: "\"\uC774\uAC78\uB85C \uAD1C\uCC2E\uC744\uAE4C? ...\uB098\uB3C4 \uC798
+        \uBAA8\uB974\uACA0\uC5B4.\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: endingTable.Array.data[7].outcome.endingId
+      value: default
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: endingTable.Array.data[7].comboKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
+      propertyPath: 'endingTable.Array.data[7].comboKeys.Array.data[0]'
+      value: Default
       objectReference: {fileID: 0}
     - target: {fileID: 7229624298928942787, guid: 75348d215406c9a4680b150580c54b49, type: 3}
       propertyPath: endingTable.Array.data[0].outcome.objeDatas.Array.size
@@ -2440,7 +2465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBD88\uB7EC\uC624\uAE30"
+  m_Text: "\uC774\uC5B4\uD558\uAE30"
 --- !u!222 &667308262
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3716,7 +3741,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -645, y: -20}
+  m_AnchoredPosition: {x: -645, y: -140}
   m_SizeDelta: {x: 312, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059938724
@@ -4150,7 +4175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -645, y: -140}
+  m_AnchoredPosition: {x: -645, y: -20}
   m_SizeDelta: {x: 312, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1125192993
@@ -5845,7 +5870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2DC\uC791\uD558\uAE30"
+  m_Text: "\uC0C8\uB85C \uC2DC\uC791"
 --- !u!222 &1535480511
 CanvasRenderer:
   m_ObjectHideFlags: 0
