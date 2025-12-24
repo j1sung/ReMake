@@ -15,6 +15,7 @@ public class ResultManager : MonoBehaviour
     public GameObject resultCanvas; // 앨범 캔버스 넣기
     public ResultAlbumUI resultAlbumUI; 
     public ResultQuestUI resultQuestUI;
+    private QuestPopup questPopup;
 
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
@@ -34,7 +35,7 @@ public class ResultManager : MonoBehaviour
 
     // 업적 달성 저장(필수)
     [Header("Unlocked Quest Result")]
-    private HashSet<string> unlockedQuests = new HashSet<string>(); // 중복 방지용
+    private HashSet<QuestEventId> unlockedQuests = new HashSet<QuestEventId>(); // 중복 방지용
     public List<QuestData> unlockedQuestList = new List<QuestData>(); // UI 표시용
 
     private void Awake()
@@ -53,6 +54,8 @@ public class ResultManager : MonoBehaviour
         {
             DontDestroyOnLoad (resultCanvas);
         }
+
+        questPopup = GetComponent<QuestPopup>();
     }
 
     private void OnEnable()
@@ -65,53 +68,35 @@ public class ResultManager : MonoBehaviour
         QuestEventManager.OnEventTriggered -= OnGameEvent;
     }
 
-    private void OnGameEvent(string eventName)
+    private void OnDestroy()
     {
-        Debug.Log($"[ResultManager] 이벤트 수신: {eventName}");
+        QuestEventManager.OnEventTriggered -= OnGameEvent;
+    }
+
+    private void OnGameEvent(QuestEventId eventId)
+    {
+        Debug.Log($"[ResultManager] 이벤트 수신: {eventId}");
 
         // 이미 달성된 퀘스트라면 무시
-        if (unlockedQuests.Contains(eventName))
+        if (unlockedQuests.Contains(eventId))
         {
-            Debug.Log($"[ResultManager] 중복 업적 무시: {eventName}");
+            Debug.Log($"[ResultManager] 중복 업적 무시: {eventId}");
             return;
         }
+        // 중복 검사용 해시셋에 기록
+        unlockedQuests.Add(eventId);
 
-        QuestData quest = questDB.FindById(eventName);
-        
+        QuestData quest = questDB.FindById(eventId);
+
         // 업적 팝업 띄우기
-        GetComponent<QuestPopup>().EnablePopup(quest);
+        questPopup.EnablePopup(quest);
 
         // UI용 리스트에 추가
         unlockedQuestList.Add(quest);
 
-        // 중복 검사용 해시셋에 기록
-        unlockedQuests.Add(eventName);
-
         Debug.Log($"[ResultManager] 새 업적 달성: {quest.qName}");
 
         // 효과음 재생
-
-        /*
-        // allQuestList 중에서 triggerName이 같은 퀘스트를 찾는다
-        foreach (var quest in allQuestList)
-        {
-            if (quest.qID == eventName)
-            {
-                // 업적 팝업 띄우기
-                GetComponent<QuestPopup>().EnablePopup(quest);
-
-                // UI용 리스트에 추가
-                unlockedQuestList.Add(quest);
-
-                // 중복 검사용 해시셋에 기록
-                unlockedQuests.Add(eventName);
-
-                Debug.Log($"[ResultManager] 새 업적 달성: {quest.qName}");
-
-                // 효과음 재생
-            }
-        }
-        */
     }
 
 
@@ -196,9 +181,9 @@ public class ResultManager : MonoBehaviour
 
     public void UnlockQuest(QuestData quest)
     {
-        if (quest == null || unlockedQuests.Contains(quest.qID))
+        if (quest == null || unlockedQuests.Contains(quest.id))
             return;
-        unlockedQuests.Add(quest.qID);
+        unlockedQuests.Add(quest.id);
         unlockedQuestList.Add(quest);
     }
 }

@@ -6190,27 +6190,27 @@ MonoBehaviour:
   pageNext: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   closeBook: {fileID: 8300000, guid: ee23994ce0692b147b585ff063ad7a5e, type: 3}
   questAlbums:
-  - questID: freshman
+  - questID: 5
     unlockImage: {fileID: 900569691}
     textName: {fileID: 1382025647}
     textDescription: {fileID: 312714485}
-  - questID: ending1
+  - questID: 4
     unlockImage: {fileID: 1086813229}
     textName: {fileID: 1949060876}
     textDescription: {fileID: 458516537}
-  - questID: switchedUI3Times
+  - questID: 3
     unlockImage: {fileID: 509076199}
     textName: {fileID: 1561147993}
     textDescription: {fileID: 143455099}
-  - questID: full
+  - questID: 1
     unlockImage: {fileID: 1933498140}
     textName: {fileID: 940532438}
     textDescription: {fileID: 2130011184}
-  - questID: collectAll
+  - questID: 0
     unlockImage: {fileID: 1301728230}
     textName: {fileID: 486207496}
     textDescription: {fileID: 1733569794}
-  - questID: noRotation
+  - questID: 2
     unlockImage: {fileID: 333715103}
     textName: {fileID: 1670796649}
     textDescription: {fileID: 1299629161}

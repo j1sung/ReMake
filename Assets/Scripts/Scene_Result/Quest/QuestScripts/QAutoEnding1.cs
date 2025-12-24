@@ -6,7 +6,7 @@ public class QAutoEnding1 : MonoBehaviour
     {
         if (ResultManager.instance.CurrentStageInfo == 1)
         {
-            QuestEventManager.TriggerEvent("ending1");
+            QuestEventManager.TriggerEvent(QuestEventId.ending1);
         }
     }
 }
