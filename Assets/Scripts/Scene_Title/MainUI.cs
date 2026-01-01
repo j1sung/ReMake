@@ -1,11 +1,16 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class MainUI : MonoBehaviour
 {
+    [Header("Refs")]
+    [SerializeField] private Image continueButtonImage;
+    [SerializeField] private Color enabledColor = Color.white;
+    [SerializeField] private Color disabledColor = new Color(0.6f, 0.6f, 0.6f, 1f);
+    [SerializeField] private Button continueButton;
     private GameObject album;
     private GameObject albumBook;
-    public GameObject credits;
+    [SerializeField] private GameObject credits;
 
     [Header("Audios")]
     [SerializeField] private AudioClip buttonClickClip;  // 버튼 클릭 소리
@@ -16,6 +21,14 @@ public class MainUI : MonoBehaviour
         var albumCanvas = ResultManager.instance.resultCanvas;
         album = albumCanvas.transform.Find("Album")?.gameObject;
         albumBook = album.transform.Find("AlbumBook")?.gameObject;
+        RefreshContinueButton();
+    }
+
+    private void RefreshContinueButton()
+    {
+        bool hasSave = DataManager.Instance.HasGameSaveFile();
+        continueButton.interactable = hasSave;
+        continueButtonImage.color = hasSave? enabledColor : disabledColor;
     }
 
     public void StartButton()
@@ -23,6 +36,13 @@ public class MainUI : MonoBehaviour
         SFXPlayer.Instance.PlaySFX(buttonClickClip);
         GameManager.Instance.MoveScene(SceneData.Office);
     }
+
+    public void OnClickContinue()
+    {
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
+        DataManager.Instance.LoadGame();
+    }
+
     public void AlbumButton()
     {   
         SFXPlayer.Instance.PlaySFX(buttonClickClip);
