@@ -4,7 +4,9 @@ public class Telephone : OfficeInteractable
 {
     [SerializeField] GameObject SpeechBubble;
     [SerializeField] DialogueController dialogue;
-    // [SerializeField] AudioSource phoneRing;
+    // [SerializeField] AudioClip phoneRing;
+
+    [SerializeField] private OfficeUIContext _beforeInteractCtx;
 
     void Awake()
     {
@@ -16,12 +18,12 @@ public class Telephone : OfficeInteractable
     {
         // if (phoneRing.isPlaying) phoneRing.Stop();
         SpeechBubble.SetActive(true);
-
         dialogue.PlayCurrent();
     }
 
     private void OnMissedCall()
     {
-        Debug.Log("부재중 전화");
+        // SFXPlayer.Instance.PlaySFX(phoneRing);
+        OfficeUIController.Instance.ShowUI(_beforeInteractCtx);
     }
 }

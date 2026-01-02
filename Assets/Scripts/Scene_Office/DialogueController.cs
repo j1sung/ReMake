@@ -42,6 +42,6 @@ public class DialogueController : MonoBehaviour
     void EndDialogue()
     {   
         SpeechBubble.SetActive(false);
-        OfficeStateMachine.Instance.SetState(OfficeState.BeforeInteracts);
+        OfficeStateMachine.SetState(OfficeState.BeforeInteracts);
     }
 }

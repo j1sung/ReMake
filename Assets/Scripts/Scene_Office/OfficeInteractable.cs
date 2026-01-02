@@ -14,7 +14,7 @@ public abstract class OfficeInteractable : MonoBehaviour, IPointerClickHandler
 
     public void Interact()
     {
-        var state = OfficeStateMachine.Instance.currentState;
+        var state = OfficeStateMachine.currentState;
 
         if (actions != null && actions.TryGetValue(state, out var action))
             action.Invoke();

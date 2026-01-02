@@ -1,25 +1,12 @@
-using UnityEngine;
+using System;
 
-public class OfficeStateMachine : MonoBehaviour
+public static class OfficeStateMachine
 {
-    public static OfficeStateMachine Instance;
-    public OfficeState currentState;
+    public static OfficeState currentState { get; private set; } = OfficeState.BeforeStart;
 
-    public event System.Action<OfficeState> OnStateChanged;
+    public static event Action<OfficeState> OnStateChanged;
 
-    void Awake()
-    {   
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        OnStateChanged = null;  
-        currentState = OfficeState.BeforeStart;
-    }
-
-    public void SetState(OfficeState next)
+    public static void SetState(OfficeState next)
     {   
         if (currentState == next) return;
 

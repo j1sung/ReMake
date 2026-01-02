@@ -18,8 +18,7 @@ public class OfficeDirector : MonoBehaviour
 
     void OnDisable()
     {
-        if (OfficeStateMachine.Instance != null)
-            OfficeStateMachine.Instance.OnStateChanged -= HandleStateChanged;
+         OfficeStateMachine.OnStateChanged -= HandleStateChanged;
 
         if (_introCo != null)
         {
@@ -31,8 +30,7 @@ public class OfficeDirector : MonoBehaviour
     void Start()
     {   
         // OnStateChanged 이벤트 구독
-        if (OfficeStateMachine.Instance != null) 
-            OfficeStateMachine.Instance.OnStateChanged += HandleStateChanged;
+        OfficeStateMachine.OnStateChanged += HandleStateChanged;
 
         // 씬 시작 시 기본 방 표시
         SetRoomImage(roomIdle);
@@ -44,16 +42,15 @@ public class OfficeDirector : MonoBehaviour
     IEnumerator OfficeIntro()
     {
         // 기본 상태에서만 인트로 실행
-        if (OfficeStateMachine.Instance == null ||
-            OfficeStateMachine.Instance.currentState != OfficeState.BeforeStart)
+        if (OfficeStateMachine.currentState != OfficeState.BeforeStart)
             yield break;
 
         yield return new WaitForSeconds(2f);
 
         // 여전히 BeforeCall이면 전화벨 연출
-        if (OfficeStateMachine.Instance?.currentState == OfficeState.BeforeStart)
+        if (OfficeStateMachine.currentState == OfficeState.BeforeStart)
         {
-            OfficeStateMachine.Instance.SetState(OfficeState.BeforeCall);
+            OfficeStateMachine.SetState(OfficeState.BeforeCall);
             if (phoneRing != null) phoneRing.Play();
         }
 
