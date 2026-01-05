@@ -11,12 +11,14 @@ public class Telephone : OfficeInteractable
     void Awake()
     {
         actions = new(){{OfficeState.BeforeCall, OnReceiveCall}, 
-                        {OfficeState.BeforeInteracts, OnMissedCall}};
+                        {OfficeState.BeforeInteracts, OnMissedCall},
+                        {OfficeState.AfterInteracts, OnMissedCall}};
     }
 
     private void OnReceiveCall()
     {
         // if (phoneRing.isPlaying) phoneRing.Stop();
+        OfficeStateMachine.SetState(OfficeState.Calling);
         SpeechBubble.SetActive(true);
         dialogue.PlayCurrent();
     }

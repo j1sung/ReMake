@@ -6,7 +6,8 @@ public class Cabinet : OfficeInteractable
 
     void Awake()
     {
-        actions = new() { { OfficeState.BeforeInteracts, OnClickCabinet } };
+        actions = new() { { OfficeState.BeforeInteracts, OnClickCabinet },
+                          {OfficeState.AfterInteracts, OnClickCabinet} };
     }
 
     private void OnClickCabinet()
