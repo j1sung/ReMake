@@ -2509,7 +2509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98fd8064be438d4db2ee6a8d7021c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: 287dacf40d671f74fab5010cbf66f556, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 03d716795f01f1d4fb29bbb2de351edf, type: 3}
   defaultHotspot: {x: 0, y: 0}
 --- !u!114 &856794132
 MonoBehaviour:
@@ -2524,7 +2524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorManager: {fileID: 856794131}
-  interactiveCursor: {fileID: 2800000, guid: 6b3216065aa796e44a5d6bfc823c0fed, type: 3}
+  interactiveCursor: {fileID: 2800000, guid: e84d1710dd580564b855272e5171fbdc, type: 3}
   interactiveHotspot: {x: 0, y: 0}
 --- !u!114 &856794133
 MonoBehaviour:
