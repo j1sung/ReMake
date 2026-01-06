@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class EventInvoker : MonoBehaviour
 {
-    public string eventName;
+    public QuestEventId eventId;
 
     public void InvokeEvent()
     {
-        QuestEventManager.TriggerEvent(eventName);
+        QuestEventManager.TriggerEvent(eventId);
     }
 }

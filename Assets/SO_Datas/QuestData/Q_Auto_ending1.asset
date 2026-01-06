@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questType: 0
   qID: ending1
+  id: 4
   qName: "\uCD08\uBCF4 \uC720\uD488 \uC815\uB9AC\uC0AC"
   qDescription: "\uC2A4\uD14C\uC774\uC9C0 1\uC758 \n\uC758\uB8B0\uB97C \uC644\uB8CC\uD55C\uB2E4."

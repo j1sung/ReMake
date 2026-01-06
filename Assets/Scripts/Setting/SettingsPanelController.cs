@@ -37,11 +37,12 @@ public class SettingsPanelController : MonoBehaviour
         // 현재 값 불러와 슬라이더 갱신 + 되돌리기 백업
         startBgm = AudioManager.Instance.CurrentBgm;
         startSfx = AudioManager.Instance.CurrentSfx;
+        Debug.Log("startBgm: "+startBgm+ "startSFX: "+ startSfx);
+
+        settingPanel.SetActive(true);
 
         bgmSlider.SetValueWithoutNotify(startBgm);
         sfxSlider.SetValueWithoutNotify(startSfx);
-
-        Instance.settingPanel.SetActive(true);
     }
 
     // 슬라이더 변경 시 실시간 반영
@@ -54,6 +55,7 @@ public class SettingsPanelController : MonoBehaviour
         SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
         AudioManager.Instance.SaveVolumes();
         Instance.settingPanel.SetActive(false);
+        DataManager.Instance.SaveSettings();
     }
 
     // 취소 버튼 → 원래 값으로 복원 후 패널만 닫기

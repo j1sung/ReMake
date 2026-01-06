@@ -3,11 +3,11 @@ using UnityEngine;
 
 public static class QuestEventManager
 {
-    public static Action<string> OnEventTriggered;
+    public static event Action<QuestEventId> OnEventTriggered;
 
-    public static void TriggerEvent(string eventName)
+    public static void TriggerEvent(QuestEventId eventId)
     {
-        Debug.Log($"[Event] {eventName}");
-        OnEventTriggered?.Invoke( eventName ); // 이벤트 송출
+        Debug.Log($"[Event] {eventId}");
+        OnEventTriggered?.Invoke(eventId); // 이벤트 송출
     }
 }
