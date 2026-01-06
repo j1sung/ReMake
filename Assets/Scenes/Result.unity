@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 464954824}
   - component: {fileID: 464954823}
   - component: {fileID: 464954825}
-  - component: {fileID: 464954827}
   - component: {fileID: 464954826}
   m_Layer: 5
   m_Name: Stamp
@@ -412,18 +411,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &464954827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464954821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9365a9e4ecb504aa22fd917eb7c342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &643930622
 GameObject:
   m_ObjectHideFlags: 0

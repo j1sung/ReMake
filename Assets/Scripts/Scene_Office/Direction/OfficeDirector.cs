@@ -37,6 +37,9 @@ public class OfficeDirector : MonoBehaviour
 
         // 인트로 연출 시작
         _introCo = StartCoroutine(OfficeIntro());
+
+        if (OfficeStateMachine.currentState == OfficeState.Intro) return;
+        HandleStateChanged(OfficeStateMachine.currentState);
     }
 
     IEnumerator OfficeIntro()
@@ -59,6 +62,7 @@ public class OfficeDirector : MonoBehaviour
 
     void HandleStateChanged(OfficeState state)
     {   
+        Debug.Log("이벤트 호출됨");
         switch (state)
         {
             case OfficeState.BeforeCall:
@@ -78,6 +82,10 @@ public class OfficeDirector : MonoBehaviour
             case OfficeState.AfterInteracts:
                 // 조사 완료 후 → 기본 방 유지
                 SetRoomImage(roomIdle);
+                break;
+
+            case OfficeState.Calling:
+                SetRoomImage(roomPhoneOn);
                 break;
         }
     }
