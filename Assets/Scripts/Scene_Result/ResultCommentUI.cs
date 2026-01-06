@@ -10,7 +10,7 @@ public class ResultCommentUI : MonoBehaviour
 
     void OnEnable()
     {
-        var result = ResultManager.instance.endingOutcomes;
+        var result = ResultManager.instance.endingResult;
         comment.text = null;
         comment.DOText(result[ResultManager.instance.CurrentStageInfo - 1].comment, textSpeed);
     }

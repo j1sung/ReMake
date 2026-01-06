@@ -4,9 +4,11 @@ using UnityEngine;
 public class ResultData : ScriptableObject
 {
     public StageInfo StageInfo; // 일단 명시적으로만
-    public EndingEntry ending;
+    public string id;
+    public string[] comboKeys;
+    public string endingId;
+    [TextArea] public string comment;
 }
-
 public enum StageInfo
 {
     stage1,

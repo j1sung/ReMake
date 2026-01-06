@@ -11,14 +11,20 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class GameSaveData
 {
-    //public SceneData sceneName; // 최근 씬 저장 -> 사무실로만 갈거라 저장 X
     public int stageNum; // 최근 스테이지 진행 저장
 
     // 사무실 상태 저장 추가
     // public OfficeState officeState;
 
-    //public List<EndingOutcome> ending; // 앨범 저장
-    public List<QuestEventId> questId; // 퀘스트 저장
+    public List<string> resultId = new List<string>(); // 결과 정보 저장
+    public List<StageObjeSave> objeByStage = new List<StageObjeSave>();// 제출 오브제 정보 저장
+    public List<QuestEventId> questId = new List<QuestEventId>();// 퀘스트 정보 저장
+}
+
+[Serializable]
+public class StageObjeSave
+{
+    public List<string> objeIds = new List<string>();
 }
 
 [Serializable]
@@ -112,6 +118,20 @@ public class DataManager: MonoBehaviour
     {
         yield return null; // 참여자들 Register 한 프레임 기다림
         LoadSettings(); // settings Apply!
+    }
+
+    public void Initialize()
+    {
+        // 1. 메모리 캐시 초기화
+        loadedGameCache = null;
+
+        // 2. 저장 파일 삭제
+        string gamePath = GetGamePath();
+        if (File.Exists(gamePath))
+        {
+            File.Delete(gamePath);
+            Debug.Log($"[DataManager] Game save deleted: {gamePath}");
+        }
     }
 
     public void RegisterGame(IGameSaveParticipant p)

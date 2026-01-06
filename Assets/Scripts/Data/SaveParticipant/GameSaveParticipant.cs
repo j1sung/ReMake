@@ -10,12 +10,12 @@ public class GameSaveParticipant: GameSaveParticipantBehaviour
     {
         // data.sceneName = GameManager.Instance.CurrentScene;
         // stageNum 저장
-        Debug.Log("stageNum Capture!");
+        // Debug.Log("stageNum Capture!");
     }
 
     public override void Apply(GameSaveData data)
     {
         // stageNum 적용
-        Debug.Log("stageNum Apply!");
+        // Debug.Log("stageNum Apply!");
     }
 }

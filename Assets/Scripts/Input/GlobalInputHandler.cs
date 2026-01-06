@@ -23,7 +23,8 @@ public class GlobalInputHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            ResultManager.instance.Initialized();
+            DataManager.Instance.Initialize();
+            ResultManager.instance.Initialize();
             GameManager.Instance.MoveScene(SceneData.MainMenu);
         }
     }

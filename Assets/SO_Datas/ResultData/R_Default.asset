@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: R_Default
   m_EditorClassIdentifier: 
   StageInfo: 0
-  ending:
-    comboKeys:
-    - Default
-    outcome:
-      endingId: default
-      comment: "\"\uC774\uAC78\uB85C \uAD1C\uCC2E\uC744\uAE4C?\n...\uB098\uB3C4 \uC798
-        \uBAA8\uB974\uACA0\uC5B4.\""
-      objeDatas: []
+  id: R_Default
+  comboKeys:
+  - Default
+  endingId: default
+  comment: "\"\uC774\uAC78\uB85C \uAD1C\uCC2E\uC744\uAE4C? ...\uB098\uB3C4 \uC798
+    \uBAA8\uB974\uACA0\uC5B4.\""
