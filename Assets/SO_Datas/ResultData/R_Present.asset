@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcee8a19da1de8f4cb76f3a9c12468b5, type: 3}
+  m_Name: R_Present
+  m_EditorClassIdentifier: 
+  StageInfo: 0
+  id: R_Present
+  comboKeys:
+  - Muffler
+  - Muffler+Sewingkit
+  endingId: present
+  comment: "\u201C \uB2E4 \uB728\uC9C0 \uBABB\uD55C \uBAA9\uB3C4\uB9AC\uB97C \uB9CC\uC9C0\uC791\uAC70\uB9AC\uACE4
+    \uD588\uC9C0. \n\uC644\uC131\uB418\uB294 \uB0A0\uC5D4 \uB354 \uD3B8\uC548\uD55C
+    \uC5BC\uAD74\uB85C \uC778\uC0AC\uB97C \uAC74\uB12C \uC218 \uC788\uC744\uAE4C?\u201D"

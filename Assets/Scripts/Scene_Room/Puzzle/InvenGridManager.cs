@@ -531,12 +531,12 @@ public class InvenGridManager : MonoBehaviour {
         if(count == gridSize.x * gridSize.y)
         {
             isFull = true;
-            QuestEventManager.TriggerEvent("full");
+            QuestEventManager.TriggerEvent(QuestEventId.full);
         }
 
         // 회전 안했다면 업적 달성
         if (!hasRotated)
-            QuestEventManager.TriggerEvent("noRotation");
+            QuestEventManager.TriggerEvent(QuestEventId.noRotation);
 
         // 결과로 보냄
         ResultManager.instance.SetResults(new List<ObjeData>(set), isFull);

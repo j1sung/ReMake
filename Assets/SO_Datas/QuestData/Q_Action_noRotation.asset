@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questType: 1
   qID: noRotation
+  id: 2
   qName: "\uB298 \uBC18\uB4EF\uD558\uAC8C"
   qDescription: "\uBAA8\uB4E0 \uBB3C\uAC74\uC744 \uD68C\uC804 \uC5C6\uC774 \n\uC6D0
     \uC0C1\uD0DC \uADF8\uB300\uB85C \n\uC0C1\uC790 \uC548\uC5D0 \uBC30\uCE58\uD55C\uB2E4."

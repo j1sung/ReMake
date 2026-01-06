@@ -44,7 +44,7 @@ public class QActionSwitchedUI3Times : MonoBehaviour
         // 3회 이상이면 업적 이벤트 발송
         if (switchCount >= 3)
         {
-            QuestEventManager.TriggerEvent("switchedUI3Times");
+            QuestEventManager.TriggerEvent(QuestEventId.switchedUI3Times);
             Debug.Log("[업적] Room-Bag 전환 3회 달성!");
         }
     }

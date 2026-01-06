@@ -45,12 +45,13 @@ public class ResultAlbumUI : MonoBehaviour
         if (index < 0) return;
 
         // endingOutcomes 갯수 체크
-        if (ResultManager.instance.endingOutcomes.Count == 0) return;
+        if (ResultManager.instance.endingResult.Count == 0) return;
 
         // === 여기서 부터 채우기 체크 ===
         // 조건 통과하면 씬 4 앨범, 불통은 메인메뉴 & 설정 앨범
-        Debug.Log("endingOutcomes.Count: " + ResultManager.instance.endingOutcomes.Count);
-        if (index < ResultManager.instance.endingOutcomes.Count)
+        Debug.Log("endingOutcomes.Count: " + ResultManager.instance.endingResult.Count);
+
+        if (index < ResultManager.instance.endingResult.Count)
         {
             if (stageAlbums[index].albumImage[0].sprite == null)
             {
@@ -72,9 +73,10 @@ public class ResultAlbumUI : MonoBehaviour
 
         // 해당 스테이지 앨범 사진 & 아이콘 채우기
         var result = ResultManager.instance;
-        List<ObjeData> resultIcons = result.endingOutcomes[index].objeDatas;
-        
-        for (int i=0; i < result.endingOutcomes[index].objeDatas.Count; i++)
+        //List<ObjeData> resultIcons = result.endingOutcomes[index].objeDatas;
+        List<ObjeData> resultIcons = result.endingObjes[index].objs;
+
+        for (int i=0; i < resultIcons.Count; i++)
         {   
             // 4개 초과할 때 마다
             if(i>0 && i%4 == 0)
@@ -94,7 +96,7 @@ public class ResultAlbumUI : MonoBehaviour
 
             // 앨범 사진 페이드 인
             var img = stageAlbums[index].albumImage[i&3];
-            img.sprite = result.endingOutcomes[index].objeDatas[i].endingImage;
+            img.sprite = resultIcons[i].endingImage;
             img.color = new Color(1,1,1,0);
             img.DOFade(1f, 1.2f);
 
@@ -128,9 +130,10 @@ public class ResultAlbumUI : MonoBehaviour
     private void FillAlbumPage()
     {
         var result = ResultManager.instance;
-        if (index <= 0 || index > result.endingOutcomes.Count) return;
+        if (index <= 0 || index > result.endingResult.Count) return;
 
-        List<ObjeData> resultIcons = result.endingOutcomes[index - 1].objeDatas;
+        //List<ObjeData> resultIcons = result.endingOutcomes[index - 1].objeDatas;
+        List<ObjeData> resultIcons = result.endingObjes[index - 1].objs;
         GameObject icon;
 
         // 페이지 변경 시 기존 내용 초기화
@@ -158,11 +161,11 @@ public class ResultAlbumUI : MonoBehaviour
         // currentPage 1은 0,1,2,3 / 2는 4,5,6,7 이런식으로 인덱스를 시작해서 앨범이 가지고 있는 갯수만큼 채우도록 설정
         for (int i = (currentPage - 1) * 4; i < stageAlbums[index - 1].albumImage.Length * currentPage; i++)
         {
-            if (i >= result.endingOutcomes[index - 1].objeDatas.Count) break; // 결과 오브제 갯수를 넘지않게 확인
+            if (i >= resultIcons.Count) break; // 결과 오브제 갯수를 넘지않게 확인
 
             // 앨범 사진 채우기
             var img = stageAlbums[index - 1].albumImage[i & 3];
-            img.sprite = result.endingOutcomes[index - 1].objeDatas[i].endingImage;
+            img.sprite = resultIcons[i].endingImage;
             img.color = Color.white;
 
             Transform iconRoot = stageAlbums[index - 1].iconRoot[i & 3];

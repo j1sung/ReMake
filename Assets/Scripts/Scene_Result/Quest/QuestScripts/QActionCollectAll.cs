@@ -14,7 +14,7 @@ public class QActionCollectAll : MonoBehaviour
 
         if (!isTriggered && count == max)
         {
-            QuestEventManager.TriggerEvent("collectAll");
+            QuestEventManager.TriggerEvent(QuestEventId.collectAll);
             isTriggered = true;
         }
     }

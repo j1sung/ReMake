@@ -6,7 +6,7 @@ public class QAutoFreshman : MonoBehaviour
     {  
         if(ResultManager.instance.CurrentStageInfo == 1)
         {
-            QuestEventManager.TriggerEvent("freshman");
+            QuestEventManager.TriggerEvent(QuestEventId.freshman);
             enabled = false;
         }
     }
