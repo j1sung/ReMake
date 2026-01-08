@@ -26,7 +26,7 @@ MonoBehaviour:
   puzzleImage: {fileID: -8916237176930514227, guid: 5275bc768b56a4e47bf6ae64d103c25f, type: 3}
   endingImage: {fileID: 9035735737415496756, guid: 4685b55d73fb6cc4ba2be0449c95c4b8, type: 3}
   itemType: memory
-  itemName: Letter
+  id: Letter
   objeSound: {fileID: 8300000, guid: 712d29235b89dde4cbc86ee9fcdbc460, type: 3}
   maskRows:
   - 1

@@ -23,8 +23,8 @@ public class ObjeDB : ScriptableObject
             {
                 if(obj == null) continue;
 
-                if (!map.TryAdd(obj.itemName, obj))
-                    Debug.LogWarning($"[ObjeDB] 중복 Obje ID: {obj.itemName}");
+                if (!map.TryAdd(obj.id, obj))
+                    Debug.LogWarning($"[ObjeDB] 중복 Obje ID: {obj.id}");
             }
         }
     }

@@ -205,7 +205,7 @@ public class ResultManager : MonoBehaviour
     // 제출한 결과 넘겨받기
     public void SetResults(List<ObjeData> objes, bool isFull)
     {
-        Debug.Log($"objes={string.Join(" ", objes.Select(item => item.itemName))}");
+        Debug.Log($"objes={string.Join(" ", objes.Select(item => item.id))}");
 
         string key;
 
@@ -233,7 +233,7 @@ public class ResultManager : MonoBehaviour
             {
                 // 퍼즐 조합 키 만들기(오름차순 정렬)
                 var uniqueTypes = objes
-                    .Select(i => i.itemName)
+                    .Select(i => i.id)
                     .Distinct()
                     .OrderBy(s => s);
 

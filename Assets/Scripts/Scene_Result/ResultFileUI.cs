@@ -44,7 +44,7 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
         }
         else // 다시 사무실로 다시 이동
         {
-            GameManager.Instance.MoveScene(SceneData.MainMenu);
+            GameManager.Instance.MoveScene(SceneData.Office);
         }
         /*
         count++;

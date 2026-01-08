@@ -83,11 +83,6 @@ public class DataManager : MonoBehaviour
             SceneManager.sceneLoaded -= OnSceneLoadedForStartup;
     }
 
-    private void Update()
-    {
-        Debug.Log(OfficeStateMachine.currentState);
-    }
-
     // 게임 시작 초기 사운드 설정
     private void PreloadSaveOnStartup()
     {

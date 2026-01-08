@@ -1753,8 +1753,7 @@ MonoBehaviour:
   questUI: {fileID: 0}
   nextBtn: {fileID: 0}
   prevBtn: {fileID: 0}
-  stageAlbums:
-  - stageNumber: 1
+  stageAlbum:
     albumImage:
     - {fileID: 4685832451956475815}
     - {fileID: 8176329102196087981}
@@ -1769,6 +1768,7 @@ MonoBehaviour:
   pageNext: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   closeBook: {fileID: 0}
   photoShot: {fileID: 8300000, guid: 24db52dc9dcf75d4b802d3c0ba4295da, type: 3}
+  stageEndPages: 0200000005000000
 --- !u!222 &3468778281109031744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2309,7 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2437,7 +2437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

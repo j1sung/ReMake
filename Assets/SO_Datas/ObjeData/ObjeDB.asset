@@ -20,4 +20,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b76504e6571de9a4d85da12c132c5193, type: 2}
     - {fileID: 11400000, guid: e222b46454eee2043994a9c5c0f4db28, type: 2}
     - {fileID: 11400000, guid: 9fe03b5b51197f0479b23e55ce3cac23, type: 2}
-  - list: []
+  - list:
+    - {fileID: 11400000, guid: c06479319c8096442a2d76b7b6eae2af, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}

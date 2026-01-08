@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4639,7 +4639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5031,7 +5031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5397,7 +5397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7941,8 +7941,7 @@ MonoBehaviour:
   questUI: {fileID: 1585638412}
   nextBtn: {fileID: 314334944}
   prevBtn: {fileID: 572473138}
-  stageAlbums:
-  - stageNumber: 1
+  stageAlbum:
     albumImage:
     - {fileID: 1431874827}
     - {fileID: 1274764867}
@@ -7957,6 +7956,7 @@ MonoBehaviour:
   pageNext: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   closeBook: {fileID: 8300000, guid: ee23994ce0692b147b585ff063ad7a5e, type: 3}
   photoShot: {fileID: 8300000, guid: 24db52dc9dcf75d4b802d3c0ba4295da, type: 3}
+  stageEndPages: 0200000005000000
 --- !u!114 &2001442964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8037,7 +8037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: room2Scene
-      value: Stage2
+      value: Test22
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: officeScene
