@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum Speaker { Senior, K }
+public enum Speaker { Senior, K, Narration }
 
 [System.Serializable]
 public class DialogueCtx

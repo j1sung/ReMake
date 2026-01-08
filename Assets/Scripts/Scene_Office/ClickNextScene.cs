@@ -11,7 +11,7 @@ public class ClickNextScene : MonoBehaviour, IPointerClickHandler
         else if (sceneName == "office")
             GameManager.Instance.MoveScene(SceneData.Office);
         else if (sceneName == "room")
-            GameManager.Instance.MoveScene(SceneData.Room);
+            GameManager.Instance.MoveScene(SceneData.Stage1);
         else if (sceneName == "result")
             GameManager.Instance.MoveScene(SceneData.Result);
     }
