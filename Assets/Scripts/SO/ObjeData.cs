@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ObjeData", menuName = "NewObjeData")]
+[CreateAssetMenu(fileName = "ObjeData", menuName = "Scriptable Objects/ObjeData")]
 public class ObjeData : ScriptableObject
 {
     public string objeName; // 오브제 이름
