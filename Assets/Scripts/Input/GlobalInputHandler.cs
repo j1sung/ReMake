@@ -25,6 +25,7 @@ public class GlobalInputHandler : MonoBehaviour
         {
             DataManager.Instance.Initialize();
             ResultManager.instance.Initialize();
+            OfficeStateMachine.ResetState();
             GameManager.Instance.MoveScene(SceneData.MainMenu);
         }
     }

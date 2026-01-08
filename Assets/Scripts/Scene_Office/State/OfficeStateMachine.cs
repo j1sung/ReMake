@@ -19,4 +19,15 @@ public static class OfficeStateMachine
         if (currentState == OfficeState.Calling || currentState == OfficeState.BeforeCall) return;
         DataManager.Instance.SaveGame();
     }
+
+    public static void ResetState()
+    {
+        currentState = OfficeState.BeforeStart;
+    }
+
+    public static void LoadState(OfficeState next)
+    {
+        if (currentState == next) return;
+        currentState = next;
+    }
 }
