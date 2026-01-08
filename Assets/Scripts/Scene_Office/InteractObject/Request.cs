@@ -23,7 +23,8 @@ public class Request : OfficeInteractable
     void Awake()
     {
         actions = new() { { OfficeState.BeforeInteracts, OnClickRequestBeforeInteracts }, 
-                          { OfficeState.AfterInteracts, OnClickRequestAfterInteracts} };
+                          { OfficeState.AfterInteracts, () => OnClickRequestAfterInteracts(SceneData.Stage1)},
+                          { OfficeState.Stage1Clear, () => OnClickRequestAfterInteracts(SceneData.Stage2) } };
     }
 
     private void OnDisable()
@@ -41,10 +42,10 @@ public class Request : OfficeInteractable
         OfficeUIController.Instance.ShowUI(_beforeInteractCtx);
     }
 
-    private void OnClickRequestAfterInteracts()
+    private void OnClickRequestAfterInteracts(SceneData stage)
     {
         if (_isPlaying) return; // 중복 클릭 방지
-        _co = StartCoroutine(RequestDirection());
+        _co = StartCoroutine(RequestDirection(stage));
     }
 
     public void CheckCondition()
@@ -57,7 +58,7 @@ public class Request : OfficeInteractable
         }
     }
 
-    IEnumerator RequestDirection()
+    IEnumerator RequestDirection(SceneData nextStage)
     {
         _isPlaying = true;
         _requestClicked = false;
@@ -79,11 +80,14 @@ public class Request : OfficeInteractable
         signImage.SetActive(true);
         // + 사인 소리 
 
-        // 6. 씬 넘어 가기 전 잠시 대기
+        // 6. 퀘스트 완료 이벤트 호출
+        QuestEventManager.TriggerEvent(QuestEventId.freshman);
+        
+        // 7. 씬 넘어 가기 전 잠시 대기
         yield return new WaitForSeconds(3f);
 
-        // 7. 씬 이동
-        GameManager.Instance.MoveScene(SceneData.Room);
+        // 8. 씬 이동
+        GameManager.Instance.MoveScene(nextStage);
     }
 
     public void RequestSign()

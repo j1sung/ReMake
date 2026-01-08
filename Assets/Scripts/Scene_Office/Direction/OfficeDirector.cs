@@ -34,12 +34,6 @@ public class OfficeDirector : MonoBehaviour
 
         // 씬 시작 시 기본 방 표시
         SetRoomImage(roomIdle);
-
-        // 인트로 연출 시작
-        _introCo = StartCoroutine(OfficeIntro());
-
-        if (OfficeStateMachine.currentState == OfficeState.Intro) return;
-        HandleStateChanged(OfficeStateMachine.currentState);
     }
 
     IEnumerator OfficeIntro()
@@ -62,9 +56,13 @@ public class OfficeDirector : MonoBehaviour
 
     void HandleStateChanged(OfficeState state)
     {   
-        Debug.Log("이벤트 호출됨");
         switch (state)
-        {
+        {   
+            case OfficeState.BeforeStart:
+                // 인트로 연출 시작
+                _introCo = StartCoroutine(OfficeIntro());
+                break;
+
             case OfficeState.BeforeCall:
                 // 전화 대기 상태 → 전화기 켜진 방
                 SetRoomImage(roomPhoneOn);
@@ -87,6 +85,8 @@ public class OfficeDirector : MonoBehaviour
             case OfficeState.Calling:
                 SetRoomImage(roomPhoneOn);
                 break;
+            default:
+                return;
         }
     }
 

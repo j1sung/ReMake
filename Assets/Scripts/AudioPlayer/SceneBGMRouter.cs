@@ -40,7 +40,7 @@ public class SceneBGMRouter : MonoBehaviour
                 BGMPlayer.Instance.PlayBGM(officeBGM, fadeSeconds);
                 break;
 
-            case SceneData.Room:
+            case SceneData.Stage1:
                 BGMPlayer.Instance.PlayBGM(roomBGM, fadeSeconds);
                 break;
 

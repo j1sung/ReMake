@@ -12,6 +12,7 @@ public class SceneController : MonoBehaviour
     [SerializeField] private string mainMenuScene;
     [SerializeField] private string officeScene;
     [SerializeField] private string room1Scene;
+    [SerializeField] private string room2Scene;
     [SerializeField] private string resultScene;
 
 
@@ -44,7 +45,8 @@ public class SceneController : MonoBehaviour
         {
             case SceneData.MainMenu: return mainMenuScene;
             case SceneData.Office: return officeScene;
-            case SceneData.Room: return room1Scene;
+            case SceneData.Stage1: return room1Scene;
+            case SceneData.Stage2: return room2Scene;
             case SceneData.Result: return resultScene;
             default: return mainMenuScene;
         }
