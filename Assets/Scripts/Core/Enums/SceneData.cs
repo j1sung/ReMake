@@ -2,6 +2,7 @@ public enum SceneData
 {
     MainMenu,
     Office,
-    Room,
+    Stage1,
+    Stage2,
     Result
 }
