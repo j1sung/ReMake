@@ -15,4 +15,15 @@ public static class OfficeStateMachine
         OnStateChanged?.Invoke(next);
         DataManager.Instance.SaveGame();
     }
+
+    public static void ResetState()
+    {
+        currentState = OfficeState.BeforeStart;
+    }
+
+    public static void LoadState(OfficeState next)
+    {
+        if (currentState == next) return;
+        currentState = next;
+    }
 }

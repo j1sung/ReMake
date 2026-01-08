@@ -73,7 +73,7 @@ public class DataManager : MonoBehaviour
         PreloadSaveOnStartup(); // 세이브파일 불러오기
 
         // 씬 로드 완료 시점에 Settings Apply!
-        if (loadedSettingsCache != null)
+        if (loadedSettingsCache != null || loadedGameCache != null)
             SceneManager.sceneLoaded += OnSceneLoadedForStartup;
     }
 
@@ -81,6 +81,11 @@ public class DataManager : MonoBehaviour
     {
         if (Instance == this)
             SceneManager.sceneLoaded -= OnSceneLoadedForStartup;
+    }
+
+    private void Update()
+    {
+        Debug.Log(OfficeStateMachine.currentState);
     }
 
     // 게임 시작 초기 사운드 설정
@@ -117,7 +122,10 @@ public class DataManager : MonoBehaviour
     private IEnumerator ApplyStartupNextFrame()
     {
         yield return null; // 참여자들 Register 한 프레임 기다림
-        LoadSettings(); // settings Apply!
+        if(loadedSettingsCache != null)
+            LoadSettings(); // settings Apply!
+        if (loadedGameCache != null)
+            LoadGame(); // game data Apply! (BeforeSceneLoad만 적용)
     }
 
     public void Initialize()
@@ -233,9 +241,6 @@ public class DataManager : MonoBehaviour
 
         // Before 참가자 적용
         ApplyGame(loadedGameCache, ApplyPhase.BeforeSceneLoad);
-
-        // 사무실 씬 이동
-        GameManager.Instance.MoveScene(SceneData.Office);
     }
 
     public void LoadSettings() // 외부 Settings Load

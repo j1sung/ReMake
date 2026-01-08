@@ -73,7 +73,6 @@ public class ResultAlbumUI : MonoBehaviour
 
         // 해당 스테이지 앨범 사진 & 아이콘 채우기
         var result = ResultManager.instance;
-        //List<ObjeData> resultIcons = result.endingOutcomes[index].objeDatas;
         List<ObjeData> resultIcons = result.endingObjes[index].objs;
 
         for (int i=0; i < resultIcons.Count; i++)

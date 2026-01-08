@@ -84,13 +84,14 @@ public class MainUI : MonoBehaviour
     // ==== 팝업 버튼 기능 ====
     public void ContinueFromSave()
     {
-        DataManager.Instance.LoadGame();
+        GameManager.Instance.MoveScene(SceneData.Office);
     }
 
     public void StartNewGame()
     {
         DataManager.Instance.Initialize();
         ResultManager.instance.Initialize();
+        OfficeStateMachine.ResetState();
         GameManager.Instance.MoveScene(SceneData.Office);
     }
 }

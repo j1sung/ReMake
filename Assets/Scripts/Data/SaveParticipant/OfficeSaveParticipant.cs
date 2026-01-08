@@ -12,6 +12,6 @@ public class OfficeSaveParticipant : GameSaveParticipantBehaviour
 
     public override void Apply(GameSaveData data)
     {   
-        OfficeStateMachine.SetState(data.officeState);
+        OfficeStateMachine.LoadState(data.officeState);
     }
 }

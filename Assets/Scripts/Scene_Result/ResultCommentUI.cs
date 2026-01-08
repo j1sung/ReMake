@@ -14,6 +14,4 @@ public class ResultCommentUI : MonoBehaviour
         comment.text = null;
         comment.DOText(result[ResultManager.instance.CurrentStageInfo - 1].comment, textSpeed);
     }
-
-    
 }

@@ -81,7 +81,7 @@ Material:
     - _MultiplyIntensity: 1
     - _OcclusionStrength: 1
     - _OverlayGamma: 0.38
-    - _OverlayIntensity: 1.5078775
+    - _OverlayIntensity: 1.3111043
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
