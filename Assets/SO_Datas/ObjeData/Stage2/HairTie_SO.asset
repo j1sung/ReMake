@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
   m_Name: HairTie_SO
   m_EditorClassIdentifier: 
-  objeName: "\uD5E4\uC5B4\uB048"
+  objeName: "\uB204\uB098\uC758 \uBA38\uB9AC\uB048"
   canInteract: 0
-  objeDescription: "\uD5E4\uC5B4\uB048"
+  objeDescription: "\uBC29\uC6B8\uC774 \uB2EC\uB9B0 \uD3C9\uBC94\uD55C \uBA38\uB9AC\uB048.\n\uC790\uC138\uD788
+    \uBCF4\uB2C8 \uC787\uC790\uAD6D\uC774 \uB098 \uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: e5c17d7c2eca73640baff4aad64c882a, type: 3}
   secondiconImage: {fileID: 0}

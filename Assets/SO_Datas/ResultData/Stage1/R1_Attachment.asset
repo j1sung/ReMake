@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: R1_Attachment
   m_EditorClassIdentifier: 
   StageInfo: 0
+  endingName: "\uBBF8\uB828 \uC5D4\uB529"
   id: R1_Attachment
   comboKeys:
-  - Lipstick
   - Clothes
-  - Clothes+Lipstick
-  endingId: attachment
+  - Lipstick
   comment: "\u201C\uBC1B\uC558\uB358 \uAC83\uB4E4\uB9CC \uB5A0\uC62C\uB77C\uC11C
     \uC870\uAE08\uC740 \uAD34\uB85C\uC6CC. \n\uADF8\uB798\uB3C4 \uADF8 \uB530\uB73B\uD55C
     \uB9C8\uC74C\uC744 \uC601\uC601 \uAC04\uC9C1\uD560 \uD754\uC801\uC774 \uB0A8\uC544

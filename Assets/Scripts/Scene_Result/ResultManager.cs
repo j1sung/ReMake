@@ -207,75 +207,67 @@ public class ResultManager : MonoBehaviour
     {
         Debug.Log($"objes={string.Join(" ", objes.Select(item => item.id))}");
 
-        string key;
-
         // EMPTY 엔딩 체크
         if (objes == null || objes.Count == 0)
         {
-            key = "EMPTY";
+            FindOutcomeByKey_Special("EMPTY");
+            AddEndingObje(objes);
+            return;
         }
-        else
-        {
-            // 균형 엔딩 체크 -> 타입이 추가되거나 바뀌게 되면 구조가 좀 바뀌어야 함!
-            var hasMemory = objes.Any(i => i.itemType == "memory");
-            var hasPresent = objes.Any(i => i.itemType == "present");
-            var hasAttachment = objes.Any(i => i.itemType == "attachment");
+        
+        
+         // 균형 엔딩 체크 -> 타입이 추가되거나 바뀌게 되면 구조가 좀 바뀌어야 함!
+         bool hasMemory = objes.Any(i => i.itemType == "memory");
+         bool hasPresent = objes.Any(i => i.itemType == "present");
+         bool hasAttachment = objes.Any(i => i.itemType == "attachment");
 
-            if (objes.Count == 3 && hasMemory && hasPresent && hasAttachment)
-            {
-                key = "Balance";
-            }
-            else if (isFull) // Full 엔딩 체크
-            {
-                key = "Full";
-            }
-            else
-            {
-                // 퍼즐 조합 키 만들기(오름차순 정렬)
-                var uniqueTypes = objes
-                    .Select(i => i.id)
-                    .Distinct()
-                    .OrderBy(s => s);
+         if (objes.Count == 3 && hasMemory && hasPresent && hasAttachment)
+         {
+            FindOutcomeByKey_Special("Balance");
+            AddEndingObje(objes);
+            return;
+         }
 
-                key = string.Join("+", uniqueTypes); // 예: "Clothes+Letter
-            }
-        }
+         if (isFull) // Full 엔딩 체크
+         {
+            FindOutcomeByKey_Special("Full");
+            AddEndingObje(objes);
+            return;
+         }
 
-        FindOutcomeByKey(key, objes);
+        // 일반 케이스: 제출 ids를 Set으로 넘김
+        HashSet<string> submittedIds = new HashSet<string>(objes.Select(o => o.id), StringComparer.OrdinalIgnoreCase);
+
+        FindOutcomeByKey(submittedIds);
 
         // 오브젝트 결과 저장
         AddEndingObje(objes);
     }
 
-    // 결과 키 판별 -> 데이터 저장
-    private void FindOutcomeByKey(string key, List<ObjeData> objes)
+    // special 키 판별
+    private void FindOutcomeByKey_Special(string key)
     {
-        var stage = GetStageInfo();
+        StageInfo stage = GetStageInfo();
         // 키로 찾기
         ResultData result = resultDB.FindByStageWithFallback(stage, key);
 
         // SO 결과 저장(스테이지 엔딩 결과)
         endingResult.Add(result);
 
-        Debug.Log($"[Ending] stage={stage} key={key} -> endingId={result.endingId}");
+        Debug.Log($"[Ending] stage={stage} key={key} -> endingId={result.endingName}");
+    }
 
-        /*
-        // 결과 묶음 리스트, 저장 리스트 구조 변경해야 함!
-        EndingEntry entry = endingTable.FirstOrDefault(e => 
-        e.comboKeys.Any(k => string.Equals(k, key, StringComparison.OrdinalIgnoreCase)));
-        
-        if (entry == null)
-        {
-            entry = endingTable.FirstOrDefault(e =>
-                    e.comboKeys.Any(k => string.Equals(k, "Default", StringComparison.OrdinalIgnoreCase)));
-        }
+    // 결과 키 판별 -> 데이터 저장
+    private void FindOutcomeByKey(HashSet<string> submittedIds)
+    {
+        StageInfo stage = GetStageInfo();
+        // 키로 찾기
+        ResultData result = resultDB.FindByStageBySubset(stage, submittedIds);
 
-        entry.outcome.objeDatas = objes; // 제출 오브제 데이터 저장
-        endingOutcomes.Add(entry.outcome); // 스테이지 엔딩 저장
+        // SO 결과 저장(스테이지 엔딩 결과)
+        endingResult.Add(result);
 
-        Debug.Log($"[Ending] key={key} -> {entry.outcome.endingId}");
-        Debug.Log($"endingOutcomes={string.Join(" ", endingOutcomes[0].endingId)}");
-        */
+        Debug.Log($"[Ending] stage={stage} submitted=[{string.Join(",", submittedIds)}] -> endingId={result.endingName}");
     }
 
     private StageInfo GetStageInfo()

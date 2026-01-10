@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
   m_Name: MongguDoll_SO
   m_EditorClassIdentifier: 
-  objeName: "\uBABD\uAD6C \uC778\uD615"
+  objeName: "\uBA4D\uAD6C\uC758 \uC778\uD615"
   canInteract: 0
-  objeDescription: "\uBABD\uAD6C \uC778\uD615"
+  objeDescription: "\uC54C\uB85D\uB2EC\uB85D\uD55C \uC7A5\uB09C\uAC10 \uC778\uD615\uB4E4.\n\uC5BC\uB9C8\uB098
+    \uBB3C\uACE0 \uB72F\uC5C8\uB294\uC9C0 \uB108\uB35C\uB108\uB35C\uD574\uC838\uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: b5d609d2890e82547a4b71ef51ac1516, type: 3}
   secondiconImage: {fileID: 0}

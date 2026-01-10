@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
   m_Name: Leash_SO
   m_EditorClassIdentifier: 
-  objeName: "\uBAA9\uC904"
+  objeName: "\uC0B0\uCC45\uC6A9 \uBAA9\uC904"
   canInteract: 0
-  objeDescription: "\uBAA9\uC904"
+  objeDescription: "\uB204\uB098\uC640\uC758 \uC678\uCD9C \uC2DC\uAC04\uC744 \uC758\uBBF8\uD558\uB294
+    \uBAA9\uC904.\n\uBA4D\uAD6C\uC758 \uC774\uB984\uC774 \uBA4B\uC9C0\uAC8C \uAC01\uC778\uB418\uC5B4
+    \uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: e14a79d0e6ff20a438c3d2f6aaa71870, type: 3}
   secondiconImage: {fileID: 0}

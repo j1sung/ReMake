@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
   m_Name: Bowl_SO
   m_EditorClassIdentifier: 
-  objeName: "\uAC1C\uBC25\uADF8\uB987"
+  objeName: "\uBA4D\uAD6C \uBC25 \uADF8\uB987"
   canInteract: 0
-  objeDescription: "\uBA4D"
+  objeDescription: "\uC81C\uBC95 \uBB35\uC9C1\uD55C \uB3C4\uC790\uAE30 \uC7AC\uC9C8\uC758
+    \uADF8\uB987.\n\uBF08\uB2E4\uADC0 \uADF8\uB9BC\uC774 \uADF8\uB824\uC9C4 \uADC0\uC5EC\uC6B4
+    \uB514\uC790\uC778\uC774\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: 152b74e28c61d3b43beb2752469449f1, type: 3}
   secondiconImage: {fileID: 0}

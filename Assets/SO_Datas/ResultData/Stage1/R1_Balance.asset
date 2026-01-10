@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: R1_Balance
   m_EditorClassIdentifier: 
   StageInfo: 0
+  endingName: "\uADE0\uD615 \uC5D4\uB529"
   id: R1_Balance
   comboKeys:
   - Balance
-  endingId: balance
   comment: "\u201C\uD568\uAED8\uD55C \uC21C\uAC04\uB4E4\uC774 \uC2A4\uCCD0 \uC9C0\uB098\uAC00\uB294
     \uAC78 \uB290\uAF08\uC5B4.\n\uC6B0\uB9AC\uAC00 \uB098\uB208 \uB0A0\uB4E4\uC5D0
     \uAE30\uC068\uB3C4 \uC2AC\uD514\uB3C4 \uACE0\uB974\uAC8C \uC788\uB2E4 \uC0DD\uAC01\uD558\uB2C8,

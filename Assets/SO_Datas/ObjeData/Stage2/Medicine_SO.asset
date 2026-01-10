@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
   m_Name: Medicine_SO
   m_EditorClassIdentifier: 
-  objeName: "\uC57D"
+  objeName: "\uBC18\uB824\uACAC \uC601\uC591\uC81C"
   canInteract: 0
-  objeDescription: "\uC57D"
+  objeDescription: "\uC54C\uC57D \uD615\uD0DC\uC758 \uBC18\uB824\uACAC\uC6A9 \uC601\uC591\uC81C.\n\uBA4D\uAD6C\uAC00
+    \uC369 \uC88B\uC544\uD588\uB358 \uBB3C\uAC74\uC740 \uC544\uB2CC \uB4EF\uD558\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: 70112727dda616a458983bf279420b35, type: 3}
   secondiconImage: {fileID: 0}

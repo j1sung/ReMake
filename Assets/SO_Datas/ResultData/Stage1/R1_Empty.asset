@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: R1_Empty
   m_EditorClassIdentifier: 
   StageInfo: 0
+  endingName: "\uBD80\uC815 \uC5D4\uB529"
   id: R1_Empty
   comboKeys:
   - Empty
-  endingId: empty
   comment: "\"\uD55C\uBC88\uC774\uB77C\uB3C4 \uCC3E\uC544\uC640 \uC8FC\uBA74 \uC548
     \uB420\uAE4C? \n\uBAA8\uB4E0 \uAC8C \uAFC8 \uAC19\uC544. \uAD34\uB85C\uC6CC.
     \n\uC544\uC9C1\uC740 \uC2DC\uAC04\uC774 \uB9CE\uC774 \uD544\uC694\uD55C\uAC00\uBD10.\""

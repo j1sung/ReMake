@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: R1_Memory
   m_EditorClassIdentifier: 
   StageInfo: 0
+  endingName: "\uCD94\uC5B5 \uC5D4\uB529"
   id: R1_Memory
   comboKeys:
   - Photo
   - Letter
-  - Letter+Photo
-  endingId: memory
   comment: "\u201C\uBD80\uCA4D \uCD94\uC5B5\uC774 \uAE43\uB4E0 \uBB3C\uAC74\uB4E4\uC744
     \uC790\uAFB8 \uB4E4\uC5EC\uB2E4 \uBCF4\uAC8C \uB3FC. \n\uD3C9\uC18C\uC5D4 \uC5B4\uB514\uC5D0
     \uC4F0\uB0D0\uB358 \uC0AC\uC9C4\uC774\uBA70 \uD3B8\uC9C0\uAC00 \uC774\uB807\uAC8C\uB098

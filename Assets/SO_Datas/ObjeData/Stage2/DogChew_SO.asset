@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
   m_Name: DogChew_SO
   m_EditorClassIdentifier: 
-  objeName: "\uAC1C\uAECC"
-  canInteract: 0
-  objeDescription: "\uAC1C\uAECC"
-  secretDescription: "\uAC1C\uAECC"
+  objeName: "\uC228\uACA8\uB454 \uAC04\uC2DD"
+  canInteract: 1
+  objeDescription: "\uAE30\uD638\uB3C4\uAC00 \uC88B\uC740 \uBC18\uB824\uACAC \uAC04\uC2DD\uC774\uB2E4.\n\uC65C
+    \uC5EC\uAE30\uC5D0 \uC228\uACA8\uB454 \uAC78\uAE4C?"
+  secretDescription: "\uC557, \uBD80\uC11C\uC84C\uB2E4!"
   iconImage: {fileID: 21300000, guid: 49d852ffae66593458568006fd6f077d, type: 3}
   secondiconImage: {fileID: 0}
   thirdiconImage: {fileID: 0}

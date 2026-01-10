@@ -2666,9 +2666,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5202477686331862701, guid: 1b210b0ec09fb2649b94596789812bf6, type: 3}
-        m_TargetAssemblyTypeName: SettingsPanelController, Assembly-CSharp
-        m_MethodName: OpenSettingPanel
+      - m_Target: {fileID: 8484884300005751333}
+        m_TargetAssemblyTypeName: SettingButtonProxy, Assembly-CSharp
+        m_MethodName: OnSettingOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10734,6 +10734,7 @@ GameObject:
   - component: {fileID: 8464337787665886527}
   - component: {fileID: 7677858849948430004}
   - component: {fileID: 893040666726929805}
+  - component: {fileID: 8484884300005751333}
   - component: {fileID: 1441174818200640524}
   m_Layer: 5
   m_Name: Setting_Button
@@ -10742,6 +10743,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8484884300005751333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484884300005751332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9dadcdacf56c0469b7ff794bde15ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8584681702392215866
 GameObject:
   m_ObjectHideFlags: 0
