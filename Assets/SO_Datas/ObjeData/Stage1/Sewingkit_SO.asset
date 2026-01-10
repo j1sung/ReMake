@@ -22,7 +22,7 @@ MonoBehaviour:
   thirdiconImage: {fileID: 0}
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 726203034012886289, guid: 456cc22b7c0283d4884e005a3eb0c26a, type: 3}
-  endingImage: {fileID: -4468229096421030941, guid: c45163638660ec0469c1076076fc7943, type: 3}
+  endingImage: {fileID: 21300000, guid: c45163638660ec0469c1076076fc7943, type: 3}
   itemType: present
   id: Sewingkit
   objeSound: {fileID: 8300000, guid: 6a3ba9c789a81404aa382c49f2d9b3b3, type: 3}

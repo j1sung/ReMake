@@ -23,7 +23,7 @@ MonoBehaviour:
   thirdiconImage: {fileID: 0}
   secretImage: {fileID: 21300000, guid: e8d70e158c4a3be48888bb9c0ba39380, type: 3}
   puzzleImage: {fileID: 21300000, guid: df475d6a8e4e13c45ad9191f8e2d6c6e, type: 3}
-  endingImage: {fileID: 3939521005922492351, guid: 0be0194e5cec85140a7eeb00b0155bf3, type: 3}
+  endingImage: {fileID: 21300000, guid: 0be0194e5cec85140a7eeb00b0155bf3, type: 3}
   itemType: attachment
   id: Lipstick
   objeSound: {fileID: 8300000, guid: 0b146fd39c5d48b43abb14ceeadd94ca, type: 3}

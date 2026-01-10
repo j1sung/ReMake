@@ -23,7 +23,7 @@ MonoBehaviour:
   thirdiconImage: {fileID: 0}
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 5543689734127136, guid: c6171dd5271c8b549961cfe5e0f5f51f, type: 3}
-  endingImage: {fileID: -706646488047359522, guid: a5b368b68387abe44bd92789e90f7a77, type: 3}
+  endingImage: {fileID: 21300000, guid: a5b368b68387abe44bd92789e90f7a77, type: 3}
   itemType: present
   id: Muffler
   objeSound: {fileID: 8300000, guid: 24f53127355b1074cb3f937a5b7da535, type: 3}

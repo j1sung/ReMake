@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcee8a19da1de8f4cb76f3a9c12468b5, type: 3}
-  m_Name: R_Memory
+  m_Name: R1_Memory
   m_EditorClassIdentifier: 
   StageInfo: 0
-  id: R_Memory
+  id: R1_Memory
   comboKeys:
   - Photo
   - Letter

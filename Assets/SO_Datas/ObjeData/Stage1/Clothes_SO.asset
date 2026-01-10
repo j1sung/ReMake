@@ -23,7 +23,7 @@ MonoBehaviour:
   thirdiconImage: {fileID: 0}
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 3773135354271303216, guid: 7456c3a1e25289c44b34b651855da36e, type: 3}
-  endingImage: {fileID: -5166866630869420792, guid: 5f8781c3e0fc7614191059b15b4ec194, type: 3}
+  endingImage: {fileID: 21300000, guid: 5f8781c3e0fc7614191059b15b4ec194, type: 3}
   itemType: attachment
   id: Clothes
   objeSound: {fileID: 8300000, guid: f2448722e4e575c4d9c264c31d2e8841, type: 3}

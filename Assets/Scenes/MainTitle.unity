@@ -8816,6 +8816,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pop_up_saveYes
       objectReference: {fileID: 0}
+    - target: {fileID: 1567529450368832119, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8578355177448366367, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

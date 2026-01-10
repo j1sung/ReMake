@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcee8a19da1de8f4cb76f3a9c12468b5, type: 3}
-  m_Name: R_Present
+  m_Name: R1_Empty
   m_EditorClassIdentifier: 
   StageInfo: 0
-  id: R_Present
+  id: R1_Empty
   comboKeys:
-  - Muffler
-  - Muffler+Sewingkit
-  endingId: present
-  comment: "\u201C \uB2E4 \uB728\uC9C0 \uBABB\uD55C \uBAA9\uB3C4\uB9AC\uB97C \uB9CC\uC9C0\uC791\uAC70\uB9AC\uACE4
-    \uD588\uC9C0. \n\uC644\uC131\uB418\uB294 \uB0A0\uC5D4 \uB354 \uD3B8\uC548\uD55C
-    \uC5BC\uAD74\uB85C \uC778\uC0AC\uB97C \uAC74\uB12C \uC218 \uC788\uC744\uAE4C?\u201D"
+  - Empty
+  endingId: empty
+  comment: "\"\uD55C\uBC88\uC774\uB77C\uB3C4 \uCC3E\uC544\uC640 \uC8FC\uBA74 \uC548
+    \uB420\uAE4C? \n\uBAA8\uB4E0 \uAC8C \uAFC8 \uAC19\uC544. \uAD34\uB85C\uC6CC.
+    \n\uC544\uC9C1\uC740 \uC2DC\uAC04\uC774 \uB9CE\uC774 \uD544\uC694\uD55C\uAC00\uBD10.\""
