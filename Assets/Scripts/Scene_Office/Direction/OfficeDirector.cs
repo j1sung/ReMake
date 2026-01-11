@@ -33,7 +33,7 @@ public class OfficeDirector : MonoBehaviour
         OfficeStateMachine.OnStateChanged += HandleStateChanged;
 
         // 씬 시작 시 기본 방 표시
-        SetRoomImage(roomIdle);
+        HandleStateChanged(OfficeStateMachine.currentState);
     }
 
     IEnumerator OfficeIntro()
