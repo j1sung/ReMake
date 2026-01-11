@@ -22,10 +22,10 @@ MonoBehaviour:
   iconImage: {fileID: 21300000, guid: a2287ddff393b22449b322c0911709dc, type: 3}
   secondiconImage: {fileID: 0}
   thirdiconImage: {fileID: 0}
-  secretImage: {fileID: 0}
+  secretImage: {fileID: 21300000, guid: a2287ddff393b22449b322c0911709dc, type: 3}
   puzzleImage: {fileID: 21300000, guid: a2287ddff393b22449b322c0911709dc, type: 3}
   endingImage: {fileID: 21300000, guid: 93baca836e2011340b704bb69e9a5304, type: 3}
-  itemType: 
+  itemType: attachment
   id: SqueakyToy
   objeSound: {fileID: 0}
   maskRows:

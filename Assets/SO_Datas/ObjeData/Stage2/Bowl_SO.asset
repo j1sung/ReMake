@@ -24,7 +24,7 @@ MonoBehaviour:
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 21300000, guid: ee73036e14a92f849a27d3f7f1d5fdd7, type: 3}
   endingImage: {fileID: 21300000, guid: 29934d9725df1a74c96bc08369d3f3d8, type: 3}
-  itemType: 
+  itemType: present
   id: Bowl
   objeSound: {fileID: 0}
   maskRows:

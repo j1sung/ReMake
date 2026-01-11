@@ -23,7 +23,7 @@ MonoBehaviour:
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 21300000, guid: e5c17d7c2eca73640baff4aad64c882a, type: 3}
   endingImage: {fileID: 21300000, guid: 9258999ed93d3874685e2d8762e75d82, type: 3}
-  itemType: 
+  itemType: memory
   id: HairTie
   objeSound: {fileID: 0}
   maskRows:

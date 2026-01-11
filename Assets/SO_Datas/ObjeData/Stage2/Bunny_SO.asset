@@ -24,7 +24,7 @@ MonoBehaviour:
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 21300000, guid: 29ca2522190d9a942aa1dce0304ed831, type: 3}
   endingImage: {fileID: 21300000, guid: 494087076a4defe479735f2f84536587, type: 3}
-  itemType: 
+  itemType: memory
   id: Bunny
   objeSound: {fileID: 0}
   maskRows:
