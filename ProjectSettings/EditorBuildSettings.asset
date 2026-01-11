@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Office.unity
     guid: 0b47eb50a1172b942beb778836f3dfc2
   - enabled: 1
-    path: Assets/Scenes/Room.unity
+    path: Assets/Scenes/Stage1.unity
     guid: b81e6cb2889f5e64699b0f6355114e31
   - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: c04e26395663c3244adf7759e8ff2eed
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: 2440a173d6238ff4cbe5db7b8ee54f49
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
