@@ -8049,7 +8049,7 @@ PrefabInstance:
       objectReference: {fileID: 4131312}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: room1Scene
-      value: Room
+      value: Stage1
       objectReference: {fileID: 0}
     - target: {fileID: 1077900713403861602, guid: 78bfd4cf1e3a41047901a4cd720190e3, type: 3}
       propertyPath: room2Scene

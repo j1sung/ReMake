@@ -15,7 +15,7 @@ public static class OfficeStateMachine
         OnStateChanged?.Invoke(next);
         UnityEngine.Debug.Log("현재 상태" + currentState);
 
-        // Calling 도중에는 저장 x
+        // 전화 도중에는 저장 x
         if (currentState == OfficeState.Calling || currentState == OfficeState.BeforeCall) return;
         DataManager.Instance.SaveGame();
     }
