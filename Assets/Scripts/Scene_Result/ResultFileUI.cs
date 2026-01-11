@@ -16,7 +16,9 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
    
     void Start()
     {
+        // 업무일지 상태 변환
         journalObj.SetActive(true);
+
        // 결과 이미지, 점수 세팅
         StartCoroutine(ResultFile()); // 결과 표시
     }
@@ -26,7 +28,11 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
 
         yield return new WaitForSeconds(1f);
 
-        stampObj.SetActive(true);
+        GetComponentInChildren<JournalUI>().OnUnblur();
+
+        yield return new WaitForSeconds(1f);
+
+        stampObj.SetActive(true); // 완료 도장
 
         isProcessing = false;
     }
