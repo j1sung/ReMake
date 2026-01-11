@@ -3,24 +3,18 @@ using UnityEngine;
 
 public class QActionCollectAll : MonoBehaviour
 {
-    [SerializeField] private List<int> stageMaximum;
+    [SerializeField] private int max;
     private bool isTriggered = false;
     [SerializeField] private int count;
 
     public void CheckCollectAll()
     {
         count = transform.childCount;
-        int max = stageMaximum[ResultManager.instance.CurrentStageInfo - 1];
 
         if (!isTriggered && count == max)
         {
             QuestEventManager.TriggerEvent(QuestEventId.collectAll);
             isTriggered = true;
         }
-    }
-
-    public void ResetTrigger()
-    {
-        isTriggered = false;
     }
 }

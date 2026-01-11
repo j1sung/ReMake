@@ -24,7 +24,7 @@ MonoBehaviour:
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 21300000, guid: 7dfd36abc27c0d740b0f5fbb4315f993, type: 3}
   endingImage: {fileID: 21300000, guid: b3923ddd9c2838f4785a4c957d01345e, type: 3}
-  itemType: 
+  itemType: present
   id: Leash
   objeSound: {fileID: 0}
   maskRows:

@@ -23,7 +23,7 @@ MonoBehaviour:
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 21300000, guid: 8492a9e324137214ea9c7aedc56cfb0d, type: 3}
   endingImage: {fileID: 21300000, guid: 78d27fe736f9d6148b0239bf19538e39, type: 3}
-  itemType: 
+  itemType: present
   id: MongguDoll
   objeSound: {fileID: 0}
   maskRows:

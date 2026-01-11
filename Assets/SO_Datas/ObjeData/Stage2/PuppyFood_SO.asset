@@ -24,7 +24,7 @@ MonoBehaviour:
   secretImage: {fileID: 0}
   puzzleImage: {fileID: 21300000, guid: 9b79eb8ff30d55e458fe939f279aff1f, type: 3}
   endingImage: {fileID: 21300000, guid: a47bdbdde4d4f1c4e97fb0c595b0d400, type: 3}
-  itemType: 
+  itemType: present
   id: PuppyFood
   objeSound: {fileID: 0}
   maskRows:

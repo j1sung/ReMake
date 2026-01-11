@@ -16,14 +16,15 @@ MonoBehaviour:
   canInteract: 1
   objeDescription: "\uAE30\uD638\uB3C4\uAC00 \uC88B\uC740 \uBC18\uB824\uACAC \uAC04\uC2DD\uC774\uB2E4.\n\uC65C
     \uC5EC\uAE30\uC5D0 \uC228\uACA8\uB454 \uAC78\uAE4C?"
-  secretDescription: "\uC557, \uBD80\uC11C\uC84C\uB2E4!"
+  secretDescription: "\uBA39\uC5C8\uB358 \uD754\uC801\uC740 \uC5C6\uB2E4.\n\uB204\uAD70\uAC00\uC5D0\uAC8C
+    \uC8FC\uAE30 \uC704\uD574 \uC544\uAEF4 \uB454 \uAC78\uAE4C?"
   iconImage: {fileID: 21300000, guid: 49d852ffae66593458568006fd6f077d, type: 3}
   secondiconImage: {fileID: 0}
   thirdiconImage: {fileID: 0}
-  secretImage: {fileID: 0}
+  secretImage: {fileID: 21300000, guid: c62097a815836d341ab2a1315c3b850a, type: 3}
   puzzleImage: {fileID: 21300000, guid: 49d852ffae66593458568006fd6f077d, type: 3}
   endingImage: {fileID: 21300000, guid: 5bcdfc87050edba46b21772a6b159d25, type: 3}
-  itemType: 
+  itemType: present
   id: DogChew
   objeSound: {fileID: 0}
   maskRows:
