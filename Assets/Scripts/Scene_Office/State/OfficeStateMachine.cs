@@ -22,7 +22,7 @@ public static class OfficeStateMachine
 
     public static void ResetState()
     {
-        currentState = OfficeState.BeforeStart;
+        currentState = OfficeState.Intro;
     }
 
     public static void LoadState(OfficeState next)

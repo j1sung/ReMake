@@ -11,7 +11,6 @@ using System.Data;
 [System.Serializable]
 public class StageAlbum
 {
-    public int stageNumber; // 현재 스테이지 단계
     public Image[] albumImage; // 채워지는 앨범 이미지 슬롯
     public Transform[] iconRoot; // 아이콘 생성 부모 위치
 }
@@ -25,7 +24,7 @@ public class ResultAlbumUI : MonoBehaviour
     public GameObject nextBtn; // 다음페이지 버튼
     public GameObject prevBtn; // 이전 페이지 버튼
 
-    public List<StageAlbum> stageAlbums; // 채우는 스테이지 앨범 리스트
+    public StageAlbum stageAlbum; // 채우는 스테이지 앨범 리스트
     public GameObject IconPrefab; // 제출 아이콘 프리펩
 
     public AudioClip pageNext;
@@ -34,6 +33,9 @@ public class ResultAlbumUI : MonoBehaviour
 
     private int index; // 현재 스테이지 정보 인덱스
 
+    [SerializeField] private int[] stageEndPages = { 2, 5 };
+    private const int maxPage = 10;
+    private const int minPage = 1;
     private int currentPage = 1; // 앨범 현재 페이지
     private int previousPage = 1; // 이전 페이지(비교)
 
@@ -53,7 +55,7 @@ public class ResultAlbumUI : MonoBehaviour
 
         if (index < ResultManager.instance.endingResult.Count)
         {
-            if (stageAlbums[index].albumImage[0].sprite == null)
+            if (stageAlbum.albumImage[0].sprite == null)
             {
                 gameObject.GetComponent<NextClick>().enabled = false;
                 StartCoroutine(ResultAlbum());
@@ -80,29 +82,29 @@ public class ResultAlbumUI : MonoBehaviour
             // 4개 초과할 때 마다
             if(i>0 && i%4 == 0)
             {
-                for(int j=0; j < stageAlbums[index].albumImage.Length; j++)
+                for(int j=0; j < stageAlbum.albumImage.Length; j++)
                 {
                     // 앨범 사진 초기화
-                    stageAlbums[index].albumImage[j].color = new Color32(239, 229, 219, 255);
-                    stageAlbums[index].albumImage[j].sprite = null;
+                    stageAlbum.albumImage[j].color = new Color32(239, 229, 219, 0);
+                    stageAlbum.albumImage[j].sprite = null;
 
                     // 아이콘 프리펩 비활성화
-                    if (stageAlbums[index].iconRoot[j].childCount > 0)
-                        stageAlbums[index].iconRoot[j].GetChild(0).gameObject.SetActive(false);
+                    if (stageAlbum.iconRoot[j].childCount > 0)
+                        stageAlbum.iconRoot[j].GetChild(0).gameObject.SetActive(false);
                 }
             }
             SFXPlayer.Instance.PlaySFX(photoShot);
 
             // 앨범 사진 페이드 인
-            var img = stageAlbums[index].albumImage[i&3];
+            var img = stageAlbum.albumImage[i&3];
             img.sprite = resultIcons[i].endingImage;
-            img.color = new Color(1,1,1,0);
+            img.color = Color.white;
             img.DOFade(1f, 1.2f);
 
             yield return new WaitForSeconds(0.2f);
 
             // 아이콘 재활용 or 생성
-            Transform iconRoot = stageAlbums[index].iconRoot[i & 3];
+            Transform iconRoot = stageAlbum.iconRoot[i & 3];
             GameObject icon;
 
             if (iconRoot.childCount > 0)
@@ -129,45 +131,51 @@ public class ResultAlbumUI : MonoBehaviour
     private void FillAlbumPage()
     {
         var result = ResultManager.instance;
-        if (index <= 0 || index > result.endingResult.Count) return;
-
-        //List<ObjeData> resultIcons = result.endingOutcomes[index - 1].objeDatas;
-        List<ObjeData> resultIcons = result.endingObjes[index - 1].objs;
-        GameObject icon;
+        int stageIndex = GetStageIndexByPage(currentPage);
+        int stageIdx0 = stageIndex - 1;
+        Debug.Log($"currentPage: {currentPage}");
+        Debug.Log($"stageIdx0: {stageIdx0}");
 
         // 페이지 변경 시 기존 내용 초기화
         if (currentPage != previousPage)
         {
-            for (int i = 0; i < stageAlbums[index - 1].albumImage.Length; i++)
+            for (int i = 0; i < stageAlbum.albumImage.Length; i++)
             {
                 // 앨범 사진 초기화
-                stageAlbums[index - 1].albumImage[i].color = new Color32(239, 229, 219, 255);
-                stageAlbums[index - 1].albumImage[i].sprite = null;
-                
+                stageAlbum.albumImage[i].color = new Color32(239, 229, 219, 0);
+                stageAlbum.albumImage[i].sprite = null;
+
 
                 // 아이콘 프리펩 비활성화
-                if (stageAlbums[index - 1].iconRoot[i].childCount > 0)
-                    stageAlbums[index - 1].iconRoot[i].GetChild(0).gameObject.SetActive(false);
+                if (stageAlbum.iconRoot[i].childCount > 0)
+                    stageAlbum.iconRoot[i].GetChild(0).gameObject.SetActive(false);
             }
         }
-        /* 
-         나중에 스테이지 늘릴거면 결과는 존재하는데 안채워진 부분 있으면 한번에 다 채우는 식으로 바꿔야함
-         지금은 앨범을 엔딩보고 무조건 한번씩 들어가서 저장하는거로 생각했는데 만약 2번 엔딩을 연속으로 보고 
-         앨범으로 돌아오면 중간꺼는 비어있을거임 
-        */
+
+        if (index <= 0 || index > result.endingResult.Count) return;
+        if (stageIdx0 < 0 || stageIdx0 >= result.endingObjes.Count) return;
+
+        List<ObjeData> resultIcons = result.endingObjes[stageIdx0].objs;
+        GameObject icon;
+
+        int startPage = (stageIdx0 == 0) ? 1 : stageEndPages[stageIdx0 - 1] + 1;
+        int baseGlobalI = (startPage - 1) * 4;
 
         // 우선 결과가 총 몇개인지 파악하고, 앨범 최대갯수인 4개가 넘는다면,
         // currentPage 1은 0,1,2,3 / 2는 4,5,6,7 이런식으로 인덱스를 시작해서 앨범이 가지고 있는 갯수만큼 채우도록 설정
-        for (int i = (currentPage - 1) * 4; i < stageAlbums[index - 1].albumImage.Length * currentPage; i++)
+        for (int i = (currentPage - 1) * 4; i < stageAlbum.albumImage.Length * currentPage; i++)
         {
-            if (i >= resultIcons.Count) break; // 결과 오브제 갯수를 넘지않게 확인
+            int localI = i - baseGlobalI;
+
+            if (localI < 0) continue;
+            if (localI >= resultIcons.Count) break; // 결과 오브제 갯수를 넘지않게 확인
 
             // 앨범 사진 채우기
-            var img = stageAlbums[index - 1].albumImage[i & 3];
-            img.sprite = resultIcons[i].endingImage;
+            var img = stageAlbum.albumImage[localI & 3];
+            img.sprite = resultIcons[localI].endingImage;
             img.color = Color.white;
 
-            Transform iconRoot = stageAlbums[index - 1].iconRoot[i & 3];
+            Transform iconRoot = stageAlbum.iconRoot[localI & 3];
             if (iconRoot.childCount > 0)
             {
                 // 이미 프리펩이 존재하면 활성화
@@ -179,29 +187,38 @@ public class ResultAlbumUI : MonoBehaviour
                 // 없으면 새로 생성
                 icon = Instantiate(IconPrefab, iconRoot, false); // icon 생성
             }
-            icon.GetComponent<Image>().sprite = resultIcons[i].iconImage;
+            icon.GetComponent<Image>().sprite = resultIcons[localI].iconImage;
             icon.GetComponent<Image>().preserveAspect = true;
         }
         previousPage = currentPage;
     }
 
+    private int GetStageIndexByPage(int page)
+    {
+        for (int i = 0; i < stageEndPages.Length; i++)
+        {
+            if (page <= stageEndPages[i])
+                return i + 1;
+        } 
+        return stageEndPages.Length; // 넘어가면 마지막 스테이지로 처리(혹은 -1)
+    }
+
+
     public void ResetAlbumUI()
     {
-        foreach (var stage in stageAlbums)
-        {
-            // 각 스테이지 앨범 이미지 초기화
-            foreach (var img in stage.albumImage)
-            {
-                img.sprite = null;
-                img.color = new Color32(239, 229, 219, 255);
-            }
 
-            // 아이콘 프리팹 비활성화
-            foreach (var root in stage.iconRoot)
-            {
-                if (root.childCount > 0)
-                    root.GetChild(0).gameObject.SetActive(false);
-            }
+        // 각 스테이지 앨범 이미지 초기화
+        foreach (var img in stageAlbum.albumImage)
+        {
+            img.sprite = null;
+            img.color = new Color32(239, 229, 219, 0);
+        }
+
+        // 아이콘 프리팹 비활성화
+        foreach (var root in stageAlbum.iconRoot)
+        {
+            if (root.childCount > 0)
+                root.GetChild(0).gameObject.SetActive(false);
         }
 
         // 페이지 리셋
@@ -216,7 +233,10 @@ public class ResultAlbumUI : MonoBehaviour
         FillAlbumPage();
         SFXPlayer.Instance.PlaySFX(pageNext);
         prevBtn.SetActive(true);
-        nextBtn.SetActive(false);
+        if(currentPage >= maxPage)
+            nextBtn.SetActive(false);
+        else
+            nextBtn.SetActive(true);
     }
 
     public void OnPrevPageButton()
@@ -226,7 +246,10 @@ public class ResultAlbumUI : MonoBehaviour
         FillAlbumPage();
         SFXPlayer.Instance.PlaySFX(pageNext);
         nextBtn.SetActive(true);
-        prevBtn.SetActive(false);
+        if(currentPage <= minPage)
+            prevBtn.SetActive(false);
+        else
+            prevBtn.SetActive(true);
     }
 
     public void CloseButton()

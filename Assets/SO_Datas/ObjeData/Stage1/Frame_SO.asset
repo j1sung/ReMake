@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
+  m_Name: Frame_SO
+  m_EditorClassIdentifier: 
+  objeName: "\uACFC\uAC70\uC758 \uC0AC\uC9C4\uB4E4"
+  canInteract: 0
+  objeDescription: "\uD669\uC815\uC219\uC528\uC640 \uB204\uAD70\uAC00\uC758 \uCD94\uC5B5\uC774
+    \uB2F4\uAE34 \uC0AC\uC9C4\uB4E4. \uC0AC\uC9C4\uC758 \uC8FC\uC778\uACF5\uC744
+    \uC2DD\uBCC4\uD558\uAE30\uB294 \uC5B4\uB824\uC6CC \uBCF4\uC778\uB2E4."
+  secretDescription: 
+  iconImage: {fileID: 2456543691494370634, guid: 770a94a8c0022e345a8ce9ae1eccfcc2, type: 3}
+  secondiconImage: {fileID: 1374328055592931346, guid: 61baf6b59bb10f34598e71c19cc9ffae, type: 3}
+  thirdiconImage: {fileID: 580475624801094779, guid: e30dff0ef59ec694a81b4f7db8c3c7e0, type: 3}
+  secretImage: {fileID: 0}
+  puzzleImage: {fileID: 2456543691494370634, guid: 770a94a8c0022e345a8ce9ae1eccfcc2, type: 3}
+  endingImage: {fileID: 21300000, guid: 42e7213caced38043ad146a5ea32c81d, type: 3}
+  itemType: memory
+  id: Photo
+  objeSound: {fileID: 8300000, guid: d0cb79d442d1c1944bd4514337f85fc5, type: 3}
+  maskRows:
+  - 11
+  - 11
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  pivotIndex: 0

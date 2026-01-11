@@ -17,7 +17,7 @@ public class ObjeData : ScriptableObject
     public Sprite endingImage;
 
     public string itemType; // 오브제 종류(로직용)
-    public string itemName;
+    public string id;
 
     public AudioClip objeSound;
     

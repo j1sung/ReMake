@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7795cbfb39a0b2f48bbaebbaf4aeb678, type: 3}
   m_Name: J_S02
   m_EditorClassIdentifier: 
-  img: []
-  nameText: "\uAC00\uB098\uB2E4"
-  genderText: "\uB0A8"
-  birthDateText: 1961.XX.XX
-  residenceText: "XXX\uC2DC XX\uAD6C XXX\uB3D9"
-  noteText: "\uB450\uBC88\uC9F8"
+  normalImage: {fileID: -394890268657284664, guid: 9b4eec8da533c56468cd47ba7513934c, type: 3}
+  blurredImage: {fileID: -8688866262385631511, guid: b49e064e9501e00419f24d5734e727d4, type: 3}
+  img:
+  - {fileID: 21300000, guid: 6be88b9727795ea41972edfc646d10fc, type: 3}
+  - {fileID: 21300000, guid: 953ac64cb6cee35448bebfc314e470ae, type: 3}

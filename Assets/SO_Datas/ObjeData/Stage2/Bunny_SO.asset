@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416384d3d93e227439f944a213734f37, type: 3}
+  m_Name: Bunny_SO
+  m_EditorClassIdentifier: 
+  objeName: "\uB204\uB098\uC758 \uC560\uCC29 \uC778\uD615"
+  canInteract: 0
+  objeDescription: "\uBA4D\uAD6C\uAC00 \uD638\uC2DC\uD0D0\uD0D0 \uB178\uB9AC\uB358
+    \uB204\uB098\uC758 \uC778\uD615.\n\uAFF0\uB9E8 \uC790\uAD6D\uC774 \uAF64 \uD06C\uC9C0\uB9CC,
+    \uADF8\uB7FC\uC5D0\uB3C4 \uD070 \uC560\uCC29\uC774 \uB290\uAEF4\uC9C4\uB2E4."
+  secretDescription: 
+  iconImage: {fileID: 21300000, guid: ce6a306c45847234f99ce60c8b6566e1, type: 3}
+  secondiconImage: {fileID: 0}
+  thirdiconImage: {fileID: 0}
+  secretImage: {fileID: 0}
+  puzzleImage: {fileID: 21300000, guid: 29ca2522190d9a942aa1dce0304ed831, type: 3}
+  endingImage: {fileID: 21300000, guid: 494087076a4defe479735f2f84536587, type: 3}
+  itemType: 
+  id: Bunny
+  objeSound: {fileID: 0}
+  maskRows:
+  - 11
+  - 11
+  pivotX: 0
+  pivotY: 0
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  pivotIndex: 0
