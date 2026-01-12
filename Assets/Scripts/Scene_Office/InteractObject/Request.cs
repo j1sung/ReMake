@@ -5,6 +5,8 @@ public class Request : OfficeInteractable
 {
     [SerializeField] private OfficeUIContext _beforeInteractCtx;
     [SerializeField] private OfficeUIContext _afterInteractCtx;
+    [SerializeField] private OfficeUIContext _afterStage1ClearCtx;
+    [SerializeField] private JournalUI _journal;
 
     [Header("Interacts Condition")]
     private int _clickedCount;
@@ -18,13 +20,14 @@ public class Request : OfficeInteractable
     [Header("UI")]
     [SerializeField] GameObject normalText;
     [SerializeField] GameObject signText;
-    [SerializeField] GameObject signImage;
+    [SerializeField] GameObject sign;
+    [SerializeField] GameObject stamp;
 
     void Awake()
     {
         actions = new() { { OfficeState.BeforeInteracts, OnClickRequestBeforeInteracts }, 
-                          { OfficeState.AfterInteracts, () => OnClickRequestAfterInteracts(SceneData.Stage1)},
-                          { OfficeState.Stage1Clear, () => OnClickRequestAfterInteracts(SceneData.Stage2) } };
+                          { OfficeState.AfterInteracts, EnterStage1},
+                          { OfficeState.Stage1Clear, OnClickRequestAfterStage1Clear } };
     }
 
     private void OnDisable()
@@ -37,26 +40,38 @@ public class Request : OfficeInteractable
         _isPlaying = false;
     }
 
-    private void OnClickRequestBeforeInteracts()
+    public void OnClickRequestBeforeInteracts()
     {
         OfficeUIController.Instance.ShowUI(_beforeInteractCtx);
     }
 
-    private void OnClickRequestAfterInteracts(SceneData stage)
+    private void OnClickStageStart(SceneData stage)
     {
         if (_isPlaying) return; // 중복 클릭 방지
         _co = StartCoroutine(RequestDirection(stage));
     }
 
-    public void CheckCondition()
+    public void OnClickRequestAfterStage1Clear()
     {
-        _clickedCount++;
-
-        if (_clickedCount >= _needCount)
-        {
-            OfficeStateMachine.SetState(OfficeState.AfterInteracts);
-        }
+        OfficeUIController.Instance.ShowUI(_afterStage1ClearCtx);
     }
+
+    public void EnterStage1()
+    {
+        if (_isPlaying) return;
+        ResultManager.instance.SetStage(1);
+        OfficeUIController.Instance.HideUI();
+        OnClickStageStart(SceneData.Stage1);
+    }
+
+    public void EnterStage2()
+    {
+        if (_isPlaying) return;
+        ResultManager.instance.SetStage(2);
+        OfficeUIController.Instance.HideUI();
+        OnClickStageStart(SceneData.Stage2);
+    }
+    
 
     IEnumerator RequestDirection(SceneData nextStage)
     {
@@ -76,8 +91,9 @@ public class Request : OfficeInteractable
         // 4. 의뢰서 클릭 전까지 대기
         yield return new WaitUntil(() => _requestClicked);
 
-        // 5. 사인
-        signImage.SetActive(true);
+        // 5. 사인, 스탬프
+        sign.SetActive(true);
+        
         // + 사인 소리 
 
         // 6. 퀘스트 완료 이벤트 호출
@@ -93,5 +109,16 @@ public class Request : OfficeInteractable
     public void RequestSign()
     {
         _requestClicked = true;
+    }
+
+    
+    public void CheckCondition()
+    {
+        _clickedCount++;
+
+        if (_clickedCount >= _needCount)
+        {
+            OfficeStateMachine.SetState(OfficeState.AfterInteracts);
+        }
     }
 }

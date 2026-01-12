@@ -6,9 +6,6 @@ using UnityEngine;
 public class JournalDB : ScriptableObject
 {
     [SerializeField] private List<JournalData> journalData;
-    
-    [SerializeField] private Sprite unsigned;
-    [SerializeField] private Sprite signed;
 
     public JournalData FindJournal(int n)
     {
