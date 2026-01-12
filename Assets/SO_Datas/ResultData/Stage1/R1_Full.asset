@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcee8a19da1de8f4cb76f3a9c12468b5, type: 3}
+  m_Name: R1_Full
+  m_EditorClassIdentifier: 
+  StageInfo: 0
+  endingName: "\uAF49\uCC2C \uC5D4\uB529"
+  id: R1_Full
+  comboKeys:
+  - Full
+  comment: "\u201C\uB9E4\uC77C\uC774 \uD6C4\uD68C\uC640 \uC0DD\uAC01\uC73C\uB85C
+    \uAC00\uB4DD\uD574. \n\uC560\uC368 \uC815\uB9AC\uD558\uB2E4\uAC00 \uBB3C \uBC00\uB4EF
+    \uC3DF\uC544\uC9C0\uB294 \uAE30\uC5B5\uC5D0 \uC628\uC885\uC77C \uC816\uC5B4\uC788\uACE4
+    \uD574. \n\uC5B8\uC81C\uCBE4 \uBE44\uC6CC\uB0BC \uC218 \uC788\uC744\uAE4C?\u201D"

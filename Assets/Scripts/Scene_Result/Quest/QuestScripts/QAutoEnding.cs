@@ -13,9 +13,9 @@ public class QAutoEnding : MonoBehaviour
         }
         else if (ResultManager.instance.CurrentStageInfo == 2)
         {
-            // QuestEventManager.TriggerEvent(QuestEventId.ending2);
-            //ResultManager.instance.SetNextStage();
-            // OfficeStateMachine.SetState(OfficeState.Stage2Clear);
+            //QuestEventManager.TriggerEvent(QuestEventId.ending2);
+            ResultManager.instance.SetNextStage();
+            OfficeStateMachine.SetState(OfficeState.Stage2Clear);
         }
     }
 }

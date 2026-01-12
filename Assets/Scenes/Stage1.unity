@@ -2666,9 +2666,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5202477686331862701, guid: 1b210b0ec09fb2649b94596789812bf6, type: 3}
-        m_TargetAssemblyTypeName: SettingsPanelController, Assembly-CSharp
-        m_MethodName: OpenSettingPanel
+      - m_Target: {fileID: 8484884300005751333}
+        m_TargetAssemblyTypeName: SettingButtonProxy, Assembly-CSharp
+        m_MethodName: OnSettingOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9804,12 +9804,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.14999999, y: 0.26999998}
-      - {x: -0.21, y: 0.14}
-      - {x: -0.21, y: -0.26999998}
-      - {x: 0.01, y: -0.26999998}
-      - {x: 0.21, y: -0.17999999}
-      - {x: 0.21, y: 0.26999998}
+    - - {x: -0.16913818, y: 0.32741404}
+      - {x: -0.28655195, y: 0.14637937}
+      - {x: -0.28655213, y: -0.28913796}
+      - {x: -0.0027586725, y: -0.30827594}
+      - {x: 0.2801726, y: -0.18637936}
+      - {x: 0.26103443, y: 0.32103443}
   m_UseDelaunayMesh: 0
 --- !u!222 &6569001329345596044
 CanvasRenderer:
@@ -10734,6 +10734,7 @@ GameObject:
   - component: {fileID: 8464337787665886527}
   - component: {fileID: 7677858849948430004}
   - component: {fileID: 893040666726929805}
+  - component: {fileID: 8484884300005751333}
   - component: {fileID: 1441174818200640524}
   m_Layer: 5
   m_Name: Setting_Button
@@ -10742,6 +10743,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8484884300005751333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484884300005751332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9dadcdacf56c0469b7ff794bde15ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8584681702392215866
 GameObject:
   m_ObjectHideFlags: 0
@@ -10800,7 +10813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe957f872e28474eb731cc297e7d134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageMaximum: 0600000006000000
+  max: 6
   count: 0
 --- !u!222 &8733824661452467049
 CanvasRenderer:

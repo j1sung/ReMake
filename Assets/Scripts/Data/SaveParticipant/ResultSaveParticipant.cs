@@ -34,7 +34,7 @@ public class ResultSaveParticipant : GameSaveParticipantBehaviour
                     if (obje == null) continue;
 
                     // ObjeData에서 저장할 문자열 필드 선택 (보통 id)
-                    stageSave.objeIds.Add(obje.itemName);
+                    stageSave.objeIds.Add(obje.id);
                 }
             }
 

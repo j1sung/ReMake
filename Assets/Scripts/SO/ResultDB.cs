@@ -36,36 +36,91 @@ public class ResultDB : ScriptableObject
     }
     public ResultData FindByStageWithFallback(StageInfo stage, string key)
     {
-        ResultData defaultRes = null;
-
-        foreach (var stageList in allResult)
+        foreach (ResultDBList stageList in allResult)
         {
             if (stageList == null) continue;
+            if (stageList.list[0].StageInfo != stage) continue;
 
-            foreach (var res in stageList.list)
+            foreach (ResultData result in stageList.list)
             {
-                if (res == null) continue;
-                if (res.StageInfo != stage) continue;
+                if (result == null) continue;
 
-                var keys = res.comboKeys;
-                if (keys == null || keys.Length == 0) continue;
-
-                // Default 캐싱(먼저 잡아두기)
-                if (defaultRes == null && keys.Any(k => string.Equals(k, "Default", StringComparison.OrdinalIgnoreCase)))
-                    defaultRes = res;
+                string[] keys = result.comboKeys;
 
                 // exact 우선
                 if (keys.Any(k => string.Equals(k, key, StringComparison.OrdinalIgnoreCase)))
-                    return res;
+                    return result;
             }
         }
+        return null;
+    }
 
-        if (defaultRes == null)
-            Debug.LogError($"[ResultDB] Default 결과가 없습니다. stage={stage}, requestedKey={key}");
+    public ResultData FindByStageBySubset(StageInfo stage, HashSet<string> submittedIds)
+    {
+        ResultData defaultRes = null;
+
+        ResultData bestRes = null;
+        int bestKeyCount = int.MaxValue;
+        // comboKeys가 더 적은 엔딩을 우선으로 선택하게 함 -> 한개짜리만인 엔딩 선택을 위해
+
+        foreach(ResultDBList stageList in allResult)
+        {
+            if (stageList == null) continue;
+            if (stageList.list[0].StageInfo != stage) continue;
+
+            foreach(ResultData result in stageList.list)
+            {
+                if(result == null) continue;
+
+                string[] keys = result.comboKeys;
+
+                // Default 캐싱
+                if (defaultRes == null && keys.Any(k => string.Equals(k, "Default", StringComparison.OrdinalIgnoreCase)))
+                {
+                    defaultRes = result;
+                    continue;
+                }
+
+                // combokeys를 set으로 만들고(단일 항목들이라 split 필요 없음)
+                HashSet<string> comboSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                for (int i = 0; i<keys.Length; i++)
+                {
+                    string k = keys[i];
+                    if(string.IsNullOrWhiteSpace(k)) continue;
+                    if (string.Equals(k, "Default", StringComparison.OrdinalIgnoreCase)) continue;
+                    comboSet.Add(k.Trim());
+                }
+
+                if(comboSet.Count == 0) continue;
+                Debug.Log(comboSet);
+
+                // 제출 부분집합
+                if(IsSubset(submittedIds, comboSet))
+                {
+                    // 가장 작은 콤보키 엔딩 선택
+                    if(comboSet.Count < bestKeyCount)
+                    {
+                        bestKeyCount = comboSet.Count;
+                        bestRes = result;
+                    }
+                }
+            }
+        }
+        if(bestRes != null)
+            return bestRes;
 
         return defaultRes;
     }
-
+    private static bool IsSubset(HashSet<string> submitted, HashSet<string> comboSet)
+    {
+        // submitted의 모든 원소가 comboSet에 존재해야 함
+        foreach (var id in submitted)
+        {
+            if (!comboSet.Contains(id))
+                return false;
+        }
+        return true;
+    }
 }
 
 [Serializable]

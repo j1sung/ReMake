@@ -7,6 +7,7 @@ public enum QuestEventId
     noRotation,
     switchedUI3Times,
     ending1,
+    ending2,
     freshman,
 
 }

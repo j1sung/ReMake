@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4581,6 +4581,17 @@ RectTransform:
   m_AnchoredPosition: {x: -380.11023, y: 166.33887}
   m_SizeDelta: {x: 589.411, y: 376.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1245597550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 424043201251281815, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+  m_PrefabInstance: {fileID: 1535814554309009690}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1274764864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4639,7 +4650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5031,7 +5042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5260,6 +5271,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382025645}
   m_CullTransparentMesh: 1
+--- !u!1 &1403527480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1567529450368832119, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+  m_PrefabInstance: {fileID: 1535814554309009690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1420702065
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,7 +5413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 1}
+  m_Color: {r: 0.9372549, g: 0.8980392, b: 0.85882354, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7941,8 +7957,7 @@ MonoBehaviour:
   questUI: {fileID: 1585638412}
   nextBtn: {fileID: 314334944}
   prevBtn: {fileID: 572473138}
-  stageAlbums:
-  - stageNumber: 1
+  stageAlbum:
     albumImage:
     - {fileID: 1431874827}
     - {fileID: 1274764867}
@@ -7957,6 +7972,7 @@ MonoBehaviour:
   pageNext: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   closeBook: {fileID: 8300000, guid: ee23994ce0692b147b585ff063ad7a5e, type: 3}
   photoShot: {fileID: 8300000, guid: 24db52dc9dcf75d4b802d3c0ba4295da, type: 3}
+  stageEndPages: 0200000005000000
 --- !u!114 &2001442964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8812,9 +8828,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1898500615}
     m_Modifications:
+    - target: {fileID: 424043201251281815, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+      propertyPath: m_text
+      value: "\uC9C4\uD589: Stage 1\n\uC568\uBC94 \uC9C4\uD589\uB3C4: 10%"
+      objectReference: {fileID: 0}
     - target: {fileID: 1567529450368832119, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
       propertyPath: m_Name
       value: Pop_up_saveYes
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567529450368832119, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545699299615709617, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 269.35
       objectReference: {fileID: 0}
     - target: {fileID: 8578355177448366367, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
       propertyPath: m_Pivot.x
@@ -8899,7 +8927,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1567529450368832119, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 8604472537281093992}
   m_SourcePrefab: {fileID: 100100000, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
 --- !u!4 &1958970679424085910
 Transform:
@@ -9367,12 +9398,26 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7859797526692528331, guid: cd4146fb54e6e3340a4ccf9e26015f56, type: 3}
   m_PrefabInstance: {fileID: 1535814554309009690}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1403527480}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d778b697a3c4fb48a3426b56fff6fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8604472537281093992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403527480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a25cd168861eb4c846e465395e2952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1245597550}
+  totalStage: 3
 --- !u!199 &8673721098619524812
 ParticleSystemRenderer:
   serializedVersion: 6

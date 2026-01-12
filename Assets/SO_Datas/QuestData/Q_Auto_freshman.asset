@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Q_Auto_freshman
   m_EditorClassIdentifier: 
   questType: 0
-  qID: freshman
-  id: 5
+  id: 6
   qName: "\uC2E0\uC785 \uC9C1\uC6D0"
   qDescription: "\uCCAB \uC758\uB8B0\uB97C \uC811\uC218\uD55C\uB2E4."
