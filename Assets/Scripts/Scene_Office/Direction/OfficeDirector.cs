@@ -34,6 +34,8 @@ public class OfficeDirector : MonoBehaviour
 
         // 씬 시작 시 기본 방 표시
         HandleStateChanged(OfficeStateMachine.currentState);
+        Debug.Log("현재 상태" + OfficeStateMachine.currentState);
+
     }
 
     IEnumerator OfficeIntro()
@@ -60,6 +62,7 @@ public class OfficeDirector : MonoBehaviour
         {   
             case OfficeState.BeforeStart:
                 // 인트로 연출 시작
+                SetRoomImage(roomIdle);
                 _introCo = StartCoroutine(OfficeIntro());
                 break;
 
