@@ -47,12 +47,17 @@ public class IntroPlayer : MonoBehaviour
     Coroutine _outro;
 
     void Awake()
-    {
-        if (OfficeStateMachine.currentState != OfficeState.Intro)
+    {   
+        if (OfficeStateMachine.currentState == OfficeState.Intro)
+        {   
+            _introCanvas.gameObject.SetActive(true);
+        }
+        else
         {
             _introCanvas.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }
+
         return;
     }
 
