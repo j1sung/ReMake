@@ -15,6 +15,7 @@ public class ClickObje : MonoBehaviour
     public void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
+
         // 팝업 표시
         if (ui != null)
         {
@@ -22,7 +23,6 @@ public class ClickObje : MonoBehaviour
             IsInteracted = data.canInteract;
             ui.OnClickObje(this);
         }
-        
     }
     // 오브제를 획득했을때 호출
     public void Acquire()
