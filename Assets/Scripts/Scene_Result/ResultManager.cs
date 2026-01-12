@@ -25,17 +25,12 @@ public class ResultManager : MonoBehaviour
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
 
-    // 엔딩 결과 목록 만들기 -> 추후 다른곳으로 옮겨야할듯
-    [Header("Ending Table")]
-    public List<EndingEntry> endingTable = new List<EndingEntry>();
-
     // 스테이지별 결과 저장(필수)
     [Header("Ending Obje")]
     public List<EndingObje> endingObjes = new List<EndingObje>();
 
     [Header("Ending Result")]
     public List<ResultData> endingResult = new List<ResultData>();
-    //public List<EndingOutcome> endingOutcomes = new List<EndingOutcome>(); // 나중에는 스크립터블 오브젝트나 다른 데이터 저장소로 옮겨야될듯
 
     // 업적 달성 저장(필수)
     [Header("Unlocked Quest Result")]

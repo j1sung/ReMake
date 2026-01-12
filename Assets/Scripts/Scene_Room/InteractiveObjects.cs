@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,13 +15,13 @@ public class InteractiveObjects : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) return;
         string objName = gameObject.name;
 
-        if (objName.Contains("Closed"))
+        if (objName.Contains("Closed", StringComparison.OrdinalIgnoreCase))
         {
             SFXPlayer.Instance.PlaySFX(openSound);
             Closed.SetActive(false);
             Opened.SetActive(true);
         }
-        else if (objName.Contains("Opened"))
+        else if (objName.Contains("Opened", StringComparison.OrdinalIgnoreCase))
         {   
             SFXPlayer.Instance.PlaySFX(closeSound);
             Opened.SetActive(false);

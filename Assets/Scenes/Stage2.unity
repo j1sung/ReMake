@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 29706631}
   m_Layer: 0
   m_Name: DogChew
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,8 +295,8 @@ GameObject:
   - component: {fileID: 36821506}
   - component: {fileID: 36821505}
   m_Layer: 0
-  m_Name: 'Sink(open) '
-  m_TagString: Untagged
+  m_Name: 'Sink(opened) '
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,65 +418,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.42, y: -1.4399999}
-      - {x: 1.4399999, y: -1.38}
-      - {x: 1.54, y: -1.38}
-      - {x: 2.02, y: -1.14}
-      - {x: 2.07, y: -1.09}
-      - {x: 2.07, y: 0.59}
-      - {x: 1.4699999, y: 0.89}
-      - {x: 1.37, y: 0.89}
-      - {x: 1.37, y: 1.35}
-      - {x: 1.35, y: 1.37}
-      - {x: 1.3199999, y: 1.42}
-      - {x: 1.23, y: 1.49}
-      - {x: 1.04, y: 1.5}
-      - {x: 0.96999997, y: 1.4499999}
-      - {x: 0.90999997, y: 1.35}
-      - {x: 0.90999997, y: 1.17}
-      - {x: 0.93, y: 1.15}
-      - {x: 1.05, y: 1.15}
-      - {x: 1.17, y: 1.27}
-      - {x: 1.2099999, y: 1.27}
-      - {x: 1.15, y: 1.06}
-      - {x: 1, y: 1.15}
-      - {x: 0.9, y: 1.14}
-      - {x: 0.88, y: 1.1999999}
-      - {x: 0.64, y: 1.31}
-      - {x: 0.26999998, y: 1.49}
-      - {x: 0.07, y: 1.5899999}
-      - {x: -0.19, y: 1.5899999}
-      - {x: -0.28, y: 1.56}
-      - {x: -0.29999998, y: 1.5}
-      - {x: -0.39999998, y: 1.5}
-      - {x: -0.88, y: 1.26}
-      - {x: -0.9, y: 1.1999999}
-      - {x: -1, y: 1.1999999}
-      - {x: -1.36, y: 1.02}
-      - {x: -1.38, y: 0.96}
-      - {x: -1.48, y: 0.96}
-      - {x: -1.9599999, y: 0.71999997}
-      - {x: -2.07, y: 0.65}
-      - {x: -2.07, y: -1.0699999}
-      - {x: -1.9399999, y: -1.0799999}
-      - {x: -1.92, y: -1.02}
-      - {x: -1.8199999, y: -1.02}
-      - {x: -1.6999999, y: -0.96}
-      - {x: -1.68, y: -0.9}
-      - {x: -1.5799999, y: -0.9}
-      - {x: -1.3399999, y: -0.78}
-      - {x: -1.3199999, y: -0.71999997}
-      - {x: -1.22, y: -0.71999997}
-      - {x: -1.1, y: -0.65999997}
-      - {x: -1.0799999, y: -0.59999996}
-      - {x: -1, y: -0.65}
-      - {x: -0.16, y: -1.0699999}
-      - {x: 0.56, y: -1.4399999}
-      - {x: 0.88, y: -1.5899999}
-      - {x: 1.09, y: -1.5899999}
-      - {x: 1.18, y: -1.56}
-      - {x: 1.1999999, y: -1.5}
-      - {x: 1.3, y: -1.5}
+    - - {x: -2.0767221, y: -1.0953952}
+      - {x: -0.9519602, y: -0.5590304}
+      - {x: -0.9229077, y: 0.20112646}
+      - {x: -0.098303795, y: -0.17713463}
+      - {x: -0.06857467, y: -1.0595936}
+      - {x: 1.0361867, y: -1.6195228}
+      - {x: 2.0983949, y: -1.1066792}
+      - {x: 2.1098862, y: 0.5453956}
+      - {x: -0.08950126, y: 1.6439272}
+      - {x: -2.1061804, y: 0.61997855}
   m_UseDelaunayMesh: 0
 --- !u!114 &36821506
 MonoBehaviour:
@@ -508,7 +459,7 @@ GameObject:
   - component: {fileID: 56584710}
   m_Layer: 0
   m_Name: SqueakyToy
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,7 +742,7 @@ GameObject:
   - component: {fileID: 151738489}
   m_Layer: 0
   m_Name: Medicine
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -950,8 +901,8 @@ GameObject:
   - component: {fileID: 200562310}
   - component: {fileID: 200562309}
   m_Layer: 0
-  m_Name: Drawer(open)
-  m_TagString: Untagged
+  m_Name: Drawer(opened)
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1015,7 +966,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1966452543
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2942451899872492704, guid: 154e26c8440ae2549bc4870e2886bb49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1073,29 +1024,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.3, y: -0.39}
-      - {x: 1.3299999, y: -0.34}
-      - {x: 1.4399999, y: -0.31}
-      - {x: 1.55, y: -0.03}
-      - {x: 1.5899999, y: 0.02}
-      - {x: 1.5899999, y: 0.44}
-      - {x: 1.53, y: 0.5}
-      - {x: 1.43, y: 0.5}
+    - - {x: 0.04608965, y: 0.29470098}
+      - {x: 0.059591055, y: -0.942207}
+      - {x: 1.4464862, y: -0.2897532}
+      - {x: 1.6379861, y: 0.37470096}
+      - {x: 1.4051986, y: 0.4894247}
+      - {x: 1.4592559, y: 0.28347775}
+      - {x: 0.7980566, y: -0.054244976}
+      - {x: 0.20409942, y: 0.18426841}
+      - {x: 1.0680332, y: 0.60724235}
+      - {x: 1.3805035, y: 0.44225407}
       - {x: 1.43, y: 1.02}
-      - {x: 1.42, y: 1.04}
-      - {x: 0.94, y: 1.28}
-      - {x: 0.72999996, y: 1.38}
-      - {x: 0.47, y: 1.38}
-      - {x: 0.38, y: 1.35}
-      - {x: -1.42, y: 0.45}
-      - {x: -1.56, y: 0.37}
-      - {x: -1.5899999, y: 0.32999998}
-      - {x: -1.5899999, y: -1.04}
-      - {x: -1.53, y: -1.1}
-      - {x: -1.06, y: -1.3399999}
-      - {x: -0.96999997, y: -1.38}
-      - {x: -0.71, y: -1.38}
-      - {x: -0.62, y: -1.35}
+      - {x: 0.99103034, y: 0.8007674}
   m_UseDelaunayMesh: 0
 --- !u!114 &200562310
 MonoBehaviour:
@@ -1205,7 +1145,7 @@ GameObject:
   - component: {fileID: 286409684}
   m_Layer: 0
   m_Name: bunny
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1387,7 +1327,7 @@ GameObject:
   - component: {fileID: 386002963}
   m_Layer: 0
   m_Name: DogBowl
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1783,7 +1723,7 @@ GameObject:
   - component: {fileID: 581534090}
   m_Layer: 0
   m_Name: Monggus doll
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2049,7 +1989,7 @@ GameObject:
   - component: {fileID: 685354187}
   m_Layer: 0
   m_Name: Drawer
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2085,7 +2025,7 @@ GameObject:
   - component: {fileID: 688737210}
   m_Layer: 0
   m_Name: HairTie
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2339,7 +2279,7 @@ GameObject:
   - component: {fileID: 834266527}
   m_Layer: 0
   m_Name: Drawer(closed)
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2642,7 +2582,7 @@ GameObject:
   - component: {fileID: 973477409}
   m_Layer: 0
   m_Name: Cabinet(closed)
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3001,7 +2941,7 @@ GameObject:
   - component: {fileID: 1099636298}
   m_Layer: 0
   m_Name: Quilt(closed)
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3236,7 +3176,7 @@ GameObject:
   - component: {fileID: 1138471514}
   m_Layer: 0
   m_Name: Sink(closed)
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3442,8 +3382,8 @@ GameObject:
   - component: {fileID: 1235119401}
   - component: {fileID: 1235119400}
   m_Layer: 0
-  m_Name: Quilt(open)
-  m_TagString: Untagged
+  m_Name: Quilt(opened)
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3672,7 +3612,7 @@ GameObject:
   - component: {fileID: 1313654664}
   m_Layer: 0
   m_Name: Sink
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3909,7 +3849,7 @@ GameObject:
   - component: {fileID: 1384243921}
   m_Layer: 0
   m_Name: Cardigan
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4071,7 +4011,7 @@ GameObject:
   - component: {fileID: 1575364234}
   m_Layer: 0
   m_Name: Cabinet
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4560,8 +4500,8 @@ GameObject:
   - component: {fileID: 1678962264}
   - component: {fileID: 1678962263}
   m_Layer: 0
-  m_Name: Cabinet(open)
-  m_TagString: Untagged
+  m_Name: Cabinet(opened)
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4625,7 +4565,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1966452543
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -5761389705651665985, guid: 4e73735e16ef7c64fbcb82888e306e47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4683,50 +4623,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.12, y: -1.0799999}
-      - {x: 1.14, y: -1.02}
-      - {x: 1.24, y: -1.02}
-      - {x: 1.26, y: -0.96}
-      - {x: 1.35, y: -0.95}
-      - {x: 1.41, y: -0.89}
-      - {x: 1.41, y: 0.11}
-      - {x: 1.36, y: 0.17}
+    - - {x: -1.4219631, y: 0.88506377}
+      - {x: -1.4199914, y: -0.100566566}
+      - {x: -1.2899444, y: -0.19070673}
+      - {x: -1.2999914, y: -0.51530683}
+      - {x: -0.9095229, y: -0.3490631}
+      - {x: 0.73695004, y: -1.1784497}
+      - {x: 1.4340369, y: -0.9055834}
+      - {x: 1.426103, y: 0.11591564}
       - {x: 1.12, y: 0.29}
-      - {x: 0.03, y: 0.83}
+      - {x: -0.20152783, y: 0.9348233}
+      - {x: -0.5764246, y: 0.19261026}
+      - {x: -0.26561832, y: 0.17732492}
+      - {x: -0.22573543, y: -0.48206553}
+      - {x: -0.7425153, y: -0.36384767}
+      - {x: -0.7391994, y: -0.05337727}
       - {x: -0.19999999, y: 0.95}
       - {x: -0.44, y: 1.0699999}
-      - {x: -0.57, y: 1.13}
-      - {x: -0.65999997, y: 1.17}
-      - {x: -0.89, y: 1.17}
-      - {x: -0.89, y: 1.13}
-      - {x: -1, y: 1.14}
-      - {x: -1.02, y: 1.0799999}
-      - {x: -1.12, y: 1.0799999}
-      - {x: -1.14, y: 1.02}
-      - {x: -1.24, y: 1.02}
-      - {x: -1.27, y: 0.96999997}
-      - {x: -1.38, y: 0.94}
-      - {x: -1.41, y: 0.9}
-      - {x: -1.41, y: -0.11}
-      - {x: -1.35, y: -0.17}
-      - {x: -1.31, y: -0.17}
-      - {x: -1.31, y: -0.51}
-      - {x: -1.29, y: -0.53}
-      - {x: -1.22, y: -0.53999996}
-      - {x: -1.1999999, y: -0.48}
-      - {x: -1.1, y: -0.48}
-      - {x: -1.0799999, y: -0.42}
-      - {x: -0.97999996, y: -0.42}
-      - {x: -0.96, y: -0.35999998}
-      - {x: -0.87, y: -0.41}
-      - {x: -0.64, y: -0.53}
-      - {x: -0.39999998, y: -0.65}
-      - {x: 0.21, y: -0.95}
-      - {x: 0.65, y: -1.17}
-      - {x: 0.89, y: -1.17}
-      - {x: 0.89, y: -1.13}
-      - {x: 1, y: -1.14}
-      - {x: 1.02, y: -1.0799999}
+      - {x: -0.78633744, y: 1.2201405}
   m_UseDelaunayMesh: 0
 --- !u!114 &1678962264
 MonoBehaviour:
@@ -5172,7 +5086,7 @@ GameObject:
   - component: {fileID: 2087475311}
   m_Layer: 0
   m_Name: PuppyFood
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5330,7 +5244,7 @@ GameObject:
   - component: {fileID: 2137233560}
   m_Layer: 0
   m_Name: DogLeash
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5493,7 +5407,7 @@ GameObject:
   - component: {fileID: 2137619600}
   m_Layer: 0
   m_Name: Quilt
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
