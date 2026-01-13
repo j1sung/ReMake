@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 770a94a8c0022e345a8ce9ae1eccfcc2
+guid: 4873ff7a053ff9b418cbc0bc3ad056df
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2456543691494370634
-    second: Puzzle_Frame_0
+      213: 6596185022393219531
+    second: pic_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,11 +46,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.25, y: 0.75}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Puzzle_Photo_0
+      name: pic_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 402
         height: 402
-      alignment: 9
-      pivot: {x: 0.25, y: 0.75}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4dafbad875671220800000000000000
-      internalID: 2456543691494370634
+      spriteID: bc9ff7c645b5a8b50800000000000000
+      internalID: 6596185022393219531
       vertices: []
       indices: 
       edges: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8f97be448f02e9149a52449f99071151
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Puzzle_Photo_0: 2456543691494370634
+      pic_0: 6596185022393219531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
