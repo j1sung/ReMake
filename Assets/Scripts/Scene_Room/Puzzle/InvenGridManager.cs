@@ -539,7 +539,7 @@ public class InvenGridManager : MonoBehaviour {
             QuestEventManager.TriggerEvent(QuestEventId.noRotation);
 
         // 결과로 보냄
-        ResultManager.instance.SetResults(new List<ObjeData>(set), isFull);
+        ResultManager.instance.ProcessStageResult(new List<ObjeData>(set), isFull);
     }
 }
 

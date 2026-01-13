@@ -6254,7 +6254,7 @@ MonoBehaviour:
   pageNext: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   closeBook: {fileID: 8300000, guid: ee23994ce0692b147b585ff063ad7a5e, type: 3}
   questAlbums:
-  - questID: 5
+  - questID: 6
     unlockImage: {fileID: 900569691}
     textName: {fileID: 1382025647}
     textDescription: {fileID: 312714485}
@@ -9417,7 +9417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1245597550}
-  totalStage: 3
+  MaxObj: 16
 --- !u!199 &8673721098619524812
 ParticleSystemRenderer:
   serializedVersion: 6
