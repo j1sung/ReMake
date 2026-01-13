@@ -54,11 +54,8 @@ public class ResultSaveParticipant : GameSaveParticipantBehaviour
         ResultManager.instance.SetStage(data.stageNum);
 
         // resultId 적용
-        ResultManager.instance.endingResult.Clear();
-        for (int i = 0; i < data.resultId.Count; i++) 
-        {
-            ResultManager.instance.SetResult(data.resultId[i]);
-        }
+        ResultManager.instance.SetResult(data.resultId);
+
 
         // objeByStage 적용
         ResultManager.instance.SetObje(data.objeByStage);
