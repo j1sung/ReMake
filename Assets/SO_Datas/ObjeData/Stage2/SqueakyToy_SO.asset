@@ -27,7 +27,9 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: 93baca836e2011340b704bb69e9a5304, type: 3}
   itemType: attachment
   id: SqueakyToy
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: fc214890a1f65604e947f99af0affaf3, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 8300000, guid: fc214890a1f65604e947f99af0affaf3, type: 3}
   maskRows:
   - 1
   pivotX: 0

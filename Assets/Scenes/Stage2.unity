@@ -464,8 +464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 1138471511}
   Opened: {fileID: 36821502}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: ea88491f828bf8546a4f6578b1ef0637, type: 3}
+  closeSound: {fileID: 8300000, guid: 6657521da77cf184aad74a24f3d28a06, type: 3}
 --- !u!1 &56584706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,8 +1094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 834266524}
   Opened: {fileID: 200562306}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 756bb84a63142074a9d5602f6d00d22a, type: 3}
+  closeSound: {fileID: 8300000, guid: 49a059a710bed8a4e97c2dce3693b95c, type: 3}
 --- !u!1 &264377387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,8 +2394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 1478976577}
   Opened: {fileID: 804745059}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a579af2e5e1c2544ab4cabbb8c900a23, type: 3}
+  closeSound: {fileID: 8300000, guid: ab3c7923ad85a1048b2b2d4b0ad9d8b4, type: 3}
 --- !u!1 &834266524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2566,8 +2566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 834266524}
   Opened: {fileID: 200562306}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 756bb84a63142074a9d5602f6d00d22a, type: 3}
+  closeSound: {fileID: 8300000, guid: 49a059a710bed8a4e97c2dce3693b95c, type: 3}
 --- !u!224 &864084593 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4859057032274431561, guid: 772414a376f367e449a98296c546f006, type: 3}
@@ -2884,8 +2884,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 973477406}
   Opened: {fileID: 1678962260}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: ea88491f828bf8546a4f6578b1ef0637, type: 3}
+  closeSound: {fileID: 8300000, guid: 6657521da77cf184aad74a24f3d28a06, type: 3}
 --- !u!1001 &1039248078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3260,8 +3260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 1099636295}
   Opened: {fileID: 1235119397}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47e36b7ffed7c9e4e88eb5640f725c2c, type: 3}
+  closeSound: {fileID: 8300000, guid: 3b92f3f0261d37c4fb7efba4e94b95c6, type: 3}
 --- !u!1 &1125344023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,8 +3498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 1138471511}
   Opened: {fileID: 36821502}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: ea88491f828bf8546a4f6578b1ef0637, type: 3}
+  closeSound: {fileID: 8300000, guid: 6657521da77cf184aad74a24f3d28a06, type: 3}
 --- !u!1 &1219719962
 GameObject:
   m_ObjectHideFlags: 0
@@ -3876,8 +3876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 1099636295}
   Opened: {fileID: 1235119397}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: 47e36b7ffed7c9e4e88eb5640f725c2c, type: 3}
+  closeSound: {fileID: 8300000, guid: 3b92f3f0261d37c4fb7efba4e94b95c6, type: 3}
 --- !u!1 &1266839890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,8 +4319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 1478976577}
   Opened: {fileID: 804745059}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: a579af2e5e1c2544ab4cabbb8c900a23, type: 3}
+  closeSound: {fileID: 8300000, guid: ab3c7923ad85a1048b2b2d4b0ad9d8b4, type: 3}
 --- !u!114 &1478976582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4991,8 +4991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Closed: {fileID: 973477406}
   Opened: {fileID: 1678962260}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: ea88491f828bf8546a4f6578b1ef0637, type: 3}
+  closeSound: {fileID: 8300000, guid: 6657521da77cf184aad74a24f3d28a06, type: 3}
 --- !u!1 &1702434954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,7 +6025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -12210,9 +12210,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5202477686331862701, guid: 1b210b0ec09fb2649b94596789812bf6, type: 3}
-        m_TargetAssemblyTypeName: SettingsPanelController, Assembly-CSharp
-        m_MethodName: OpenSettingPanel
+      - m_Target: {fileID: 9002702835560161013}
+        m_TargetAssemblyTypeName: SettingButtonProxy, Assembly-CSharp
+        m_MethodName: OnSettingOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13058,6 +13058,7 @@ GameObject:
   - component: {fileID: 4697102094817366173}
   - component: {fileID: 2570623975616556609}
   - component: {fileID: 5785221048151235330}
+  - component: {fileID: 9002702835560161013}
   m_Layer: 5
   m_Name: Setting_Button
   m_TagString: Untagged
@@ -13065,6 +13066,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9002702835560161013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002702835560161012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9dadcdacf56c0469b7ff794bde15ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9015663064185228694
 GameObject:
   m_ObjectHideFlags: 0

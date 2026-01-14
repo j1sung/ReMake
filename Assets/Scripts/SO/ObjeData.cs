@@ -20,6 +20,8 @@ public class ObjeData : ScriptableObject
     public string id;
 
     public AudioClip objeSound;
+    public AudioClip secretSound;
+    public AudioClip alwaysSound;
     
     // -- 추가: ㄴ자/ㄱ자 등 자유 모양을 표현하기 위한 마스크 또는 셀 목록
     // 1. 편한 입력 방식: 마스크(문자열) -- 둘 중 하나만 써도 됨. maskRows가 있으면 런타임에 shapeCells로 변환해 캐시함.

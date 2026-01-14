@@ -15,6 +15,8 @@ public class QAutoEnding : MonoBehaviour
         }
         else if (ResultManager.instance.CurrentStageInfo == 2)
         {
+            if(!ResultManager.instance.IsFirstCredit)
+                ResultManager.instance.IsFirstCredit = true;
             //QuestEventManager.TriggerEvent(QuestEventId.ending2);
             ResultManager.instance.SetNextStage();
             OfficeStateMachine.SetState(OfficeState.Stage2Clear);

@@ -11,11 +11,16 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class GameSaveData
 {
-    public int stageNum; // 최근 스테이지 진행 저장
+    // 최근 스테이지 진행 저장
+    public int stageNum;
 
-    // 사무실 상태 저장 추가
+    // 엔딩 크래딧
+    public bool IsEndingCredit;
+
+    // 사무실 상태 저장
     public OfficeState officeState;
 
+    // 앨범 데이터 저장
     public List<string> resultId = new List<string>(); // 결과 정보 저장
     public List<StageObjeSave> objeByStage = new List<StageObjeSave>();// 제출 오브제 정보 저장
     public List<QuestEventId> questId = new List<QuestEventId>();// 퀘스트 정보 저장

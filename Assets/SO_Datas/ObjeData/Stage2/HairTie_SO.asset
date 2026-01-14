@@ -25,7 +25,7 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: 9258999ed93d3874685e2d8762e75d82, type: 3}
   itemType: memory
   id: HairTie
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: 63ea3ebfcd375d54c8552d3bfa59ad4e, type: 3}
   maskRows:
   - 1
   pivotX: 0
