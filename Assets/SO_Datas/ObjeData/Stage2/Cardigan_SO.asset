@@ -26,7 +26,7 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: d0e0756f9ed88e04f8f9f502dfc28b0c, type: 3}
   itemType: memory
   id: Cardigan
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: 22135f2b23a1656449fe28707f57b5ab, type: 3}
   maskRows:
   - 11
   - 11

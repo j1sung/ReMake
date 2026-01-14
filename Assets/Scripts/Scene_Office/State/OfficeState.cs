@@ -8,5 +8,4 @@ public enum OfficeState
     AfterInteracts,
     Stage1Clear,
     Stage2Clear,
-    Ending
 }

@@ -32,6 +32,13 @@ public class ItemButtonScript : MonoBehaviour {
     // 버튼 클릭시 퍼즐 스폰
     private void SpawnStoredItem()
     {
+        // 룸이면 퍼즐 안만들고 사운드 재생만
+        if (RoomUIManager.instance.State == UIState.Room)
+        {
+            SFXPlayer.Instance.PlaySFX(item.objeSound);
+            return;
+        }
+
         // 이미 다른 선택 아이템이 있으면 기존 드래그 퍼즐 회수
         if (ItemScript.selectedItem != null)
         {

@@ -38,6 +38,7 @@ public class IntroPlayer : MonoBehaviour
 
     [SerializeField] private GameObject interviewImg; // 인터뷰 이미지
 
+    [SerializeField] private AudioClip textClip; // 텍스트 넘기는 소리
 
     private int _index;
     private IntroPhase _currentPhase;
@@ -149,12 +150,14 @@ public class IntroPlayer : MonoBehaviour
         }
 
         if (_interviewScript.lines[index].speaker == Speaker.Senior)
-        {   
+        {
+            SFXPlayer.Instance.PlaySFX(textClip);
             _seniorText.text = _interviewScript.lines[index].text;
             _currentText = _seniorText;
         }
         else
-        {   
+        {
+            SFXPlayer.Instance.PlaySFX(textClip);
             _kText.text = _interviewScript.lines[index].text;
             _currentText = _kText;
         }

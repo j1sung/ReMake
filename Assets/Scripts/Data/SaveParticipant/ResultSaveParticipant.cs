@@ -11,6 +11,9 @@ public class ResultSaveParticipant : GameSaveParticipantBehaviour
         // stageNum 저장
         data.stageNum = ResultManager.instance.CurrentStageInfo;
 
+        // 엔딩크래딧 저장
+        data.IsEndingCredit = ResultManager.instance.IsFirstCredit;
+
         // resultId 저장
         data.resultId.Clear(); // 항상 새로 덮어씌움
         for (int i = 0; i < ResultManager.instance.endingResult.Count; i++)
@@ -52,6 +55,9 @@ public class ResultSaveParticipant : GameSaveParticipantBehaviour
     {
         // stageNum 적용
         ResultManager.instance.SetStage(data.stageNum);
+
+        // 엔딩 크래딧 적용
+        ResultManager.instance.IsFirstCredit = data.IsEndingCredit;
 
         // resultId 적용
         ResultManager.instance.SetResult(data.resultId);
