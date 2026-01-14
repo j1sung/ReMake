@@ -26,7 +26,7 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
     {
         isProcessing = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.7f);
 
         GetComponentInChildren<JournalUI>().OnUnblur();
 

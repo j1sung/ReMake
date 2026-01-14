@@ -46,9 +46,6 @@ public class ResultAlbumUI : MonoBehaviour
         
         if (index < 0) return;
 
-        // endingOutcomes 갯수 체크
-        if (ResultManager.instance.endingResult.Count == 0) return;
-
         // === 여기서 부터 채우기 체크 ===
         // 조건 통과하면 결과씬 앨범, 불통은 메인메뉴 & 설정 앨범
         Debug.Log("endingOutcomes.Count: " + ResultManager.instance.endingResult.Count);
@@ -68,6 +65,12 @@ public class ResultAlbumUI : MonoBehaviour
             currentPage = 1;
             previousPage = -1;
             prevBtn.SetActive(false);
+            nextBtn.SetActive(true);
+
+            // endingOutcomes 갯수 체크
+            if (ResultManager.instance.endingResult.Count == 0) return;
+
+            // 앨범 로직 시작
             FillAlbumPage();
         }
     }

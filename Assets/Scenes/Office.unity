@@ -2621,6 +2621,7 @@ MonoBehaviour:
   _fadeOut: 0.25
   _hold: 2
   interviewImg: {fileID: 476507809}
+  textClip: {fileID: 8300000, guid: 8d2a89c4ef205be4eb8fa4bbd6f0e255, type: 3}
 --- !u!4 &720406475
 Transform:
   m_ObjectHideFlags: 0
@@ -3202,7 +3203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeechBubble: {fileID: 1489448002}
   dialogue: {fileID: 714642131}
-  phoneRing: {fileID: 8300000, guid: c28d178ec27582d41a0c6c6ea2fc3a03, type: 3}
+  phoneRing: {fileID: 8300000, guid: 36d6ad78013f91549bb8d83be8d35faa, type: 3}
   callWait: {fileID: 8300000, guid: c28d178ec27582d41a0c6c6ea2fc3a03, type: 3}
   _tutorial: {fileID: 11400000, guid: 36684ffee022a4b47b8ee5082a189c1d, type: 2}
   _stage1Clear: {fileID: 11400000, guid: bec7a333c2ec7344ca513c65a34144a1, type: 2}
