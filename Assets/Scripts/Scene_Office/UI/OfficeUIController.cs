@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using TMPro;
 
 public class OfficeUIController : MonoBehaviour
 {
@@ -9,8 +9,10 @@ public class OfficeUIController : MonoBehaviour
     [SerializeField] private GameObject _transparentBlockPanel;
     [SerializeField] private GameObject _opaqueBlockPanel;
 
+    [Header("Fixed Text UI")]
+    [SerializeField] private TMP_Text _textUI;   // 고정 텍스트
+
     private GameObject _currentBlockPanel;
-    private GameObject _currentText;
     private GameObject _currentImage;
 
     void Awake()
@@ -25,18 +27,21 @@ public class OfficeUIController : MonoBehaviour
 
     public void ShowUI(OfficeUIContext context)
     {
+        // Block panel
         _currentBlockPanel = context.blockMode == BlockMode.Transparent
             ? _transparentBlockPanel
             : _opaqueBlockPanel;
 
         _currentBlockPanel.SetActive(true);
 
-        if (context.text != null)
+        // Text (고정)
+        if (!string.IsNullOrEmpty(context.text))
         {
-            _currentText = context.text;
-            _currentText.SetActive(true);
+            _textUI.text = context.text;
+            _textUI.gameObject.SetActive(true);
         }
 
+        // Image (교체)
         if (context.image != null)
         {
             _currentImage = context.image;
@@ -46,12 +51,16 @@ public class OfficeUIController : MonoBehaviour
 
     public void HideUI()
     {
-        if (_currentBlockPanel != null) _currentBlockPanel.SetActive(false);
-        if (_currentText != null) _currentText.SetActive(false);
-        if (_currentImage != null) _currentImage.SetActive(false);
+        if (_currentBlockPanel != null)
+            _currentBlockPanel.SetActive(false);
+
+        if (_textUI != null)
+            _textUI.gameObject.SetActive(false);
+
+        if (_currentImage != null)
+            _currentImage.SetActive(false);
 
         _currentBlockPanel = null;
-        _currentText = null;
         _currentImage = null;
     }
 }

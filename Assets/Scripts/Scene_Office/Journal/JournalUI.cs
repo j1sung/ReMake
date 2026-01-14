@@ -53,7 +53,7 @@ public class JournalUI : MonoBehaviour
                     break;
                 }
             case 2:
-                if (OfficeStateMachine.currentState == OfficeState.Stage1Clear)
+                if (OfficeStateMachine.currentState == OfficeState.ReadyStage2)
                 {
                     journal.sprite = data.blurredImage;
                     if (sign.activeSelf == false) sign.SetActive(false);

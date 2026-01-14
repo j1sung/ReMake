@@ -11,6 +11,7 @@ public class Manual : OfficeInteractable
     [SerializeField] private GameObject _prevBtn;
 
     [SerializeField] private OfficeUIContext _beforeInteractCtx;
+    [SerializeField] private OfficeUIContext _AfterStage1Clear;
     [SerializeField] GameObject coverText;
 
     [SerializeField] private Request _request; 
@@ -18,11 +19,13 @@ public class Manual : OfficeInteractable
 
     void Awake()
     {
-        actions = new(){{OfficeState.BeforeInteracts, OnClickManual},
-                        {OfficeState.AfterInteracts, OnClickManual} };
+        actions = new(){{OfficeState.BeforeInteracts, OnClickBefore},
+                        {OfficeState.AfterInteracts, () => OnClickManual(_AfterStage1Clear)},
+                        {OfficeState.ReadyStage2, () => OnClickManual(_AfterStage1Clear)},
+                        {OfficeState.ReadyStage3, () => OnClickManual(_AfterStage1Clear)}};
     }
 
-    private void OnClickManual()
+    private void OnClickBefore()
     {
         OfficeUIController.Instance.ShowUI(_beforeInteractCtx);
         _currentPage = 0;
@@ -33,6 +36,13 @@ public class Manual : OfficeInteractable
             isClicked = true;
             _request.CheckCondition();
         }
+    }
+
+    private void OnClickManual(OfficeUIContext ctx)
+    {
+        OfficeUIController.Instance.ShowUI(ctx);
+        _currentPage = 0;
+        ShowPage(_currentPage);
     }
 
     public void ShowPage(int index)
