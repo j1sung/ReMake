@@ -6,7 +6,7 @@ public class Request : OfficeInteractable
     [SerializeField] private OfficeUIContext _beforeInteractCtx;
     [SerializeField] private OfficeUIContext _afterInteractCtx;
     [SerializeField] private OfficeUIContext _afterStage1ClearCtx;
-    [SerializeField] private JournalUI _journal;
+    [SerializeField] private OfficeUIContext _afterStage2ClearCtx;
 
     [Header("Interacts Condition")]
     private int _clickedCount;
@@ -25,9 +25,10 @@ public class Request : OfficeInteractable
 
     void Awake()
     {
-        actions = new() { { OfficeState.BeforeInteracts, OnClickRequestBeforeInteracts }, 
+        actions = new() { { OfficeState.BeforeInteracts, () => OnClickRequest(_beforeInteractCtx) }, 
                           { OfficeState.AfterInteracts, EnterStage1},
-                          { OfficeState.Stage1Clear, OnClickRequestAfterStage1Clear } };
+                          { OfficeState.ReadyStage2, () => OnClickRequest(_afterStage1ClearCtx) },
+                          { OfficeState.ReadyStage3, () => OnClickRequest(_afterStage2ClearCtx) }};
     }
 
     private void OnDisable()
@@ -40,20 +41,15 @@ public class Request : OfficeInteractable
         _isPlaying = false;
     }
 
-    public void OnClickRequestBeforeInteracts()
-    {
-        OfficeUIController.Instance.ShowUI(_beforeInteractCtx);
-    }
-
     private void OnClickStageStart(SceneData stage)
     {
         if (_isPlaying) return; // 중복 클릭 방지
         _co = StartCoroutine(RequestDirection(stage));
     }
 
-    public void OnClickRequestAfterStage1Clear()
+    public void OnClickRequest(OfficeUIContext ctx)
     {
-        OfficeUIController.Instance.ShowUI(_afterStage1ClearCtx);
+        OfficeUIController.Instance.ShowUI(ctx);
     }
 
     public void EnterStage1()

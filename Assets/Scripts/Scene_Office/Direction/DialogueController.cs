@@ -3,18 +3,32 @@ using UnityEngine;
 public class DialogueController : MonoBehaviour
 {
     [SerializeField] private TypingEffect typing;
-    [SerializeField] private string[] lines;
-    [SerializeField] GameObject SpeechBubble;
+    [SerializeField] private GameObject speechBubble;
 
-    int index = 0;
-    bool canClick = false;
+    CallScript currentScript;
+    int index;
+    bool canClick;
 
     void Update()
     {
         if (!canClick) return;
-
         if (Input.GetMouseButtonDown(0))
             Next();
+    }
+
+    public void Play(CallScript script)
+    {
+        currentScript = script;
+        index = 0;
+        canClick = false;
+        speechBubble.SetActive(true);
+        PlayCurrent();
+    }
+
+    void PlayCurrent()
+    {
+        canClick = false;
+        typing.Type(currentScript.lines[index], EnableClick);
     }
 
     void EnableClick()
@@ -22,26 +36,19 @@ public class DialogueController : MonoBehaviour
         canClick = true;
     }
 
-    public void PlayCurrent()
-    {
-        canClick = false;
-        typing.Type(lines[index], EnableClick); // 출력 종료시, EnableClick 호출
-    }
-
     void Next()
     {
         index++;
 
-        if (index < lines.Length)
+        if (index < currentScript.lines.Length)
             PlayCurrent();
         else
             EndDialogue();
     }
 
-    // 통화 종료 후 수행
     void EndDialogue()
-    {   
-        SpeechBubble.SetActive(false);
-        OfficeStateMachine.SetState(OfficeState.BeforeInteracts);
+    {
+        speechBubble.SetActive(false);
+        OfficeStateMachine.SetState(currentScript.nextStateAfterCall);
     }
 }

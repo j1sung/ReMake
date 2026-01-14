@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Profiling.Memory.Experimental;
 
 /// Office 씬 연출 전담
 /// - 씬 진입 2초 후 전화벨/전화기 ON 연출
@@ -73,10 +74,8 @@ public class OfficeDirector : MonoBehaviour
                     phoneRing.Play();
                 break;
 
-            case OfficeState.BeforeInteracts:
+            case OfficeState.BeforeInteracts or OfficeState.ReadyStage2:
                 // 전화 종료 후 → 기본 방
-                StopRing();
-                Debug.Log("roomidle로 이미지 교체");
                 SetRoomImage(roomIdle);
                 break;
 
@@ -86,8 +85,16 @@ public class OfficeDirector : MonoBehaviour
                 break;
 
             case OfficeState.Calling:
+                StopRing();
                 SetRoomImage(roomPhoneOn);
                 break;
+
+            case OfficeState.Stage1Clear:
+                SetRoomImage(roomPhoneOn);
+                if (phoneRing != null && !phoneRing.isPlaying)
+                    phoneRing.Play();
+                break;
+                   
             default:
                 return;
         }
