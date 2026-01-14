@@ -33,11 +33,11 @@ public class ResultAlbumUI : MonoBehaviour
 
     private int index; // 현재 스테이지 정보 인덱스
 
-    [SerializeField] private int[] stageEndPages = { 2, 5 };
+    [SerializeField] private int[] stageEndPages = { 2, 5 }; // 나중에 스테이지 추가되면 더 큰 수로 항목 추가
     private const int maxPage = 10;
     private const int minPage = 1;
-    private int currentPage = 1; // 앨범 현재 페이지
-    private int previousPage = 1; // 이전 페이지(비교)
+    private int currentPage; // 앨범 현재 페이지
+    private int previousPage; // 이전 페이지(비교)
 
     void OnEnable()
     {
@@ -50,10 +50,11 @@ public class ResultAlbumUI : MonoBehaviour
         if (ResultManager.instance.endingResult.Count == 0) return;
 
         // === 여기서 부터 채우기 체크 ===
-        // 조건 통과하면 씬 4 앨범, 불통은 메인메뉴 & 설정 앨범
+        // 조건 통과하면 결과씬 앨범, 불통은 메인메뉴 & 설정 앨범
         Debug.Log("endingOutcomes.Count: " + ResultManager.instance.endingResult.Count);
+        Debug.Log(SceneManager.GetActiveScene().name);
 
-        if (index < ResultManager.instance.endingResult.Count)
+        if (SceneManager.GetActiveScene().name == SceneData.Result.ToString())
         {
             if (stageAlbum.albumImage[0].sprite == null)
             {
@@ -64,8 +65,10 @@ public class ResultAlbumUI : MonoBehaviour
         else // 메인메뉴 & 설정에서 앨범 열때(instance 유지) -> 해당 스테이지 부분만 새로 채워주면 됨
         {
             // 처음 앨범 열 때도 첫 페이지를 표시하도록
+            currentPage = 1;
+            previousPage = -1;
+            prevBtn.SetActive(false);
             FillAlbumPage();
-            
         }
     }
 
@@ -75,7 +78,7 @@ public class ResultAlbumUI : MonoBehaviour
 
         // 해당 스테이지 앨범 사진 & 아이콘 채우기
         var result = ResultManager.instance;
-        List<ObjeData> resultIcons = result.endingObjes[index].objs;
+        List<ObjeData> resultIcons = result.Objes;
 
         for (int i=0; i < resultIcons.Count; i++)
         {   
@@ -84,6 +87,7 @@ public class ResultAlbumUI : MonoBehaviour
             {
                 for(int j=0; j < stageAlbum.albumImage.Length; j++)
                 {
+                    stageAlbum.albumImage[j].DOKill();
                     // 앨범 사진 초기화
                     stageAlbum.albumImage[j].color = new Color32(239, 229, 219, 0);
                     stageAlbum.albumImage[j].sprite = null;
@@ -152,7 +156,7 @@ public class ResultAlbumUI : MonoBehaviour
             }
         }
 
-        if (index <= 0 || index > result.endingResult.Count) return;
+        if (index > result.endingResult.Count) return;
         if (stageIdx0 < 0 || stageIdx0 >= result.endingObjes.Count) return;
 
         List<ObjeData> resultIcons = result.endingObjes[stageIdx0].objs;

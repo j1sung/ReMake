@@ -7,6 +7,7 @@ using System.Linq;
 using System;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Reflection;
 [Serializable]
 public class EndingObje
 {
@@ -24,10 +25,10 @@ public class ResultManager : MonoBehaviour
 
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
+    public int CurrentStageInfo => currentStageInfo; // GameManager으로 나중에 옮김
 
-    // 엔딩 결과 목록 만들기 -> 추후 다른곳으로 옮겨야할듯
-    [Header("Ending Table")]
-    public List<EndingEntry> endingTable = new List<EndingEntry>();
+    // 오브제 리스트 캐시
+    public List<ObjeData> Objes { get; private set; } = new List<ObjeData>();
 
     // 스테이지별 결과 저장(필수)
     [Header("Ending Obje")]
@@ -35,7 +36,6 @@ public class ResultManager : MonoBehaviour
 
     [Header("Ending Result")]
     public List<ResultData> endingResult = new List<ResultData>();
-    //public List<EndingOutcome> endingOutcomes = new List<EndingOutcome>(); // 나중에는 스크립터블 오브젝트나 다른 데이터 저장소로 옮겨야될듯
 
     // 업적 달성 저장(필수)
     [Header("Unlocked Quest Result")]
@@ -126,20 +126,54 @@ public class ResultManager : MonoBehaviour
     }
 
     // ==== Save/Load 기능들 ====
-    public int CurrentStageInfo => currentStageInfo; // GameManager으로 나중에 옮김
-
     public void SetStage(int stage)
     {
         currentStageInfo = stage;
     }
 
-    public void SetResult(string id)
+    public void SetResult(List<string> resultIds)
     {
-        endingResult.Add(resultDB.FindById(id));
+        endingResult.Clear();
+        if(resultIds == null) return;
+
+        for(int i =0; i < resultIds.Count; i++)
+        {
+            AddEndingResultAtIndex(i, resultDB.FindById(resultIds[i]));
+        }
     }
+
+    // ==== Obje 추가 로직 ====
     public void AddEndingObje(List<ObjeData> objs)
     {
-        endingObjes.Add(new EndingObje { objs = new List<ObjeData>(objs) });
+        int index = currentStageInfo - 1;
+        AddEndingObjeAtIndex(index, objs);
+    }
+    public void AddEndingObjeAtIndex(int index,  List<ObjeData> objs)
+    {
+        if (index < 0) return;
+
+        // null이면 빈 리스트로 치환
+        if (objs == null)
+           objs = new List<ObjeData>();
+
+        while (endingObjes.Count <= index)
+            endingObjes.Add(null);
+
+        if (endingObjes[index] == null)
+            endingObjes[index] = new EndingObje { objs = new List<ObjeData>() };
+
+        List<ObjeData> target = endingObjes[index].objs;
+
+        for(int i=0; i< objs.Count; i++)
+        {
+            ObjeData obj = objs[i];
+            if(obj == null) continue;
+
+            // 중복 방지해서 넣기
+            bool exists = target.Exists(x => x != null &&
+                string.Equals(x.id, obj.id, StringComparison.OrdinalIgnoreCase));
+            if(!exists) target.Add(obj);
+        }
     }
 
     public void SetObje(List<StageObjeSave> datas)
@@ -163,7 +197,8 @@ public class ResultManager : MonoBehaviour
                         restoredObjs.Add(obje);
                 }
             }
-            AddEndingObje(restoredObjs); // 너가 만든 함수 재사용
+            // Obje 적용
+            AddEndingObjeAtIndex(i, restoredObjs);
         }
     }
 
@@ -203,9 +238,12 @@ public class ResultManager : MonoBehaviour
 
 
     // 제출한 결과 넘겨받기
-    public void SetResults(List<ObjeData> objes, bool isFull)
+    public void ProcessStageResult(List<ObjeData> objes, bool isFull)
     {
         Debug.Log($"objes={string.Join(" ", objes.Select(item => item.id))}");
+
+        // Obje 캐시 등록
+        Objes = new List<ObjeData>(objes);
 
         // EMPTY 엔딩 체크
         if (objes == null || objes.Count == 0)
@@ -252,7 +290,7 @@ public class ResultManager : MonoBehaviour
         ResultData result = resultDB.FindByStageWithFallback(stage, key);
 
         // SO 결과 저장(스테이지 엔딩 결과)
-        endingResult.Add(result);
+        AddEndingResult(result);
 
         Debug.Log($"[Ending] stage={stage} key={key} -> endingId={result.endingName}");
     }
@@ -265,11 +303,30 @@ public class ResultManager : MonoBehaviour
         ResultData result = resultDB.FindByStageBySubset(stage, submittedIds);
 
         // SO 결과 저장(스테이지 엔딩 결과)
-        endingResult.Add(result);
+        AddEndingResult(result);
 
         Debug.Log($"[Ending] stage={stage} submitted=[{string.Join(",", submittedIds)}] -> endingId={result.endingName}");
     }
 
+    // Result 추가 로직
+    private void AddEndingResult(ResultData result)
+    {
+        int index = currentStageInfo - 1;
+        AddEndingResultAtIndex(index, result);
+    }
+
+    private void AddEndingResultAtIndex(int index, ResultData result)
+    {
+        if (index < 0) return;
+        if(result == null) return;
+
+        while (endingResult.Count <= index)
+            endingResult.Add(null);
+
+        endingResult[index] = result;
+    }
+
+    // StageInfo -> Enum 타입으로 변환
     private StageInfo GetStageInfo()
     {
         // stage1=0, stage2=1, stage3=2

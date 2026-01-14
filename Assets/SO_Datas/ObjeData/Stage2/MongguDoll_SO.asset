@@ -25,7 +25,7 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: 78d27fe736f9d6148b0239bf19538e39, type: 3}
   itemType: present
   id: MongguDoll
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: 756bb84a63142074a9d5602f6d00d22a, type: 3}
   maskRows:
   - 1
   - 1

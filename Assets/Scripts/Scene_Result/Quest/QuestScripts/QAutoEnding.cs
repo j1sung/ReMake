@@ -19,5 +19,8 @@ public class QAutoEnding : MonoBehaviour
             ResultManager.instance.SetNextStage();
             OfficeStateMachine.SetState(OfficeState.Stage2Clear);
         }
+        
+        // 결과쪽에서 항상 저장되게 -> 임시라서 나중에 구조적으로 중복 저장을 풀어야함
+        DataManager.Instance.SaveGame();
     }
 }
