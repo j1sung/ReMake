@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class OfficeUIContext
 {
-    public GameObject text;
+    public string text;
     public GameObject image;
     public OfficeUIController.BlockMode blockMode;
 }
