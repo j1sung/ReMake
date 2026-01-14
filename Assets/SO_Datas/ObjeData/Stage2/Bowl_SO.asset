@@ -18,7 +18,7 @@ MonoBehaviour:
     \uADF8\uB987.\n\uBF08\uB2E4\uADC0 \uADF8\uB9BC\uC774 \uADF8\uB824\uC9C4 \uADC0\uC5EC\uC6B4
     \uB514\uC790\uC778\uC774\uB2E4."
   secretDescription: 
-  iconImage: {fileID: 21300000, guid: 152b74e28c61d3b43beb2752469449f1, type: 3}
+  iconImage: {fileID: -1043502363399655245, guid: 152b74e28c61d3b43beb2752469449f1, type: 3}
   secondiconImage: {fileID: 0}
   thirdiconImage: {fileID: 0}
   secretImage: {fileID: 0}
@@ -31,5 +31,7 @@ MonoBehaviour:
   - 11
   pivotX: 0
   pivotY: 0
-  shapeCells: []
+  shapeCells:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
   pivotIndex: 0

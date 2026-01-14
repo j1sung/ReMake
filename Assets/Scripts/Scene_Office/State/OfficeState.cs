@@ -7,5 +7,6 @@ public enum OfficeState
     BeforeInteracts,
     AfterInteracts,
     Stage1Clear,
-    Stage2Clear
+    Stage2Clear,
+    Ending
 }

@@ -42,8 +42,9 @@ public class ResultFileUI : MonoBehaviour, IPointerClickHandler
         if (isProcessing)
             return; // 코루틴 도중이면 클릭 무시
 
-        if (ResultManager.instance.CurrentStageInfo == 3) // 마지막 결과 이후 -> 엔딩 크래딧
+        if (ResultManager.instance.CurrentStageInfo == 3 && OfficeStateMachine.currentState == OfficeState.Stage2Clear) // 마지막 결과 이후 -> 엔딩 크래딧
         {
+            OfficeStateMachine.SetState(OfficeState.Ending);
             gameObject.GetComponent<NextClick>().enabled = true;
             this.enabled = false;
             gameObject.GetComponent<NextClick>().OnPointerClick(eventData);
