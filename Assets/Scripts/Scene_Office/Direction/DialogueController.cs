@@ -48,6 +48,7 @@ public class DialogueController : MonoBehaviour
 
     void EndDialogue()
     {
+        canClick = false;
         speechBubble.SetActive(false);
         OfficeStateMachine.SetState(currentScript.nextStateAfterCall);
     }

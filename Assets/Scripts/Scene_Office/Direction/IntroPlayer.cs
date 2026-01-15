@@ -101,6 +101,9 @@ public class IntroPlayer : MonoBehaviour
 
         // 5. 페이즈 변경
         _currentPhase = IntroPhase.Interview;
+
+        // 6. 첫 대사만 출력
+        ShowDialogue(_index);
     }
 
     IEnumerator OutroMonologue()

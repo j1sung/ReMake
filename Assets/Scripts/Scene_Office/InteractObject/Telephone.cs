@@ -14,16 +14,16 @@ public class Telephone : OfficeInteractable
     [SerializeField] private OfficeUIContext _beforeInteractCtx;
     [SerializeField] private OfficeUIContext _afterStage1Ctx;
 
-    private OfficeState _prevState;
+    private bool _isCalling;
 
     void Awake()
     {
         actions = new(){{OfficeState.BeforeCall, () => OnReceiveCall(_tutorial)},
-                        {OfficeState.BeforeInteracts, () => OnMissedCall(_beforeInteractCtx)},
-                        {OfficeState.AfterInteracts, () => OnMissedCall(_beforeInteractCtx)},
+                        {OfficeState.BeforeInteracts, () => OnMissedCall(_beforeInteractCtx, OfficeState.BeforeInteracts)},
+                        {OfficeState.AfterInteracts, () => OnMissedCall(_beforeInteractCtx, OfficeState.AfterInteracts)},
                         {OfficeState.Stage1Clear, () => OnReceiveCall(_stage1Clear)},
-                        {OfficeState.ReadyStage2, () => OnMissedCall(_afterStage1Ctx) },
-                        {OfficeState.ReadyStage3, () => OnMissedCall(_afterStage1Ctx)} };
+                        {OfficeState.ReadyStage2, () => OnMissedCall(_afterStage1Ctx, OfficeState.ReadyStage2)},
+                        {OfficeState.ReadyStage3, () => OnMissedCall(_afterStage1Ctx, OfficeState.ReadyStage3)}};
     }
 
     private void OnReceiveCall(CallScript script)
@@ -34,22 +34,24 @@ public class Telephone : OfficeInteractable
         dialogue.Play(script);
     }
 
-    private void OnMissedCall(OfficeUIContext ctx)
+    private void OnMissedCall(OfficeUIContext ctx, OfficeState returnState)
     {
-        _prevState = OfficeStateMachine.currentState;
-
+        if (_isCalling) return;
+        _isCalling = true;
         OfficeStateMachine.SetState(OfficeState.Calling);
-        StartCoroutine(CallSequence(ctx));
+        StartCoroutine(CallSequence(ctx, returnState));
     }
-   
-    private IEnumerator CallSequence(OfficeUIContext ctx)
+
+    private IEnumerator CallSequence(OfficeUIContext ctx, OfficeState returnState)
     {
         SFXPlayer.Instance.PlaySFX(callWait);
 
         yield return new WaitForSeconds(callWait.length);
+        Debug.Log($"[CallSequence] wait = {callWait?.length}");
 
         OfficeUIController.Instance.ShowUI(ctx);
 
-        OfficeStateMachine.SetState(_prevState);
+        OfficeStateMachine.SetState(returnState);
+        _isCalling = false;
     }
 }
