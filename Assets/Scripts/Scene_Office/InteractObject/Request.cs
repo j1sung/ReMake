@@ -23,6 +23,9 @@ public class Request : OfficeInteractable
     [SerializeField] GameObject sign;
     [SerializeField] GameObject stamp;
 
+    [Header("Audio")]
+    [SerializeField] AudioClip signSound;
+
     void Awake()
     {
         actions = new() { { OfficeState.BeforeInteracts, () => OnClickRequest(_beforeInteractCtx) }, 
@@ -82,13 +85,18 @@ public class Request : OfficeInteractable
 
         // 3. 대사 바꾸기
          normalText.SetActive(false);
-         signText.SetActive(true);
-         
+
+        if (stamp.activeSelf == false) signText.SetActive(true); // 도장이 찍혀있으면(리플레이 시) 텍스트 off
+
         // 4. 의뢰서 클릭 전까지 대기
         yield return new WaitUntil(() => _requestClicked);
 
         // 5. 사인, 스탬프
-        sign.SetActive(true);
+        if (sign.activeSelf == false)
+        {
+            sign.SetActive(true);
+            SFXPlayer.Instance.PlaySFX(signSound);
+        }
         
         // + 사인 소리 
 

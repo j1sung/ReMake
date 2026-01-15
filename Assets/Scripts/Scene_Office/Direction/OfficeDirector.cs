@@ -13,7 +13,7 @@ public class OfficeDirector : MonoBehaviour
     [SerializeField] GameObject roomBackground; // UI 모드
 
     [Header("Audio")]
-    [SerializeField] AudioSource phoneRing;
+    [SerializeField] AudioClip phoneRing;
 
     Coroutine _introCo;
 
@@ -51,7 +51,6 @@ public class OfficeDirector : MonoBehaviour
         if (OfficeStateMachine.currentState == OfficeState.BeforeStart)
         {
             OfficeStateMachine.SetState(OfficeState.BeforeCall);
-            if (phoneRing != null) phoneRing.Play();
         }
 
         _introCo = null;
@@ -70,8 +69,8 @@ public class OfficeDirector : MonoBehaviour
             case OfficeState.BeforeCall:
                 // 전화 대기 상태 → 전화기 켜진 방
                 SetRoomImage(roomPhoneOn);
-                if (phoneRing != null && !phoneRing.isPlaying)
-                    phoneRing.Play();
+                if (!SFXPlayer.Instance.IsLoopPlaying())
+                    SFXPlayer.Instance.PlayLoop(phoneRing);
                 break;
 
             case OfficeState.BeforeInteracts or OfficeState.ReadyStage2:
@@ -91,8 +90,8 @@ public class OfficeDirector : MonoBehaviour
 
             case OfficeState.Stage1Clear:
                 SetRoomImage(roomPhoneOn);
-                if (phoneRing != null && !phoneRing.isPlaying)
-                    phoneRing.Play();
+                if (!SFXPlayer.Instance.IsLoopPlaying())
+                    SFXPlayer.Instance.PlayLoop(phoneRing);
                 break;
                    
             default:
@@ -102,8 +101,8 @@ public class OfficeDirector : MonoBehaviour
 
     void StopRing()
     {
-        if (phoneRing != null && phoneRing.isPlaying)
-            phoneRing.Stop();
+        if (SFXPlayer.Instance.IsLoopPlaying())
+            SFXPlayer.Instance.StopLoop();
     }
 
     void SetRoomImage(GameObject activeRoom)

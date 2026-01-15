@@ -23,6 +23,8 @@ public class TypingEffect : MonoBehaviour
     [SerializeField] private bool smoothResize = true;
     [SerializeField] private float resizeFollowSpeed = 12f;
 
+    [SerializeField] private float singleLineHeightTrim = 4f; // 2~6 사이로 튜닝
+
     // ===== 추가된 핵심 =====
     public bool IsTyping { get; private set; }
     private System.Action _onCompleted;
@@ -149,12 +151,23 @@ public class TypingEffect : MonoBehaviour
 
     Vector2 CalcTargetSize()
     {
+        textUI.ForceMeshUpdate();
+
+        int lineCount = Mathf.Max(1, textUI.textInfo.lineCount);
+        float lineHeight = textUI.textInfo.lineInfo[0].lineHeight;
+
+        float h = lineCount * lineHeight + padding.y;
+
+        if (lineCount == 1)
+            h -= singleLineHeightTrim; // ✅ 1줄만 살짝 줄이기
+
+        h = Mathf.Max(minSize.y, h);
+
+        // 가로는 기존대로
         Vector2 preferred = textUI.GetPreferredValues(textUI.text, maxTextWidth, 0);
-
         float w = Mathf.Max(minSize.x, preferred.x + padding.x);
-        float h = Mathf.Max(minSize.y, preferred.y + padding.y);
-
         w = Mathf.Min(w, maxTextWidth + padding.x);
+
         return new Vector2(w, h);
     }
 }

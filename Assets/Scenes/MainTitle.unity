@@ -6978,6 +6978,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 7761659249298968591, guid: 7b7cd48bf2832664ca7e2270d167b456, type: 2}
+    - target: {fileID: 5849463543692206647, guid: 63a91bfc802554c4cb9e9f2e5a37bd04, type: 3}
+      propertyPath: sfxGroup
+      value: 
+      objectReference: {fileID: 7761659249298968591, guid: 7b7cd48bf2832664ca7e2270d167b456, type: 2}
     - target: {fileID: 5933127076081507216, guid: 63a91bfc802554c4cb9e9f2e5a37bd04, type: 3}
       propertyPath: m_Name
       value: SFXPlayer
