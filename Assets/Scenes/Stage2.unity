@@ -2232,6 +2232,7 @@ GameObject:
   - component: {fileID: 804745060}
   - component: {fileID: 804745061}
   - component: {fileID: 804745063}
+  - component: {fileID: 804745064}
   - component: {fileID: 804745062}
   m_Layer: 0
   m_Name: Cushion(opened)
@@ -2396,6 +2397,20 @@ MonoBehaviour:
   Opened: {fileID: 804745059}
   openSound: {fileID: 8300000, guid: a579af2e5e1c2544ab4cabbb8c900a23, type: 3}
   closeSound: {fileID: 8300000, guid: ab3c7923ad85a1048b2b2d4b0ad9d8b4, type: 3}
+--- !u!114 &804745064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804745059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecd413d06516d24fa29e94327597e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 29706631}
+  TargetEnabledFalse: 1
 --- !u!1 &834266524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,7 +3694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1478976579}
-  flag: 0
+  TargetEnabledFalse: 0
 --- !u!1 &1235119397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,7 +4349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 29706631}
-  flag: 1
+  TargetEnabledFalse: 0
 --- !u!1 &1575364233
 GameObject:
   m_ObjectHideFlags: 0

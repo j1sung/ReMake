@@ -5,8 +5,8 @@ using UnityEngine;
 public class InteractiveCollider : MonoBehaviour
 {
     public PolygonCollider2D target;
-    [SerializeField] private bool flag;
-    private bool _ready;
+    [SerializeField] private bool TargetEnabledFalse;
+    private bool _ready = false;
 
     private IEnumerator Start()
     {
@@ -18,9 +18,9 @@ public class InteractiveCollider : MonoBehaviour
     {
         if (!_ready) return;
 
-        target.enabled = true;
-
-        if(flag)
-            enabled = false;
+        if(TargetEnabledFalse)
+            target.enabled = false;
+        else 
+            target.enabled = true;
     }
 }

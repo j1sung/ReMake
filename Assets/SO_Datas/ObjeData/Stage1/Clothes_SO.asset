@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uC1FC\uD551\uBC31\uACFC \uC637"
   canInteract: 0
-  objeDescription: "\uC0AC\uC6A9\uAC10\uC774 \uAC70\uC758 \uC5C6\uB294 \uC637\uC774\uB2E4.
-    \uC120\uBB3C\uD3EC\uC7A5\uC6A9 \uC1FC\uD551\uBC31\uC5D0 \uC815\uAC08\uD788 \uB2F4\uACA8
-    \uC788\uB2E4."
+  objeDescription: "\uC0AC\uC6A9\uAC10\uC774 \uAC70\uC758 \uC5C6\uB294 \uC637\uC774\uB2E4.\n\uC120\uBB3C\uD3EC\uC7A5\uC6A9
+    \uC1FC\uD551\uBC31\uC5D0 \uC815\uAC08\uD788 \uB2F4\uACA8 \uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 2147555549863628661, guid: efc87c44a2f697c43907de5e843ae1e3, type: 3}
   secondiconImage: {fileID: 0}
@@ -27,6 +26,8 @@ MonoBehaviour:
   itemType: attachment
   id: Clothes
   objeSound: {fileID: 8300000, guid: f2448722e4e575c4d9c264c31d2e8841, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 100
   - 111
