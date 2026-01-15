@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uBC18\uB824\uACAC \uC601\uC591\uC81C"
   canInteract: 0
-  objeDescription: "\uC54C\uC57D \uD615\uD0DC\uC758 \uBC18\uB824\uACAC\uC6A9 \uC601\uC591\uC81C.\n\uBA4D\uAD6C\uAC00
-    \uC369 \uC88B\uC544\uD588\uB358 \uBB3C\uAC74\uC740 \uC544\uB2CC \uB4EF\uD558\uB2E4."
+  objeDescription: "\uC54C\uC57D \uD615\uD0DC\uC758 \uBC18\uB824\uACAC\uC6A9 \uC601\uC591\uC81C.
+    \uBA4D\uAD6C\uAC00 \uC369 \uC88B\uC544\uD588\uB358 \uBB3C\uAC74\uC740 \uC544\uB2CC
+    \uB4EF\uD558\uB2E4."
   secretDescription: 
   iconImage: {fileID: 5678506907250899318, guid: 70112727dda616a458983bf279420b35, type: 3}
   secondiconImage: {fileID: 0}

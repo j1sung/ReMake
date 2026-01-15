@@ -10,7 +10,7 @@ public class DelayTime : MonoBehaviour
 
     private IEnumerator Delay()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         GetComponent<ClickNextScene>().enabled = true;
     }
 }

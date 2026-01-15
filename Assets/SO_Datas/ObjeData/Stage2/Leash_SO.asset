@@ -15,7 +15,7 @@ MonoBehaviour:
   objeName: "\uC0B0\uCC45\uC6A9 \uBAA9\uC904"
   canInteract: 0
   objeDescription: "\uB204\uB098\uC640\uC758 \uC678\uCD9C \uC2DC\uAC04\uC744 \uC758\uBBF8\uD558\uB294
-    \uBAA9\uC904.\n\uBA4D\uAD6C\uC758 \uC774\uB984\uC774 \uBA4B\uC9C0\uAC8C \uAC01\uC778\uB418\uC5B4
+    \uBAA9\uC904. \uBA4D\uAD6C\uC758 \uC774\uB984\uC774 \uBA4B\uC9C0\uAC8C \uAC01\uC778\uB418\uC5B4
     \uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: e14a79d0e6ff20a438c3d2f6aaa71870, type: 3}
@@ -27,6 +27,8 @@ MonoBehaviour:
   itemType: present
   id: Leash
   objeSound: {fileID: 8300000, guid: 94fb8318f74a26b4d85f748ca9a19fd3, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 1
   - 1
@@ -34,5 +36,9 @@ MonoBehaviour:
   - 1
   pivotX: 0
   pivotY: 0
-  shapeCells: []
+  shapeCells:
+  - {x: 0, y: 3}
+  - {x: 0, y: 2}
+  - {x: 0, y: 1}
+  - {x: 0, y: 0}
   pivotIndex: 0

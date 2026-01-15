@@ -2921,6 +2921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popup: {fileID: 1119546443}
   text: {fileID: 113104332}
+  alramClip: {fileID: 8300000, guid: 719a3708e160fed48b6acbb71b75a0ef, type: 3}
 --- !u!1 &881899009
 GameObject:
   m_ObjectHideFlags: 0

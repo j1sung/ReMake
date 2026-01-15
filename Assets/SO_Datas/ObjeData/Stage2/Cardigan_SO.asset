@@ -15,7 +15,7 @@ MonoBehaviour:
   objeName: "\uB204\uB098\uC758 \uAC00\uB514\uAC74"
   canInteract: 0
   objeDescription: "\uBC18\uB824\uACAC \uC18C\uD30C \uC704\uC758 \uB2E8\uC815\uD55C
-    \uC7BF\uBE5B \uAC00\uB514\uAC74.\n\uBA4D\uAD6C\uC758 \uCCB4\uCDE8\uC640 \uD770
+    \uC7BF\uBE5B \uAC00\uB514\uAC74. \uBA4D\uAD6C\uC758 \uCCB4\uCDE8\uC640 \uD770
     \uD138\uC774 \uC794\uB729 \uBB3B\uC5B4 \uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: 8dee966740d3ba94893dbc1bc0a47ea8, type: 3}
@@ -27,10 +27,16 @@ MonoBehaviour:
   itemType: memory
   id: Cardigan
   objeSound: {fileID: 8300000, guid: 22135f2b23a1656449fe28707f57b5ab, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 11
   - 11
   pivotX: 0
   pivotY: 0
-  shapeCells: []
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
   pivotIndex: 0

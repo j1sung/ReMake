@@ -32,6 +32,9 @@ public class TypingEffect : MonoBehaviour
 
     private Vector2 _currentSize;
 
+    // ======= 사운드 추가 =======
+    [SerializeField] private AudioClip _textClip;
+
     void Awake()
     {
         if (textRect != null)
@@ -59,6 +62,8 @@ public class TypingEffect : MonoBehaviour
 
     private IEnumerator StartType(string message)
     {
+        SFXPlayer.Instance.PlaySFX(_textClip);
+
         if (textUI == null) yield break;
 
         IsTyping = true;

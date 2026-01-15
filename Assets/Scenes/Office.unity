@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07158c2683bf7ce4b97deef5b612d468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactSFX: {fileID: 8300000, guid: c24886bf90ffc4a4eb20265a17f74f86, type: 3}
+  interactSFX: {fileID: 8300000, guid: d74ccee14a136814499b2db44c72794f, type: 3}
   _beforeInteractCtx:
     text: "... \uC8FD\uC5B4\uC11C\uAE4C\uC9C0 \uC77C\uC744 \uD574\uC57C\uD55C\uB2E4\uACE0?"
     image: {fileID: 1368112597}
@@ -4808,6 +4808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactSFX: {fileID: 8300000, guid: 7154143e5e8e4264ab790040a9131268, type: 3}
+  nextPageSFX: {fileID: 8300000, guid: 7f8fd0707765af446b61521e1d1cafd7, type: 3}
   pages:
   - {fileID: 696679163}
   - {fileID: 385475402}
@@ -5039,6 +5040,7 @@ MonoBehaviour:
   smoothResize: 1
   resizeFollowSpeed: 12
   singleLineHeightTrim: 4
+  _textClip: {fileID: 8300000, guid: db5556cfee8b4cc4d945f2d06668b9c7, type: 3}
 --- !u!1 &1602688870
 GameObject:
   m_ObjectHideFlags: 0
