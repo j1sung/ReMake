@@ -9,6 +9,7 @@ public class QuestPopup : MonoBehaviour
     [SerializeField] private GameObject popup;
     //[SerializeField] private Image image;
     [SerializeField] private Text text;
+    [SerializeField] private AudioClip alramClip;
 
     private CanvasGroup cg;
     private Queue<string> messageQueue = new Queue<string>();
@@ -23,6 +24,10 @@ public class QuestPopup : MonoBehaviour
     }
     public void EnablePopup(QuestData quest)
     {
+        // 알림음 재생
+        SFXPlayer.Instance.StopSFX();
+        SFXPlayer.Instance.PlaySFX(alramClip);
+
         // 업적 텍스트 삽입
         string msg = $"{quest.qName} 달성!";
         messageQueue.Enqueue(msg); // 동시 업적 달성 처리를 위해 큐에 저장

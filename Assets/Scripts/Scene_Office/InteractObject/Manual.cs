@@ -1,7 +1,9 @@
 using UnityEngine;
 
 public class Manual : OfficeInteractable
-{   
+{
+    [SerializeField] private AudioClip nextPageSFX; // 넘기는 소리
+
     [Header("Manual Page")]
     [SerializeField] GameObject[] pages;
     private int _currentPage = 0;
@@ -56,6 +58,8 @@ public class Manual : OfficeInteractable
 
     public void NextPage()
     {
+        PlayInteractSFX(); // 사운드 재생(오버라이드)
+
         if (_currentPage >= pages.Length - 1) return;
         _currentPage++;
 
@@ -68,6 +72,8 @@ public class Manual : OfficeInteractable
 
     public void PrevPage()
     {
+        PlayInteractSFX(); // 사운드 재생(오버라이드)
+
         if (_currentPage <= 0) return;
         _currentPage--;
         ShowPage(_currentPage);
@@ -77,5 +83,11 @@ public class Manual : OfficeInteractable
     {
         if (coverText != null)
             coverText.SetActive(false);
+    }
+
+    protected override void PlayInteractSFX()
+    {
+        if (nextPageSFX == null) return;
+        SFXPlayer.Instance?.PlaySFX(nextPageSFX);
     }
 }

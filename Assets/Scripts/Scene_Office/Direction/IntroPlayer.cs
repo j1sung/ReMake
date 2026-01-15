@@ -65,6 +65,7 @@ public class IntroPlayer : MonoBehaviour
     void OnEnable()
     {
         if (OfficeStateMachine.currentState != OfficeState.Intro) return;
+
         _currentPhase = IntroPhase.TextIntro;
         _index = 0;
         _intro = StartCoroutine(IntroMonologue());
@@ -138,6 +139,9 @@ public class IntroPlayer : MonoBehaviour
 
         // 8. 상태 변경
         OfficeStateMachine.SetState(OfficeState.BeforeStart);
+
+        // 9. Office BGM 다시 재생 요청
+        BGMPlayer.Instance.gameObject.GetComponent<SceneBGMRouter>()?.ApplyCurrentSceneBGM();
     }
 
     // 인터뷰 대화 텍스트

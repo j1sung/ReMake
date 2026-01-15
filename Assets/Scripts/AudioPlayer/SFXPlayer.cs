@@ -44,7 +44,13 @@ public class SFXPlayer : MonoBehaviour
         if (clip == null) return;
         oneShotSource.PlayOneShot(clip);
     }
-    
+
+    // 효과음 중단
+    public void StopSFX()
+    {
+        oneShotSource.Stop();
+    }
+
     // 루프 효과음 재생
     public void PlayLoop(AudioClip clip)
     {

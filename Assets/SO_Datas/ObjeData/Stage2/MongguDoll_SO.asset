@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uBA4D\uAD6C\uC758 \uC778\uD615"
   canInteract: 0
-  objeDescription: "\uC54C\uB85D\uB2EC\uB85D\uD55C \uC7A5\uB09C\uAC10 \uC778\uD615\uB4E4.\n\uC5BC\uB9C8\uB098
-    \uBB3C\uACE0 \uB72F\uC5C8\uB294\uC9C0 \uB108\uB35C\uB108\uB35C\uD574\uC838\uC788\uB2E4."
+  objeDescription: "\uC54C\uB85D\uB2EC\uB85D\uD55C \uC7A5\uB09C\uAC10 \uC778\uD615\uB4E4.
+    \uC5BC\uB9C8\uB098 \uBB3C\uACE0 \uB72F\uC5C8\uB294\uC9C0 \uB108\uB35C\uB108\uB35C\uD574\uC838
+    \uC788\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: b5d609d2890e82547a4b71ef51ac1516, type: 3}
   secondiconImage: {fileID: 0}
@@ -26,6 +27,8 @@ MonoBehaviour:
   itemType: present
   id: MongguDoll
   objeSound: {fileID: 8300000, guid: 93b100678b3fe7341b666af1829fa33f, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 1
   - 1
