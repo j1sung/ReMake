@@ -74,7 +74,7 @@ public class ItemScript : MonoBehaviour
 
         // 이미지 비율 유지(찌그러짐 방지)
         var img = GetComponent<UnityEngine.UI.Image>();
-        if (img) img.preserveAspect = true;
+        if (img) img.preserveAspect = false;
     }
 
     private void Update()
