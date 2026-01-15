@@ -605,7 +605,7 @@ MonoBehaviour:
   roomIdle: {fileID: 1347055461}
   roomPhoneOn: {fileID: 394561515}
   roomBackground: {fileID: 0}
-  phoneRing: {fileID: 0}
+  phoneRing: {fileID: 8300000, guid: 36d6ad78013f91549bb8d83be8d35faa, type: 3}
 --- !u!114 &205591313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,9 +1231,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.3374939, y: -19.999992}
-  m_SizeDelta: {x: -39.9015, y: -39.5212}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.6516113, y: 4.5623}
+  m_SizeDelta: {x: -27.3746, y: -40.4103}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342033678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC804\uD654 \uB0B4\uC6A9 \uD14C\uC2A4\uD2B8"
+  m_text: "\uB9C8\uC774\uD06C \uD14C\uC2A4\uD2B8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 234481384054538448cf5252ba4ceb63, type: 2}
   m_sharedMaterial: {fileID: 4602195716510769433, guid: 234481384054538448cf5252ba4ceb63, type: 2}
@@ -1557,6 +1557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07158c2683bf7ce4b97deef5b612d468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSFX: {fileID: 8300000, guid: c24886bf90ffc4a4eb20265a17f74f86, type: 3}
   _beforeInteractCtx:
     text: "... \uC8FD\uC5B4\uC11C\uAE4C\uC9C0 \uC77C\uC744 \uD574\uC57C\uD55C\uB2E4\uACE0?"
     image: {fileID: 1368112597}
@@ -1800,19 +1801,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441869404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1472192920}
-        m_TargetAssemblyTypeName: Request, Assembly-CSharp
-        m_MethodName: EnterStage2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &441869404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3201,6 +3190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1bbb1b355344244fbe7025ce3c7ba09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSFX: {fileID: 0}
   SpeechBubble: {fileID: 1489448002}
   dialogue: {fileID: 714642131}
   phoneRing: {fileID: 8300000, guid: 36d6ad78013f91549bb8d83be8d35faa, type: 3}
@@ -3937,6 +3927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bcbffccec299145ac1e8d384c8f836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSFX: {fileID: 8300000, guid: 6657521da77cf184aad74a24f3d28a06, type: 3}
   _beforeInteractCtx:
     text: "\uC7A0\uACA8\uC788\uB2E4. \uB0B4 \uBB3C\uAC74\uC774 \uC544\uB2CC\uAC00."
     image: {fileID: 0}
@@ -4816,6 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcef96eaa85cb54190c2b6cc9ea3d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSFX: {fileID: 8300000, guid: 7154143e5e8e4264ab790040a9131268, type: 3}
   pages:
   - {fileID: 696679163}
   - {fileID: 385475402}
@@ -4924,6 +4916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39340da5224f5184b9f9738728904be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactSFX: {fileID: 8300000, guid: 7154143e5e8e4264ab790040a9131268, type: 3}
   _beforeInteractCtx:
     text: "\uB2E4\uB978 \uAC83\uB4E4\uC744 \uBA3C\uC800 \uC0B4\uD3B4\uBCF4\uB294\uAC8C
       \uC88B\uC744 \uAC83 \uAC19\uB2E4."
@@ -4946,6 +4939,7 @@ MonoBehaviour:
   signText: {fileID: 900054181}
   sign: {fileID: 979458902}
   stamp: {fileID: 979458901}
+  signSound: {fileID: 8300000, guid: 0250689cdc6fea1439c827dbd208fc8b, type: 3}
 --- !u!1 &1489448002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,10 +5034,11 @@ MonoBehaviour:
   textRect: {fileID: 0}
   minSize: {x: 160, y: 90}
   padding: {x: 90, y: 60}
-  maxTextWidth: 420
+  maxTextWidth: 450
   typingDelay: 0.05
   smoothResize: 1
   resizeFollowSpeed: 12
+  singleLineHeightTrim: 4
 --- !u!1 &1602688870
 GameObject:
   m_ObjectHideFlags: 0

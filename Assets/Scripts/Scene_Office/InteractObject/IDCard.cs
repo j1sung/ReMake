@@ -12,7 +12,8 @@ public class IDCard : OfficeInteractable
     {
         actions = new(){{OfficeState.BeforeInteracts, OnClickBefore},
                         {OfficeState.AfterInteracts, () => OnClickIDCard(_beforeInteractCtx)},
-                        {OfficeState.ReadyStage2, () => OnClickIDCard(_stage1ClearCtx)} };
+                        {OfficeState.ReadyStage2, () => OnClickIDCard(_stage1ClearCtx)},
+                        {OfficeState.ReadyStage3, () => OnClickIDCard(_stage1ClearCtx)} };
     }
 
     private void OnClickBefore()
