@@ -25,11 +25,13 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: 78d27fe736f9d6148b0239bf19538e39, type: 3}
   itemType: present
   id: MongguDoll
-  objeSound: {fileID: 8300000, guid: 756bb84a63142074a9d5602f6d00d22a, type: 3}
+  objeSound: {fileID: 8300000, guid: 93b100678b3fe7341b666af1829fa33f, type: 3}
   maskRows:
   - 1
   - 1
   pivotX: 0
   pivotY: 0
-  shapeCells: []
+  shapeCells:
+  - {x: 0, y: 1}
+  - {x: 0, y: 0}
   pivotIndex: 0

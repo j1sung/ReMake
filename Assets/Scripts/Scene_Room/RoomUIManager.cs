@@ -40,6 +40,17 @@ public class RoomUIManager : MonoBehaviour
     
     public UIState State { get; private set; } = UIState.Room;
 
+    public static RoomUIManager instance;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+
     void Start() => SetState(UIState.Room);
 
     // ======공간 이동 Room/Bag=======
@@ -71,8 +82,15 @@ public class RoomUIManager : MonoBehaviour
 
     public void OnClickInteractiveObje()
     {
+        // 사운드 항상 재생(있을때만)
+        if(currentObje.data.alwaysSound != null)
+            SFXPlayer.Instance.PlaySFX(currentObje.data.alwaysSound);
+
         if (currentObje.IsInteracted == true)
         {
+            // 시크릿 사운드 재생(있을때만)
+            if (currentObje.data.secretSound != null)
+                SFXPlayer.Instance.PlaySFX(currentObje.data.secretSound);
             ObjeNameText.text = currentObje.data.objeName;
             descriptionText.text = currentObje.data.secretDescription;
             ObjeImage.sprite = currentObje.data.secretImage;
@@ -85,8 +103,8 @@ public class RoomUIManager : MonoBehaviour
 
             if (img.sprite == data.secondiconImage)
                 img.sprite = data.thirdiconImage;
-            else if (img.sprite == data.secondiconImage)
-                img.sprite = data.iconImage;
+            else if (img.sprite == data.thirdiconImage)
+                img.sprite = data.puzzleImage;
             else
                 img.sprite = data.secondiconImage;
         }
@@ -96,7 +114,8 @@ public class RoomUIManager : MonoBehaviour
 
     // 오브젝트 팝업 닫기
     public void OnClickClosePopup()
-    {   
+    {
+        SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
         ObjePopupUI.SetActive(false);
         // 팝업이 닫힐 때 오브제 습득 처리
         if (currentObje != null)

@@ -7789,6 +7789,14 @@ PrefabInstance:
       propertyPath: officeBGM
       value: 
       objectReference: {fileID: 8300000, guid: 17a86e0945f31584cad97f0a48634fc0, type: 3}
+    - target: {fileID: 4843027652231329343, guid: dcdc178561fd9164082b76a5b70b3b15, type: 3}
+      propertyPath: stage1BGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 03cd5ce49619f9c4d82025f4b0afb92d, type: 3}
+    - target: {fileID: 4843027652231329343, guid: dcdc178561fd9164082b76a5b70b3b15, type: 3}
+      propertyPath: stage2BGM
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d13310231fca7a42b4ac3959f86bfbf, type: 3}
     - target: {fileID: 6876825687568284564, guid: dcdc178561fd9164082b76a5b70b3b15, type: 3}
       propertyPath: m_Name
       value: BGMPlayer

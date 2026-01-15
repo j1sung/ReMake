@@ -522,7 +522,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &439982055
@@ -639,8 +639,8 @@ MonoBehaviour:
   overlayEffect: {fileID: 8177384081605396916}
   particle: {fileID: 2396038168848807507}
   bg: {fileID: 439982053}
-  spaceBg: {fileID: -8473909123075564592, guid: 854e311d3339bd24386c93489b3e03cb, type: 3}
-  puzzleBg: {fileID: -1841486585054308127, guid: c381575bd9b4e9843a44f3447ee585cd, type: 3}
+  spaceBg: {fileID: 21300000, guid: 854e311d3339bd24386c93489b3e03cb, type: 3}
+  puzzleBg: {fileID: 21300000, guid: c381575bd9b4e9843a44f3447ee585cd, type: 3}
   roomUI: {fileID: 66725965812277973}
   ObjePopupUI: {fileID: 495245339360812453}
   roomAll: {fileID: 2271536594167749168}
@@ -2312,7 +2312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9523,9 +9523,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5202477686331862701, guid: 1b210b0ec09fb2649b94596789812bf6, type: 3}
-        m_TargetAssemblyTypeName: SettingsPanelController, Assembly-CSharp
-        m_MethodName: OpenSettingPanel
+      - m_Target: {fileID: 9002702835560161013}
+        m_TargetAssemblyTypeName: SettingButtonProxy, Assembly-CSharp
+        m_MethodName: OnSettingOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10894,6 +10894,7 @@ GameObject:
   - component: {fileID: 1675352764514476373}
   - component: {fileID: 4697102094817366173}
   - component: {fileID: 2570623975616556609}
+  - component: {fileID: 9002702835560161013}
   - component: {fileID: 5785221048151235330}
   m_Layer: 5
   m_Name: Setting_Button
@@ -10902,6 +10903,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9002702835560161013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002702835560161012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c9dadcdacf56c0469b7ff794bde15ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9015663064185228694
 GameObject:
   m_ObjectHideFlags: 0

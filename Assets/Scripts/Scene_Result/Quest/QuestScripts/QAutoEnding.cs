@@ -15,9 +15,11 @@ public class QAutoEnding : MonoBehaviour
         }
         else if (ResultManager.instance.CurrentStageInfo == 2)
         {
+            if(!ResultManager.instance.IsFirstCredit)
+                ResultManager.instance.IsFirstCredit = true;
             //QuestEventManager.TriggerEvent(QuestEventId.ending2);
             ResultManager.instance.SetNextStage();
-            OfficeStateMachine.SetState(OfficeState.Stage2Clear);
+            OfficeStateMachine.SetState(OfficeState.ReadyStage3);
         }
         
         // 결과쪽에서 항상 저장되게 -> 임시라서 나중에 구조적으로 중복 저장을 풀어야함

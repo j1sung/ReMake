@@ -26,10 +26,13 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: 5bcdfc87050edba46b21772a6b159d25, type: 3}
   itemType: present
   id: DogChew
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: d2b4610141238b3469985271d03b5d30, type: 3}
+  secretSound: {fileID: 8300000, guid: d2b4610141238b3469985271d03b5d30, type: 3}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 1
   pivotX: 0
   pivotY: 0
-  shapeCells: []
+  shapeCells:
+  - {x: 0, y: 0}
   pivotIndex: 0

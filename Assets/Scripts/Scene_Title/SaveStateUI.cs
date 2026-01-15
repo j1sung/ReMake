@@ -17,7 +17,11 @@ public class SaveStateUI : MonoBehaviour
         {
             case OfficeState.Stage1Clear:
                 stage = "2"; break;
+            case OfficeState.ReadyStage2:
+                stage = "2"; break;
             case OfficeState.Stage2Clear:
+                stage = "3"; break;
+            case OfficeState.ReadyStage3:
                 stage = "3"; break;
             default:
                 stage = "1"; break;

@@ -23,6 +23,9 @@ public class ResultManager : MonoBehaviour
     public ResultQuestUI resultQuestUI;
     private QuestPopup questPopup;
 
+    // 임시 엔딩 크래딧 상태
+    public bool IsFirstCredit {  get; set; } = false;
+
     // 현재 스테이지 정보
     [SerializeField] private int currentStageInfo = 1; // GameManager에서 받아와야함
     public int CurrentStageInfo => currentStageInfo; // GameManager으로 나중에 옮김
@@ -115,6 +118,7 @@ public class ResultManager : MonoBehaviour
 
     public void Initialize()
     {
+        IsFirstCredit = false;
         currentStageInfo = 1;
         endingObjes.Clear();
         endingResult.Clear();

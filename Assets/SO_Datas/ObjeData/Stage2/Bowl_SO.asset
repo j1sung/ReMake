@@ -22,11 +22,13 @@ MonoBehaviour:
   secondiconImage: {fileID: 0}
   thirdiconImage: {fileID: 0}
   secretImage: {fileID: 0}
-  puzzleImage: {fileID: 21300000, guid: ee73036e14a92f849a27d3f7f1d5fdd7, type: 3}
+  puzzleImage: {fileID: -561121352036312508, guid: ee73036e14a92f849a27d3f7f1d5fdd7, type: 3}
   endingImage: {fileID: 21300000, guid: 29934d9725df1a74c96bc08369d3f3d8, type: 3}
   itemType: present
   id: Bowl
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: 945fa3be9980cff4787656b1fc14f2a1, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 11
   pivotX: 0

@@ -26,7 +26,7 @@ MonoBehaviour:
   endingImage: {fileID: 21300000, guid: a47bdbdde4d4f1c4e97fb0c595b0d400, type: 3}
   itemType: present
   id: PuppyFood
-  objeSound: {fileID: 0}
+  objeSound: {fileID: 8300000, guid: 5fb2ae84d2a7a0c4abae68025f4f98bc, type: 3}
   maskRows:
   - 10
   - 11
