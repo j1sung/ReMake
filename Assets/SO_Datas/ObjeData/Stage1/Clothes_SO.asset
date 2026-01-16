@@ -27,6 +27,8 @@ MonoBehaviour:
   itemType: attachment
   id: Clothes
   objeSound: {fileID: 8300000, guid: f2448722e4e575c4d9c264c31d2e8841, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 100
   - 111

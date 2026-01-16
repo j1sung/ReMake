@@ -15,7 +15,7 @@ MonoBehaviour:
   objeName: "\uB204\uB098\uC758 \uC560\uCC29 \uC778\uD615"
   canInteract: 0
   objeDescription: "\uBA4D\uAD6C\uAC00 \uD638\uC2DC\uD0D0\uD0D0 \uB178\uB9AC\uB358
-    \uB204\uB098\uC758 \uC778\uD615.\n\uAFF0\uB9E8 \uC790\uAD6D\uC774 \uAF64 \uD06C\uC9C0\uB9CC,
+    \uB204\uB098\uC758 \uC778\uD615. \uAFF0\uB9E8 \uC790\uAD6D\uC774 \uAF64 \uD06C\uC9C0\uB9CC,
     \uADF8\uB7FC\uC5D0\uB3C4 \uD070 \uC560\uCC29\uC774 \uB290\uAEF4\uC9C4\uB2E4."
   secretDescription: 
   iconImage: {fileID: 21300000, guid: ce6a306c45847234f99ce60c8b6566e1, type: 3}
@@ -27,6 +27,8 @@ MonoBehaviour:
   itemType: memory
   id: Bunny
   objeSound: {fileID: 8300000, guid: 971fa746ff4bdeb4599f3c8373915f36, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 11
   - 11

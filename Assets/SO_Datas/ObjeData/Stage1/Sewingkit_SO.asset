@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objeName: "\uB728\uAC1C\uC6A9 \uC2E4\uACFC \uBC14\uB298"
   canInteract: 0
-  objeDescription: "\uD615\uD615\uC0C9\uC0C9\uC758 \uB728\uAC1C\uC2E4\uACFC \uBC14\uB298.\n\uC81C\uBC95
-    \uB728\uAC1C\uC9C8\uC5D0 \uC77C\uAC00\uACAC\uC774 \uC788\uB294 \uAC83 \uAC19\uB2E4."
+  objeDescription: "\uD615\uD615\uC0C9\uC0C9\uC758 \uB728\uAC1C\uC2E4\uACFC \uBC14\uB298.
+    \uC81C\uBC95 \uB728\uAC1C\uC9C8\uC5D0 \uC77C\uAC00\uACAC\uC774 \uC788\uB294 \uAC83
+    \uAC19\uB2E4."
   secretDescription: 
   iconImage: {fileID: 8617452276895212501, guid: 63870a4315a2f1047a531d70e953fc3f, type: 3}
   secondiconImage: {fileID: 0}
@@ -26,6 +27,8 @@ MonoBehaviour:
   itemType: present
   id: Sewingkit
   objeSound: {fileID: 8300000, guid: 6a3ba9c789a81404aa382c49f2d9b3b3, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 11
   - 10

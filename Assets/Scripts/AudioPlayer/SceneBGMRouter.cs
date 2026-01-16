@@ -29,6 +29,11 @@ public class SceneBGMRouter : MonoBehaviour
         ApplyBGM(GameManager.Instance.CurrentScene);
     }
 
+    public void ApplyCurrentSceneBGM()
+    {
+        ApplyBGM(GameManager.Instance.CurrentScene);
+    }
+
     public void ApplyBGM(SceneData sceneData)
     {
         switch (sceneData)
@@ -38,6 +43,11 @@ public class SceneBGMRouter : MonoBehaviour
                 break;
 
             case SceneData.Office:
+                if (OfficeStateMachine.currentState == OfficeState.Intro)
+                {
+                    BGMPlayer.Instance.StopBGM(0);
+                    break;
+                }
                 BGMPlayer.Instance.PlayBGM(officeBGM, fadeSeconds);
                 break;
 

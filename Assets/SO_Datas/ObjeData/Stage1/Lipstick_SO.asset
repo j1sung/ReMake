@@ -27,6 +27,8 @@ MonoBehaviour:
   itemType: attachment
   id: Lipstick
   objeSound: {fileID: 8300000, guid: 0b146fd39c5d48b43abb14ceeadd94ca, type: 3}
+  secretSound: {fileID: 0}
+  alwaysSound: {fileID: 0}
   maskRows:
   - 1
   pivotX: 0
