@@ -605,7 +605,7 @@ MonoBehaviour:
   roomIdle: {fileID: 1347055461}
   roomPhoneOn: {fileID: 394561515}
   roomBackground: {fileID: 0}
-  phoneRing: {fileID: 8300000, guid: 36d6ad78013f91549bb8d83be8d35faa, type: 3}
+  phoneRing: {fileID: 8300000, guid: f06add076e490fb44b8a373b759f163e, type: 3}
 --- !u!114 &205591313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3118,7 +3118,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8572239050844642558, guid: 0198f6fbc587cec41b90f03e64e9d5c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 979458903}
   m_SourcePrefab: {fileID: 100100000, guid: 0198f6fbc587cec41b90f03e64e9d5c7, type: 3}
 --- !u!1 &979458899 stripped
 GameObject:
@@ -3140,6 +3143,103 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8572239050844642558, guid: 0198f6fbc587cec41b90f03e64e9d5c7, type: 3}
   m_PrefabInstance: {fileID: 979458898}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &979458903
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979458902}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0250689cdc6fea1439c827dbd208fc8b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &981004468
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3293,7 @@ MonoBehaviour:
   interactSFX: {fileID: 0}
   SpeechBubble: {fileID: 1489448002}
   dialogue: {fileID: 714642131}
-  phoneRing: {fileID: 8300000, guid: 36d6ad78013f91549bb8d83be8d35faa, type: 3}
+  phoneRing: {fileID: 8300000, guid: f06add076e490fb44b8a373b759f163e, type: 3}
   callWait: {fileID: 8300000, guid: c28d178ec27582d41a0c6c6ea2fc3a03, type: 3}
   _tutorial: {fileID: 11400000, guid: 36684ffee022a4b47b8ee5082a189c1d, type: 2}
   _stage1Clear: {fileID: 11400000, guid: bec7a333c2ec7344ca513c65a34144a1, type: 2}
@@ -4940,7 +5040,6 @@ MonoBehaviour:
   signText: {fileID: 900054181}
   sign: {fileID: 979458902}
   stamp: {fileID: 979458901}
-  signSound: {fileID: 8300000, guid: 0250689cdc6fea1439c827dbd208fc8b, type: 3}
 --- !u!1 &1489448002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,7 +5139,7 @@ MonoBehaviour:
   smoothResize: 1
   resizeFollowSpeed: 12
   singleLineHeightTrim: 4
-  _textClip: {fileID: 8300000, guid: db5556cfee8b4cc4d945f2d06668b9c7, type: 3}
+  _textClip: {fileID: 8300000, guid: e62cf284f007e70448f92ecee82324c6, type: 3}
 --- !u!1 &1602688870
 GameObject:
   m_ObjectHideFlags: 0
