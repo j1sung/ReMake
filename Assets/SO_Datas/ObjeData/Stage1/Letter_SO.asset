@@ -28,7 +28,7 @@ MonoBehaviour:
   itemType: memory
   id: Letter
   objeSound: {fileID: 8300000, guid: 712d29235b89dde4cbc86ee9fcdbc460, type: 3}
-  secretSound: {fileID: 0}
+  secretSound: {fileID: 8300000, guid: 50e5f0288215f6e4891042e5082fa4a5, type: 3}
   alwaysSound: {fileID: 0}
   maskRows:
   - 1

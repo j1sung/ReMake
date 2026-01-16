@@ -28,7 +28,7 @@ MonoBehaviour:
   id: Photo
   objeSound: {fileID: 8300000, guid: d0cb79d442d1c1944bd4514337f85fc5, type: 3}
   secretSound: {fileID: 0}
-  alwaysSound: {fileID: 0}
+  alwaysSound: {fileID: 8300000, guid: d0cb79d442d1c1944bd4514337f85fc5, type: 3}
   maskRows:
   - 11
   - 11
