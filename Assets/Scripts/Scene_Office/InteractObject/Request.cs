@@ -23,9 +23,6 @@ public class Request : OfficeInteractable
     [SerializeField] GameObject sign;
     [SerializeField] GameObject stamp;
 
-    [Header("Audio")]
-    [SerializeField] AudioClip signSound;
-
     void Awake()
     {
         actions = new() { { OfficeState.BeforeInteracts, () => OnClickRequest(_beforeInteractCtx) }, 
@@ -95,7 +92,6 @@ public class Request : OfficeInteractable
         if (sign.activeSelf == false)
         {
             sign.SetActive(true);
-            SFXPlayer.Instance.PlaySFX(signSound);
         }
         
         // + 사인 소리 
