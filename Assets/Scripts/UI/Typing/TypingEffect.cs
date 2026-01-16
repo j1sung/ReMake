@@ -56,18 +56,19 @@ public class TypingEffect : MonoBehaviour
     public void Type(string message, System.Action onCompleted)
     {
         StopAllCoroutines();
+        SFXPlayer.Instance.StopLoop(); // 루프 소리 정리
         _onCompleted = onCompleted;
         StartCoroutine(StartType(message));
     }
 
     private IEnumerator StartType(string message)
     {
-        SFXPlayer.Instance.PlaySFX(_textClip);
-
         if (textUI == null) yield break;
 
         IsTyping = true;
         textUI.text = "";
+
+        SFXPlayer.Instance.PlayLoop(_textClip);
 
         if (balloonRect != null)
         {
@@ -76,44 +77,53 @@ public class TypingEffect : MonoBehaviour
             ResizeBalloonImmediate();
         }
 
-        foreach (char c in message)
+        try
         {
-            if (!HangulUtil.IsHangul(c))
+            foreach (char c in message)
             {
-                textUI.text += c;
+                if (!HangulUtil.IsHangul(c))
+                {
+                    textUI.text += c;
+                    yield return ResizeDuringDelay();
+                    continue;
+                }
+
+                HangulUtil.Decompose(c, out int cho, out int jung, out int jong);
+
+                // 초성
+                textUI.text += HangulUtil.CHO[cho];
                 yield return ResizeDuringDelay();
-                continue;
+
+                // 중성
+                textUI.text = textUI.text[..^1];
+                textUI.text += HangulUtil.Compose(cho, jung, 0);
+                yield return ResizeDuringDelay();
+
+                // 종성
+                if (jong != 0)
+                {
+                    textUI.text = textUI.text[..^1];
+                    textUI.text += HangulUtil.Compose(cho, jung, jong);
+                    yield return ResizeDuringDelay();
+                }
             }
 
-            HangulUtil.Decompose(c, out int cho, out int jung, out int jong);
-
-            // 초성
-            textUI.text += HangulUtil.CHO[cho];
-            yield return ResizeDuringDelay();
-
-            // 중성
-            textUI.text = textUI.text[..^1];
-            textUI.text += HangulUtil.Compose(cho, jung, 0);
-            yield return ResizeDuringDelay();
-
-            // 종성
-            if (jong != 0)
+            // 마지막 정렬
+            if (balloonRect != null)
             {
-                textUI.text = textUI.text[..^1];
-                textUI.text += HangulUtil.Compose(cho, jung, jong);
-                yield return ResizeDuringDelay();
+                if (smoothResize) ResizeBalloonSmooth();
+                else ResizeBalloonImmediate();
             }
         }
-
-        // 마지막 정렬
-        if (balloonRect != null)
+        finally
         {
-            if (smoothResize) ResizeBalloonSmooth();
-            else ResizeBalloonImmediate();
+            // 어떤 이유로든 코루틴이 끝나면 루프는 반드시 정지
+            if (SFXPlayer.Instance != null)
+                SFXPlayer.Instance.StopLoop();
         }
 
         IsTyping = false;
-        _onCompleted?.Invoke();   // ✅ “타이핑 완료” 신호
+        _onCompleted?.Invoke();   //“타이핑 완료” 신호
     }
 
     // ----------------- 말풍선 확장 로직 -----------------
@@ -164,7 +174,7 @@ public class TypingEffect : MonoBehaviour
         float h = lineCount * lineHeight + padding.y;
 
         if (lineCount == 1)
-            h -= singleLineHeightTrim; // ✅ 1줄만 살짝 줄이기
+            h -= singleLineHeightTrim; // 1줄만 살짝 줄이기
 
         h = Mathf.Max(minSize.y, h);
 
