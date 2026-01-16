@@ -16,17 +16,14 @@ public class RoomUIManager : MonoBehaviour
 
     [Header("Panels")]
     [SerializeField] GameObject roomUI;     // 방 HUD 패널
-    [SerializeField] GameObject ObjePopupUI;    // 팝업 패널
     [SerializeField] GameObject roomAll;  // 방 전체 오브젝트
     [SerializeField] GameObject bagUI;      // 가방 패널
     [SerializeField] GameObject submitPopupUI; // 제출 패널
 
-    
-    [SerializeField] private Text ObjeNameText;
-    [SerializeField] private Text descriptionText;
-    [SerializeField] private Image ObjeImage;
-
     [SerializeField] private InvenGridManager InvenGridManager;
+    [SerializeField] private Slide_Collection collectionPopup;
+    [SerializeField] private SlidePopup SlideController;
+    [SerializeField] private Slide_Inspect inspectPopup; 
 
     private ClickObje currentObje; // 현재 선택중인 오브제 정보
 
@@ -73,54 +70,20 @@ public class RoomUIManager : MonoBehaviour
     {
         currentObje = obje;
 
-        ObjePopupUI.SetActive(true);
-        ObjePopupUI.transform.SetAsLastSibling(); // 항상 팝업을 맨 위로 배치
-        ObjeNameText.text = obje.data.objeName;
-        descriptionText.text = obje.data.objeDescription;
-        ObjeImage.sprite = obje.data.puzzleImage;
+        SlideController.Toggle(PopupContent.Inspect);
+        inspectPopup.Show(obje);
     }
 
-    public void OnClickInteractiveObje()
-    {
-        // 사운드 항상 재생(있을때만)
-        if(currentObje.data.alwaysSound != null)
-            SFXPlayer.Instance.PlaySFX(currentObje.data.alwaysSound);
-
-        if (currentObje.IsInteracted == true)
-        {
-            // 시크릿 사운드 재생(있을때만)
-            if (currentObje.data.secretSound != null)
-                SFXPlayer.Instance.PlaySFX(currentObje.data.secretSound);
-            ObjeNameText.text = currentObje.data.objeName;
-            descriptionText.text = currentObje.data.secretDescription;
-            ObjeImage.sprite = currentObje.data.secretImage;
-            currentObje.IsInteracted = false;
-        }
-        else if (currentObje.data.secondiconImage != null)
-        {
-            var img = ObjeImage;
-            var data = currentObje.data;
-
-            if (img.sprite == data.secondiconImage)
-                img.sprite = data.thirdiconImage;
-            else if (img.sprite == data.thirdiconImage)
-                img.sprite = data.puzzleImage;
-            else
-                img.sprite = data.secondiconImage;
-        }
-        else
-            return;
-    }
-
-    // 오브젝트 팝업 닫기
-    public void OnClickClosePopup()
+    // 수집하기.
+    public void CollectObje()
     {
         SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
-        ObjePopupUI.SetActive(false);
+        SlideController.Toggle(PopupContent.Inspect);
         // 팝업이 닫힐 때 오브제 습득 처리
         if (currentObje != null)
         {
             currentObje.Acquire();
+            collectionPopup.AddObje(currentObje);
             currentObje = null;
         }
     }
@@ -184,8 +147,5 @@ public class RoomUIManager : MonoBehaviour
         else particle.Play();
 
         bg.GetComponent<SpriteRenderer>().sprite = isRoom ? spaceBg : puzzleBg;
-
-
-        if (!isRoom) ObjePopupUI.SetActive(false); // 방이 아니면 팝업 자동 닫기
     }
 }

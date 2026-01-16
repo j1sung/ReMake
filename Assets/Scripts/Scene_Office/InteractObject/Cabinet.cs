@@ -8,7 +8,8 @@ public class Cabinet : OfficeInteractable
     {
         actions = new() { { OfficeState.BeforeInteracts, OnClickCabinet },
                           {OfficeState.AfterInteracts, OnClickCabinet},
-                          {OfficeState.ReadyStage2, OnClickCabinet } };
+                          {OfficeState.ReadyStage2, OnClickCabinet },
+                          {OfficeState.ReadyStage3, OnClickCabinet } };
     }
 
     private void OnClickCabinet()

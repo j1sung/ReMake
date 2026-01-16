@@ -5,6 +5,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum ObjeInteractResult
+{
+    None,
+    CanInteract, // 상호작용
+    CycleImage // 이미지 순환
+}
+
 public class ClickObje : MonoBehaviour
 {
     [SerializeField] RoomUIManager ui;
@@ -30,5 +37,22 @@ public class ClickObje : MonoBehaviour
         if (IsInteracted == true) return;
         if (inventory != null) inventory.AddButton(data); // 인벤토리에 추가
         gameObject.SetActive(false); // 
+    }
+
+    public ObjeInteractResult Interact()
+    {
+        IsInteracted = data.canInteract;
+
+        // 숨겨진 정보가 있고, 아직 사용 안 했을 때
+        if (IsInteracted == true)
+        {
+            return ObjeInteractResult.CanInteract;
+        }
+
+        // 비밀이 없는데 두번째 사진이 있으면 이미지 순환만 허용
+        if (data.secondiconImage != null)
+            return ObjeInteractResult.CycleImage;
+
+        return ObjeInteractResult.None;
     }
 }

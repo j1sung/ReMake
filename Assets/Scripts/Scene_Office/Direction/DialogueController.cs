@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class DialogueController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class DialogueController : MonoBehaviour
     bool canClick;
 
     void Update()
-    {
+    { 
         if (!canClick) return;
         if (Input.GetMouseButtonDown(0))
             Next();
@@ -50,6 +51,13 @@ public class DialogueController : MonoBehaviour
     {
         canClick = false;
         speechBubble.SetActive(false);
+
+        StartCoroutine(EndDialogueDelay());
+    }
+
+    IEnumerator EndDialogueDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
         OfficeStateMachine.SetState(currentScript.nextStateAfterCall);
     }
 }
