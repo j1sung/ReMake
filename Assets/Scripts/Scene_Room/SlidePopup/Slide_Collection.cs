@@ -6,11 +6,14 @@ public class Slide_Collection : MonoBehaviour
 {
     private readonly List<ObjeData> _objeList = new List<ObjeData>();
     private int _currentIndex = 0;
+    private bool _showingSecret = false;
 
     [Header("UI")]
     [SerializeField] private Text ObjeNameText;
     [SerializeField] private Text descriptionText;
     [SerializeField] private Image ObjeImage;
+
+    [SerializeField] private AudioClip nextClip;
 
     void OnEnable()
     {
@@ -34,6 +37,7 @@ public class Slide_Collection : MonoBehaviour
 
     public void Next()
     {
+        SFXPlayer.Instance.PlaySFX(nextClip);
         if (_objeList.Count == 0) return;
 
         _currentIndex = (_currentIndex + 1) % _objeList.Count;
@@ -42,6 +46,7 @@ public class Slide_Collection : MonoBehaviour
 
     public void Prev()
     {
+        SFXPlayer.Instance.PlaySFX(nextClip);
         if (_objeList.Count == 0) return;
 
         _currentIndex = (_currentIndex - 1 + _objeList.Count) % _objeList.Count;
@@ -72,20 +77,28 @@ public class Slide_Collection : MonoBehaviour
     {
         var data = _objeList[_currentIndex];
 
+        if(data.secretSound != null)
+            SFXPlayer.Instance.PlaySFX(data.secretSound);
+
+        if(data.alwaysSound != null)
+            SFXPlayer.Instance.PlaySFX(data.alwaysSound);
+
         // case 1: 시크릿 설명 + 이미지가 있는 경우 (2단 순환)
-        if (data.secretImage != null && !string.IsNullOrEmpty(data.secretDescription))
-        {
-            if (ObjeImage.sprite == data.puzzleImage)
-            {
-                ObjeImage.sprite = data.secretImage;
-                descriptionText.text = data.secretDescription;
-            }
-            else
-            {
-                ObjeImage.sprite = data.puzzleImage;
-                descriptionText.text = data.objeDescription;
-            }
+
+        if (data.secretImage == null || string.IsNullOrEmpty(data.secretDescription))
             return;
+
+        _showingSecret = !_showingSecret;
+
+        if (_showingSecret)
+        {
+            ObjeImage.sprite = data.secretImage;
+            descriptionText.text = data.secretDescription;
+        }
+        else
+        {
+            ObjeImage.sprite = data.puzzleImage;
+            descriptionText.text = data.objeDescription;
         }
 
         // case 2: thirdiconImage만 있는 경우 (이미지 3단 순환)

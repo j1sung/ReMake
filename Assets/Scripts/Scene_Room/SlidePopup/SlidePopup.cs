@@ -30,6 +30,12 @@ public class SlidePopup : MonoBehaviour
     bool isAnimating;
     Coroutine co;
 
+    [Header("Sounds")]
+    [SerializeField] AudioClip closeClip;
+    [SerializeField] AudioClip slideOpen;
+    [SerializeField] AudioClip slideClose;
+    [SerializeField] AudioClip switchClip;
+
     void Awake()
     {
         panel.anchoredPosition = closedPos;
@@ -66,6 +72,7 @@ public class SlidePopup : MonoBehaviour
             }
             else
             {
+                // SFXPlayer.Instance.PlaySFX(switchClip);
                 SetContent(target);
             }
             return;
@@ -92,6 +99,8 @@ public class SlidePopup : MonoBehaviour
     {
         if (!isOpen) return;
 
+        //SFXPlayer.Instance.PlaySFX(closeClip);
+
         StopCo();
         isOpen = false;
         isAnimating = true;
@@ -101,6 +110,7 @@ public class SlidePopup : MonoBehaviour
 
     IEnumerator OpenPanel()
     {
+        SFXPlayer.Instance.PlaySFX(slideOpen);
         yield return Slide(openPos);
         isAnimating = false;
     }
@@ -108,6 +118,7 @@ public class SlidePopup : MonoBehaviour
     // 패널 close 코루틴
     IEnumerator ClosePanel()
     {
+        SFXPlayer.Instance.PlaySFX(slideClose);
         yield return Slide(closedPos);
 
         SetBlocker(false);

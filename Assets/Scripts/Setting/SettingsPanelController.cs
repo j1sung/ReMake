@@ -68,6 +68,7 @@ public class SettingsPanelController : MonoBehaviour
     // 타이틀로 돌아가기(패널 닫기 + 씬 전환)
     public void OnClickBackToTitle()
     {
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
         if (GameManager.Instance != null)
         {
             GameManager.Instance.MoveScene(SceneData.MainMenu);
@@ -78,6 +79,7 @@ public class SettingsPanelController : MonoBehaviour
 
     public void OnclickAlbum()
     {
+        SFXPlayer.Instance.PlaySFX(buttonClickClip);
         album.SetActive(true);
         albumBook.SetActive(true);
     }

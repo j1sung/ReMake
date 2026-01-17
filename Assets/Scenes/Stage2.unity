@@ -790,6 +790,7 @@ MonoBehaviour:
   ObjeNameText: {fileID: 421392368}
   descriptionText: {fileID: 470372137}
   ObjeImage: {fileID: 901103707}
+  nextClip: {fileID: 8300000, guid: 091e20aaffa8b9448bb106ea53100417, type: 3}
 --- !u!114 &100675275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4619,6 +4620,7 @@ MonoBehaviour:
   - {fileID: 236804070}
   - {fileID: 1946043472}
   - {fileID: 179924038}
+  nextClip: {fileID: 8300000, guid: 091e20aaffa8b9448bb106ea53100417, type: 3}
 --- !u!114 &968587952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6954,7 +6956,6 @@ RectTransform:
   m_AnchoredPosition: {x: 695.89795, y: 213.43903}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
-
 --- !u!1 &1575364233
 GameObject:
   m_ObjectHideFlags: 0
@@ -7871,7 +7872,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3617870453798967458, guid: be0e2bd538fc6bb4097d386096747fd2, type: 3}
+  m_Sprite: {fileID: -1555305298025173315, guid: 9fcd5211c20ca9a45b6667285ce25d9c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8432,6 +8433,9 @@ MonoBehaviour:
   manualPanel: {fileID: 968587950}
   inspectPanel: {fileID: 510458979}
   collectionPanel: {fileID: 100675273}
+  closeClip: {fileID: 8300000, guid: b234bed7be4b2154881771118031ad8f, type: 3}
+  slideOpen: {fileID: 8300000, guid: 17bd69a68580ff349a88429e65c7fb58, type: 3}
+  slideClose: {fileID: 8300000, guid: 8a63f2bd8439eb9468304ddef996fc97, type: 3}
 --- !u!114 &2130078331
 MonoBehaviour:
   m_ObjectHideFlags: 0

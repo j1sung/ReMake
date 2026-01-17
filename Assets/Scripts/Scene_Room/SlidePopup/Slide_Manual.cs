@@ -4,6 +4,7 @@ public class Slide_Manual : MonoBehaviour
 {
     [Header("Manual Page")]
     [SerializeField] GameObject[] pages;
+    [SerializeField] AudioClip nextClip;
     private int _currentPage;
 
     void OnEnable()
@@ -22,6 +23,7 @@ public class Slide_Manual : MonoBehaviour
 
     public void NextPage()
     {
+        SFXPlayer.Instance.PlaySFX(nextClip);
         if (_currentPage == pages.Length - 1)
         {
             _currentPage = 0;
@@ -34,6 +36,7 @@ public class Slide_Manual : MonoBehaviour
 
     public void PrevPage()
     {
+        SFXPlayer.Instance.PlaySFX(nextClip);
         if (_currentPage == 0)
         {
             _currentPage = pages.Length - 1;

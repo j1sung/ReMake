@@ -8,6 +8,7 @@ public class ConfirmPopupView_title : MonoBehaviour
     [SerializeField] private Button noButton;
 
     [Header("Audios")]
+    [SerializeField] private AudioClip y_ButtonClickClip; // Y 버튼 클릭 소리
     [SerializeField] private AudioClip x_ButtonClickClip;  // X 버튼 클릭 소리
 
     private Action _onYes;
@@ -25,6 +26,7 @@ public class ConfirmPopupView_title : MonoBehaviour
             yesButton.onClick.AddListener(() =>
             {
                 var action = _onYes;
+                SFXPlayer.Instance.PlaySFX(y_ButtonClickClip);
                 Close();
                 action?.Invoke();
             });
@@ -37,6 +39,7 @@ public class ConfirmPopupView_title : MonoBehaviour
             noButton.onClick.AddListener(() =>
             {
                 var action = _onNo;
+                SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
                 Close();
                 action?.Invoke();
             });
@@ -47,7 +50,6 @@ public class ConfirmPopupView_title : MonoBehaviour
 
     public void Close()
     {
-        SFXPlayer.Instance.PlaySFX(x_ButtonClickClip);
         _onYes = null;
         _onNo = null;
         gameObject.SetActive(false);  

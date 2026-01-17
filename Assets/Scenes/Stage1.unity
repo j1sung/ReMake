@@ -1012,6 +1012,7 @@ MonoBehaviour:
   ObjeNameText: {fileID: 1938604762}
   descriptionText: {fileID: 61408245}
   ObjeImage: {fileID: 390198777}
+  nextClip: {fileID: 8300000, guid: 091e20aaffa8b9448bb106ea53100417, type: 3}
 --- !u!1 &315033378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1580,7 @@ MonoBehaviour:
   - {fileID: 941167959}
   - {fileID: 1680106394}
   - {fileID: 2089645135}
+  nextClip: {fileID: 8300000, guid: 091e20aaffa8b9448bb106ea53100417, type: 3}
 --- !u!1 &592042458
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,7 +3820,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3617870453798967458, guid: be0e2bd538fc6bb4097d386096747fd2, type: 3}
+  m_Sprite: {fileID: -1555305298025173315, guid: 9fcd5211c20ca9a45b6667285ce25d9c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4402,6 +4404,9 @@ MonoBehaviour:
   manualPanel: {fileID: 561003460}
   inspectPanel: {fileID: 184496635}
   collectionPanel: {fileID: 306471708}
+  closeClip: {fileID: 8300000, guid: b234bed7be4b2154881771118031ad8f, type: 3}
+  slideOpen: {fileID: 8300000, guid: 17bd69a68580ff349a88429e65c7fb58, type: 3}
+  slideClose: {fileID: 8300000, guid: 8a63f2bd8439eb9468304ddef996fc97, type: 3}
 --- !u!1 &2060492432
 GameObject:
   m_ObjectHideFlags: 0
@@ -12426,7 +12431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &7246802146477341397
 CanvasRenderer:
   m_ObjectHideFlags: 0

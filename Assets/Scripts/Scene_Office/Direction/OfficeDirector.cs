@@ -92,7 +92,9 @@ public class OfficeDirector : MonoBehaviour
                 if (!SFXPlayer.Instance.IsLoopPlaying())
                     SFXPlayer.Instance.PlayLoop(phoneRing);
                 break;
-                   
+            case OfficeState.ReadyStage3:
+                SetRoomImage(roomIdle);
+                break;
             default:
                 return;
         }
